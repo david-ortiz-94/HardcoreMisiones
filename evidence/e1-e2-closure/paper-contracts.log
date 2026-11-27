@@ -1,0 +1,653 @@
+Applying patches
+Starting org.bukkit.craftbukkit.Main
+2026-11-26T01:30:09.999685687Z ServerMain WARN Advanced terminal features are not available in this environment
+[01:30:10 INFO]: [bootstrap] Running Java 25 (OpenJDK 64-Bit Server VM 25.0.5.1+2-LTS; Eclipse Adoptium Temurin-25.0.5.1+2) on Linux 6.18.57 (amd64)
+[01:30:10 INFO]: [bootstrap] Loading Paper 26.2-135-ver/26.2@e4d6dfd (2026-10-25T11:18:00Z) for Minecraft 26.2
+[01:30:10 INFO]: [PluginInitializerManager] Initializing plugins...
+[01:30:10 INFO]: [PluginInitializerManager] Initialized 4 plugins
+[01:30:10 INFO]: [PluginInitializerManager] Bukkit plugins (4):
+ - HM2ContractLab (1), HardcoreBosses (0.1.1-alpha-catalogo), HardcoreMP (1.0.4-crossplay.2), HardcoreMisiones (2.1.0-dev)
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.joml.MemUtil$MemUtilUnsafe (file:/mnt/data/work_hm/paper-lab-closure-verified/libraries/org/joml/joml/1.10.8/joml-1.10.8.jar)
+WARNING: Please consider reporting this to the maintainers of class org.joml.MemUtil$MemUtilUnsafe
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+[01:30:14 INFO]: [ca.spottedleaf.dataconverter.minecraft.datatypes.MCTypeRegistry] Initialising converters for DataConverter...
+[01:30:14 INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, profilesHost=https://api.mojang.com, name=PROD]
+[01:30:14 ERROR]: Failed to request yggdrasil public key
+com.mojang.authlib.exceptions.MinecraftClientException: Failed to read from https://api.minecraftservices.com/publickeys due to api.minecraftservices.com
+	at com.mojang.authlib.minecraft.client.MinecraftClient.readServiceResponse(MinecraftClient.java:151) ~[authlib-9.0.75.jar:?]
+	at com.mojang.authlib.minecraft.client.MinecraftClient.getWithEtag(MinecraftClient.java:81) ~[authlib-9.0.75.jar:?]
+	at com.mojang.authlib.minecraft.client.MinecraftClient.get(MinecraftClient.java:65) ~[authlib-9.0.75.jar:?]
+	at com.mojang.authlib.yggdrasil.YggdrasilServicesKeyInfo.fetch(YggdrasilServicesKeyInfo.java:114) ~[authlib-9.0.75.jar:?]
+	at com.mojang.authlib.yggdrasil.YggdrasilServicesKeyInfo$1.run(YggdrasilServicesKeyInfo.java:89) ~[authlib-9.0.75.jar:?]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545) ~[?:?]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328) ~[?:?]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:309) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614) ~[?:?]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[?:?]
+Caused by: java.net.UnknownHostException: api.minecraftservices.com
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:569) ~[?:?]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:307) ~[?:?]
+	at java.base/java.net.Socket.connect(Socket.java:659) ~[?:?]
+	at java.base/sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:304) ~[?:?]
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:161) ~[?:?]
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:524) ~[?:?]
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:612) ~[?:?]
+	at java.base/sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:207) ~[?:?]
+	at java.base/sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:289) ~[?:?]
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:196) ~[?:?]
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1012) ~[?:?]
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:903) ~[?:?]
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:876) ~[?:?]
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:181) ~[?:?]
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1380) ~[?:?]
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1306) ~[?:?]
+	at java.base/java.net.HttpURLConnection.getResponseCode(HttpURLConnection.java:493) ~[?:?]
+	at java.base/sun.net.www.protocol.https.HttpsURLConnectionImpl.getResponseCode(HttpsURLConnectionImpl.java:307) ~[?:?]
+	at com.mojang.authlib.minecraft.client.MinecraftClient.readServiceResponse(MinecraftClient.java:130) ~[authlib-9.0.75.jar:?]
+	... 10 more
+[01:30:14 INFO]: [ca.spottedleaf.dataconverter.minecraft.datatypes.MCTypeRegistry] Finished initialising converters for DataConverter in 455.5ms
+[01:30:14 INFO]: Found new data pack paper, loading it automatically
+[01:30:15 INFO]: No existing world data, creating new world
+[01:30:16 INFO]: Loaded 1585 recipes
+[01:30:16 INFO]: Loaded 1688 advancements
+[01:30:16 INFO]: Starting minecraft server version 26.2
+[01:30:16 WARN]: ****************************
+[01:30:16 WARN]: YOU ARE RUNNING THIS SERVER AS AN ADMINISTRATIVE OR ROOT USER. THIS IS NOT ADVISED.
+[01:30:16 WARN]: YOU ARE OPENING YOURSELF UP TO POTENTIAL RISKS WHEN DOING THIS.
+[01:30:16 WARN]: FOR MORE INFORMATION, SEE https://madelinemiller.dev/blog/root-minecraft-server/
+[01:30:16 WARN]: ****************************
+[01:30:16 INFO]: Loading properties
+[01:30:16 INFO]: This server is running Paper version 26.2-135-ver/26.2@e4d6dfd (2026-10-25T11:18:00Z) (Implementing API version 26.2.build.135-stable)
+[01:30:16 INFO]: [spark] This server bundles the spark profiler. For more information please visit https://docs.papermc.io/paper/profiling
+[01:30:16 INFO]: Server Ping Player Sample Count: 12
+[01:30:16 INFO]: Using 4 threads for Netty based IO
+[01:30:16 INFO]: [MoonriseCommon] Paper is using 1 worker threads, 1 I/O threads
+[01:30:17 INFO]: Default game type: SURVIVAL
+[01:30:17 INFO]: Generating keypair
+[01:30:17 INFO]: Starting Minecraft server on 127.0.0.1:25991
+[01:30:17 INFO]: Paper: Using libdeflate (Linux x86_64) compression from Velocity.
+[01:30:17 INFO]: Paper: Using OpenSSL 3.x.x (Linux x86_64) cipher from Velocity.
+[01:30:17 INFO]: [HardcoreMP] Loading server plugin HardcoreMP v1.0.4-crossplay.2
+[01:30:17 INFO]: [HardcoreBosses] Loading server plugin HardcoreBosses v0.1.1-alpha-catalogo
+[01:30:17 INFO]: [HardcoreMisiones] Loading server plugin HardcoreMisiones v2.1.0-dev
+[01:30:17 INFO]: [HM2ContractLab] Loading server plugin HM2ContractLab v1
+[01:30:17 WARN]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[01:30:17 WARN]: The server will make no attempt to authenticate usernames. Beware.
+[01:30:17 WARN]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[01:30:17 WARN]: To change this, set "online-mode" to "true" in the server.properties file.
+[01:30:17 INFO]: Preparing level "world"
+[01:30:17 INFO]: Selecting spawn point for level 'minecraft:overworld'...
+[01:30:24 INFO]: Selecting spawn point for level 'minecraft:the_nether'...
+[01:30:24 INFO]: Selecting spawn point for level 'minecraft:the_end'...
+[01:30:24 INFO]: Loading 0 persistent chunks for level 'minecraft:overworld'...
+[01:30:24 INFO]: Preparing spawn area: 100%
+[01:30:24 INFO]: Prepared spawn area in 7259 ms
+[01:30:24 INFO]: Loading 0 persistent chunks for level 'minecraft:the_nether'...
+[01:30:24 INFO]: Preparing spawn area: 100%
+[01:30:24 INFO]: Prepared spawn area in 732 ms
+[01:30:24 INFO]: Loading 0 persistent chunks for level 'minecraft:the_end'...
+[01:30:24 INFO]: Preparing spawn area: 100%
+[01:30:24 INFO]: Prepared spawn area in 225 ms
+[01:30:24 INFO]: Done preparing level "world" (7.608s)
+[01:30:24 INFO]: [HardcoreMP] Enabling HardcoreMP v1.0.4-crossplay.2
+[01:30:24 INFO]: Selecting spawn point for level 'minecraft:hcmp_limbo'...
+[01:30:25 INFO]: Loading 0 persistent chunks for level 'minecraft:hcmp_limbo'...
+[01:30:25 INFO]: Preparing spawn area: 100%
+[01:30:25 INFO]: Prepared spawn area in 381 ms
+[01:30:25 INFO]: [HardcoreMP] No game world recorded yet, creating it now.
+[01:30:25 INFO]: [HardcoreBosses] Enabling HardcoreBosses v0.1.1-alpha-catalogo
+[01:30:25 INFO]: [HardcoreBosses] HardcoreBosses API 1.1.0 registered. Boss models are NOT included in this alpha.
+[01:30:25 INFO]: [HardcoreMisiones] Enabling HardcoreMisiones v2.1.0-dev
+[01:30:25 INFO]: [HardcoreMisiones] HF5: cacerías ordinarias no elegibles: proveedor/jefe no listo
+[01:30:25 INFO]: [HardcoreMisiones] F2 preparado: 100 perfiles y contratos nuevos versionados
+[01:30:25 INFO]: [HardcoreMisiones] Catálogo cargado: 49 individuales, 51 grupales, 0 desactivadas. 100 IDs registrados.
+[01:30:25 INFO]: [HardcoreMisiones] [HM2_BENDICIONES_RC8C] REGLAS_CARGADAS habilitadas=true penitencias=true
+[01:30:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[01:30:25 INFO]: [HardcoreMisiones] HardcoreMisiones 2.1.0-dev: expediciones Nether, muertes locales y respaldo por partida.
+[01:30:25 INFO]: [HM2ContractLab] Enabling HM2ContractLab v1
+[01:30:25 INFO]: [spark] Starting background profiler...
+[01:30:25 INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[01:30:26 INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_nether
+[01:30:26 INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_end
+[01:30:26 INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:hcmp_limbo
+[01:30:26 INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[01:30:26 INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[01:30:26 INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[01:30:26 INFO]: ThreadedAnvilChunkStorage (hcmp_limbo): All chunks are saved
+[01:30:26 INFO]: ThreadedAnvilChunkStorage: All dimensions are saved
+[01:30:26 INFO]: Running delayed init tasks
+[01:30:26 INFO]: Selecting spawn point for level 'minecraft:hcmp_game'...
+[01:30:32 INFO]: Loading 0 persistent chunks for level 'minecraft:hcmp_game'...
+[01:30:32 INFO]: Preparing spawn area: 100%
+[01:30:32 INFO]: Prepared spawn area in 6303 ms
+[01:30:32 INFO]: [HardcoreMisiones] Partida detectada: hcmp_game (UUID 0ceb5ff4-75e5-4ed5-8417-249d18b08700)
+[01:30:32 INFO]: [HardcoreMisiones] Oleadas asociadas a la partida 0ceb5ff4-75e5-4ed5-8417-249d18b08700 (INACTIVO)
+[01:30:32 INFO]: [HardcoreMP] World hcmp_game generated at ./world/dimensions/minecraft/hcmp_game (seed 3191646208182084870)
+[01:30:32 INFO]: Selecting spawn point for level 'minecraft:hcmp_game_nether'...
+[01:30:32 INFO]: Loading 0 persistent chunks for level 'minecraft:hcmp_game_nether'...
+[01:30:32 INFO]: Preparing spawn area: 100%
+[01:30:33 INFO]: Prepared spawn area in 408 ms
+[01:30:33 INFO]: [HardcoreMP] World hcmp_game_nether generated at ./world/dimensions/minecraft/hcmp_game_nether (seed 3191646208182084870)
+[01:30:33 INFO]: Selecting spawn point for level 'minecraft:hcmp_game_the_end'...
+[01:30:33 INFO]: Loading 0 persistent chunks for level 'minecraft:hcmp_game_the_end'...
+[01:30:33 INFO]: Preparing spawn area: 100%
+[01:30:33 INFO]: Prepared spawn area in 125 ms
+[01:30:33 INFO]: [HardcoreMP] World hcmp_game_the_end generated at ./world/dimensions/minecraft/hcmp_game_the_end (seed 3191646208182084870)
+[01:30:33 INFO]: ¡Nuevo mundo listo! ¡Comienza una nueva partida!
+[01:30:33 INFO]: Done (23.676s)! For help, type "help"
+[01:30:33 INFO]: *************************************************************************************
+[01:30:33 INFO]: This is the first time you're starting this server.
+[01:30:33 INFO]: It's recommended you read our 'Getting Started' documentation for guidance.
+[01:30:33 INFO]: View this and more helpful information here: https://docs.papermc.io/paper/next-steps
+[01:30:33 INFO]: *************************************************************************************
+[01:30:33 ERROR]: [PaperVersionFetcher] Error while parsing version list
+java.net.UnknownHostException: fill.papermc.io
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:569) ~[?:?]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:307) ~[?:?]
+	at java.base/java.net.Socket.connect(Socket.java:659) ~[?:?]
+	at java.base/sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:304) ~[?:?]
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:161) ~[?:?]
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:524) ~[?:?]
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:612) ~[?:?]
+	at java.base/sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:207) ~[?:?]
+	at java.base/sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:289) ~[?:?]
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:196) ~[?:?]
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:967) ~[?:?]
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:903) ~[?:?]
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:876) ~[?:?]
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:181) ~[?:?]
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1380) ~[?:?]
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1306) ~[?:?]
+	at java.base/sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java:223) ~[?:?]
+	at com.destroystokyo.paper.PaperVersionFetcher.fetchMinecraftVersionList(PaperVersionFetcher.java:150) ~[paper-26.2.jar:?]
+	at com.destroystokyo.paper.PaperVersionFetcher.getUpdateStatusStartupMessage(PaperVersionFetcher.java:74) ~[paper-26.2.jar:?]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1825) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614) ~[?:?]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[?:?]
+[01:30:33 ERROR]: [PaperVersionFetcher] Error while parsing version
+java.net.UnknownHostException: fill.papermc.io
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:569) ~[?:?]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:307) ~[?:?]
+	at java.base/java.net.Socket.connect(Socket.java:659) ~[?:?]
+	at java.base/sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:304) ~[?:?]
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:161) ~[?:?]
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:524) ~[?:?]
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:612) ~[?:?]
+	at java.base/sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:207) ~[?:?]
+	at java.base/sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:289) ~[?:?]
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:196) ~[?:?]
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:967) ~[?:?]
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:903) ~[?:?]
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:876) ~[?:?]
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:181) ~[?:?]
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1380) ~[?:?]
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1306) ~[?:?]
+	at java.base/sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java:223) ~[?:?]
+	at com.destroystokyo.paper.PaperVersionFetcher.fetchDistanceFromSiteApi(PaperVersionFetcher.java:209) ~[paper-26.2.jar:?]
+	at com.destroystokyo.paper.PaperVersionFetcher.getUpdateStatusStartupMessage(PaperVersionFetcher.java:76) ~[paper-26.2.jar:?]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1825) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614) ~[?:?]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[?:?]
+[01:30:33 ERROR]: *** Error obtaining version information! Cannot fetch version info ***
+[01:30:33 INFO]: [HardcoreMisiones] Creado objetivo vanilla 'muertes' (deathCount) automáticamente.
+[01:30:33 INFO]: [HM2ContractLab] HM2_PAPER_CONTRACT REQUIRED_PLUGIN_ENABLED HardcoreMP
+[01:30:33 INFO]: [HM2ContractLab] HM2_PAPER_CONTRACT REQUIRED_PLUGIN_ENABLED HardcoreBosses
+[01:30:35 INFO]: [HardcoreMisiones] [STDOUT] F2_CONTRATOS_LISTOS: 100 IDs, 5 reformas, 3 premios, snapshots
+[01:30:35 WARN]: Nag author(s): '[Proyecto HardcoreMisiones]' of 'HardcoreMisiones v2.1.0-dev' about their usage of System.out/err.print. Please use your plugin's logger instead (JavaPlugin#getLogger).
+[01:30:35 INFO]: [HardcoreMisiones] HM2_PAPER_CONTRACT PASS F2ContratosDeBalanceTest
+[01:30:35 INFO]: [HardcoreMisiones] [STDOUT] RC8D_LOTES_FISICOS_POLICY_PASS checks=11172
+[01:30:35 INFO]: [HardcoreMisiones] HM2_PAPER_CONTRACT PASS F4RC8DLotesFisicosTest
+[01:30:35 INFO]: [HardcoreMisiones] [STDOUT] RC8I_REWARD_DIVERSITY_PASS checks=1155
+[01:30:35 INFO]: [HardcoreMisiones] HM2_PAPER_CONTRACT PASS F4RC8IRewardDiversityTest
+[01:30:35 INFO]: [HardcoreMisiones] [STDOUT] RC8J_HF4_PRIVACIDAD_BALANCE_PASS checks=561
+[01:30:35 INFO]: [HardcoreMisiones] HM2_PAPER_CONTRACT PASS F4RC8JHF4PrivacidadBalanceTest
+[01:30:35 INFO]: [HardcoreMisiones] [STDOUT] RC8J_HF4_W45_RIESGO_ALTO_PASS checks=3241
+[01:30:35 INFO]: [HardcoreMisiones] HM2_PAPER_CONTRACT PASS F4RC8JHF4W45AltoRiesgoTest
+[01:30:36 INFO]: [HardcoreMisiones] [STDOUT] RC8J_HF5_RAREZA_AYUDANTES_DEBUFF_PASS checks=145583
+[01:30:36 INFO]: [HardcoreMisiones] HM2_PAPER_CONTRACT PASS F4RC8JHF5BossRarityDistributionTest
+[01:30:36 INFO]: [HardcoreMisiones] [STDOUT] W36_JAVA_PAPER_BALANCE_PASS missions=100 individual=49 team=51 reforms=5 plans=300 options=900 checks=4204 budgetRange=30..95 groupWithoutAllContribute=49/51
+[01:30:36 INFO]: [HardcoreMisiones] HM2_PAPER_CONTRACT PASS F4W36BalanceContractTest
+[01:30:36 INFO]: [HardcoreMisiones] [STDOUT] W36_JAVA_PAPER_REWARD_CAP_PASS checks=11 players=3 day=20 replay=blocked nextDay=reset sumXp=225 sumItems=120
+[01:30:36 INFO]: [HardcoreMisiones] HM2_PAPER_CONTRACT PASS F4W36RewardCapTest
+[01:30:36 INFO]: [HardcoreMisiones] [STDOUT] W40_PAPER_REWARDS_PASS assertions=4619 varied_materials=18
+[01:30:36 INFO]: [HardcoreMisiones] HM2_PAPER_CONTRACT PASS F4W40RewardsContractTest
+[01:30:36 INFO]: [HardcoreMisiones] [STDOUT] MODALIDADES_PAPER_PASS checks=15330 individual=MANUAL grupal=MANUAL mezclas=158
+[01:30:36 INFO]: [HardcoreMisiones] HM2_PAPER_CONTRACT PASS F4ModalidadesPremiosTest
+[01:30:36 INFO]: [HardcoreMisiones] [STDOUT] RC3_PAPER_DIVERSITY_PASS assertions=27053 multi=2675 triple=468 groupCases=765
+[01:30:36 INFO]: [HardcoreMisiones] HM2_PAPER_CONTRACT PASS F4RC3DiversityPaperTest
+[01:30:36 WARN]: [HardcoreMisiones] [HM2_DEBUFF_BOSS_RC5] evento=REGISTRADA partida=0ceb5ff4-75e5-4ed5-8417-249d18b08700 dia=1 origen=PENITENCIA motivo=TIEMPO_AGOTADO encuentro=7a812f86-c256-4fa8-8332-f2b62fcc1353 jugadores=1 efectos=[Efecto[tipo=WEAKNESS, nivel=2], Efecto[tipo=SLOWNESS, nivel=1], Efecto[tipo=MINING_FATIGUE, nivel=2]] segundos=1200 sin duplicar por jornada
+[01:30:36 INFO]: [HardcoreMisiones] [STDOUT] RC5_PAPER_LEDGER_SYNTHETIC_PASS checks=14
+[01:30:36 INFO]: [HardcoreMisiones] HM2_PAPER_CONTRACT PASS F4RC5PaperLedgerTest
+[01:30:36 INFO]: [HardcoreMisiones] [HM2_BENDICIONES_RC8C] REGLAS_CARGADAS habilitadas=true penitencias=true
+[01:30:36 INFO]: [HardcoreMisiones] [HM2_BENDICIONES_RC8C] SORTEO_CONGELADO partida=e7602ad2-bf0d-491d-bdea-9b74699ddc4f mision=f3:vigilia_ceniza jugador=2c6d0c9f-50ed-442e-bbdd-d5b68d404b36 encuentro=9589f0b7-3ed7-4ad6-ae60-313326bd9aa5 terminal=b71d3b3a-b687-44f2-a50c-5f22e2209f25 premio=true chance=100 ticket=68 efecto=SPEED duracion=76
+[01:30:36 ERROR]: [HardcoreMisiones] [HM2_BENDICIONES_RC8C] CONFLICTO_DE_DERECHO F3:f3:vigilia_ceniza:2c6d0c9f-50ed-442e-bbdd-d5b68d404b36:EFFECT_BONUS
+[01:30:36 INFO]: [HardcoreMisiones] [HM2_BENDICIONES_RC8C] SORTEO_CONGELADO partida=e7602ad2-bf0d-491d-bdea-9b74699ddc4f mision=f3:vigilia_ceniza jugador=dd6d7471-886d-4396-beb4-e8e87726d0c9 encuentro=9589f0b7-3ed7-4ad6-ae60-313326bd9aa5 terminal=b71d3b3a-b687-44f2-a50c-5f22e2209f25 premio=false chance=0 ticket=82 efecto=null duracion=0
+[01:30:36 INFO]: [HardcoreMisiones] [HM2_BENDICIONES_RC8C] REGLAS_CARGADAS habilitadas=true penitencias=true
+[01:30:36 INFO]: [HardcoreMisiones] [HM2_BENDICIONES_RC8C] REGLAS_CARGADAS habilitadas=true penitencias=true
+[01:30:36 INFO]: [HardcoreMisiones] [HM2_BENDICIONES_RC8C] REGLAS_CARGADAS habilitadas=true penitencias=true
+[01:30:36 INFO]: [HardcoreMisiones] [STDOUT] RC8C_PAPER_LEDGER_SYNTHETIC_PASS checks=26
+[01:30:36 INFO]: [HardcoreMisiones] HM2_PAPER_CONTRACT PASS F4RC8CDiarioLabTest
+[01:30:36 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=5cfe1d7d-1ec5-45a7-979b-855921cc2428 jugador=6ae4f847-8df9-47c7-b157-c2e4c0c0cc2c #1 2026-11-26T01:30:36.674165922Z RESERVADA [B-f3:vigilia_ceniza] 3x AMETHYST_SHARD, 19 XP, prestigio=1 + 4x COOKED_BEEF
+[01:30:36 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=5cfe1d7d-1ec5-45a7-979b-855921cc2428 jugador=6ae4f847-8df9-47c7-b157-c2e4c0c0cc2c #2 2026-11-26T01:30:36.683113468Z RESERVADA [W39-BOSS-f3_vigilia_ceniza-6ae4f847-8df9-47c7-b157-c2e4c0c0cc2c] 1x PAPER, 0 XP, prestigio=0, trofeo=CENIZA
+[01:30:36 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=5cfe1d7d-1ec5-45a7-979b-855921cc2428 jugador=6ae4f847-8df9-47c7-b157-c2e4c0c0cc2c #3 2026-11-26T01:30:36.686914355Z RESERVADA [B8D-F3-f3_vigilia_ceniza-6ae4f847-8df9-47c7-b157-c2e4c0c0cc2c-2] 4x AMETHYST_SHARD, 0 XP, prestigio=0 + 4x REDSTONE
+[01:30:36 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=5cfe1d7d-1ec5-45a7-979b-855921cc2428 jugador=6ae4f847-8df9-47c7-b157-c2e4c0c0cc2c #4 2026-11-26T01:30:36.690247927Z RESERVADA [B8D-F3-f3_vigilia_ceniza-6ae4f847-8df9-47c7-b157-c2e4c0c0cc2c-3] 4x IRON_INGOT, 0 XP, prestigio=0
+[01:30:36 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[01:30:36 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] RAREZA_CONGELADA fuente=f3:vigilia_ceniza jugador=6ae4f847-8df9-47c7-b157-c2e4c0c0cc2c carta=1 rareza=BASICO ticket=32 pesos=[60, 32, 8, 0]
+[01:30:36 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] RAREZA_CONGELADA fuente=f3:vigilia_ceniza jugador=6ae4f847-8df9-47c7-b157-c2e4c0c0cc2c carta=2 rareza=MEJORADO ticket=84 pesos=[60, 32, 8, 0]
+[01:30:36 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] RAREZA_CONGELADA fuente=f3:vigilia_ceniza jugador=6ae4f847-8df9-47c7-b157-c2e4c0c0cc2c carta=3 rareza=BASICO ticket=29 pesos=[60, 32, 8, 0]
+[01:30:36 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=5cfe1d7d-1ec5-45a7-979b-855921cc2428 fuente=f3:vigilia_ceniza jugador=6ae4f847-8df9-47c7-b157-c2e4c0c0cc2c encuentro=bbdcec16-d318-49a1-9f53-6bdec4b9caed terminal=df5d0a16-d7e2-4d70-bb4f-b0249b91fcc6 premios=3 extraF3=true p2=100 t2=0 p3=100 t3=41
+[01:30:36 ERROR]: [HardcoreMisiones] [HM2_BOTIN_RC8D] CONFLICTO_DERECHO F3:f3:vigilia_ceniza:6ae4f847-8df9-47c7-b157-c2e4c0c0cc2c encuentro_igual=true terminal_igual=false jefe_igual=true
+[01:30:36 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=6ae4f847-8df9-47c7-b157-c2e4c0c0cc2c fuente=f3:vigilia_ceniza carta=2
+[01:30:36 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[01:30:36 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[01:30:36 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=5cfe1d7d-1ec5-45a7-979b-855921cc2428 fuente=hm2:juicio:7:grupal jugador=6ae4f847-8df9-47c7-b157-c2e4c0c0cc2c encuentro=85acb49a-cc0d-49e9-91ec-6a40cb489ba6 terminal=e0a365df-b284-4477-8fc1-21aa3de3d7fd premios=2 extraF3=false p2=100 t2=84 p3=0 t3=-1
+[01:30:36 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[01:30:36 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=5cfe1d7d-1ec5-45a7-979b-855921cc2428 jugador=6ae4f847-8df9-47c7-b157-c2e4c0c0cc2c #5 2026-11-26T01:30:36.741239029Z RESERVADA [B8D-PENITENCIA-hm2_juicio_7_grupal-6ae4f847-8df9-47c7-b157-c2e4c0c0cc2c-1] 4x ARROW, 0 XP, prestigio=0
+[01:30:36 INFO]: [HardcoreMisiones] [STDOUT] RC8D_PAPER_LEDGER_SYNTHETIC_PASS checks=38
+[01:30:36 INFO]: [HardcoreMisiones] HM2_PAPER_CONTRACT PASS F4RC8DPaperLedgerTest
+[01:30:36 INFO]: [HardcoreMisiones] [STDOUT] W41_PAPER_BENEFITS_PASS assertions=4705 distinct_benefits=11 ids=[E_STRENGTH, E_REGENERATION, E_RESISTANCE, E_NIGHT_VISION, P_STRENGTH, P_REGENERATION, E_FIRE_RESISTANCE, E_SPEED, P_NIGHT_VISION, P_SPEED, P_FIRE_RESISTANCE]
+[01:30:36 INFO]: [HardcoreMisiones] HM2_PAPER_CONTRACT PASS F4W41BenefitsContractTest
+[01:30:36 INFO]: [HardcoreMisiones] [STDOUT] W45_PAPER_LOOT_PASS checks=44391 combos_2plus=2772 combos_3plus=503 prestigio_options=143 bonuses=45 material_types=26
+[01:30:36 INFO]: [HardcoreMisiones] HM2_PAPER_CONTRACT PASS F4W45ProgressiveLootTest
+[01:30:37 INFO]: HardcoreMisiones 2.1.0-dev — misiones, oleadas, expediciones y recompensas
+[01:30:37 INFO]: /hm expedicion estado|probar fortaleza|bastion|escombros — Nether
+[01:30:37 INFO]: /hm expedicion compensar bastion — una sola vez, expedición antigua ya completada
+[01:30:37 INFO]: /hm muertes ver|set Jugador Numero — historial local y TAB
+[01:30:37 INFO]: /hm recompensas on|off|estado|revisar|historial [Jugador] — premios y auditoría
+[01:30:37 INFO]: /hm recompensas modalidades [Jugador] — manual o sorteo por misión
+[01:30:37 INFO]: /hm ofrendas revisar|resolver CONFIRMAR — revisar ofrendas inciertas
+[01:30:37 INFO]: /hm estado — revisar mundo y plugin
+[01:30:37 INFO]: /hm config estado|validar|recargar — revisar y recargar YAML sin reiniciar Paper
+[01:30:37 INFO]: /hm ciclo iniciar — activar reloj con jugadores conectados
+[01:30:37 INFO]: /hm oleadas on|off|estado|demo|cancelar — activar/probar combate
+[01:30:37 INFO]: /hm reto estado|catalogo|etapas <id>|listo <id>|iniciar <id>|cancelar CONFIRMAR|revisar|abandonar CONFIRMAR_SIN_PREMIO — F3
+[01:30:37 INFO]: /hm jefes catalogo|ficha <id>|auditoria|exportar|estado|castigos|premios|efecto activar CONFIRMAR — proveedor REAL y bendiciones
+[01:30:37 INFO]: /hm jefes lotes | elegir 1|2|3 — botines físicos F3 y penitencia
+[01:30:37 INFO]: /hm jefes lotes recargar | premios recargar — actualizar políticas (admin)
+[01:30:37 INFO]: Laboratorio F3: /hm reto laboratorio estado (solo administrador, opt-in triple)
+[01:30:37 INFO]: /hm ciclo estado|off|on — comprobar o pausar el reloj
+[01:30:37 INFO]: /hm iniciar todos — sortear misiones (solo sin reloj)
+[01:30:37 INFO]: /hm iniciar Jugador — añadir un jugador sin alterar grupal
+[01:30:37 INFO]: /hm progreso [Jugador] — progreso (también desconectados)
+[01:30:37 INFO]: /hm relevar Jugador CONFIRMAR — relevo auditado de un ausente, solo administrador
+[01:30:37 INFO]: /hm emblema estado|adquirir — rango y título cosmético por prestigio
+[01:30:37 INFO]: /hm hitos — hitos hacia la dragona y cooperación
+[01:30:37 INFO]: /hm sello [Jugador] — obtener el sello
+[01:30:37 INFO]: /hm sello estado [Jugador] — revisar Sello en inventario/cursor y retirar duplicados
+[01:30:37 INFO]: /hm siguiente — sortear otro ciclo SOLO al completar todas
+[01:30:37 INFO]: /hm etapa 1|2|3|4 — etapa de futuros sorteos
+[01:30:37 INFO]: /hm catalogo — misiones disponibles por etapa
+[01:30:37 INFO]: /hm panel on|off|estado — probar o desactivar el panel
+[01:30:37 INFO]: /hm tab jugadores Nombre1 Nombre2... — elegir nombres del historial TAB
+[01:30:37 INFO]: /hm tab ver — ver jugadores configurados
+[01:30:37 INFO]: /hm sincronizar — detectar partida; /hm prueba — ejemplo
+[01:30:37 INFO]: === HardcoreMisiones v2.1.0-dev ===
+[01:30:37 INFO]: Plugin habilitado. Pruebas: activas
+[01:30:37 INFO]: Ciclo: ON · Oleadas: ON · Premios: ON · TAB solo lectura.
+[01:30:37 INFO]: Sin oleada activa · penitencias pendientes: 0
+[01:30:37 INFO]: Panel: activo; objetivo 'muertes' original: encontrado
+[01:30:37 INFO]: HardcoreMP: activo
+[01:30:37 INFO]: Mundo: hcmp_game (cargado)
+[01:30:37 INFO]: Registro: hcmp_game, ID 0ceb5ff4-75e5-4ed5-8417-249d18b08700
+[01:30:37 INFO]: Etapa de prueba: 1
+[01:30:37 INFO]: Aún no iniciado. Usá /hm ciclo iniciar
+[01:30:37 INFO]: Racha: 0 jornadas y 0 grupales · Favor: 0 · Tregua: no · Premios pendientes: 0 · En conciliación: 0
+[01:30:37 INFO]: Nether: Exploración libre: descubran una estructura
+[01:30:37 INFO]: F3: HardcoreBosses/API-1.1 API v2 · HMP:UNBOUND · HB-v1:READY_FOR_TYPED_BRIDGE · victorias reales: 0 · premios: 0 · revisión: 0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_1_1 jugador=8360b249-a9fa-4eef-bee5-415bd3c90adc carta=1 rareza=IMPROVED ticket=77
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_1_1 jugador=8360b249-a9fa-4eef-bee5-415bd3c90adc carta=2 rareza=IMPROVED ticket=89
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_1_1 jugador=8360b249-a9fa-4eef-bee5-415bd3c90adc carta=3 rareza=BASIC ticket=36
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=8f342172-c8ea-4712-9d6f-4fe91ba06195 fuente=f3:contract_1_1 jugador=8360b249-a9fa-4eef-bee5-415bd3c90adc encuentro=a8883e83-f8fb-4030-97e9-4cba029c9d5f terminal=587f70b8-548d-4430-bc84-5ad32dc92cca premios=3 extraF3=true p2=100 t2=29 p3=100 t3=96
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=8360b249-a9fa-4eef-bee5-415bd3c90adc fuente=f3:contract_1_1 carta=1
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=8f342172-c8ea-4712-9d6f-4fe91ba06195 jugador=8360b249-a9fa-4eef-bee5-415bd3c90adc #1 2026-11-26T01:30:37.054395367Z RESERVADA [B-f3:contract_1_1] 4x GOLDEN_CARROT, 40 XP, prestigio=1 + 7x COOKED_BEEF
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=8f342172-c8ea-4712-9d6f-4fe91ba06195 jugador=8360b249-a9fa-4eef-bee5-415bd3c90adc #2 2026-11-26T01:30:37.081181611Z RESERVADA [B8D-F3-f3_contract_1_1-8360b249-a9fa-4eef-bee5-415bd3c90adc-2] 4x BREAD, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=8f342172-c8ea-4712-9d6f-4fe91ba06195 jugador=8360b249-a9fa-4eef-bee5-415bd3c90adc #3 2026-11-26T01:30:37.085244484Z RESERVADA [B8D-F3-f3_contract_1_1-8360b249-a9fa-4eef-bee5-415bd3c90adc-3] 3x BAKED_POTATO, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_1_2 jugador=b6076a38-3167-4c0e-b1de-5da9b9876f64 carta=1 rareza=IMPROVED ticket=58
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_1_2 jugador=b6076a38-3167-4c0e-b1de-5da9b9876f64 carta=2 rareza=BASIC ticket=8
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_1_2 jugador=b6076a38-3167-4c0e-b1de-5da9b9876f64 carta=3 rareza=BASIC ticket=36
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=ac25c045-3c39-462f-b046-f0c82b790905 fuente=f3:contract_1_2 jugador=b6076a38-3167-4c0e-b1de-5da9b9876f64 encuentro=8a355649-9c19-4454-959e-8589563631a0 terminal=b06cbdf2-1a69-4d3d-a1be-fc0a67580c23 premios=3 extraF3=true p2=100 t2=92 p3=100 t3=71
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_1_2 jugador=1933a024-f980-4cff-ad50-1ec97de5eaf9 carta=1 rareza=BASIC ticket=30
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_1_2 jugador=1933a024-f980-4cff-ad50-1ec97de5eaf9 carta=2 rareza=BASIC ticket=30
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_1_2 jugador=1933a024-f980-4cff-ad50-1ec97de5eaf9 carta=3 rareza=BASIC ticket=18
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=ac25c045-3c39-462f-b046-f0c82b790905 fuente=f3:contract_1_2 jugador=1933a024-f980-4cff-ad50-1ec97de5eaf9 encuentro=8a355649-9c19-4454-959e-8589563631a0 terminal=b06cbdf2-1a69-4d3d-a1be-fc0a67580c23 premios=3 extraF3=true p2=100 t2=46 p3=100 t3=45
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=b6076a38-3167-4c0e-b1de-5da9b9876f64 fuente=f3:contract_1_2 carta=1
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=1933a024-f980-4cff-ad50-1ec97de5eaf9 fuente=f3:contract_1_2 carta=2
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=ac25c045-3c39-462f-b046-f0c82b790905 jugador=b6076a38-3167-4c0e-b1de-5da9b9876f64 #1 2026-11-26T01:30:37.109760841Z RESERVADA [B-f3:contract_1_2] 4x GOLDEN_CARROT, 40 XP, prestigio=1 + 7x COOKED_BEEF
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=ac25c045-3c39-462f-b046-f0c82b790905 jugador=1933a024-f980-4cff-ad50-1ec97de5eaf9 #2 2026-11-26T01:30:37.109919591Z RESERVADA [B-f3:contract_1_2] 15x ARROW, 40 XP, prestigio=1 + 2x IRON_INGOT
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=ac25c045-3c39-462f-b046-f0c82b790905 jugador=b6076a38-3167-4c0e-b1de-5da9b9876f64 #3 2026-11-26T01:30:37.134741590Z RESERVADA [B8D-F3-f3_contract_1_2-b6076a38-3167-4c0e-b1de-5da9b9876f64-2] 3x BREAD, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=ac25c045-3c39-462f-b046-f0c82b790905 jugador=b6076a38-3167-4c0e-b1de-5da9b9876f64 #4 2026-11-26T01:30:37.138266801Z RESERVADA [B8D-F3-f3_contract_1_2-b6076a38-3167-4c0e-b1de-5da9b9876f64-3] 4x BAKED_POTATO, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=ac25c045-3c39-462f-b046-f0c82b790905 jugador=1933a024-f980-4cff-ad50-1ec97de5eaf9 #5 2026-11-26T01:30:37.141983271Z RESERVADA [B8D-F3-f3_contract_1_2-1933a024-f980-4cff-ad50-1ec97de5eaf9-2] 3x COAL, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=ac25c045-3c39-462f-b046-f0c82b790905 jugador=1933a024-f980-4cff-ad50-1ec97de5eaf9 #6 2026-11-26T01:30:37.145586270Z RESERVADA [B8D-F3-f3_contract_1_2-1933a024-f980-4cff-ad50-1ec97de5eaf9-3] 4x SPECTRAL_ARROW, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_1_3 jugador=4bed578b-f6dc-4f89-a4a5-2e864f05e074 carta=1 rareza=BASIC ticket=42
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_1_3 jugador=4bed578b-f6dc-4f89-a4a5-2e864f05e074 carta=2 rareza=RARE ticket=98
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_1_3 jugador=4bed578b-f6dc-4f89-a4a5-2e864f05e074 carta=3 rareza=IMPROVED ticket=72
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=167c8e64-d8ab-4b0e-ade5-d29665361737 fuente=f3:contract_1_3 jugador=4bed578b-f6dc-4f89-a4a5-2e864f05e074 encuentro=3f543827-c326-4d27-acbc-4a5788f9b2e9 terminal=c5e516a8-9508-4002-964a-b7257ef63b73 premios=3 extraF3=true p2=100 t2=75 p3=100 t3=60
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_1_3 jugador=4f9c7ba1-56d7-4865-83d8-40d3ded8fcae carta=1 rareza=IMPROVED ticket=87
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_1_3 jugador=4f9c7ba1-56d7-4865-83d8-40d3ded8fcae carta=2 rareza=BASIC ticket=9
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_1_3 jugador=4f9c7ba1-56d7-4865-83d8-40d3ded8fcae carta=3 rareza=IMPROVED ticket=77
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=167c8e64-d8ab-4b0e-ade5-d29665361737 fuente=f3:contract_1_3 jugador=4f9c7ba1-56d7-4865-83d8-40d3ded8fcae encuentro=3f543827-c326-4d27-acbc-4a5788f9b2e9 terminal=c5e516a8-9508-4002-964a-b7257ef63b73 premios=3 extraF3=true p2=100 t2=20 p3=100 t3=20
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_1_3 jugador=710f3344-bfc8-4781-9264-aadb54e01af6 carta=1 rareza=IMPROVED ticket=73
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_1_3 jugador=710f3344-bfc8-4781-9264-aadb54e01af6 carta=2 rareza=IMPROVED ticket=67
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_1_3 jugador=710f3344-bfc8-4781-9264-aadb54e01af6 carta=3 rareza=IMPROVED ticket=79
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=167c8e64-d8ab-4b0e-ade5-d29665361737 fuente=f3:contract_1_3 jugador=710f3344-bfc8-4781-9264-aadb54e01af6 encuentro=3f543827-c326-4d27-acbc-4a5788f9b2e9 terminal=c5e516a8-9508-4002-964a-b7257ef63b73 premios=3 extraF3=true p2=100 t2=53 p3=100 t3=14
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=710f3344-bfc8-4781-9264-aadb54e01af6 fuente=f3:contract_1_3 carta=1
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=4f9c7ba1-56d7-4865-83d8-40d3ded8fcae fuente=f3:contract_1_3 carta=2
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=4bed578b-f6dc-4f89-a4a5-2e864f05e074 fuente=f3:contract_1_3 carta=3
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=167c8e64-d8ab-4b0e-ade5-d29665361737 jugador=4bed578b-f6dc-4f89-a4a5-2e864f05e074 #1 2026-11-26T01:30:37.179769719Z RESERVADA [B-f3:contract_1_3] 1x GOLD_INGOT, 40 XP, prestigio=1 + 6x LAPIS_LAZULI
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=167c8e64-d8ab-4b0e-ade5-d29665361737 jugador=4f9c7ba1-56d7-4865-83d8-40d3ded8fcae #2 2026-11-26T01:30:37.179939095Z RESERVADA [B-f3:contract_1_3] 15x ARROW, 40 XP, prestigio=1 + 2x IRON_INGOT
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=167c8e64-d8ab-4b0e-ade5-d29665361737 jugador=710f3344-bfc8-4781-9264-aadb54e01af6 #3 2026-11-26T01:30:37.179991254Z RESERVADA [B-f3:contract_1_3] 4x GOLDEN_CARROT, 40 XP, prestigio=1 + 7x COOKED_BEEF
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=167c8e64-d8ab-4b0e-ade5-d29665361737 jugador=4bed578b-f6dc-4f89-a4a5-2e864f05e074 #4 2026-11-26T01:30:37.203049019Z RESERVADA [B8D-F3-f3_contract_1_3-4bed578b-f6dc-4f89-a4a5-2e864f05e074-2] 3x REDSTONE, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=167c8e64-d8ab-4b0e-ade5-d29665361737 jugador=4bed578b-f6dc-4f89-a4a5-2e864f05e074 #5 2026-11-26T01:30:37.207492286Z RESERVADA [B8D-F3-f3_contract_1_3-4bed578b-f6dc-4f89-a4a5-2e864f05e074-3] 4x COPPER_INGOT, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=167c8e64-d8ab-4b0e-ade5-d29665361737 jugador=4f9c7ba1-56d7-4865-83d8-40d3ded8fcae #6 2026-11-26T01:30:37.211683913Z RESERVADA [B8D-F3-f3_contract_1_3-4f9c7ba1-56d7-4865-83d8-40d3ded8fcae-2] 3x COAL, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=167c8e64-d8ab-4b0e-ade5-d29665361737 jugador=4f9c7ba1-56d7-4865-83d8-40d3ded8fcae #7 2026-11-26T01:30:37.215815040Z RESERVADA [B8D-F3-f3_contract_1_3-4f9c7ba1-56d7-4865-83d8-40d3ded8fcae-3] 4x SPECTRAL_ARROW, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=167c8e64-d8ab-4b0e-ade5-d29665361737 jugador=710f3344-bfc8-4781-9264-aadb54e01af6 #8 2026-11-26T01:30:37.219840386Z RESERVADA [B8D-F3-f3_contract_1_3-710f3344-bfc8-4781-9264-aadb54e01af6-2] 4x BREAD, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=167c8e64-d8ab-4b0e-ade5-d29665361737 jugador=710f3344-bfc8-4781-9264-aadb54e01af6 #9 2026-11-26T01:30:37.224477526Z RESERVADA [B8D-F3-f3_contract_1_3-710f3344-bfc8-4781-9264-aadb54e01af6-3] 3x BAKED_POTATO, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_2_1 jugador=d8d2789e-0d19-4241-8609-eb787beaf961 carta=1 rareza=RARE ticket=80
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_2_1 jugador=d8d2789e-0d19-4241-8609-eb787beaf961 carta=2 rareza=BASIC ticket=4
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_2_1 jugador=d8d2789e-0d19-4241-8609-eb787beaf961 carta=3 rareza=IMPROVED ticket=69
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=81536798-3a9f-4487-80dc-15ec1a22024a fuente=f3:contract_2_1 jugador=d8d2789e-0d19-4241-8609-eb787beaf961 encuentro=2c88f9a1-2eee-4b62-a9c5-037cf78756a8 terminal=9f49e756-eb54-49a3-9a60-890996ce0ddc premios=3 extraF3=true p2=100 t2=28 p3=100 t3=3
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=d8d2789e-0d19-4241-8609-eb787beaf961 fuente=f3:contract_2_1 carta=1
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=81536798-3a9f-4487-80dc-15ec1a22024a jugador=d8d2789e-0d19-4241-8609-eb787beaf961 #1 2026-11-26T01:30:37.243298816Z RESERVADA [B-f3:contract_2_1] 1x GOLDEN_APPLE, 55 XP, prestigio=1 + 6x COOKED_BEEF
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=81536798-3a9f-4487-80dc-15ec1a22024a jugador=d8d2789e-0d19-4241-8609-eb787beaf961 #2 2026-11-26T01:30:37.251705306Z RESERVADA [B8D-F3-f3_contract_2_1-d8d2789e-0d19-4241-8609-eb787beaf961-2] 4x BREAD, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=81536798-3a9f-4487-80dc-15ec1a22024a jugador=d8d2789e-0d19-4241-8609-eb787beaf961 #3 2026-11-26T01:30:37.257374804Z RESERVADA [B8D-F3-f3_contract_2_1-d8d2789e-0d19-4241-8609-eb787beaf961-3] 5x BAKED_POTATO, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_2_2 jugador=abace0df-c98b-48d2-8705-53d51ca2f8c6 carta=1 rareza=RARE ticket=77
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_2_2 jugador=abace0df-c98b-48d2-8705-53d51ca2f8c6 carta=2 rareza=IMPROVED ticket=42
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_2_2 jugador=abace0df-c98b-48d2-8705-53d51ca2f8c6 carta=3 rareza=IMPROVED ticket=35
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=6b80c42b-900e-4dbc-855f-0c4a647f2910 fuente=f3:contract_2_2 jugador=abace0df-c98b-48d2-8705-53d51ca2f8c6 encuentro=70c1fbe9-0319-416f-801d-6b0eedb5fd87 terminal=a0925035-6bed-4124-8ba7-2d47e0f2ec00 premios=3 extraF3=true p2=100 t2=12 p3=100 t3=41
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_2_2 jugador=55eab6c5-cf8b-4178-bb03-748db01d2014 carta=1 rareza=IMPROVED ticket=36
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_2_2 jugador=55eab6c5-cf8b-4178-bb03-748db01d2014 carta=2 rareza=IMPROVED ticket=61
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_2_2 jugador=55eab6c5-cf8b-4178-bb03-748db01d2014 carta=3 rareza=IMPROVED ticket=58
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=6b80c42b-900e-4dbc-855f-0c4a647f2910 fuente=f3:contract_2_2 jugador=55eab6c5-cf8b-4178-bb03-748db01d2014 encuentro=70c1fbe9-0319-416f-801d-6b0eedb5fd87 terminal=a0925035-6bed-4124-8ba7-2d47e0f2ec00 premios=3 extraF3=true p2=100 t2=98 p3=100 t3=40
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=55eab6c5-cf8b-4178-bb03-748db01d2014 fuente=f3:contract_2_2 carta=1
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=abace0df-c98b-48d2-8705-53d51ca2f8c6 fuente=f3:contract_2_2 carta=2
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=6b80c42b-900e-4dbc-855f-0c4a647f2910 jugador=abace0df-c98b-48d2-8705-53d51ca2f8c6 #1 2026-11-26T01:30:37.285927364Z RESERVADA [B-f3:contract_2_2] 18x ARROW, 55 XP, prestigio=1 + 2x IRON_INGOT
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=6b80c42b-900e-4dbc-855f-0c4a647f2910 jugador=55eab6c5-cf8b-4178-bb03-748db01d2014 #2 2026-11-26T01:30:37.286117501Z RESERVADA [B-f3:contract_2_2] 4x GOLDEN_CARROT, 55 XP, prestigio=1 + 8x COOKED_BEEF
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=6b80c42b-900e-4dbc-855f-0c4a647f2910 jugador=abace0df-c98b-48d2-8705-53d51ca2f8c6 #3 2026-11-26T01:30:37.299429345Z RESERVADA [B8D-F3-f3_contract_2_2-abace0df-c98b-48d2-8705-53d51ca2f8c6-2] 4x COAL, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=6b80c42b-900e-4dbc-855f-0c4a647f2910 jugador=abace0df-c98b-48d2-8705-53d51ca2f8c6 #4 2026-11-26T01:30:37.302908787Z RESERVADA [B8D-F3-f3_contract_2_2-abace0df-c98b-48d2-8705-53d51ca2f8c6-3] 4x SPECTRAL_ARROW, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=6b80c42b-900e-4dbc-855f-0c4a647f2910 jugador=55eab6c5-cf8b-4178-bb03-748db01d2014 #5 2026-11-26T01:30:37.305838029Z RESERVADA [B8D-F3-f3_contract_2_2-55eab6c5-cf8b-4178-bb03-748db01d2014-2] 5x BREAD, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=6b80c42b-900e-4dbc-855f-0c4a647f2910 jugador=55eab6c5-cf8b-4178-bb03-748db01d2014 #6 2026-11-26T01:30:37.308867042Z RESERVADA [B8D-F3-f3_contract_2_2-55eab6c5-cf8b-4178-bb03-748db01d2014-3] 5x BAKED_POTATO, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_2_3 jugador=8ba44ce0-d754-4834-924b-8e4f10d79595 carta=1 rareza=IMPROVED ticket=59
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_2_3 jugador=8ba44ce0-d754-4834-924b-8e4f10d79595 carta=2 rareza=IMPROVED ticket=72
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_2_3 jugador=8ba44ce0-d754-4834-924b-8e4f10d79595 carta=3 rareza=BASIC ticket=12
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=7441976c-6694-41d8-b655-c72615d3aa53 fuente=f3:contract_2_3 jugador=8ba44ce0-d754-4834-924b-8e4f10d79595 encuentro=6d3f9657-f5ea-4400-94e3-deaf6db3a423 terminal=e49a7c52-1830-4deb-931c-16ec9e18b333 premios=3 extraF3=true p2=100 t2=16 p3=100 t3=2
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_2_3 jugador=1998f0b6-c7d3-49e2-ba27-75aeb43b0476 carta=1 rareza=IMPROVED ticket=74
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_2_3 jugador=1998f0b6-c7d3-49e2-ba27-75aeb43b0476 carta=2 rareza=IMPROVED ticket=52
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_2_3 jugador=1998f0b6-c7d3-49e2-ba27-75aeb43b0476 carta=3 rareza=BASIC ticket=21
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=7441976c-6694-41d8-b655-c72615d3aa53 fuente=f3:contract_2_3 jugador=1998f0b6-c7d3-49e2-ba27-75aeb43b0476 encuentro=6d3f9657-f5ea-4400-94e3-deaf6db3a423 terminal=e49a7c52-1830-4deb-931c-16ec9e18b333 premios=3 extraF3=true p2=100 t2=58 p3=100 t3=81
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_2_3 jugador=3daabdd9-b77f-4cf4-8191-a6a00f9c3306 carta=1 rareza=BASIC ticket=13
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_2_3 jugador=3daabdd9-b77f-4cf4-8191-a6a00f9c3306 carta=2 rareza=BASIC ticket=26
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_2_3 jugador=3daabdd9-b77f-4cf4-8191-a6a00f9c3306 carta=3 rareza=IMPROVED ticket=58
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=7441976c-6694-41d8-b655-c72615d3aa53 fuente=f3:contract_2_3 jugador=3daabdd9-b77f-4cf4-8191-a6a00f9c3306 encuentro=6d3f9657-f5ea-4400-94e3-deaf6db3a423 terminal=e49a7c52-1830-4deb-931c-16ec9e18b333 premios=3 extraF3=true p2=100 t2=76 p3=100 t3=71
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=3daabdd9-b77f-4cf4-8191-a6a00f9c3306 fuente=f3:contract_2_3 carta=1
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=8ba44ce0-d754-4834-924b-8e4f10d79595 fuente=f3:contract_2_3 carta=2
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=1998f0b6-c7d3-49e2-ba27-75aeb43b0476 fuente=f3:contract_2_3 carta=3
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=7441976c-6694-41d8-b655-c72615d3aa53 jugador=8ba44ce0-d754-4834-924b-8e4f10d79595 #1 2026-11-26T01:30:37.336712874Z RESERVADA [B-f3:contract_2_3] 18x ARROW, 55 XP, prestigio=1 + 2x IRON_INGOT
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=7441976c-6694-41d8-b655-c72615d3aa53 jugador=1998f0b6-c7d3-49e2-ba27-75aeb43b0476 #2 2026-11-26T01:30:37.336872015Z RESERVADA [B-f3:contract_2_3] 1x GOLD_INGOT, 55 XP, prestigio=1 + 6x LAPIS_LAZULI
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=7441976c-6694-41d8-b655-c72615d3aa53 jugador=3daabdd9-b77f-4cf4-8191-a6a00f9c3306 #3 2026-11-26T01:30:37.336936101Z RESERVADA [B-f3:contract_2_3] 4x GOLDEN_CARROT, 55 XP, prestigio=1 + 7x COOKED_BEEF
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=7441976c-6694-41d8-b655-c72615d3aa53 jugador=8ba44ce0-d754-4834-924b-8e4f10d79595 #4 2026-11-26T01:30:37.355535307Z RESERVADA [B8D-F3-f3_contract_2_3-8ba44ce0-d754-4834-924b-8e4f10d79595-2] 5x COAL, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=7441976c-6694-41d8-b655-c72615d3aa53 jugador=8ba44ce0-d754-4834-924b-8e4f10d79595 #5 2026-11-26T01:30:37.359566522Z RESERVADA [B8D-F3-f3_contract_2_3-8ba44ce0-d754-4834-924b-8e4f10d79595-3] 5x SPECTRAL_ARROW, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=7441976c-6694-41d8-b655-c72615d3aa53 jugador=1998f0b6-c7d3-49e2-ba27-75aeb43b0476 #6 2026-11-26T01:30:37.363064853Z RESERVADA [B8D-F3-f3_contract_2_3-1998f0b6-c7d3-49e2-ba27-75aeb43b0476-2] 5x REDSTONE, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=7441976c-6694-41d8-b655-c72615d3aa53 jugador=1998f0b6-c7d3-49e2-ba27-75aeb43b0476 #7 2026-11-26T01:30:37.366842315Z RESERVADA [B8D-F3-f3_contract_2_3-1998f0b6-c7d3-49e2-ba27-75aeb43b0476-3] 4x COPPER_INGOT, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=7441976c-6694-41d8-b655-c72615d3aa53 jugador=3daabdd9-b77f-4cf4-8191-a6a00f9c3306 #8 2026-11-26T01:30:37.370633297Z RESERVADA [B8D-F3-f3_contract_2_3-3daabdd9-b77f-4cf4-8191-a6a00f9c3306-2] 4x BREAD, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=7441976c-6694-41d8-b655-c72615d3aa53 jugador=3daabdd9-b77f-4cf4-8191-a6a00f9c3306 #9 2026-11-26T01:30:37.376282455Z RESERVADA [B8D-F3-f3_contract_2_3-3daabdd9-b77f-4cf4-8191-a6a00f9c3306-3] 5x BAKED_POTATO, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_3_1 jugador=7c76acd0-be07-488d-9417-e884ecb3400e carta=1 rareza=RARE ticket=57
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_3_1 jugador=7c76acd0-be07-488d-9417-e884ecb3400e carta=2 rareza=RARE ticket=60
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_3_1 jugador=7c76acd0-be07-488d-9417-e884ecb3400e carta=3 rareza=IMPROVED ticket=49
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=42ae2b18-3bc9-41d7-815f-00eedd4f0ada fuente=f3:contract_3_1 jugador=7c76acd0-be07-488d-9417-e884ecb3400e encuentro=c77a4d11-ec4e-4330-9647-7355092ea849 terminal=34922b9a-64c7-4074-bab8-a1e581d21296 premios=3 extraF3=true p2=100 t2=46 p3=100 t3=26
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=7c76acd0-be07-488d-9417-e884ecb3400e fuente=f3:contract_3_1 carta=1
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=42ae2b18-3bc9-41d7-815f-00eedd4f0ada jugador=7c76acd0-be07-488d-9417-e884ecb3400e #1 2026-11-26T01:30:37.392584653Z RESERVADA [B-f3:contract_3_1] 1x GOLDEN_APPLE, 75 XP, prestigio=2 + 7x COOKED_BEEF
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=42ae2b18-3bc9-41d7-815f-00eedd4f0ada jugador=7c76acd0-be07-488d-9417-e884ecb3400e #2 2026-11-26T01:30:37.402697969Z RESERVADA [B8D-F3-f3_contract_3_1-7c76acd0-be07-488d-9417-e884ecb3400e-2] 6x BREAD, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=42ae2b18-3bc9-41d7-815f-00eedd4f0ada jugador=7c76acd0-be07-488d-9417-e884ecb3400e #3 2026-11-26T01:30:37.407702573Z RESERVADA [B8D-F3-f3_contract_3_1-7c76acd0-be07-488d-9417-e884ecb3400e-3] 7x BAKED_POTATO, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_3_2 jugador=dcc31b25-6f5f-4360-b99d-9799557e72f0 carta=1 rareza=RARE ticket=79
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_3_2 jugador=dcc31b25-6f5f-4360-b99d-9799557e72f0 carta=2 rareza=RARE ticket=73
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_3_2 jugador=dcc31b25-6f5f-4360-b99d-9799557e72f0 carta=3 rareza=EXCEPTIONAL ticket=96
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=55f0a50a-450d-4616-be35-51f3cfbc58ca fuente=f3:contract_3_2 jugador=dcc31b25-6f5f-4360-b99d-9799557e72f0 encuentro=c983900f-b4ec-4042-9352-dd4523caa493 terminal=5653507b-a776-4a68-b692-c8e11fde4874 premios=3 extraF3=true p2=100 t2=51 p3=100 t3=98
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_3_2 jugador=358d2fb0-22bf-4fe9-bf56-049398d6f05c carta=1 rareza=IMPROVED ticket=35
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_3_2 jugador=358d2fb0-22bf-4fe9-bf56-049398d6f05c carta=2 rareza=RARE ticket=78
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_3_2 jugador=358d2fb0-22bf-4fe9-bf56-049398d6f05c carta=3 rareza=RARE ticket=82
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=55f0a50a-450d-4616-be35-51f3cfbc58ca fuente=f3:contract_3_2 jugador=358d2fb0-22bf-4fe9-bf56-049398d6f05c encuentro=c983900f-b4ec-4042-9352-dd4523caa493 terminal=5653507b-a776-4a68-b692-c8e11fde4874 premios=3 extraF3=true p2=100 t2=46 p3=100 t3=12
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=dcc31b25-6f5f-4360-b99d-9799557e72f0 fuente=f3:contract_3_2 carta=1
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=358d2fb0-22bf-4fe9-bf56-049398d6f05c fuente=f3:contract_3_2 carta=2
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=55f0a50a-450d-4616-be35-51f3cfbc58ca jugador=dcc31b25-6f5f-4360-b99d-9799557e72f0 #1 2026-11-26T01:30:37.431620598Z RESERVADA [B-f3:contract_3_2] 1x GOLDEN_APPLE, 75 XP, prestigio=2 + 7x COOKED_BEEF
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=55f0a50a-450d-4616-be35-51f3cfbc58ca jugador=358d2fb0-22bf-4fe9-bf56-049398d6f05c #2 2026-11-26T01:30:37.431852197Z RESERVADA [B-f3:contract_3_2] 1x SHIELD, 75 XP, prestigio=2 + 3x IRON_INGOT
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=55f0a50a-450d-4616-be35-51f3cfbc58ca jugador=dcc31b25-6f5f-4360-b99d-9799557e72f0 #3 2026-11-26T01:30:37.446811028Z RESERVADA [B8D-F3-f3_contract_3_2-dcc31b25-6f5f-4360-b99d-9799557e72f0-2] 6x BREAD, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=55f0a50a-450d-4616-be35-51f3cfbc58ca jugador=dcc31b25-6f5f-4360-b99d-9799557e72f0 #4 2026-11-26T01:30:37.450511163Z RESERVADA [B8D-F3-f3_contract_3_2-dcc31b25-6f5f-4360-b99d-9799557e72f0-3] 7x BAKED_POTATO, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=55f0a50a-450d-4616-be35-51f3cfbc58ca jugador=358d2fb0-22bf-4fe9-bf56-049398d6f05c #5 2026-11-26T01:30:37.453929753Z RESERVADA [B8D-F3-f3_contract_3_2-358d2fb0-22bf-4fe9-bf56-049398d6f05c-2] 6x COAL, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=55f0a50a-450d-4616-be35-51f3cfbc58ca jugador=358d2fb0-22bf-4fe9-bf56-049398d6f05c #6 2026-11-26T01:30:37.458188111Z RESERVADA [B8D-F3-f3_contract_3_2-358d2fb0-22bf-4fe9-bf56-049398d6f05c-3] 6x SPECTRAL_ARROW, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_3_3 jugador=827335af-90ed-4660-b3f1-6c5eb51789be carta=1 rareza=BASIC ticket=11
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_3_3 jugador=827335af-90ed-4660-b3f1-6c5eb51789be carta=2 rareza=IMPROVED ticket=30
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_3_3 jugador=827335af-90ed-4660-b3f1-6c5eb51789be carta=3 rareza=RARE ticket=63
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=b8fe24a7-ab87-41f8-a357-da4884f65ded fuente=f3:contract_3_3 jugador=827335af-90ed-4660-b3f1-6c5eb51789be encuentro=ea811d48-bc5a-4a3e-a7b8-ab8b29cb1aef terminal=068e9507-6fca-44f1-9dcf-fdc72f7234e6 premios=3 extraF3=true p2=100 t2=35 p3=100 t3=31
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_3_3 jugador=f2b3d495-7582-43e1-b05e-99182e6f68fa carta=1 rareza=IMPROVED ticket=30
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_3_3 jugador=f2b3d495-7582-43e1-b05e-99182e6f68fa carta=2 rareza=BASIC ticket=8
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_3_3 jugador=f2b3d495-7582-43e1-b05e-99182e6f68fa carta=3 rareza=IMPROVED ticket=48
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=b8fe24a7-ab87-41f8-a357-da4884f65ded fuente=f3:contract_3_3 jugador=f2b3d495-7582-43e1-b05e-99182e6f68fa encuentro=ea811d48-bc5a-4a3e-a7b8-ab8b29cb1aef terminal=068e9507-6fca-44f1-9dcf-fdc72f7234e6 premios=3 extraF3=true p2=100 t2=56 p3=100 t3=37
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_3_3 jugador=f9f6f37a-6a69-4fee-9455-26679b811b9f carta=1 rareza=IMPROVED ticket=43
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_3_3 jugador=f9f6f37a-6a69-4fee-9455-26679b811b9f carta=2 rareza=IMPROVED ticket=34
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_3_3 jugador=f9f6f37a-6a69-4fee-9455-26679b811b9f carta=3 rareza=IMPROVED ticket=42
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=b8fe24a7-ab87-41f8-a357-da4884f65ded fuente=f3:contract_3_3 jugador=f9f6f37a-6a69-4fee-9455-26679b811b9f encuentro=ea811d48-bc5a-4a3e-a7b8-ab8b29cb1aef terminal=068e9507-6fca-44f1-9dcf-fdc72f7234e6 premios=3 extraF3=true p2=100 t2=86 p3=100 t3=49
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=827335af-90ed-4660-b3f1-6c5eb51789be fuente=f3:contract_3_3 carta=1
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=f9f6f37a-6a69-4fee-9455-26679b811b9f fuente=f3:contract_3_3 carta=2
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=f2b3d495-7582-43e1-b05e-99182e6f68fa fuente=f3:contract_3_3 carta=3
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=b8fe24a7-ab87-41f8-a357-da4884f65ded jugador=827335af-90ed-4660-b3f1-6c5eb51789be #1 2026-11-26T01:30:37.489661169Z RESERVADA [B-f3:contract_3_3] 4x GOLDEN_CARROT, 75 XP, prestigio=2 + 9x COOKED_BEEF
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=b8fe24a7-ab87-41f8-a357-da4884f65ded jugador=f2b3d495-7582-43e1-b05e-99182e6f68fa #2 2026-11-26T01:30:37.489813629Z RESERVADA [B-f3:contract_3_3] 2x GOLD_INGOT, 75 XP, prestigio=2 + 4x LAPIS_LAZULI
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=b8fe24a7-ab87-41f8-a357-da4884f65ded jugador=f9f6f37a-6a69-4fee-9455-26679b811b9f #3 2026-11-26T01:30:37.489852007Z RESERVADA [B-f3:contract_3_3] 19x ARROW, 75 XP, prestigio=2 + 3x IRON_INGOT
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=b8fe24a7-ab87-41f8-a357-da4884f65ded jugador=827335af-90ed-4660-b3f1-6c5eb51789be #4 2026-11-26T01:30:37.506539427Z RESERVADA [B8D-F3-f3_contract_3_3-827335af-90ed-4660-b3f1-6c5eb51789be-2] 7x BREAD, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=b8fe24a7-ab87-41f8-a357-da4884f65ded jugador=827335af-90ed-4660-b3f1-6c5eb51789be #5 2026-11-26T01:30:37.511670402Z RESERVADA [B8D-F3-f3_contract_3_3-827335af-90ed-4660-b3f1-6c5eb51789be-3] 6x BAKED_POTATO, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=b8fe24a7-ab87-41f8-a357-da4884f65ded jugador=f2b3d495-7582-43e1-b05e-99182e6f68fa #6 2026-11-26T01:30:37.514482307Z RESERVADA [B8D-F3-f3_contract_3_3-f2b3d495-7582-43e1-b05e-99182e6f68fa-2] 7x REDSTONE, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=b8fe24a7-ab87-41f8-a357-da4884f65ded jugador=f2b3d495-7582-43e1-b05e-99182e6f68fa #7 2026-11-26T01:30:37.517682808Z RESERVADA [B8D-F3-f3_contract_3_3-f2b3d495-7582-43e1-b05e-99182e6f68fa-3] 6x COPPER_INGOT, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=b8fe24a7-ab87-41f8-a357-da4884f65ded jugador=f9f6f37a-6a69-4fee-9455-26679b811b9f #8 2026-11-26T01:30:37.520802778Z RESERVADA [B8D-F3-f3_contract_3_3-f9f6f37a-6a69-4fee-9455-26679b811b9f-2] 6x COAL, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=b8fe24a7-ab87-41f8-a357-da4884f65ded jugador=f9f6f37a-6a69-4fee-9455-26679b811b9f #9 2026-11-26T01:30:37.524013554Z RESERVADA [B8D-F3-f3_contract_3_3-f9f6f37a-6a69-4fee-9455-26679b811b9f-3] 7x SPECTRAL_ARROW, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_4_1 jugador=8777a074-8526-4993-99d0-5c9a6c2e620e carta=1 rareza=BASIC ticket=4
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_4_1 jugador=8777a074-8526-4993-99d0-5c9a6c2e620e carta=2 rareza=RARE ticket=63
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_4_1 jugador=8777a074-8526-4993-99d0-5c9a6c2e620e carta=3 rareza=RARE ticket=79
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=0d20da06-d392-4cc0-8714-ec78547bf3ac fuente=f3:contract_4_1 jugador=8777a074-8526-4993-99d0-5c9a6c2e620e encuentro=ebc04c78-ea66-425b-aaea-e87ee1b49e80 terminal=0c1e156f-4bfa-4f48-a1a9-1697a712baaa premios=3 extraF3=true p2=100 t2=28 p3=100 t3=61
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=8777a074-8526-4993-99d0-5c9a6c2e620e fuente=f3:contract_4_1 carta=1
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=0d20da06-d392-4cc0-8714-ec78547bf3ac jugador=8777a074-8526-4993-99d0-5c9a6c2e620e #1 2026-11-26T01:30:37.544946442Z RESERVADA [B-f3:contract_4_1] 4x GOLDEN_CARROT, 105 XP, prestigio=2 + 10x COOKED_BEEF
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=0d20da06-d392-4cc0-8714-ec78547bf3ac jugador=8777a074-8526-4993-99d0-5c9a6c2e620e #2 2026-11-26T01:30:37.551559144Z RESERVADA [B8D-F3-f3_contract_4_1-8777a074-8526-4993-99d0-5c9a6c2e620e-2] 7x BREAD, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=0d20da06-d392-4cc0-8714-ec78547bf3ac jugador=8777a074-8526-4993-99d0-5c9a6c2e620e #3 2026-11-26T01:30:37.553877734Z RESERVADA [B8D-F3-f3_contract_4_1-8777a074-8526-4993-99d0-5c9a6c2e620e-3] 7x BAKED_POTATO, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_4_2 jugador=2410d15c-5dfe-43fc-a1dc-fd2db3568330 carta=1 rareza=IMPROVED ticket=24
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_4_2 jugador=2410d15c-5dfe-43fc-a1dc-fd2db3568330 carta=2 rareza=EXCEPTIONAL ticket=95
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_4_2 jugador=2410d15c-5dfe-43fc-a1dc-fd2db3568330 carta=3 rareza=RARE ticket=63
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=eb3ea56d-647c-4d08-ae15-71b85b368a50 fuente=f3:contract_4_2 jugador=2410d15c-5dfe-43fc-a1dc-fd2db3568330 encuentro=eb230449-7892-4a29-b69b-8dd23485b961 terminal=b8e0af87-811b-4f6c-b433-993f59274169 premios=3 extraF3=true p2=100 t2=88 p3=100 t3=11
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_4_2 jugador=30dff1fe-2056-4903-8aba-35ad6871ed3f carta=1 rareza=RARE ticket=42
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_4_2 jugador=30dff1fe-2056-4903-8aba-35ad6871ed3f carta=2 rareza=RARE ticket=54
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_4_2 jugador=30dff1fe-2056-4903-8aba-35ad6871ed3f carta=3 rareza=RARE ticket=35
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=eb3ea56d-647c-4d08-ae15-71b85b368a50 fuente=f3:contract_4_2 jugador=30dff1fe-2056-4903-8aba-35ad6871ed3f encuentro=eb230449-7892-4a29-b69b-8dd23485b961 terminal=b8e0af87-811b-4f6c-b433-993f59274169 premios=3 extraF3=true p2=100 t2=30 p3=100 t3=40
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=30dff1fe-2056-4903-8aba-35ad6871ed3f fuente=f3:contract_4_2 carta=1
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=2410d15c-5dfe-43fc-a1dc-fd2db3568330 fuente=f3:contract_4_2 carta=2
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=eb3ea56d-647c-4d08-ae15-71b85b368a50 jugador=2410d15c-5dfe-43fc-a1dc-fd2db3568330 #1 2026-11-26T01:30:37.577431719Z RESERVADA [B-f3:contract_4_2] 1x SHIELD, 105 XP, prestigio=2 + 4x IRON_INGOT
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=eb3ea56d-647c-4d08-ae15-71b85b368a50 jugador=30dff1fe-2056-4903-8aba-35ad6871ed3f #2 2026-11-26T01:30:37.577561194Z RESERVADA [B-f3:contract_4_2] 1x GOLDEN_APPLE, 105 XP, prestigio=2 + 9x COOKED_BEEF
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=eb3ea56d-647c-4d08-ae15-71b85b368a50 jugador=2410d15c-5dfe-43fc-a1dc-fd2db3568330 #3 2026-11-26T01:30:37.597989671Z RESERVADA [B8D-F3-f3_contract_4_2-2410d15c-5dfe-43fc-a1dc-fd2db3568330-2] 6x COAL, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=eb3ea56d-647c-4d08-ae15-71b85b368a50 jugador=2410d15c-5dfe-43fc-a1dc-fd2db3568330 #4 2026-11-26T01:30:37.604407378Z RESERVADA [B8D-F3-f3_contract_4_2-2410d15c-5dfe-43fc-a1dc-fd2db3568330-3] 7x SPECTRAL_ARROW, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=eb3ea56d-647c-4d08-ae15-71b85b368a50 jugador=30dff1fe-2056-4903-8aba-35ad6871ed3f #5 2026-11-26T01:30:37.607848413Z RESERVADA [B8D-F3-f3_contract_4_2-30dff1fe-2056-4903-8aba-35ad6871ed3f-2] 7x BREAD, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=eb3ea56d-647c-4d08-ae15-71b85b368a50 jugador=30dff1fe-2056-4903-8aba-35ad6871ed3f #6 2026-11-26T01:30:37.612259542Z RESERVADA [B8D-F3-f3_contract_4_2-30dff1fe-2056-4903-8aba-35ad6871ed3f-3] 7x BAKED_POTATO, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_4_3 jugador=0ff83292-5d41-4f8b-9dba-85befef9bbce carta=1 rareza=EXCEPTIONAL ticket=89
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_4_3 jugador=0ff83292-5d41-4f8b-9dba-85befef9bbce carta=2 rareza=IMPROVED ticket=28
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_4_3 jugador=0ff83292-5d41-4f8b-9dba-85befef9bbce carta=3 rareza=BASIC ticket=3
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=87fb9a67-a063-4c9e-aefb-e5a0d025eede fuente=f3:contract_4_3 jugador=0ff83292-5d41-4f8b-9dba-85befef9bbce encuentro=3bb06b4d-7ad1-446e-bb77-4921fcb65476 terminal=08d2a345-337e-4828-8f21-df0742d381aa premios=3 extraF3=true p2=100 t2=72 p3=100 t3=95
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_4_3 jugador=4c2c5f6b-22b3-48a0-8aee-df9a2ef86580 carta=1 rareza=RARE ticket=47
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_4_3 jugador=4c2c5f6b-22b3-48a0-8aee-df9a2ef86580 carta=2 rareza=EXCEPTIONAL ticket=88
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_4_3 jugador=4c2c5f6b-22b3-48a0-8aee-df9a2ef86580 carta=3 rareza=BASIC ticket=4
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=87fb9a67-a063-4c9e-aefb-e5a0d025eede fuente=f3:contract_4_3 jugador=4c2c5f6b-22b3-48a0-8aee-df9a2ef86580 encuentro=3bb06b4d-7ad1-446e-bb77-4921fcb65476 terminal=08d2a345-337e-4828-8f21-df0742d381aa premios=3 extraF3=true p2=100 t2=2 p3=100 t3=83
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_4_3 jugador=67747b4f-e4dc-450f-b56a-ff69d05070aa carta=1 rareza=IMPROVED ticket=25
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_4_3 jugador=67747b4f-e4dc-450f-b56a-ff69d05070aa carta=2 rareza=RARE ticket=77
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_4_3 jugador=67747b4f-e4dc-450f-b56a-ff69d05070aa carta=3 rareza=IMPROVED ticket=13
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=87fb9a67-a063-4c9e-aefb-e5a0d025eede fuente=f3:contract_4_3 jugador=67747b4f-e4dc-450f-b56a-ff69d05070aa encuentro=3bb06b4d-7ad1-446e-bb77-4921fcb65476 terminal=08d2a345-337e-4828-8f21-df0742d381aa premios=3 extraF3=true p2=100 t2=70 p3=100 t3=53
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=67747b4f-e4dc-450f-b56a-ff69d05070aa fuente=f3:contract_4_3 carta=1
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=4c2c5f6b-22b3-48a0-8aee-df9a2ef86580 fuente=f3:contract_4_3 carta=2
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=0ff83292-5d41-4f8b-9dba-85befef9bbce fuente=f3:contract_4_3 carta=3
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=87fb9a67-a063-4c9e-aefb-e5a0d025eede jugador=0ff83292-5d41-4f8b-9dba-85befef9bbce #1 2026-11-26T01:30:37.641456364Z RESERVADA [B-f3:contract_4_3] 2x GOLD_INGOT, 105 XP, prestigio=2 + 5x LAPIS_LAZULI
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=87fb9a67-a063-4c9e-aefb-e5a0d025eede jugador=4c2c5f6b-22b3-48a0-8aee-df9a2ef86580 #2 2026-11-26T01:30:37.641631828Z RESERVADA [B-f3:contract_4_3] 1x SHIELD, 105 XP, prestigio=2 + 4x IRON_INGOT
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=87fb9a67-a063-4c9e-aefb-e5a0d025eede jugador=67747b4f-e4dc-450f-b56a-ff69d05070aa #3 2026-11-26T01:30:37.641671018Z RESERVADA [B-f3:contract_4_3] 5x GOLDEN_CARROT, 105 XP, prestigio=2 + 9x COOKED_BEEF
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=87fb9a67-a063-4c9e-aefb-e5a0d025eede jugador=0ff83292-5d41-4f8b-9dba-85befef9bbce #4 2026-11-26T01:30:37.674153270Z RESERVADA [B8D-F3-f3_contract_4_3-0ff83292-5d41-4f8b-9dba-85befef9bbce-2] 7x REDSTONE, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=87fb9a67-a063-4c9e-aefb-e5a0d025eede jugador=0ff83292-5d41-4f8b-9dba-85befef9bbce #5 2026-11-26T01:30:37.679946104Z RESERVADA [B8D-F3-f3_contract_4_3-0ff83292-5d41-4f8b-9dba-85befef9bbce-3] 7x COPPER_INGOT, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=87fb9a67-a063-4c9e-aefb-e5a0d025eede jugador=4c2c5f6b-22b3-48a0-8aee-df9a2ef86580 #6 2026-11-26T01:30:37.684703115Z RESERVADA [B8D-F3-f3_contract_4_3-4c2c5f6b-22b3-48a0-8aee-df9a2ef86580-2] 8x COAL, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=87fb9a67-a063-4c9e-aefb-e5a0d025eede jugador=4c2c5f6b-22b3-48a0-8aee-df9a2ef86580 #7 2026-11-26T01:30:37.687895103Z RESERVADA [B8D-F3-f3_contract_4_3-4c2c5f6b-22b3-48a0-8aee-df9a2ef86580-3] 8x SPECTRAL_ARROW, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=87fb9a67-a063-4c9e-aefb-e5a0d025eede jugador=67747b4f-e4dc-450f-b56a-ff69d05070aa #8 2026-11-26T01:30:37.697436596Z RESERVADA [B8D-F3-f3_contract_4_3-67747b4f-e4dc-450f-b56a-ff69d05070aa-2] 8x BREAD, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=87fb9a67-a063-4c9e-aefb-e5a0d025eede jugador=67747b4f-e4dc-450f-b56a-ff69d05070aa #9 2026-11-26T01:30:37.701020446Z RESERVADA [B8D-F3-f3_contract_4_3-67747b4f-e4dc-450f-b56a-ff69d05070aa-3] 7x BAKED_POTATO, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_5_1 jugador=0b832a05-a073-452a-a244-80d98fa921ee carta=1 rareza=RARE ticket=27
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_5_1 jugador=0b832a05-a073-452a-a244-80d98fa921ee carta=2 rareza=RARE ticket=34
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_5_1 jugador=0b832a05-a073-452a-a244-80d98fa921ee carta=3 rareza=RARE ticket=36
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=86e21c18-1e98-41fe-8bd5-3908588549af fuente=f3:contract_5_1 jugador=0b832a05-a073-452a-a244-80d98fa921ee encuentro=cd5dac2f-3061-4214-84d8-cb651647e2f5 terminal=35e9d869-90c9-46eb-8597-bd8062a13a60 premios=3 extraF3=true p2=100 t2=66 p3=100 t3=64
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=0b832a05-a073-452a-a244-80d98fa921ee fuente=f3:contract_5_1 carta=1
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=86e21c18-1e98-41fe-8bd5-3908588549af jugador=0b832a05-a073-452a-a244-80d98fa921ee #1 2026-11-26T01:30:37.715262484Z RESERVADA [B-f3:contract_5_1] 1x GOLDEN_APPLE, 140 XP, prestigio=3 + 10x COOKED_BEEF
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=86e21c18-1e98-41fe-8bd5-3908588549af jugador=0b832a05-a073-452a-a244-80d98fa921ee #2 2026-11-26T01:30:37.722220767Z RESERVADA [B8D-F3-f3_contract_5_1-0b832a05-a073-452a-a244-80d98fa921ee-2] 8x BREAD, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=86e21c18-1e98-41fe-8bd5-3908588549af jugador=0b832a05-a073-452a-a244-80d98fa921ee #3 2026-11-26T01:30:37.725232974Z RESERVADA [B8D-F3-f3_contract_5_1-0b832a05-a073-452a-a244-80d98fa921ee-3] 9x BAKED_POTATO, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_5_2 jugador=c596d920-28e7-443a-b271-9ce942e8e5bf carta=1 rareza=RARE ticket=55
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_5_2 jugador=c596d920-28e7-443a-b271-9ce942e8e5bf carta=2 rareza=IMPROVED ticket=17
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_5_2 jugador=c596d920-28e7-443a-b271-9ce942e8e5bf carta=3 rareza=RARE ticket=29
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=246d135f-e96c-4102-aae1-cd5875233f32 fuente=f3:contract_5_2 jugador=c596d920-28e7-443a-b271-9ce942e8e5bf encuentro=a4a21d50-17d2-4478-b847-04a001767ba0 terminal=6d9a4371-14e6-4a2a-9d5b-5c8d86a1ff18 premios=3 extraF3=true p2=100 t2=44 p3=100 t3=8
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_5_2 jugador=6cd8ac54-74e8-4e4a-b3df-59689410d380 carta=1 rareza=RARE ticket=44
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_5_2 jugador=6cd8ac54-74e8-4e4a-b3df-59689410d380 carta=2 rareza=IMPROVED ticket=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_5_2 jugador=6cd8ac54-74e8-4e4a-b3df-59689410d380 carta=3 rareza=IMPROVED ticket=12
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=246d135f-e96c-4102-aae1-cd5875233f32 fuente=f3:contract_5_2 jugador=6cd8ac54-74e8-4e4a-b3df-59689410d380 encuentro=a4a21d50-17d2-4478-b847-04a001767ba0 terminal=6d9a4371-14e6-4a2a-9d5b-5c8d86a1ff18 premios=3 extraF3=true p2=100 t2=34 p3=100 t3=51
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=c596d920-28e7-443a-b271-9ce942e8e5bf fuente=f3:contract_5_2 carta=1
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=6cd8ac54-74e8-4e4a-b3df-59689410d380 fuente=f3:contract_5_2 carta=2
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=246d135f-e96c-4102-aae1-cd5875233f32 jugador=c596d920-28e7-443a-b271-9ce942e8e5bf #1 2026-11-26T01:30:37.746277401Z RESERVADA [B-f3:contract_5_2] 1x GOLDEN_APPLE, 140 XP, prestigio=3 + 10x COOKED_BEEF
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=246d135f-e96c-4102-aae1-cd5875233f32 jugador=6cd8ac54-74e8-4e4a-b3df-59689410d380 #2 2026-11-26T01:30:37.746437413Z RESERVADA [B-f3:contract_5_2] 20x ARROW, 140 XP, prestigio=3 + 3x IRON_INGOT
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=246d135f-e96c-4102-aae1-cd5875233f32 jugador=c596d920-28e7-443a-b271-9ce942e8e5bf #3 2026-11-26T01:30:37.757039376Z RESERVADA [B8D-F3-f3_contract_5_2-c596d920-28e7-443a-b271-9ce942e8e5bf-2] 10x BREAD, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=246d135f-e96c-4102-aae1-cd5875233f32 jugador=c596d920-28e7-443a-b271-9ce942e8e5bf #4 2026-11-26T01:30:37.759849788Z RESERVADA [B8D-F3-f3_contract_5_2-c596d920-28e7-443a-b271-9ce942e8e5bf-3] 10x BAKED_POTATO, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=246d135f-e96c-4102-aae1-cd5875233f32 jugador=6cd8ac54-74e8-4e4a-b3df-59689410d380 #5 2026-11-26T01:30:37.763638788Z RESERVADA [B8D-F3-f3_contract_5_2-6cd8ac54-74e8-4e4a-b3df-59689410d380-2] 10x COAL, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=246d135f-e96c-4102-aae1-cd5875233f32 jugador=6cd8ac54-74e8-4e4a-b3df-59689410d380 #6 2026-11-26T01:30:37.765873431Z RESERVADA [B8D-F3-f3_contract_5_2-6cd8ac54-74e8-4e4a-b3df-59689410d380-3] 9x SPECTRAL_ARROW, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_5_3 jugador=99cd8a80-8504-42c4-bf71-dfdd131c2648 carta=1 rareza=RARE ticket=60
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_5_3 jugador=99cd8a80-8504-42c4-bf71-dfdd131c2648 carta=2 rareza=EXCEPTIONAL ticket=86
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_5_3 jugador=99cd8a80-8504-42c4-bf71-dfdd131c2648 carta=3 rareza=IMPROVED ticket=18
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=00ca6cdd-d437-4558-95df-8c902f6b7ea6 fuente=f3:contract_5_3 jugador=99cd8a80-8504-42c4-bf71-dfdd131c2648 encuentro=548a121f-6a3d-4e3d-8dc2-2ca4eca73031 terminal=5529ed13-2f66-42bd-bb6e-559cea16f914 premios=3 extraF3=true p2=100 t2=47 p3=100 t3=22
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_5_3 jugador=ce7cb963-6e0e-4d1b-831d-e3c666d9fa0c carta=1 rareza=EXCEPTIONAL ticket=76
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_5_3 jugador=ce7cb963-6e0e-4d1b-831d-e3c666d9fa0c carta=2 rareza=IMPROVED ticket=5
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_5_3 jugador=ce7cb963-6e0e-4d1b-831d-e3c666d9fa0c carta=3 rareza=RARE ticket=57
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=00ca6cdd-d437-4558-95df-8c902f6b7ea6 fuente=f3:contract_5_3 jugador=ce7cb963-6e0e-4d1b-831d-e3c666d9fa0c encuentro=548a121f-6a3d-4e3d-8dc2-2ca4eca73031 terminal=5529ed13-2f66-42bd-bb6e-559cea16f914 premios=3 extraF3=true p2=100 t2=32 p3=100 t3=70
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_5_3 jugador=002ca193-e663-4c66-bc03-5650406af0db carta=1 rareza=RARE ticket=55
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_5_3 jugador=002ca193-e663-4c66-bc03-5650406af0db carta=2 rareza=EXCEPTIONAL ticket=67
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_5_3 jugador=002ca193-e663-4c66-bc03-5650406af0db carta=3 rareza=RARE ticket=38
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=00ca6cdd-d437-4558-95df-8c902f6b7ea6 fuente=f3:contract_5_3 jugador=002ca193-e663-4c66-bc03-5650406af0db encuentro=548a121f-6a3d-4e3d-8dc2-2ca4eca73031 terminal=5529ed13-2f66-42bd-bb6e-559cea16f914 premios=3 extraF3=true p2=100 t2=97 p3=100 t3=94
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=99cd8a80-8504-42c4-bf71-dfdd131c2648 fuente=f3:contract_5_3 carta=1
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=ce7cb963-6e0e-4d1b-831d-e3c666d9fa0c fuente=f3:contract_5_3 carta=2
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=002ca193-e663-4c66-bc03-5650406af0db fuente=f3:contract_5_3 carta=3
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=00ca6cdd-d437-4558-95df-8c902f6b7ea6 jugador=99cd8a80-8504-42c4-bf71-dfdd131c2648 #1 2026-11-26T01:30:37.791827649Z RESERVADA [B-f3:contract_5_3] 1x GOLDEN_APPLE, 140 XP, prestigio=3 + 10x COOKED_BEEF
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=00ca6cdd-d437-4558-95df-8c902f6b7ea6 jugador=ce7cb963-6e0e-4d1b-831d-e3c666d9fa0c #2 2026-11-26T01:30:37.794025326Z RESERVADA [B-f3:contract_5_3] 20x ARROW, 140 XP, prestigio=3 + 3x IRON_INGOT
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=00ca6cdd-d437-4558-95df-8c902f6b7ea6 jugador=002ca193-e663-4c66-bc03-5650406af0db #3 2026-11-26T01:30:37.794090554Z RESERVADA [B-f3:contract_5_3] 2x GOLD_INGOT, 140 XP, prestigio=3 + 2x EXPERIENCE_BOTTLE
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=00ca6cdd-d437-4558-95df-8c902f6b7ea6 jugador=99cd8a80-8504-42c4-bf71-dfdd131c2648 #4 2026-11-26T01:30:37.807831361Z RESERVADA [B8D-F3-f3_contract_5_3-99cd8a80-8504-42c4-bf71-dfdd131c2648-2] 10x BREAD, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=00ca6cdd-d437-4558-95df-8c902f6b7ea6 jugador=99cd8a80-8504-42c4-bf71-dfdd131c2648 #5 2026-11-26T01:30:37.813503063Z RESERVADA [B8D-F3-f3_contract_5_3-99cd8a80-8504-42c4-bf71-dfdd131c2648-3] 10x BAKED_POTATO, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=00ca6cdd-d437-4558-95df-8c902f6b7ea6 jugador=ce7cb963-6e0e-4d1b-831d-e3c666d9fa0c #6 2026-11-26T01:30:37.817623217Z RESERVADA [B8D-F3-f3_contract_5_3-ce7cb963-6e0e-4d1b-831d-e3c666d9fa0c-2] 9x COAL, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=00ca6cdd-d437-4558-95df-8c902f6b7ea6 jugador=ce7cb963-6e0e-4d1b-831d-e3c666d9fa0c #7 2026-11-26T01:30:37.820414526Z RESERVADA [B8D-F3-f3_contract_5_3-ce7cb963-6e0e-4d1b-831d-e3c666d9fa0c-3] 9x SPECTRAL_ARROW, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=00ca6cdd-d437-4558-95df-8c902f6b7ea6 jugador=002ca193-e663-4c66-bc03-5650406af0db #8 2026-11-26T01:30:37.824825945Z RESERVADA [B8D-F3-f3_contract_5_3-002ca193-e663-4c66-bc03-5650406af0db-2] 8x REDSTONE, 0 XP, prestigio=0
+[01:30:37 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=00ca6cdd-d437-4558-95df-8c902f6b7ea6 jugador=002ca193-e663-4c66-bc03-5650406af0db #9 2026-11-26T01:30:37.827188671Z RESERVADA [B8D-F3-f3_contract_5_3-002ca193-e663-4c66-bc03-5650406af0db-3] 10x COPPER_INGOT, 0 XP, prestigio=0
+[01:30:37 ERROR]: [HardcoreMisiones] HM2_RC8I_MUNDO_BOSS_INCORRECTO formato: 1 encounter: 'b8e5a18f-1899-4520-bc48-35b832d88c4b' entity: 'd63de1c3-b071-4ff9-a38e-41a8d61a495b' expected-world: '0ceb5ff4-75e5-4ed5-8417-249d18b08700' actual-world: '7a58ed0d-ab13-43f6-93e5-45fbcadd9a9a' actual-name: 'world'  · ENCUENTRO SIN PREMIO HASTA REVISIÓN
+[01:30:37 ERROR]: [HardcoreMisiones] F3: estado incompatible/sospechoso: java.lang.IllegalArgumentException: F3 campo desconocido o tipo inválido: /future
+[01:30:37 INFO]: [HardcoreMisiones] [STDOUT] SESSION_F3_ACK_PAPER: 11 PASS
+[01:30:37 INFO]: [HardcoreMisiones] [STDOUT] SESSION_F3_TERMINAL_PAPER: 7 PASS
+[01:30:37 INFO]: [HardcoreMisiones] [STDOUT] SESSION_F3_OFFER_PAPER: 13 PASS
+[01:30:37 INFO]: [HardcoreMisiones] [STDOUT] SHARED_OFFERING_INVENTORY_PAPER: 6 PASS
+[01:30:37 INFO]: [HardcoreMisiones] [STDOUT] CLEAN_PAPER_CONTRACTS_PASS checks=793 scenarios=15
+[01:30:37 INFO]: [HardcoreMisiones] HM2_PAPER_CONTRACT PASS CleanPaperContractsTest
+[01:30:37 INFO]: [HardcoreMisiones] [STDOUT] PASS PaymentPersistencePaperTest checks=23
+[01:30:37 INFO]: [HardcoreMisiones] HM2_PAPER_CONTRACT PASS PaymentPersistencePaperTest
+[01:30:38 INFO]: [HardcoreMisiones] [STDOUT] HUNT_AWARD_PLANNER: 30376 PASS
+[01:30:38 INFO]: [HardcoreMisiones] HM2_PAPER_CONTRACT PASS HuntAwardPlannerTest
+[01:30:38 INFO]: [HardcoreMisiones] HM2_PAPER_CONTRACT END 19
+[01:30:38 INFO]: Stopping server
+[01:30:38 INFO]: [HM2ContractLab] Disabling HM2ContractLab v1
+[01:30:38 INFO]: [HardcoreMisiones] Disabling HardcoreMisiones v2.1.0-dev
+[01:30:38 INFO]: [HardcoreMisiones] HardcoreMisiones detenido. Progreso guardado por partida.
+[01:30:38 INFO]: [HardcoreBosses] Disabling HardcoreBosses v0.1.1-alpha-catalogo
+[01:30:38 INFO]: [HardcoreMP] Disabling HardcoreMP v1.0.4-crossplay.2
+[01:30:38 INFO]: The plugin has been disabled.
+[01:30:38 INFO]: Saving players
+[01:30:38 INFO]: Saving worlds
+[01:30:38 INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[01:30:38 INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'minecraft:overworld'
+[01:30:38 INFO]: [ChunkHolderManager] Halted chunk system for world 'minecraft:overworld'
+[01:30:38 INFO]: [ChunkHolderManager] Saving all chunkholders for world 'minecraft:overworld'
+[01:30:38 INFO]: [ChunkHolderManager] Saved 729 block chunks, 1 entity chunks, 0 poi chunks in world 'minecraft:overworld' in 0.24s
+[01:30:38 INFO]: [ChunkHolderManager] Waiting 60s for chunk I/O to halt for world 'minecraft:overworld'
+[01:30:38 INFO]: [ChunkHolderManager] Halted I/O scheduler for world 'minecraft:overworld'
+[01:30:38 INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_nether
+[01:30:38 INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'minecraft:the_nether'
+[01:30:38 INFO]: [ChunkHolderManager] Halted chunk system for world 'minecraft:the_nether'
+[01:30:38 INFO]: [ChunkHolderManager] Saving all chunkholders for world 'minecraft:the_nether'
+[01:30:38 INFO]: [ChunkHolderManager] Saved 0 block chunks, 0 entity chunks, 0 poi chunks in world 'minecraft:the_nether' in 0.00s
+[01:30:38 INFO]: [ChunkHolderManager] Waiting 60s for chunk I/O to halt for world 'minecraft:the_nether'
+[01:30:38 INFO]: [ChunkHolderManager] Halted I/O scheduler for world 'minecraft:the_nether'
+[01:30:38 INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_end
+[01:30:38 INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'minecraft:the_end'
+[01:30:38 INFO]: [ChunkHolderManager] Halted chunk system for world 'minecraft:the_end'
+[01:30:38 INFO]: [ChunkHolderManager] Saving all chunkholders for world 'minecraft:the_end'
+[01:30:38 INFO]: [ChunkHolderManager] Saved 0 block chunks, 0 entity chunks, 0 poi chunks in world 'minecraft:the_end' in 0.00s
+[01:30:38 INFO]: [ChunkHolderManager] Waiting 60s for chunk I/O to halt for world 'minecraft:the_end'
+[01:30:38 INFO]: [ChunkHolderManager] Halted I/O scheduler for world 'minecraft:the_end'
+[01:30:38 INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:hcmp_limbo
+[01:30:38 INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'minecraft:hcmp_limbo'
+[01:30:38 INFO]: [ChunkHolderManager] Halted chunk system for world 'minecraft:hcmp_limbo'
+[01:30:38 INFO]: [ChunkHolderManager] Saving all chunkholders for world 'minecraft:hcmp_limbo'
+[01:30:38 INFO]: [ChunkHolderManager] Saved 0 block chunks, 0 entity chunks, 0 poi chunks in world 'minecraft:hcmp_limbo' in 0.01s
+[01:30:38 INFO]: [ChunkHolderManager] Waiting 60s for chunk I/O to halt for world 'minecraft:hcmp_limbo'
+[01:30:38 INFO]: [ChunkHolderManager] Halted I/O scheduler for world 'minecraft:hcmp_limbo'
+[01:30:38 INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:hcmp_game
+[01:30:38 INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'minecraft:hcmp_game'
+[01:30:38 INFO]: [ChunkHolderManager] Halted chunk system for world 'minecraft:hcmp_game'
+[01:30:38 INFO]: [ChunkHolderManager] Saving all chunkholders for world 'minecraft:hcmp_game'
+[01:30:38 INFO]: [ChunkHolderManager] Saved 0 block chunks, 0 entity chunks, 0 poi chunks in world 'minecraft:hcmp_game' in 0.00s
+[01:30:38 INFO]: [ChunkHolderManager] Waiting 60s for chunk I/O to halt for world 'minecraft:hcmp_game'
+[01:30:38 INFO]: [ChunkHolderManager] Halted I/O scheduler for world 'minecraft:hcmp_game'
+[01:30:38 INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:hcmp_game_nether
+[01:30:38 INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'minecraft:hcmp_game_nether'
+[01:30:38 INFO]: [ChunkHolderManager] Halted chunk system for world 'minecraft:hcmp_game_nether'
+[01:30:38 INFO]: [ChunkHolderManager] Saving all chunkholders for world 'minecraft:hcmp_game_nether'
+[01:30:38 INFO]: [ChunkHolderManager] Saved 0 block chunks, 0 entity chunks, 0 poi chunks in world 'minecraft:hcmp_game_nether' in 0.00s
+[01:30:38 INFO]: [ChunkHolderManager] Waiting 60s for chunk I/O to halt for world 'minecraft:hcmp_game_nether'
+[01:30:38 INFO]: [ChunkHolderManager] Halted I/O scheduler for world 'minecraft:hcmp_game_nether'
+[01:30:38 INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:hcmp_game_the_end
+[01:30:38 INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'minecraft:hcmp_game_the_end'
+[01:30:38 INFO]: [ChunkHolderManager] Halted chunk system for world 'minecraft:hcmp_game_the_end'
+[01:30:38 INFO]: [ChunkHolderManager] Saving all chunkholders for world 'minecraft:hcmp_game_the_end'
+[01:30:38 INFO]: [ChunkHolderManager] Saved 0 block chunks, 0 entity chunks, 0 poi chunks in world 'minecraft:hcmp_game_the_end' in 0.00s
+[01:30:38 INFO]: [ChunkHolderManager] Waiting 60s for chunk I/O to halt for world 'minecraft:hcmp_game_the_end'
+[01:30:38 INFO]: [ChunkHolderManager] Halted I/O scheduler for world 'minecraft:hcmp_game_the_end'
+[01:30:38 INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[01:30:38 INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[01:30:38 INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[01:30:38 INFO]: ThreadedAnvilChunkStorage (hcmp_limbo): All chunks are saved
+[01:30:38 INFO]: ThreadedAnvilChunkStorage (hcmp_game): All chunks are saved
+[01:30:38 INFO]: ThreadedAnvilChunkStorage (hcmp_game_nether): All chunks are saved
+[01:30:38 INFO]: ThreadedAnvilChunkStorage (hcmp_game_the_end): All chunks are saved
+[01:30:38 INFO]: ThreadedAnvilChunkStorage: All dimensions are saved
+[01:30:38 INFO]: Waiting for all RegionFile I/O tasks to complete...
+[01:30:38 INFO]: All RegionFile I/O tasks to complete
+[01:30:38 INFO]: [MoonriseCommon] Awaiting termination of worker pool for up to 60s...
+[01:30:38 INFO]: [MoonriseCommon] Awaiting termination of I/O pool for up to 60s...

@@ -1,0 +1,17 @@
+{
+  "HF5": {
+    "java_files": 95,
+    "source_lines": 16651,
+    "bytecode_files": 262,
+    "bytecode_bytes": 1356087,
+    "compressed_bytes": 681744
+  },
+  "current": {
+    "java_files": 105,
+    "source_lines": 17021,
+    "bytecode_files": 266,
+    "bytecode_bytes": 1409186,
+    "compressed_bytes": 696687
+  },
+  "note": "ZIP comparable in memory, not release JAR; javac flags may differ between prior baseline and verification; no runtime benchmark."
+}

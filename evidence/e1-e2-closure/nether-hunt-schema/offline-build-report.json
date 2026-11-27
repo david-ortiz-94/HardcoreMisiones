@@ -1,0 +1,359 @@
+{
+  "status": "PASS",
+  "scope": "internal development archive only; not a candidate; Gradle not executed",
+  "javac": "javac 25.0.5.1",
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "classpath": [
+    {
+      "name": "paper-api-135.jar",
+      "sha256": "59aa3e9ef2103b5a0e35022a3877f23088f39d02652078607fbd8c806af64e89"
+    },
+    {
+      "name": "9094ae67d01d_fastutil-8.5.18.jar",
+      "sha256": "9094ae67d01d0ad246f886f11ad557fc2e79c72cbf3feed83e1512a8ae90a74a"
+    },
+    {
+      "name": "f6424cc038a6_adventure-text-serializer-plain-5.2.0.jar",
+      "sha256": "f6424cc038a631b79cc4b74b6b353d5d007c99b38f9be482e0c2448a00eecd21"
+    },
+    {
+      "name": "cbfc3906b19b_failureaccess-1.0.3.jar",
+      "sha256": "cbfc3906b19b8f55dd7cfd6dfe0aa4532e834250d7f080bd8d211a3e246b59cb"
+    },
+    {
+      "name": "dc573e1fca4f_guava-33.6.0-jre.jar",
+      "sha256": "dc573e1fca4fd5454f4a5fd3d7da2df03002876a4175bafc14a95980dd7713b3"
+    },
+    {
+      "name": "ce930b3ee048_bungeecord-chat-1.21-R0.2-deprecated+build.21.jar",
+      "sha256": "ce930b3ee048520a0ab538eb8d1627b301367fc1b300837235387aded6d89ba1"
+    },
+    {
+      "name": "b49c5c958316_error_prone_annotations-2.48.0.jar",
+      "sha256": "b49c5c958316ed67a09c699dda9aa749caf434d51d863dea599ef36a49b9c855"
+    },
+    {
+      "name": "adb541000617_adventure-text-serializer-json-5.2.0.jar",
+      "sha256": "adb5410006175b9aa6343bfadd0bd11c4a6955ee2abc1a58abe2a3fa6cbd9ab5"
+    },
+    {
+      "name": "b9c9546ec5be_org.osgi.annotation.bundle-2.0.0.jar",
+      "sha256": "b9c9546ec5be3ebc2e85ba4919150ad76d64594805282fc895133a47d264a7ae"
+    },
+    {
+      "name": "1231a0de417d_adventure-text-serializer-legacy-5.2.0.jar",
+      "sha256": "1231a0de417de66c59e2f2a3892ecca6b8d48621df6f1d9a2f81b01f57e328b7"
+    },
+    {
+      "name": "81fc50f1f1d3_org.osgi.resource-1.0.0.jar",
+      "sha256": "81fc50f1f1d38a4af28e131907d4afe213249aab05060484edca0e60c4af9b4a"
+    },
+    {
+      "name": "6bb9c90d0070_maven-resolver-impl-1.9.18.jar",
+      "sha256": "6bb9c90d007098004749c867da2eaf5785fc1139907718749c1097bdb2929bf8"
+    },
+    {
+      "name": "4f8f07fdb6b8_maven-model-3.9.6.jar",
+      "sha256": "4f8f07fdb6b8701fa89a23a2edf830808fd65892d90cce40c0e6df7c8f2fcb62"
+    },
+    {
+      "name": "73b00b244b7b_maven-resolver-provider-3.9.6.jar",
+      "sha256": "73b00b244b7b9e285654a45e765892bf5d369da77d42b5b4b5429122ed198a33"
+    },
+    {
+      "name": "97b69b4b17df_option-1.1.0.jar",
+      "sha256": "97b69b4b17dfe02217c9131ad342564cbc9aebd04c75eb689639b5f78fd4b11c"
+    },
+    {
+      "name": "e1f4d2784459_maven-builder-support-3.9.6.jar",
+      "sha256": "e1f4d2784459ce8a34b9dae1829a1999b569e483e21ee9faa7368691e729296e"
+    },
+    {
+      "name": "9b62bcfc352a_org.eclipse.sisu.inject-0.9.0.M2.jar",
+      "sha256": "9b62bcfc352a2ec87da8b01e37c952a54d358bbb1af3f212648aeafe7ab2dbb5"
+    },
+    {
+      "name": "1467931448a0_snakeyaml-2.2.jar",
+      "sha256": "1467931448a0817696ae2805b7b8b20bfb082652bf9c4efaed528930dc49389b"
+    },
+    {
+      "name": "7b751d952061_slf4j-api-2.0.17.jar",
+      "sha256": "7b751d952061954d5abfed7181c1f645d336091b679891591d63329c622eb832"
+    },
+    {
+      "name": "91c77044a50c_javax.inject-1.jar",
+      "sha256": "91c77044a50c481636c32d916fd89c9118a72195390452c81065080f957de7ff"
+    },
+    {
+      "name": "33b1d8b2c4b0_checker-qual-3.49.2.jar",
+      "sha256": "33b1d8b2c4b00f7d4f4b4931424274f3f729474ce3a87cea09a879976a1dcaeb"
+    },
+    {
+      "name": "c8ee4136e474_brigadier-1.3.10.jar",
+      "sha256": "c8ee4136e474ac7723ca2b432ec8d1a2bc88ef7d1ec57c314ba9e33cdc83dd75"
+    },
+    {
+      "name": "86e0255d4c87_plexus-utils-3.5.1.jar",
+      "sha256": "86e0255d4c879c61b4833ed7f13124e8bb679df47debb127326e7db7dd49a07b"
+    },
+    {
+      "name": "b3b5412ce178_plexus-interpolation-1.26.jar",
+      "sha256": "b3b5412ce17889103ea564bcdfcf9fb3dfa540344ffeac6b538a73c9d7182662"
+    },
+    {
+      "name": "8f876ce2a9aa_org.osgi.service.serviceloader-1.0.0.jar",
+      "sha256": "8f876ce2a9aa4e95b1f1952950255103e2487425050a654f3285447ba601c154"
+    },
+    {
+      "name": "e047a67b204c_maven-repository-metadata-3.9.6.jar",
+      "sha256": "e047a67b204c434994253e2ab5bdff5fe8cb7ada9316ac3e754c39f900ea847b"
+    },
+    {
+      "name": "f51f235e80df_org.osgi.annotation.versioning-1.1.2.jar",
+      "sha256": "f51f235e80df8ffbc30ef1b557b6ea38a696632d675404ec117e952978b8b863"
+    },
+    {
+      "name": "f69c2de3a695_biz.aQute.bnd.annotation-7.1.0.jar",
+      "sha256": "f69c2de3a695c113d125ac8053c92a680a3ce9d02ea25845095cf2d4626a7663"
+    },
+    {
+      "name": "b372a037d423_listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar",
+      "sha256": "b372a037d4230aa57fbeffdef30fd6123f9c0c2db85d0aced00c91b974f33f99"
+    },
+    {
+      "name": "ebc7aec252ed_annotations-26.1.0.jar",
+      "sha256": "ebc7aec252ed0c7d2d04c039d7f00e69f7b86b1f493c741d67b3ef31b986b054"
+    },
+    {
+      "name": "7e52fe7190be_adventure-api-5.2.0.jar",
+      "sha256": "7e52fe7190be3e87b3b3f71712cfa12315fcd27109f302a7b440c12f01fae827"
+    },
+    {
+      "name": "ae79b7f3846c_adventure-text-logger-slf4j-5.2.0.jar",
+      "sha256": "ae79b7f3846c5d973b37c7eec03190bd44e182918d1346e7705c5991a1b5dfb3"
+    },
+    {
+      "name": "16a76dd00a26_auto-service-annotations-1.1.1.jar",
+      "sha256": "16a76dd00a2650568447f5d6e3a9e2c809d9a42367d56b45215cfb89731f4d24"
+    },
+    {
+      "name": "84d3a1505184_j2objc-annotations-3.1.jar",
+      "sha256": "84d3a150518485f8140ea99b8a985656749629f6433c92b80c75b36aba3b099b"
+    },
+    {
+      "name": "d919d904486c_commons-lang3-3.12.0.jar",
+      "sha256": "d919d904486c037f8d193412da0c92e22a9fa24230b9d67a57855c5c31c7e94e"
+    },
+    {
+      "name": "5b2ad1c8a65e_adventure-text-serializer-gson-5.2.0.jar",
+      "sha256": "5b2ad1c8a65e7fa0811279b51a45d5fc574b6a6354097b545e4fdb5b68aaed73"
+    },
+    {
+      "name": "5f96dafbc411_maven-model-builder-3.9.6.jar",
+      "sha256": "5f96dafbc411ee4b1e8426368d0d31d05ab5a4dace69808143142a0017598721"
+    },
+    {
+      "name": "820de7bbaf43_log4j-api-2.26.0.jar",
+      "sha256": "820de7bbaf430eaf2e3e5ccb92f23e2085797c5ac4d4f7fc6c8b660fbefa1dbc"
+    },
+    {
+      "name": "e1871aba1511_adventure-text-minimessage-5.2.0.jar",
+      "sha256": "e1871aba1511dbe49cff211c10f85682886014161e5d629318aa69583c31a2c0"
+    },
+    {
+      "name": "2eb0ea667bc4_maven-resolver-util-1.9.18.jar",
+      "sha256": "2eb0ea667bc489384478231dda7516407d4b5b22a138077229871de9362a7ae2"
+    },
+    {
+      "name": "0184d173200e_adventure-key-5.2.0.jar",
+      "sha256": "0184d173200e2eef8fbc791f622d1d58fd459f8930c616b5a4fe79e83eda6c55"
+    },
+    {
+      "name": "bf1951014517_joml-1.10.8.jar",
+      "sha256": "bf19510145178df82cd3bd37edd514c13f411531ec5545299fd3abcbc98fe7c2"
+    },
+    {
+      "name": "d364fce9a17b_maven-resolver-spi-1.9.18.jar",
+      "sha256": "d364fce9a17b0e0b073c26efa92af95b29c00c42943dced4a1168a7923fd3fe1"
+    },
+    {
+      "name": "1fad6e6be755_jspecify-1.0.0.jar",
+      "sha256": "1fad6e6be7557781e4d33729d49ae1cdc8fdda6fe477bb0cc68ce351eafdfbab"
+    },
+    {
+      "name": "2cbd119bf196_gson-2.14.0.jar",
+      "sha256": "2cbd119bf1961c28788310963dc80ba65f58cdeec1dd139c8bdb1240faa2c36f"
+    },
+    {
+      "name": "098de7bbc5b0_maven-resolver-named-locks-1.9.18.jar",
+      "sha256": "098de7bbc5b0b26c3eff74ac30ffba6680fdab9bf4aebab95c3f5e2fe9eaeea8"
+    },
+    {
+      "name": "ad7a0fb408f8_maven-artifact-3.9.6.jar",
+      "sha256": "ad7a0fb408f8e47585ccc0d0011e0b501d93bfc9888d369bbd4a043d19475073"
+    },
+    {
+      "name": "ebfb9e1dfeea_maven-resolver-api-1.9.18.jar",
+      "sha256": "ebfb9e1dfeea3c2017905184581e007874b4eaac9d28bfffcfe5133d70ac6339"
+    },
+    {
+      "name": "HardcoreBosses(1).jar",
+      "sha256": "18987490f92c1a464d97581b7f2ebf46ee653e3dc595a2a6f2ba70c1406651e2"
+    }
+  ],
+  "source_sha256": {
+    "src/main/java/com/hardcoremisiones/AdministrationCommands.java": "d6f860c1b7d3f098c42b5a40bb04e4e6c90d2e4d5bf19f816789fec39ec466e0",
+    "src/main/java/com/hardcoremisiones/BossBlessingService.java": "b5311c2da8177a7a62797bc11e6fa94a9ea9d1dcc2a351a73bd04c2355decd6e",
+    "src/main/java/com/hardcoremisiones/BossCommands.java": "598219b8b72001e96e2bd3e72a11e7f630525f3c448772d500e684d9cb87199c",
+    "src/main/java/com/hardcoremisiones/BossDebuffService.java": "ebfaf53d454e14a44bfb463f02847384aa78c3e565dff97592338e93b4588ad3",
+    "src/main/java/com/hardcoremisiones/BossEncounterCoordinator.java": "b81ef506df9f4d8f6a5d6831399b9867a98380af3831283a97da2916c387c480",
+    "src/main/java/com/hardcoremisiones/BossHuntService.java": "32a47a9c03a87d0b488ac247e2aab129ef99ac1faa43152169113593746f5033",
+    "src/main/java/com/hardcoremisiones/BossIntegrationAdmission.java": "fc766cc9ac22d1e51fd198be164d700d85fbdd1bc98b461bbc2be42fa77db2aa",
+    "src/main/java/com/hardcoremisiones/BossRewardService.java": "a7c89c3aedd2ab8d589a163d5ef980bdbb0d166761e007a042703f65ab26a18e",
+    "src/main/java/com/hardcoremisiones/CommandFeedback.java": "7d32470c5d8a5a70047967966e2e6e6128b9506d601ddc2efa6b2d8795f2c516",
+    "src/main/java/com/hardcoremisiones/EmblemConfirmationMenu.java": "8f52a713a4f3b53c3a9582331093d17a0c2ec37f0aed8ba4e7240904b1b9cbcc",
+    "src/main/java/com/hardcoremisiones/EstadoMisiones.java": "a0bfb6cf38ac0bb36cff40886dbdae921cadaef7d02352d51550c1fd70398aa9",
+    "src/main/java/com/hardcoremisiones/ExpedicionesNether.java": "f7a10ff8f810b7dcc59e1a73fe9582fcbe90c2f32b43dd1841e55b73a27a244c",
+    "src/main/java/com/hardcoremisiones/HardcoreMisiones.java": "5cc3d08c20b967f5fd0d401fea13b32e524d0c6ad16449809c354e3e34b70a4c",
+    "src/main/java/com/hardcoremisiones/JuicioOleadas.java": "677f8baeb03487b9fa71481b70b5bbf46b7725996225b942348c5ae94f410b9b",
+    "src/main/java/com/hardcoremisiones/MenuEstadoJefes.java": "e6a9487bd6801ab36ddcfdc43ee5f1ae0a2347c75daf628f8db761259c985748",
+    "src/main/java/com/hardcoremisiones/MenuLotesJefes.java": "3ed8e38b30d90d020703de441e3451ec7d6f207a4c37420cfa55eddd17b0bf6d",
+    "src/main/java/com/hardcoremisiones/MenuMisiones.java": "ce8f9361f78857f09657c63301b1f558ab303468c483391fe0757a06100fd0b5",
+    "src/main/java/com/hardcoremisiones/MenuNether.java": "ae159e9fe8888bc5ae15034bc63f02544b19941c55f85254e7342b72ed8034fc",
+    "src/main/java/com/hardcoremisiones/MissionCommands.java": "8519e7c134ffec2f48ba2dadbf91a9c104a0d4dcd76686f1fab54f41f65cf88c",
+    "src/main/java/com/hardcoremisiones/MissionInteractionAccess.java": "efa6e6439236320bc086da96aa34db54af84500a233c255f9966180a3511d72d",
+    "src/main/java/com/hardcoremisiones/MissionLifecycleCommands.java": "d91385621ae4c8df80a11b5ed6b24da28bfff7001d357ef4db9dde777666dfff",
+    "src/main/java/com/hardcoremisiones/MissionOffering.java": "a08794be5e54e0a829a93ec896fbc5a4f2beae880332253108a948119c8d93e2",
+    "src/main/java/com/hardcoremisiones/MissionPenaltyService.java": "6b2f0e6417ef22ff169e4c161ad4300b8795bfbd627f3b003d3d9264f8926c93",
+    "src/main/java/com/hardcoremisiones/PanelMisiones.java": "9fc466969d5c16393e933fdcbed666f118ad2cda8e91736d43f08dbc1586898d",
+    "src/main/java/com/hardcoremisiones/PaperOfferingInventory.java": "4f9909b35d6fe942c1de261659b02a704b99bc2c47e89a94156961f3050b5570",
+    "src/main/java/com/hardcoremisiones/PenanceEncounterService.java": "3eb52f36d71e8a58a8d4fcdae8ab7588d396b99b0eb14b848504dc8bec742890",
+    "src/main/java/com/hardcoremisiones/Recompensas.java": "a1260c901446511afbd84fd924b0d066228f4388391956714386e6d99e0c92ab",
+    "src/main/java/com/hardcoremisiones/RelojMisiones.java": "3f6102e2ddbad62b64b5dc8175828aece82564e5f50b7d872f7cc6fc40a47cce",
+    "src/main/java/com/hardcoremisiones/RewardCommands.java": "176f2fb9da2e81d9a170719f74c1ba5f1ac14051752fb8224bfbf5c16b4e9310",
+    "src/main/java/com/hardcoremisiones/SealMenuListener.java": "08c996f9d154e6a809df578434e052b4b2e9e0b593bd1219dd81bb7fa5f066c8",
+    "src/main/java/com/hardcoremisiones/SealProgressMenu.java": "b68b7c25b3d5df269c1984ed80e30ab0666f48abb71283c8ee7f63d73241756a",
+    "src/main/java/com/hardcoremisiones/TrialCatalogMenu.java": "1b36ebf2cc66512c9cc8666182a124bf9a44db72c8d7c39f053c79ec86865a67",
+    "src/main/java/com/hardcoremisiones/TrialDetailMenu.java": "e229c9b68c0d3f1d2dc2d9c05978efc192bbeae9a03fc672e975addea85c788f",
+    "src/main/java/com/hardcoremisiones/WorldEventCommands.java": "5f523c36f872680aa560b76c02f844dd6ae59a6a18fb7371efae73615c1fb71b",
+    "src/main/java/com/hardcoremisiones/bosses/catalog/BossBiomePolicy.java": "c004dc9604bdf20f8b3b99c264ceb5dae0c954067d55c3142fb4b68658c1a2ed",
+    "src/main/java/com/hardcoremisiones/bosses/catalog/LegacyBossSelector.java": "91c81af243f86d6f9b32c33a207411e6aef46807046f0439e4c1660ef840ecf5",
+    "src/main/java/com/hardcoremisiones/bosses/catalog/PenanceEligibility.java": "3ca745fd7444d286b2b1efd1130924b5b43f1c99ab4f56d55a4ba500ae030d2a",
+    "src/main/java/com/hardcoremisiones/bosses/catalog/ProviderBossCatalog.java": "d4f0b1899a057f47c1ba0615657f4c46dcccb985bb361fdbd311bae3f44f61f1",
+    "src/main/java/com/hardcoremisiones/bosses/catalog/TrialCatalog.java": "070c65f2b712d56847bf9abe8b3e352ce7c6ead82dc92837edb5d324a9e55764",
+    "src/main/java/com/hardcoremisiones/bosses/catalog/TrialOfferCodec.java": "90d31f403b1d6dec814990bf11a96cbcdec2d2104c80d699592cd2dffea8ca60",
+    "src/main/java/com/hardcoremisiones/bosses/integration/BossPenanceGateway.java": "f603672af0d60958a6bd3acabc873bdde5b350d433d73e49b563a1cbc6f87037",
+    "src/main/java/com/hardcoremisiones/bosses/integration/BossPhysicalWorldGuard.java": "9fdd00f6abc105af0cf14f7165ce58a7095e61ac838afa0a4988757597c9e11b",
+    "src/main/java/com/hardcoremisiones/bosses/integration/BossProviderMetadata.java": "3acc33a403d08183a2c5dab6f0add31bf2d8459677d0853672f1471952297f9b",
+    "src/main/java/com/hardcoremisiones/bosses/integration/BossWorldScope.java": "c76435a19261289627f2b6e672af6ea9016d1ee9167ea6141f2942ab9d983ab1",
+    "src/main/java/com/hardcoremisiones/bosses/integration/BossesSnapshotGuard.java": "7ae96d2bed4dc0e86de520c559ae28a87344300b71ea2f4c1f9f1c7c55933148",
+    "src/main/java/com/hardcoremisiones/bosses/integration/GuardianProviderPreflight.java": "5325e7397cad1b860221446cf4ff7a8f0ac0c9acea838b17a4f33c2c4a0cb4f6",
+    "src/main/java/com/hardcoremisiones/bosses/integration/HardcoreBossesAdmission.java": "1259862a90d0168197b19a53d9c150cc939650279733430c63c382dddbb4e040",
+    "src/main/java/com/hardcoremisiones/bosses/integration/HardcoreBossesApiBridge.java": "e71494da9436855a29575b6c6ecd67cfddbe602982285d8c1af02ae542e7c727",
+    "src/main/java/com/hardcoremisiones/bosses/integration/HardcoreBossesServiceProbe.java": "b9b3ed444a22f2ec7b01780a780607e20772dff7ced4a27666c08ab73e857b0c",
+    "src/main/java/com/hardcoremisiones/bosses/integration/SimulatedBossProvider.java": "3ee28b2d503a73bfc7d5937fb0f0699f5283fc0ed3219faad8d8da52be3b62df",
+    "src/main/java/com/hardcoremisiones/bosses/persistence/EncounterGameIdentityStore.java": "5e0312740bc15111744406c815749e7441746665a081ab591158ac649b38103c",
+    "src/main/java/com/hardcoremisiones/bosses/persistence/EncounterRequestJournal.java": "589193cfe4ac86dad96d0be9751f8971d2a24e20d511b63807c58dbdd8d375bd",
+    "src/main/java/com/hardcoremisiones/bosses/persistence/EncounterStateSchema.java": "628dd1f80fdd74d6615f55066a74dad86b5973f4c948087a6715839606f215ba",
+    "src/main/java/com/hardcoremisiones/bosses/persistence/HuntJournalSchema.java": "50fe441993c50bb4f638e77442c5f065575fe8858832047bd5c0c3f09f24eba5",
+    "src/main/java/com/hardcoremisiones/bosses/policy/BossBlessingPolicy.java": "2fa293eb8415a3dc9fead26b03226f315a52e81804a36be4d14d1a0b46233be1",
+    "src/main/java/com/hardcoremisiones/bosses/policy/BossCatalogPolicy.java": "d2b34c7019ccc2bef5c82e9ccf1b989aba920790d56050a5efb0b19ffd51820b",
+    "src/main/java/com/hardcoremisiones/bosses/policy/BossLootComponentsPolicy.java": "ea83d527ad5fb660cee0a50cd35614f145f7e02ab24224b29397b87aa650c719",
+    "src/main/java/com/hardcoremisiones/bosses/policy/EncounterRewardIdentity.java": "447073ad7ed510061fb636a67d566d0c2f6d92e8169dfed2f8a74311b868dd17",
+    "src/main/java/com/hardcoremisiones/bosses/view/PenanceEncounterView.java": "f5d42a66f5e9032b17758e5ebe7a31658748a54f1233b35a0c0c34217e0d852d",
+    "src/main/java/com/hardcoremisiones/config/ConfigMigration.java": "320da1ced7dd8e00f48849cac20255239858436084db31bf3257877bbe86a853",
+    "src/main/java/com/hardcoremisiones/config/ConfigShape.java": "88fe989693a41cd4081797ffd8abb2285b279ff3794b0ad04a1c248f4e74d396",
+    "src/main/java/com/hardcoremisiones/config/PaperConfigYaml.java": "a6c6c87ebe5b5c3e278bae128840d491fdcc99772ae3a94fb24e0dda005f4bf4",
+    "src/main/java/com/hardcoremisiones/config/ProductYamlSchema.java": "129e7e81fc4a051c960b7ddf66a8605ad1ad64cbb24489d0de8274fac673a42b",
+    "src/main/java/com/hardcoremisiones/config/StrictYaml.java": "13bbbba0727cfb303fc011f3ca8d5ceb46345ef255ded367784f7a56f38ebd60",
+    "src/main/java/com/hardcoremisiones/config/reload/ConfigurationReloadService.java": "a4ccc32111cc4bf12664be2f1aded2b61d227faac2d3dbc9632c385215891bec",
+    "src/main/java/com/hardcoremisiones/f3/api/BossProvider.java": "350dee5a0458c94f5988fcf0d7cdd996eb06a1321871cef75d7fc58e3f89c81b",
+    "src/main/java/com/hardcoremisiones/hm2/core/ActionEvidence.java": "073f87596f0e12d13f5cdbb0ecd7767fe61c9dcbc59ad5558e2a32966cfb49ef",
+    "src/main/java/com/hardcoremisiones/hm2/core/AtomicStorage.java": "2dee182544b19f19071c74a913bd3ae6129aacbb15cf1b40155d89322ccb40bb",
+    "src/main/java/com/hardcoremisiones/hm2/core/ChunkMiningMarks.java": "6ed1145d8d9b74c1a76f58bd67047d062699ff8e41ffee0a8892df1a2cb7793c",
+    "src/main/java/com/hardcoremisiones/hm2/core/DayTransitionJournal.java": "42c48a766bf48ff47a52827b1ff5e0976f0ed797d4b5b7907680c73dde9617ba",
+    "src/main/java/com/hardcoremisiones/hm2/core/MissionContract.java": "2e8f2b9ed2fd0999208c5b5de389d45724802bdc4ea2fa67549eee9a16afbe82",
+    "src/main/java/com/hardcoremisiones/hm2/core/MovementSampler.java": "731ef656e0f701bb47028ef4889a9443d5e4a4b307361d175593c0b4c7d3f96a",
+    "src/main/java/com/hardcoremisiones/hm2/core/SafeTickSequence.java": "b73f21e5106a05fc95ba739bc700e0706fd2ff6cd213017996a022b63ccd5a5b",
+    "src/main/java/com/hardcoremisiones/hm2/core/SessionCrossStateGuard.java": "a91c89b89647cfd7bb4ee49ef337c5a05e6d309691c88dc4b82284ba5361bd81",
+    "src/main/java/com/hardcoremisiones/hm2/core/TeamContributionPolicy.java": "ddd93059f101014fe490734725a83e78202e639da60dcc37fa9344a32c586a7a",
+    "src/main/java/com/hardcoremisiones/missions/OfferingTransaction.java": "0b81027e6e36412cf61f09015da048fe6a4ebb6f4a18657a366253be1bbb893b",
+    "src/main/java/com/hardcoremisiones/missions/catalog/MissionCatalog.java": "1c637f16f360ed039a67dc4a946a9f4a95eb87e9f3d4ba1387786c0a6d6e80e6",
+    "src/main/java/com/hardcoremisiones/missions/combat/CombatAssistanceTracker.java": "551ed70124e694dee426af48aaf5976e854c80f4534f29deb9c74701b8797044",
+    "src/main/java/com/hardcoremisiones/missions/cycle/MissionCalendar.java": "cbfe22c9d24d8bd69fa0f920533559069fff08be3860a681846190e264e363f7",
+    "src/main/java/com/hardcoremisiones/missions/cycle/MissionRewardClock.java": "37efffb980f56eb12f9bcfc08ff6a43d63cae0a72717bb52baa9b998f933d76d",
+    "src/main/java/com/hardcoremisiones/missions/group/GroupBalancePolicy.java": "5bd979f4ccda8410245048b88167055c6ca8268c0ee03be33af5f5548a702a5e",
+    "src/main/java/com/hardcoremisiones/missions/model/MissionDefinition.java": "abd468ef19635797bae4670789b01c92a0e6c2ff3f48ffca48df6e76940d0ef3",
+    "src/main/java/com/hardcoremisiones/missions/model/MissionProfile.java": "5119d5438488b12efd9428693433be49165b10fdd2455ae0ce4bd61eb9ae4a0d",
+    "src/main/java/com/hardcoremisiones/missions/model/MissionType.java": "d1d6cfaf7b2e5cc60b669a264a23000724b3e2d3f1183506ec3a21e5d3251187",
+    "src/main/java/com/hardcoremisiones/missions/persistence/FrozenMissionCodec.java": "d3ffd8843a67962869cf44c8cbb4ceefa6ac44490153dc42974300ee281e68a6",
+    "src/main/java/com/hardcoremisiones/missions/persistence/OfferingJournal.java": "efc000ba5da8f811b35e99b61de2b6e79133be779b6e6cbb83c0564a04ebbf41",
+    "src/main/java/com/hardcoremisiones/missions/provenance/PaperBlockProvenance.java": "169eef9e1ad0dc3e0c205bbfdde79d25671fe4d722d06130385de96070c9765f",
+    "src/main/java/com/hardcoremisiones/missions/provenance/PaperMobProvenance.java": "772b33ed6c733b30de62cfa073b6c78795dbd67fe5c969620352d13647528f04",
+    "src/main/java/com/hardcoremisiones/nether/model/ExpeditionType.java": "fa28a5aa143ad87a4443955b5a1df49c060cc0d4e57453a4c4f1f286be7ce59d",
+    "src/main/java/com/hardcoremisiones/notifications/TeamNotifier.java": "b1ade87e33e46b9622b7b7dc5a60fb04e2d1df7e3475c55509110a3debfac69e",
+    "src/main/java/com/hardcoremisiones/penalties/persistence/BossPenaltyYaml.java": "93c4334400da1c002ea4c919eda5732b9f1f2d9e38e72f1fb682d253db136be1",
+    "src/main/java/com/hardcoremisiones/penalties/policy/BossDebuffPolicy.java": "068e52e9c1470d52b9db8e416d9dec067f09a9541a841404fbf98a1b9f256a18",
+    "src/main/java/com/hardcoremisiones/penalties/policy/MissionPenaltyPolicy.java": "7a408548ac930569d31e06f0fa01d07400b9a599eb4fcc23cc48df5fa0b120af",
+    "src/main/java/com/hardcoremisiones/penalties/policy/PenanceSelectionPolicy.java": "f0b6871aa614f8b0d14e9f219b924b3fc4293db6aed1f3e8ae6e7b4bb8d58e07",
+    "src/main/java/com/hardcoremisiones/penalties/policy/WavePolicy.java": "655b152e387ba1948df30195480a8d08bea7e604647e3e9711febe36f8562b02",
+    "src/main/java/com/hardcoremisiones/players/EstadisticasMuertes.java": "352af1e51524de82128c746cfccd9af824fc529a12fd24060f7541ba7fc7885c",
+    "src/main/java/com/hardcoremisiones/rewards/benefits/TemporaryBenefitCatalog.java": "26c2c86dff114a8810d60af3f98ab7c80c3b43f23c2ee67a99004f2a5b7603d4",
+    "src/main/java/com/hardcoremisiones/rewards/bosses/BossLootJournal.java": "f8401ab910c83b352cf98a301caa6362257623232af3725ccc7c405ef427107b",
+    "src/main/java/com/hardcoremisiones/rewards/bosses/BossRewardContract.java": "e70ece281430c81739ff16432809a752400181fd042d9c9e8835d82ec9ce9a26",
+    "src/main/java/com/hardcoremisiones/rewards/delivery/PaperRewardDelivery.java": "47de334e88fbd6048183d3bdce17ac77a73395b20a5fedfa8fa9dc5a365afaeb",
+    "src/main/java/com/hardcoremisiones/rewards/encounters/EncounterEconomy.java": "cba50c10847cd1d61274dda2d87822108bae0ce7012bed36c06936ce52a48582",
+    "src/main/java/com/hardcoremisiones/rewards/encounters/EncounterEconomyYaml.java": "980fa6de4b3d40a21a72d7773e63261052ef1d77250b72b8c6f795d6137f211e",
+    "src/main/java/com/hardcoremisiones/rewards/hunts/BossLootPolicy.java": "578a54e46227dc0530036f4e875e5f12a6eb610c94ea4553425ff71d29bcd806",
+    "src/main/java/com/hardcoremisiones/rewards/hunts/HuntRewardPolicy.java": "417b3ffda341955aadd69c3e086b274bfea258f6a3a076516155e57993f2f780",
+    "src/main/java/com/hardcoremisiones/rewards/hunts/HuntRewardYaml.java": "b77fa342ee43de3666121b64ed669dcdbb8f885915bdffba5f8488d24b2f66bc",
+    "src/main/java/com/hardcoremisiones/rewards/ledger/PaymentTransaction.java": "3b3d6688c6a32b6fb4445ff455ace816777b0d2d3f040f889df25620c52aff2b",
+    "src/main/java/com/hardcoremisiones/rewards/ledger/RewardLedgerAudit.java": "7ae30dfcc497626d91cb431eb51caca0a780c5bdf18f34f25e7913a52b5145cf",
+    "src/main/java/com/hardcoremisiones/rewards/ledger/RewardQueueCodec.java": "775dfce0c2c9b85dbb1e879a7cce7676a1ea12358b50f26734dcc0e347b2aeed",
+    "src/main/java/com/hardcoremisiones/rewards/ledger/RewardStateSchema.java": "be019f6ca2d851e2c266a6f9dfd37c0097514135ab393974af5c70272914abad",
+    "src/main/java/com/hardcoremisiones/rewards/milestones/MilestoneCatalog.java": "e754cd4814685774a1316aa2ffd01f1d5a5b2f6f543e6f043fa8452c1a3de9c3",
+    "src/main/java/com/hardcoremisiones/rewards/missions/MissionBenefitRewardPolicy.java": "d73ff8853580db7402a006aeab71dc5c5541090dfeb1e06e187f5cba0d763fce",
+    "src/main/java/com/hardcoremisiones/rewards/missions/MissionMilestoneRewardPolicy.java": "6f7d21071ed7de72f80e5ffc8c77199a1f8e5f02b31b13390fd783da5c6725dd",
+    "src/main/java/com/hardcoremisiones/rewards/missions/MissionRewardCodec.java": "b9afdcde1e2de47a69beb5c08545145c1d2c6739ba45cf60e0d5bcd5b83d1fa1",
+    "src/main/java/com/hardcoremisiones/rewards/missions/MissionRewardFactory.java": "a0764e74fcda99af69afd6ac4733e90659f206835dc05497cdcf6c3d4158faeb",
+    "src/main/java/com/hardcoremisiones/rewards/missions/ProgressiveMissionLootPolicy.java": "6cb5bc9ea364200f592807dee07bc79bc5d91ff6e53d1e6d461fb5b92ba04e2a",
+    "src/main/java/com/hardcoremisiones/rewards/model/MissionRewardContract.java": "d67c9216281a8460590e7dd729e326b59e92b5ab5e24b20ecb16f37937db91bd",
+    "src/main/java/com/hardcoremisiones/rewards/model/RewardItem.java": "832e1815fe2e42b63e6d367d2aac04f775a9bd6295dddccda79705ed33ddf83c",
+    "src/main/java/com/hardcoremisiones/rewards/model/RewardMaterialPolicy.java": "45f9a03c28411796276a31f9881b25c572ef139f9989bc59f59b1599d5342ff9",
+    "src/main/java/com/hardcoremisiones/rewards/model/RewardPayment.java": "43053350f7677aa618bc75a3c39875530f5a98a92f0b26976e980b23686e1fb7",
+    "src/main/java/com/hardcoremisiones/rewards/policy/RewardBudgetLimits.java": "d194b816ecf37aab39f8919d64e48434d22a46185ba27ba60c9994faf43aa5e4",
+    "src/main/java/com/hardcoremisiones/rewards/policy/RewardSelectionMode.java": "592dec069e27bb5b83c828e20342a849e6cbccfa7e1acd2640f93434cffc9261",
+    "src/main/java/com/hardcoremisiones/seal/inventory/SealInventory.java": "a4b3e56e0876f2284d29302ae55f9348c1eecd1018fcf3f252efd10975c2bf34",
+    "src/main/java/com/hardcoremisiones/seal/policy/SealClickPolicy.java": "81df3133fdfa10adf6f3c5fab296b0f3386d4c4de2bb26d513da15608227ddf7",
+    "src/main/java/com/hardcoremisiones/seal/policy/SealInventoryPolicy.java": "0d0f97fed162abd7d363e4268a45050589b2b6479c29c38db31449015256a6bc",
+    "src/main/java/com/hardcoremisiones/seal/policy/SealNavigationPolicy.java": "f74f1818e844f7da23eceabb62de9449aaab938e225b4141f975a79bf97c7cc1",
+    "src/main/java/com/hardcoremisiones/seal/view/RuleBook.java": "2976dd26e6a54e7132aacd3554438a0d1ccf86b55fee8bf62474513ba8a5558f",
+    "src/main/java/com/hardcoremisiones/sessions/SessionRegistry.java": "1c6b386a6a31711b1f0b0e5a11ddece3ac5b5cb8cf19d1145b11c3e6b02869c5",
+    "src/main/java/com/hardcoremisiones/sessions/identity/HardcoreMpGameIdentity.java": "2aa9fb1d13d74c10d14d464e579279494bf69725f06b8bf1d37bb5190f7de75b",
+    "src/main/java/com/hardcoremisiones/storage/SessionYaml.java": "9729d238487ed26698667f3f6b9281800f43172f24906772e05fd5005f5e3f1c",
+    "src/main/resources/catalogo.yml": "20898f60ae742d9512c3664b7d12a70e4f77d357a060916a990185d4fa93baf9",
+    "src/main/resources/config.yml": "e0cb023ea856b348941edf3b72ef618e68d6a9ede46700dea806dfb86e508d51",
+    "src/main/resources/lotes-jefes.yml": "306f478291f85b67a1ca7bb8aa2769e861aa6c0e4081bf211d60166ec12be0fb",
+    "src/main/resources/perfiles-f2.yml": "6818a13ea3b779f3661157f85b07afae09439b5071420ac4ab9bdd6f8fe5004b",
+    "src/main/resources/plugin.yml": "d381928c1bf209c2ba6adb809182fc5bacc9ecee1d4cd3e9c285578ca906eee6",
+    "src/main/resources/premios-jefes.yml": "8c0f103ae3d383474a9e6410fd11416b117d61a473b13e84dfaa22e924f7f548",
+    "src/main/resources/retos-f3.yml": "ff8fee4ee3657791a628dc3123f740652e3eea807623679b2971716c4a209547"
+  },
+  "builds": [
+    {
+      "bytecode_entries": 293,
+      "resource_entries": 7,
+      "bytes": 765153,
+      "sha256": "10c7f9bfca074c11e95df5af7a9fe51046992264c5efa7e89009f2052b31c378",
+      "compile_seconds": 12.3
+    },
+    {
+      "bytecode_entries": 293,
+      "resource_entries": 7,
+      "bytes": 765153,
+      "sha256": "10c7f9bfca074c11e95df5af7a9fe51046992264c5efa7e89009f2052b31c378",
+      "compile_seconds": 7.746
+    }
+  ],
+  "byte_identical": true
+}

@@ -1,0 +1,2 @@
+Counter({'PASS': 46, 'PASS_PAPER': 17, 'BLOCKED_FAKE_MISSING': 3})
+Agrupación por entorno de ejecución de la misma revisión de código productivo. Gate global bloqueado por 3 pruebas fake. Las 17 pruebas que necesitan Paper no se contabilizan como fallos del producto en JVM.

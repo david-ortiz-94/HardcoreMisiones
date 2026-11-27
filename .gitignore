@@ -1,0 +1,122 @@
+# HardcoreMisiones 2.1.0 — Java 25 / Gradle / IntelliJ / Paper
+
+# Compilación y cachés de Gradle
+.gradle/
+/build/
+/out/
+/target/
+/bin/
+*.class
+*.jar
+*.war
+*.ear
+*.hprof
+hs_err_pid*
+replay_pid*
+# El wrapper, si se incorpora, sí debe versionarse.
+!/gradle/wrapper/gradle-wrapper.jar
+
+# Dependencias locales (Paper, HardcoreBosses y fake oficial)
+/libs/*
+!/libs/README.md
+/jdk/
+/jdks/
+/deps/
+
+# IntelliJ IDEA y otros IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.settings/
+.project
+.classpath
+.factorypath
+
+# Python: scripts de verificación y laboratorio
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+/htmlcov/
+
+# Servidores Paper / Minecraft locales (no son fuentes)
+/server/
+/servers/
+/run/
+/lab/
+/labs/
+/paper-lab/
+/paper-labs/
+/plugins/
+/world/
+/world_nether/
+/world_the_end/
+/hcmp_game*/
+/cache/
+/libraries/
+/versions/
+/crash-reports/
+/logs/
+/backups/
+/sessions/
+/sesiones/
+/eula.txt
+/server.properties
+/ops.json
+/whitelist.json
+/banned-ips.json
+/banned-players.json
+/usercache.json
+/bukkit.yml
+/spigot.yml
+/paper.yml
+/config/paper-global.yml
+/config/paper-world-defaults.yml
+
+# Paquetes generados, copias y temporales
+/dist/
+/releases/
+/artifacts/
+/*.zip
+/*.7z
+/*.tar.gz
+*.tmp
+*.bak
+*.swp
+*~
+*.log
+*.log.gz
+*.lck
+# Evidencia de contratos Paper: conservar los logs canónicos de certificación.
+!/evidence/**/paper-contracts.log
+!/evidence/**/paper-contracts-hmp-enabled.log
+# Los JSON, CSV, hashes, informes y sondas de evidence/ permanecen versionables.
+
+# Configuración privada (gradle.properties del proyecto sí se versiona)
+.env
+.env.*
+!.env.example
+!/gradle.properties
+/local.properties
+/gradle-local.properties
+/secrets/
+*.jks
+*.p12
+*.pfx
+*.key
+*.pem
+
+# Windows / macOS
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# No excluir src/, scripts/, tools/, quality/, distribution/,
+# legacy/, fixtures/, docs/ ni los YAML de src/main/resources/.

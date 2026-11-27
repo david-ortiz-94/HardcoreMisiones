@@ -1,0 +1,106 @@
+# F3 — Identificadores estables W29, lógica de misión sin dependencias visuales.
+# RC4: boss_id es configurable POR RETO, y se verifica contra HardcoreBosses.
+# Por seguridad los retos narrativos F3 NO usan un sorteo aleatorio: las etapas,
+# dimensiones y sus recompensas siguen asociadas a un jefe concreto. No cambiar
+# boss_id mientras exista un encuentro F3 abierto o histórico sin conciliar.
+# IDs del proveedor: /hm jefes catalogo (solo con HardcoreBosses REAL activo).
+# Las etapas son hitos durables, en orden y por sesión. Una victoria requiere
+# recibo terminal firmado lógicamente por IDs y persistido por BossProvider v2.
+# Los objetivos del Nether son los éxitos reales de las expediciones F1;
+# el Juicio conserva su combate y penitencias vanilla, nunca invoca jefes.
+formato: 1
+retos:
+  f3:vigilia_ceniza:
+    titulo: "La vigilia de las cenizas"
+    boss_id: "hm2:guardian_ceniza"
+    dimension: overworld
+    dia_minimo: 7
+    nivel: 2  # LAN: recompensa de jefe MEDIO (solo para nuevas instalaciones).
+    tiempo_maximo_segundos: 720
+    intentos_maximos: 3
+    descanso_tras_derrota_dias: 0
+    etapas:
+      - DIA
+      - GRUPAL
+      - REUNION
+  f3:abismo_resuena:
+    titulo: "El abismo resuena"
+    boss_id: "hm2:centinela_abismo"
+    dimension: nether
+    dia_minimo: 14
+    nivel: 3
+    tiempo_maximo_segundos: 900
+    intentos_maximos: 3
+    descanso_tras_derrota_dias: 1
+    etapas:
+      - DIA
+      - NETHER_FORTALEZA
+      - REUNION
+  f3:archivo_ecos:
+    titulo: "El archivo de los ecos"
+    boss_id: "hm2:arquitecta_ecos"
+    dimension: overworld
+    dia_minimo: 21
+    nivel: 3
+    tiempo_maximo_segundos: 1100
+    intentos_maximos: 2
+    descanso_tras_derrota_dias: 1
+    etapas:
+      - DIA
+      - JUICIO
+      - GRUPAL
+      - REUNION
+
+  # Cacerías dinámicas RC8-H: todos los IDs provienen de listBossIds() real.
+  # Estos retos nuevos no alteran los tres narrativos ni encuentros históricos.
+  f3:caceria_catalogo:
+    titulo: "Cacería de jefes del catálogo"
+    boss_id: ""  # RC8G: se elige dinámicamente, NO inventar un ID aquí.
+    modo-seleccion: CATALOGO_ALEATORIO
+    lista-permitida: []
+    lista-excluida: []
+    biomas-permitidos: []  # Vacío = los biomas publicados por el proveedor y validateEncounter.
+    pesos: {}  # Por defecto todos los candidatos equivalentes pesan 1.
+    dificultad-minima: FACIL
+    dificultad-maxima: MEDIO  # Solo jefes FACIL/MEDIO; recompensa real se limita por dificultad.
+    dimension: overworld
+    dia_minimo: 7
+    nivel: 2  # Tope de recompensa LAN para FACIL/MEDIO; no depende del boss.
+    tiempo_maximo_segundos: 720
+    intentos_maximos: 3
+    descanso_tras_derrota_dias: 1
+    etapas: [DIA, GRUPAL, REUNION]
+  f3:caceria_avanzada:
+    titulo: "Cacería del catálogo avanzada"
+    boss_id: ""
+    modo-seleccion: CATALOGO_ALEATORIO
+    lista-permitida: []
+    lista-excluida: []
+    biomas-permitidos: []
+    pesos: {}
+    dificultad-minima: MEDIO
+    dificultad-maxima: DIFICIL
+    dimension: overworld
+    dia_minimo: 14
+    nivel: 3
+    tiempo_maximo_segundos: 900
+    intentos_maximos: 3
+    descanso_tras_derrota_dias: 1
+    etapas: [DIA, GRUPAL, REUNION]
+  f3:caceria_extrema:
+    titulo: "Cacería del catálogo extrema"
+    boss_id: ""
+    modo-seleccion: CATALOGO_ALEATORIO
+    lista-permitida: []
+    lista-excluida: []
+    biomas-permitidos: []
+    pesos: {}
+    dificultad-minima: DIFICIL
+    dificultad-maxima: DIFICIL
+    dimension: overworld
+    dia_minimo: 21
+    nivel: 3
+    tiempo_maximo_segundos: 1100
+    intentos_maximos: 2
+    descanso_tras_derrota_dias: 1
+    etapas: [DIA, JUICIO, GRUPAL, REUNION]

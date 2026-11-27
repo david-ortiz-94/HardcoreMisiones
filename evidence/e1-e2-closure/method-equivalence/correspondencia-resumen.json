@@ -1,0 +1,14 @@
+{
+  "metodos_y_declaraciones_HF5": 1135,
+  "metodos_y_declaraciones_actuales": 1352,
+  "clasificacion": {
+    "FIRMA_Y_CUERPO_IDENTICOS": 620,
+    "FIRMA_IGUAL_CUERPO_CAMBIADO": 226,
+    "SIN_CORRESPONDENCIA_ESTRUCTURAL": 197,
+    "CUERPO_IDENTICO_EN_CLASE_MAPEADA": 43,
+    "CUERPO_IDENTICO_EN_OTRA_UBICACION": 33,
+    "DECLARACION_MISMA_FIRMA": 9,
+    "AMBIGUO": 7
+  },
+  "limite": "Comparación del AST normalizado y firma textual; no analiza bindings, flujo, efectos, llamadas ni equivalencia semántica. No cambia el gate E1-B."
+}

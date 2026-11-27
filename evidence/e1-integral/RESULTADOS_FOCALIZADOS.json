@@ -1,0 +1,32 @@
+{
+  "compile_exit": 0,
+  "architecture": "architecture-final.json",
+  "tests": [
+    {
+      "name": "FrozenConfigurationContractsTest",
+      "checks": 25,
+      "status": "PASS"
+    },
+    {
+      "name": "ProductYamlSchemaTest",
+      "checks": 26,
+      "status": "PASS"
+    },
+    {
+      "name": "ConfigRecargaRC6Test",
+      "checks": 21,
+      "status": "PASS"
+    }
+  ],
+  "not_executed": [
+    "regresión JVM completa",
+    "Paper",
+    "Gradle",
+    "doclint",
+    "perfilado rendimiento"
+  ],
+  "blocked": [
+    "3 pruebas fake oficial HardcoreBosses ausente"
+  ],
+  "e1": "ABIERTO"
+}

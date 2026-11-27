@@ -1,0 +1,168 @@
+{
+  "classes": 119,
+  "root_classes": 27,
+  "packages": {
+    "com.hardcoremisiones": [
+      "com.hardcoremisiones.bosses.catalog",
+      "com.hardcoremisiones.bosses.integration",
+      "com.hardcoremisiones.bosses.persistence",
+      "com.hardcoremisiones.bosses.policy",
+      "com.hardcoremisiones.bosses.view",
+      "com.hardcoremisiones.config",
+      "com.hardcoremisiones.config.reload",
+      "com.hardcoremisiones.f3.api",
+      "com.hardcoremisiones.hm2.core",
+      "com.hardcoremisiones.missions",
+      "com.hardcoremisiones.missions.catalog",
+      "com.hardcoremisiones.missions.combat",
+      "com.hardcoremisiones.missions.cycle",
+      "com.hardcoremisiones.missions.group",
+      "com.hardcoremisiones.missions.model",
+      "com.hardcoremisiones.missions.persistence",
+      "com.hardcoremisiones.missions.provenance",
+      "com.hardcoremisiones.nether.model",
+      "com.hardcoremisiones.notifications",
+      "com.hardcoremisiones.penalties.persistence",
+      "com.hardcoremisiones.penalties.policy",
+      "com.hardcoremisiones.players",
+      "com.hardcoremisiones.rewards.benefits",
+      "com.hardcoremisiones.rewards.bosses",
+      "com.hardcoremisiones.rewards.delivery",
+      "com.hardcoremisiones.rewards.encounters",
+      "com.hardcoremisiones.rewards.hunts",
+      "com.hardcoremisiones.rewards.ledger",
+      "com.hardcoremisiones.rewards.milestones",
+      "com.hardcoremisiones.rewards.missions",
+      "com.hardcoremisiones.rewards.model",
+      "com.hardcoremisiones.rewards.policy",
+      "com.hardcoremisiones.seal.inventory",
+      "com.hardcoremisiones.seal.policy",
+      "com.hardcoremisiones.seal.view",
+      "com.hardcoremisiones.sessions",
+      "com.hardcoremisiones.sessions.identity",
+      "com.hardcoremisiones.storage"
+    ],
+    "com.hardcoremisiones.bosses.catalog": [
+      "com.hardcoremisiones.f3.api"
+    ],
+    "com.hardcoremisiones.bosses.integration": [
+      "com.hardcoremisiones.bosses.catalog",
+      "com.hardcoremisiones.bosses.persistence",
+      "com.hardcoremisiones.f3.api",
+      "com.hardcoremisiones.hm2.core",
+      "com.hardcoremisiones.sessions.identity",
+      "com.hardcoremisiones.storage"
+    ],
+    "com.hardcoremisiones.bosses.persistence": [
+      "com.hardcoremisiones.hm2.core",
+      "com.hardcoremisiones.penalties.persistence",
+      "com.hardcoremisiones.penalties.policy",
+      "com.hardcoremisiones.sessions.identity",
+      "com.hardcoremisiones.storage"
+    ],
+    "com.hardcoremisiones.bosses.policy": [
+      "com.hardcoremisiones.f3.api"
+    ],
+    "com.hardcoremisiones.bosses.view": [],
+    "com.hardcoremisiones.config": [
+      "com.hardcoremisiones.bosses.catalog",
+      "com.hardcoremisiones.f3.api",
+      "com.hardcoremisiones.missions.model",
+      "com.hardcoremisiones.penalties.policy",
+      "com.hardcoremisiones.rewards.encounters"
+    ],
+    "com.hardcoremisiones.config.reload": [
+      "com.hardcoremisiones.config",
+      "com.hardcoremisiones.f3.api",
+      "com.hardcoremisiones.rewards.hunts"
+    ],
+    "com.hardcoremisiones.f3.api": [],
+    "com.hardcoremisiones.hm2.core": [],
+    "com.hardcoremisiones.missions": [],
+    "com.hardcoremisiones.missions.catalog": [
+      "com.hardcoremisiones.config",
+      "com.hardcoremisiones.missions.model"
+    ],
+    "com.hardcoremisiones.missions.combat": [],
+    "com.hardcoremisiones.missions.cycle": [],
+    "com.hardcoremisiones.missions.group": [
+      "com.hardcoremisiones.missions.model"
+    ],
+    "com.hardcoremisiones.missions.model": [
+      "com.hardcoremisiones.f3.api"
+    ],
+    "com.hardcoremisiones.missions.persistence": [
+      "com.hardcoremisiones.hm2.core",
+      "com.hardcoremisiones.missions.model",
+      "com.hardcoremisiones.rewards.missions",
+      "com.hardcoremisiones.rewards.model",
+      "com.hardcoremisiones.storage"
+    ],
+    "com.hardcoremisiones.missions.provenance": [
+      "com.hardcoremisiones.hm2.core"
+    ],
+    "com.hardcoremisiones.nether.model": [],
+    "com.hardcoremisiones.notifications": [],
+    "com.hardcoremisiones.penalties.persistence": [
+      "com.hardcoremisiones.penalties.policy"
+    ],
+    "com.hardcoremisiones.penalties.policy": [],
+    "com.hardcoremisiones.players": [
+      "com.hardcoremisiones.hm2.core",
+      "com.hardcoremisiones.storage"
+    ],
+    "com.hardcoremisiones.rewards.benefits": [],
+    "com.hardcoremisiones.rewards.bosses": [
+      "com.hardcoremisiones.bosses.policy",
+      "com.hardcoremisiones.config",
+      "com.hardcoremisiones.f3.api",
+      "com.hardcoremisiones.hm2.core",
+      "com.hardcoremisiones.rewards.encounters",
+      "com.hardcoremisiones.rewards.model"
+    ],
+    "com.hardcoremisiones.rewards.delivery": [
+      "com.hardcoremisiones.rewards.benefits",
+      "com.hardcoremisiones.rewards.milestones",
+      "com.hardcoremisiones.rewards.model"
+    ],
+    "com.hardcoremisiones.rewards.encounters": [],
+    "com.hardcoremisiones.rewards.hunts": [
+      "com.hardcoremisiones.bosses.policy",
+      "com.hardcoremisiones.rewards.bosses",
+      "com.hardcoremisiones.rewards.model"
+    ],
+    "com.hardcoremisiones.rewards.ledger": [
+      "com.hardcoremisiones.rewards.model"
+    ],
+    "com.hardcoremisiones.rewards.milestones": [],
+    "com.hardcoremisiones.rewards.missions": [
+      "com.hardcoremisiones.missions.model",
+      "com.hardcoremisiones.rewards.benefits",
+      "com.hardcoremisiones.rewards.model"
+    ],
+    "com.hardcoremisiones.rewards.model": [
+      "com.hardcoremisiones.rewards.benefits",
+      "com.hardcoremisiones.rewards.milestones"
+    ],
+    "com.hardcoremisiones.rewards.policy": [],
+    "com.hardcoremisiones.seal.inventory": [
+      "com.hardcoremisiones.seal.policy"
+    ],
+    "com.hardcoremisiones.seal.policy": [],
+    "com.hardcoremisiones.seal.view": [],
+    "com.hardcoremisiones.sessions": [
+      "com.hardcoremisiones.hm2.core",
+      "com.hardcoremisiones.storage"
+    ],
+    "com.hardcoremisiones.sessions.identity": [],
+    "com.hardcoremisiones.storage": [
+      "com.hardcoremisiones.config"
+    ]
+  },
+  "package_cycles": [],
+  "class_cycles": [],
+  "reverse_root_dependencies": [],
+  "pure_direct_paper_dependencies": [],
+  "unreachable_from_plugin_or_spi_static_only": [],
+  "limitations": "Static bytecode only; reflection and external callers not proven. Root class cycles are not a pass."
+}

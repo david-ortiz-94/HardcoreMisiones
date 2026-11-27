@@ -1,0 +1,8 @@
+# RC8-H: bendiciones ON por defecto; nunca sin victoria real, registro y reglas congeladas.
+# /hm jefes premios recargar  (administrador) para cambios a futuros encuentros.
+formato: 1
+bendiciones:
+  habilitadas: true
+  penitencias-habilitadas: true   # Condicional a botín penitenciario reservado, no a kill de MythicMobs
+  probabilidad-mision: [15, 30, 45, 60, 75]  # dificultad I..V
+  probabilidad-penitencia-condicional: [0, 0, 3, 5, 8]

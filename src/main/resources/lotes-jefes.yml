@@ -1,0 +1,23 @@
+# RC8-H: lotes ON por defecto para nuevos encuentros; solo WON real + ledger W42.
+# /hm jefes lotes recargar (admin). No sustituye premios-jefes.yml (bendiciones).
+formato: 1
+lotes:
+  habilitados: true
+  penitencias-habilitadas: true
+  eleccion-minutos: 60  # Después, opción Supervivencia automáticamente para no bloquear recibos
+  segundo-mision: [40, 60, 75, 90, 100]
+  tercero-mision: [5, 15, 30, 45, 65]
+  botin-penitencia: [5, 10, 15, 20, 25]
+  segundo-penitencia: [0, 0, 0, 5, 10]
+  # ID real de la API -> nivel I(1)..V(5), aprobado por creadora.
+  # SIN PERFIL NO HAY BOTIN PENITENCIARIO, evita inventar dificultad.
+  niveles-penitencia: {}
+  # Optional, frozen in each new encounter. Old administrative files without this section
+  # use 2.1 defaults for NEW encounters only; old frozen intent journals stay legacy.
+  economia-f3:
+    version: 3
+    I: {rareza: [50, 40, 10, 0], xp: 50, prestigio: 1}
+    II: {rareza: [30, 45, 23, 2], xp: 70, prestigio: 1}
+    III: {rareza: [15, 40, 35, 10], xp: 90, prestigio: 2}
+    IV: {rareza: [5, 30, 45, 20], xp: 120, prestigio: 2}
+    V: {rareza: [0, 20, 45, 35], xp: 155, prestigio: 3}

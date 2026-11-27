@@ -1,0 +1,431 @@
+{
+  "methodology": "1 + if, loops, catches, ternary, logical &&/||, non-default case. Includes lambdas in enclosing method, excludes local/anonymous class internals (measured separately). Exact compiler-rendered method body SHA, minimum eight statement nodes; does not detect renamed or partial clones. No coverage, runtime performance or dead-code inference.",
+  "HF5": {
+    "source_files": 95,
+    "concrete_methods_and_constructors": 1126,
+    "decision_mean": 6.865,
+    "decision_median": 3.0,
+    "decision_max": 405,
+    "decision_over_20": 81,
+    "decision_over_50": 7,
+    "exact_duplicate_groups_min_8_statement_nodes": 0,
+    "exact_duplicate_members": 0,
+    "duplicate_candidates": [],
+    "top_20": [
+      {
+        "file": "com/hardcoremisiones/HardcoreMisiones.java",
+        "class": "HardcoreMisiones",
+        "method": "onCommand(CommandSender,Command,String,String[])",
+        "start": "485",
+        "end": "1298",
+        "decision_score": "405",
+        "statement_nodes": "827",
+        "exact_body_sha256": "d3ad777cd7e70cbb288e1e129cc4a41ac71296111738f439ad5bcf6b86518f81"
+      },
+      {
+        "file": "com/hardcoremisiones/HardcoreMisiones.java",
+        "class": "HardcoreMisiones",
+        "method": "alClickearMenu(InventoryClickEvent)",
+        "start": "1477",
+        "end": "1864",
+        "decision_score": "201",
+        "statement_nodes": "338",
+        "exact_body_sha256": "a1307f084045860209584a0166c29aa96cad7b3126a6ae341a1aa754769118f7"
+      },
+      {
+        "file": "com/hardcoremisiones/EncuentrosF3.java",
+        "class": "EncuentrosF3",
+        "method": "changeSession(String)",
+        "start": "266",
+        "end": "468",
+        "decision_score": "123",
+        "statement_nodes": "269",
+        "exact_body_sha256": "63084c0715d5cc0fd2d6772436e9e41a08056731dc30e9b955c295b00da76f47"
+      },
+      {
+        "file": "com/hardcoremisiones/ConfiguracionProduccion.java",
+        "class": "ConfiguracionProduccion",
+        "method": "migrarArchivo(File,String,Consumer<String>)",
+        "start": "201",
+        "end": "391",
+        "decision_score": "72",
+        "statement_nodes": "160",
+        "exact_body_sha256": "c4662e5ac1edac0bc18e2a0ef5170e8930cfdfdc964a56f8acfeadcb6206e715"
+      },
+      {
+        "file": "com/hardcoremisiones/EncuentrosF3.java",
+        "class": "EncuentrosF3",
+        "method": "beginInternal(String,int,boolean)",
+        "start": "680",
+        "end": "793",
+        "decision_score": "71",
+        "statement_nodes": "122",
+        "exact_body_sha256": "5bf6dc750074690d6e509631a1a3a9762b83dc459a94edde5026a752a361e043"
+      },
+      {
+        "file": "com/hardcoremisiones/JefesPenitenciaW38.java",
+        "class": "JefesPenitenciaW38",
+        "method": "actualizar()",
+        "start": "398",
+        "end": "480",
+        "decision_score": "56",
+        "statement_nodes": "103",
+        "exact_body_sha256": "e4cb8291adab96f92bec483ab8fab4a4fef18afed0ff66c15f17aaefea5438f0"
+      },
+      {
+        "file": "com/hardcoremisiones/JefesPenitenciaW38.java",
+        "class": "JefesPenitenciaW38",
+        "method": "valido(Ticket)",
+        "start": "220",
+        "end": "244",
+        "decision_score": "55",
+        "statement_nodes": "20",
+        "exact_body_sha256": "4c8c1c09ddf50f9ef85190fad1b43d02f9b124aca0bd105032c9cb65c352ac5d"
+      },
+      {
+        "file": "com/hardcoremisiones/JefesPenitenciaW38.java",
+        "class": "JefesPenitenciaW38",
+        "method": "crearIntento(Ticket,HardcoreBossesPenaltyGatewayW38,String)",
+        "start": "481",
+        "end": "624",
+        "decision_score": "47",
+        "statement_nodes": "133",
+        "exact_body_sha256": "585302b86868bc9eead0b30a8fab8b65714d3d64b7cb19593c0ca4a835536232"
+      },
+      {
+        "file": "com/hardcoremisiones/Recompensas.java",
+        "class": "Recompensas",
+        "method": "completadas(EstadoMisiones,RelojMisiones,boolean,boolean)",
+        "start": "629",
+        "end": "693",
+        "decision_score": "45",
+        "statement_nodes": "53",
+        "exact_body_sha256": "82ed5121d357f928ea264c0a28f3fb9d79e725543d3546733b83c9c1b5a460da"
+      },
+      {
+        "file": "com/hardcoremisiones/EncuentrosF3.java",
+        "class": "EncuentrosF3",
+        "method": "bloqueoDesdeSello(String,int,UUID)",
+        "start": "554",
+        "end": "598",
+        "decision_score": "42",
+        "statement_nodes": "56",
+        "exact_body_sha256": "266f0d3c7b67d16acc29d9cb03b0d771f451d12158c61ba091979c52d37e885c"
+      },
+      {
+        "file": "com/hardcoremisiones/RelojMisiones.java",
+        "class": "RelojMisiones",
+        "method": "cerrarDia(World,long)",
+        "start": "357",
+        "end": "435",
+        "decision_score": "41",
+        "statement_nodes": "62",
+        "exact_body_sha256": "fe765fbf3b83ff368d530e3920c285a113b21ecd06492fea0dfbd2faf7e62e7b"
+      },
+      {
+        "file": "com/hardcoremisiones/EncuentrosF3.java",
+        "class": "EncuentrosF3",
+        "method": "tick()",
+        "start": "817",
+        "end": "889",
+        "decision_score": "40",
+        "statement_nodes": "87",
+        "exact_body_sha256": "2167fe28cff4258cd4d4607e718648fc21d12d9d394aafc5dba4170ebbedb913"
+      },
+      {
+        "file": "com/hardcoremisiones/Recompensas.java",
+        "class": "Recompensas",
+        "method": "entregarPendientes()",
+        "start": "838",
+        "end": "927",
+        "decision_score": "39",
+        "statement_nodes": "80",
+        "exact_body_sha256": "a9a86fd5020ec2bcb93fc495376e18de2f2c8439cb949a48e380a8bc892e41fc"
+      },
+      {
+        "file": "com/hardcoremisiones/EncuentrosF3.java",
+        "class": "EncuentrosF3",
+        "method": "<init>(HardcoreMisiones,EstadoMisiones)",
+        "start": "101",
+        "end": "165",
+        "decision_score": "38",
+        "statement_nodes": "70",
+        "exact_body_sha256": "bde95d9c87e60bd04726c173ad4dca49627a402bcaa40209caf0bb4a74b7dece"
+      },
+      {
+        "file": "com/hardcoremisiones/PoliticaCatalogoJefesRC8.java",
+        "class": "PoliticaCatalogoJefesRC8",
+        "method": "elegir(Peticion,Map<String, Definicion>,Collection<Proveedor>,RandomGenerator)",
+        "start": "59",
+        "end": "101",
+        "decision_score": "37",
+        "statement_nodes": "43",
+        "exact_body_sha256": "01cc2da1100949a2a8d71ea1e5853ec808e786ed8818c8e9aeadd7a6b6cad4db"
+      },
+      {
+        "file": "com/hardcoremisiones/PoliticaPremiosW45.java",
+        "class": "PoliticaPremiosW45",
+        "method": "carta(Random,int,Sorteo,int,int,int,boolean,int,int,Set<Material>)",
+        "start": "156",
+        "end": "241",
+        "decision_score": "37",
+        "statement_nodes": "74",
+        "exact_body_sha256": "c9ef7c71cbffb50d70cc330cf56c8ee42c4822efcb2f99416d3c5f9cc2d087da"
+      },
+      {
+        "file": "com/hardcoremisiones/RelojMisiones.java",
+        "class": "RelojMisiones",
+        "method": "actualizar(World)",
+        "start": "247",
+        "end": "334",
+        "decision_score": "37",
+        "statement_nodes": "70",
+        "exact_body_sha256": "1dfbd7253bae0a1deba52a1b57e03f3a0777024e60674d16ad245296006ca23e"
+      },
+      {
+        "file": "com/hardcoremisiones/CaceriasOrdinariasHF5.java",
+        "class": "CaceriasOrdinariasHF5",
+        "method": "observar(Ticket)",
+        "start": "304",
+        "end": "370",
+        "decision_score": "36",
+        "statement_nodes": "82",
+        "exact_body_sha256": "a82c90e586c631ef05e56f65bd3ea31cae977149ce3372c3826afecad8e9bc04"
+      },
+      {
+        "file": "com/hardcoremisiones/CaceriasOrdinariasHF5.java",
+        "class": "CaceriasOrdinariasHF5",
+        "method": "cambiarSesion(String)",
+        "start": "78",
+        "end": "131",
+        "decision_score": "35",
+        "statement_nodes": "88",
+        "exact_body_sha256": "3ddb53165b246ac1968e61abc347e9526d89a8a1f878de48943de42cfb46a8fa"
+      },
+      {
+        "file": "com/hardcoremisiones/RecargaSeguraRC6.java",
+        "class": "RecargaSeguraRC6",
+        "method": "esDinamica(String)",
+        "start": "99",
+        "end": "132",
+        "decision_score": "34",
+        "statement_nodes": "17",
+        "exact_body_sha256": "3ab49ffb86e82e9f51615d15cfde9cea3e3b03139694a5a285f31aa2936a172a"
+      }
+    ]
+  },
+  "2.1.0": {
+    "source_files": 131,
+    "concrete_methods_and_constructors": 1298,
+    "decision_mean": 6.439,
+    "decision_median": 3.0,
+    "decision_max": 184,
+    "decision_over_20": 91,
+    "decision_over_50": 9,
+    "exact_duplicate_groups_min_8_statement_nodes": 0,
+    "exact_duplicate_members": 0,
+    "duplicate_candidates": [],
+    "top_20": [
+      {
+        "file": "com/hardcoremisiones/SealMenuListener.java",
+        "class": "SealMenuListener",
+        "method": "alClickearMenu(InventoryClickEvent)",
+        "start": "123",
+        "end": "448",
+        "decision_score": "184",
+        "statement_nodes": "288",
+        "exact_body_sha256": "9388e914007d12cbeca1ed5add5cf9490674fa92ff87d180718ff3a24228fad8"
+      },
+      {
+        "file": "com/hardcoremisiones/BossEncounterCoordinator.java",
+        "class": "BossEncounterCoordinator",
+        "method": "changeSession(String)",
+        "start": "294",
+        "end": "559",
+        "decision_score": "153",
+        "statement_nodes": "342",
+        "exact_body_sha256": "ea655f66321d3e405f11efd9ea07ce9620ee15736b12ee0db772b13e2a4fc4ea"
+      },
+      {
+        "file": "com/hardcoremisiones/BossCommands.java",
+        "class": "BossCommands",
+        "method": "bosses(CommandSender,String[])",
+        "start": "89",
+        "end": "262",
+        "decision_score": "85",
+        "statement_nodes": "172",
+        "exact_body_sha256": "f20b44763f8e66891684b5a0295f1d721c350a40796bcfa0c6d295bac737c47b"
+      },
+      {
+        "file": "com/hardcoremisiones/config/ConfigMigration.java",
+        "class": "ConfigMigration",
+        "method": "migrarArchivo(File,String,Consumer<String>)",
+        "start": "208",
+        "end": "402",
+        "decision_score": "75",
+        "statement_nodes": "164",
+        "exact_body_sha256": "d7f7236febf73373443326f7c7b71f4652d8e48a60d12feda2100c0a46bf2932"
+      },
+      {
+        "file": "com/hardcoremisiones/BossEncounterCoordinator.java",
+        "class": "BossEncounterCoordinator",
+        "method": "beginInternal(String,int,boolean)",
+        "start": "773",
+        "end": "888",
+        "decision_score": "72",
+        "statement_nodes": "125",
+        "exact_body_sha256": "374507471c722602fc65188a02560e0dc018df7727d25d7c5708bc07809fbfa3"
+      },
+      {
+        "file": "com/hardcoremisiones/RewardCommands.java",
+        "class": "RewardCommands",
+        "method": "rewards(CommandSender,String[])",
+        "start": "82",
+        "end": "191",
+        "decision_score": "63",
+        "statement_nodes": "121",
+        "exact_body_sha256": "b295947a5544f39e62f04b69ad9d6c804a8f26c45a8c6d092c8a9ff307ba4de4"
+      },
+      {
+        "file": "com/hardcoremisiones/PenanceEncounterService.java",
+        "class": "PenanceEncounterService",
+        "method": "actualizar()",
+        "start": "468",
+        "end": "550",
+        "decision_score": "56",
+        "statement_nodes": "103",
+        "exact_body_sha256": "f0be2a950a07da324275be61ff25b2bd037316c4c88453ef2caf0dc430fd0c38"
+      },
+      {
+        "file": "com/hardcoremisiones/PenanceEncounterService.java",
+        "class": "PenanceEncounterService",
+        "method": "valido(Ticket)",
+        "start": "287",
+        "end": "311",
+        "decision_score": "55",
+        "statement_nodes": "20",
+        "exact_body_sha256": "f34787337a99a1c2198278d130729e31746593f6b188b01f8b72e1142fd0234d"
+      },
+      {
+        "file": "com/hardcoremisiones/BossHuntService.java",
+        "class": "BossHuntService",
+        "method": "cambiarSesion(String)",
+        "start": "130",
+        "end": "193",
+        "decision_score": "51",
+        "statement_nodes": "93",
+        "exact_body_sha256": "12af4147e4422bac66d3ded7d5fad06850e806b4368617523d86143c2cb16dd3"
+      },
+      {
+        "file": "com/hardcoremisiones/BossCommands.java",
+        "class": "BossCommands",
+        "method": "trials(CommandSender,String[])",
+        "start": "28",
+        "end": "87",
+        "decision_score": "49",
+        "statement_nodes": "69",
+        "exact_body_sha256": "506fdac777251f9933a293b8cb61c95fc0d930b0a17e962ea5718e040268acf0"
+      },
+      {
+        "file": "com/hardcoremisiones/PenanceEncounterService.java",
+        "class": "PenanceEncounterService",
+        "method": "crearIntento(Ticket,BossPenanceGateway,String)",
+        "start": "551",
+        "end": "694",
+        "decision_score": "47",
+        "statement_nodes": "133",
+        "exact_body_sha256": "a50a7f3370862450c59de1ff3fe69a5d6b0f00dfc89104c53a6fe45f0c2bf133"
+      },
+      {
+        "file": "com/hardcoremisiones/Recompensas.java",
+        "class": "Recompensas",
+        "method": "completadas(EstadoMisiones,com.hardcoremisiones.missions.cycle.MissionRewardClock,boolean,boolean)",
+        "start": "612",
+        "end": "676",
+        "decision_score": "45",
+        "statement_nodes": "53",
+        "exact_body_sha256": "db9ba58fa3cd5eeec8c431532b6f015bac3f91e7a16fc420116627274a91b593"
+      },
+      {
+        "file": "com/hardcoremisiones/BossEncounterCoordinator.java",
+        "class": "BossEncounterCoordinator",
+        "method": "bloqueoDesdeSello(String,int,UUID)",
+        "start": "646",
+        "end": "691",
+        "decision_score": "43",
+        "statement_nodes": "58",
+        "exact_body_sha256": "92c8805cfea177ce83bcd120e865e3bd4aac88da4c70f0fd4158f101759ea1f3"
+      },
+      {
+        "file": "com/hardcoremisiones/RelojMisiones.java",
+        "class": "RelojMisiones",
+        "method": "cerrarDia(World,long)",
+        "start": "402",
+        "end": "480",
+        "decision_score": "40",
+        "statement_nodes": "62",
+        "exact_body_sha256": "5d0151627bbd9874a148e7a46852287ee2d70c4d576fbf4afa032534128ca3a0"
+      },
+      {
+        "file": "com/hardcoremisiones/BossEncounterCoordinator.java",
+        "class": "BossEncounterCoordinator",
+        "method": "tick()",
+        "start": "912",
+        "end": "978",
+        "decision_score": "39",
+        "statement_nodes": "79",
+        "exact_body_sha256": "ea37dc52568c1b107bd15fe788a1c60902ae4889f5949ef0e3bbb9c84c54cf2c"
+      },
+      {
+        "file": "com/hardcoremisiones/config/ProductYamlSchema.java",
+        "class": "ProductYamlSchema",
+        "method": "validate(String,ConfigurationSection)",
+        "start": "49",
+        "end": "130",
+        "decision_score": "39",
+        "statement_nodes": "112",
+        "exact_body_sha256": "78e5e9f6b0f9f86b95f4328a5aed05852bcf5a17b7485ef02993a5aa7ba3644b"
+      },
+      {
+        "file": "com/hardcoremisiones/config/reload/ConfigurationReloadService.java",
+        "class": "ConfigurationReloadService",
+        "method": "esDinamica(String)",
+        "start": "113",
+        "end": "147",
+        "decision_score": "38",
+        "statement_nodes": "17",
+        "exact_body_sha256": "6db05f1047b39e316d0c4a4263dffad5ae5be0d802aa2904d136e3d13b17e12c"
+      },
+      {
+        "file": "com/hardcoremisiones/BossHuntService.java",
+        "class": "BossHuntService",
+        "method": "conciliar(Ticket)",
+        "start": "514",
+        "end": "572",
+        "decision_score": "37",
+        "statement_nodes": "63",
+        "exact_body_sha256": "271cc25e05a6b2f9381b473972540a135ccf0bcda300a3edb14f8ddedb158084"
+      },
+      {
+        "file": "com/hardcoremisiones/RelojMisiones.java",
+        "class": "RelojMisiones",
+        "method": "actualizar(World)",
+        "start": "290",
+        "end": "379",
+        "decision_score": "37",
+        "statement_nodes": "71",
+        "exact_body_sha256": "08b80635893f90aff09ceef8e7a36aba1ceff15ac5ec1bc892654a3604ad19e1"
+      },
+      {
+        "file": "com/hardcoremisiones/bosses/catalog/TrialCatalog.java",
+        "class": "TrialCatalog",
+        "method": "read(ConfigurationSection)",
+        "start": "89",
+        "end": "151",
+        "decision_score": "37",
+        "statement_nodes": "66",
+        "exact_body_sha256": "d37c7f21891e7eedb3909bf745ea37078bfdad115499a9d5345c156ffe08c268"
+      }
+    ]
+  }
+}

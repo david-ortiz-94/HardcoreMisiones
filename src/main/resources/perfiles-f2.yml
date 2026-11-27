@@ -1,0 +1,643 @@
+# Perfil editorial F2: 100 IDs del catálogo F1, sin renombrarlos.
+# Únicamente afecta misiones NUEVAS; cada asignación congela un contrato.
+version: f2-v1
+perfiles:
+  bosque:
+    clasificacion: ajustar
+    dificultad: 1
+    riesgo: 0
+    minutos-referencia: 11
+    familia: LOGISTICA
+  cimientos:
+    clasificacion: ajustar
+    dificultad: 1
+    riesgo: 0
+    minutos-referencia: 11
+    familia: LOGISTICA
+  tierra:
+    clasificacion: ajustar
+    dificultad: 1
+    riesgo: 0
+    minutos-referencia: 11
+    familia: LOGISTICA
+  tablones:
+    clasificacion: ajustar
+    dificultad: 1
+    riesgo: 0
+    minutos-referencia: 11
+    familia: LOGISTICA
+  palos:
+    clasificacion: ajustar
+    dificultad: 1
+    riesgo: 0
+    minutos-referencia: 11
+    familia: LOGISTICA
+  mesa:
+    clasificacion: ajustar
+    dificultad: 1
+    riesgo: 0
+    minutos-referencia: 11
+    familia: LOGISTICA
+  horno:
+    clasificacion: ajustar
+    dificultad: 1
+    riesgo: 0
+    minutos-referencia: 11
+    familia: LOGISTICA
+  cofre:
+    clasificacion: ajustar
+    dificultad: 1
+    riesgo: 0
+    minutos-referencia: 11
+    familia: LOGISTICA
+  piedra:
+    clasificacion: mantener
+    dificultad: 1
+    riesgo: 1
+    minutos-referencia: 14
+    familia: EXPLORACION
+  antorchas:
+    clasificacion: mantener
+    dificultad: 2
+    riesgo: 0
+    minutos-referencia: 16
+    familia: LOGISTICA
+  carbon:
+    clasificacion: mantener
+    dificultad: 2
+    riesgo: 0
+    minutos-referencia: 16
+    familia: LOGISTICA
+  cocinado:
+    clasificacion: mantener
+    dificultad: 2
+    riesgo: 0
+    minutos-referencia: 16
+    familia: LOGISTICA
+  zombi:
+    clasificacion: mantener
+    dificultad: 3
+    riesgo: 3
+    minutos-referencia: 25
+    familia: COMBATE
+  arana:
+    clasificacion: mantener
+    dificultad: 2
+    riesgo: 2
+    minutos-referencia: 22
+    familia: COMBATE
+  esqueleto:
+    clasificacion: mantener
+    dificultad: 3
+    riesgo: 4
+    minutos-referencia: 28
+    familia: COMBATE
+  ind_n01:
+    clasificacion: ajustar
+    dificultad: 2
+    riesgo: 1
+    minutos-referencia: 19
+    familia: LOGISTICA
+  ind_n02:
+    clasificacion: mantener
+    dificultad: 2
+    riesgo: 0
+    minutos-referencia: 16
+    familia: LOGISTICA
+  ind_n03:
+    clasificacion: mantener
+    dificultad: 2
+    riesgo: 1
+    minutos-referencia: 19
+    familia: EXPLORACION
+  ind_n04:
+    clasificacion: mantener
+    dificultad: 3
+    riesgo: 3
+    minutos-referencia: 25
+    familia: COMBATE
+  ind_n05:
+    clasificacion: mantener
+    dificultad: 2
+    riesgo: 1
+    minutos-referencia: 19
+    familia: ARTESANIA
+  ind_n06:
+    clasificacion: mantener
+    dificultad: 2
+    riesgo: 0
+    minutos-referencia: 16
+    familia: LOGISTICA
+  ind_n07:
+    clasificacion: mantener
+    dificultad: 2
+    riesgo: 1
+    minutos-referencia: 19
+    familia: ARTESANIA
+  ind_n08:
+    clasificacion: mantener
+    dificultad: 2
+    riesgo: 1
+    minutos-referencia: 24
+    familia: EXPLORACION
+  ind_n09:
+    clasificacion: mantener
+    dificultad: 2
+    riesgo: 0
+    minutos-referencia: 16
+    familia: LOGISTICA
+  ind_n10:
+    clasificacion: mantener
+    dificultad: 2
+    riesgo: 1
+    minutos-referencia: 19
+    familia: ARTESANIA
+  ind_n11:
+    clasificacion: ajustar
+    dificultad: 2
+    riesgo: 1
+    minutos-referencia: 19
+    familia: LOGISTICA
+  ind_n12:
+    clasificacion: mantener
+    dificultad: 3
+    riesgo: 4
+    minutos-referencia: 28
+    familia: COMBATE
+  ind_n13:
+    clasificacion: mantener
+    dificultad: 2
+    riesgo: 1
+    minutos-referencia: 19
+    familia: ARTESANIA
+  ind_n14:
+    clasificacion: mantener
+    dificultad: 2
+    riesgo: 0
+    minutos-referencia: 16
+    familia: LOGISTICA
+  ind_n15:
+    clasificacion: mantener
+    dificultad: 2
+    riesgo: 0
+    minutos-referencia: 16
+    familia: LOGISTICA
+  ind_a01:
+    clasificacion: ajustar
+    dificultad: 3
+    riesgo: 1
+    minutos-referencia: 24
+    familia: LOGISTICA
+  ind_a02:
+    clasificacion: reformular
+    dificultad: 4
+    riesgo: 3
+    minutos-referencia: 30
+    familia: LOGISTICA
+    reforma:
+      nombre: "La veta profunda"
+      tipo: MINERIA
+      recurso: DIAMOND_ORE
+      unidad: vetas de diamante natural
+      cantidad: 2
+  ind_a03:
+    clasificacion: mantener
+    dificultad: 4
+    riesgo: 4
+    minutos-referencia: 33
+    familia: COMBATE
+  ind_a04:
+    clasificacion: ajustar
+    dificultad: 3
+    riesgo: 2
+    minutos-referencia: 27
+    familia: LOGISTICA
+  ind_a05:
+    clasificacion: mantener
+    dificultad: 4
+    riesgo: 0
+    minutos-referencia: 26
+    familia: LOGISTICA
+  ind_a06:
+    clasificacion: mantener
+    dificultad: 4
+    riesgo: 3
+    minutos-referencia: 30
+    familia: ARTESANIA
+  ind_a07:
+    clasificacion: mantener
+    dificultad: 3
+    riesgo: 0
+    minutos-referencia: 21
+    familia: LOGISTICA
+  ind_a08:
+    clasificacion: mantener
+    dificultad: 4
+    riesgo: 4
+    minutos-referencia: 33
+    familia: COMBATE
+  ind_a09:
+    clasificacion: mantener
+    dificultad: 4
+    riesgo: 1
+    minutos-referencia: 29
+    familia: EXPLORACION
+  ind_a10:
+    clasificacion: reformular
+    dificultad: 5
+    riesgo: 3
+    minutos-referencia: 35
+    familia: LOGISTICA
+    reforma:
+      nombre: "El portal intacto"
+      tipo: MINERIA
+      recurso: OBSIDIAN
+      unidad: obsidiana natural
+      cantidad: 3
+  ind_a11:
+    clasificacion: mantener
+    dificultad: 4
+    riesgo: 1
+    minutos-referencia: 29
+    familia: ARTESANIA
+  ind_a12:
+    clasificacion: mantener
+    dificultad: 4
+    riesgo: 0
+    minutos-referencia: 26
+    familia: LOGISTICA
+  ind_a13:
+    clasificacion: mantener
+    dificultad: 5
+    riesgo: 3
+    minutos-referencia: 35
+    familia: COMBATE
+  ind_a14:
+    clasificacion: mantener
+    dificultad: 4
+    riesgo: 0
+    minutos-referencia: 26
+    familia: LOGISTICA
+  ind_a15:
+    clasificacion: mantener
+    dificultad: 4
+    riesgo: 2
+    minutos-referencia: 32
+    familia: MAGIA
+  grupo_bosque:
+    clasificacion: ajustar
+    dificultad: 1
+    riesgo: 0
+    minutos-referencia: 19
+    familia: LOGISTICA
+  grupo_cimientos:
+    clasificacion: ajustar
+    dificultad: 1
+    riesgo: 0
+    minutos-referencia: 19
+    familia: LOGISTICA
+  grupo_tierra:
+    clasificacion: ajustar
+    dificultad: 1
+    riesgo: 0
+    minutos-referencia: 19
+    familia: LOGISTICA
+  grupo_tablones:
+    clasificacion: ajustar
+    dificultad: 1
+    riesgo: 0
+    minutos-referencia: 19
+    familia: LOGISTICA
+  grupo_palos:
+    clasificacion: ajustar
+    dificultad: 1
+    riesgo: 0
+    minutos-referencia: 19
+    familia: LOGISTICA
+  grupo_antorchas:
+    clasificacion: mantener
+    dificultad: 2
+    riesgo: 0
+    minutos-referencia: 24
+    familia: LOGISTICA
+  grp_e07:
+    clasificacion: mantener
+    dificultad: 1
+    riesgo: 1
+    minutos-referencia: 22
+    familia: ARTESANIA
+  grp_e08:
+    clasificacion: mantener
+    dificultad: 1
+    riesgo: 1
+    minutos-referencia: 22
+    familia: ARTESANIA
+  grp_e09:
+    clasificacion: mantener
+    dificultad: 1
+    riesgo: 1
+    minutos-referencia: 22
+    familia: ARTESANIA
+  grp_e10:
+    clasificacion: mantener
+    dificultad: 1
+    riesgo: 1
+    minutos-referencia: 27
+    familia: EXPLORACION
+  grp_e11:
+    clasificacion: ajustar
+    dificultad: 1
+    riesgo: 0
+    minutos-referencia: 19
+    familia: LOGISTICA
+  grp_e12:
+    clasificacion: ajustar
+    dificultad: 1
+    riesgo: 0
+    minutos-referencia: 19
+    familia: LOGISTICA
+  grp_e13:
+    clasificacion: mantener
+    dificultad: 1
+    riesgo: 1
+    minutos-referencia: 22
+    familia: ARTESANIA
+  grp_e14:
+    clasificacion: ajustar
+    dificultad: 1
+    riesgo: 0
+    minutos-referencia: 19
+    familia: LOGISTICA
+  grp_e15:
+    clasificacion: mantener
+    dificultad: 2
+    riesgo: 4
+    minutos-referencia: 31
+    familia: COMBATE
+  grp_m01:
+    clasificacion: ajustar
+    dificultad: 3
+    riesgo: 1
+    minutos-referencia: 32
+    familia: LOGISTICA
+  grp_m02:
+    clasificacion: mantener
+    dificultad: 3
+    riesgo: 0
+    minutos-referencia: 29
+    familia: LOGISTICA
+  grp_m03:
+    clasificacion: mantener
+    dificultad: 3
+    riesgo: 0
+    minutos-referencia: 29
+    familia: LOGISTICA
+  grp_m04:
+    clasificacion: mantener
+    dificultad: 4
+    riesgo: 4
+    minutos-referencia: 41
+    familia: COMBATE
+  grp_m05:
+    clasificacion: mantener
+    dificultad: 3
+    riesgo: 0
+    minutos-referencia: 29
+    familia: LOGISTICA
+  grp_m06:
+    clasificacion: mantener
+    dificultad: 3
+    riesgo: 1
+    minutos-referencia: 32
+    familia: ARTESANIA
+  grp_m07:
+    clasificacion: ajustar
+    dificultad: 3
+    riesgo: 1
+    minutos-referencia: 32
+    familia: LOGISTICA
+  grp_m08:
+    clasificacion: mantener
+    dificultad: 3
+    riesgo: 1
+    minutos-referencia: 32
+    familia: ARTESANIA
+  grp_m09:
+    clasificacion: mantener
+    dificultad: 4
+    riesgo: 1
+    minutos-referencia: 37
+    familia: EXPLORACION
+  grp_m10:
+    clasificacion: mantener
+    dificultad: 3
+    riesgo: 0
+    minutos-referencia: 29
+    familia: LOGISTICA
+  grp_m11:
+    clasificacion: mantener
+    dificultad: 3
+    riesgo: 0
+    minutos-referencia: 29
+    familia: LOGISTICA
+  grp_m12:
+    clasificacion: mantener
+    dificultad: 3
+    riesgo: 0
+    minutos-referencia: 29
+    familia: LOGISTICA
+  grp_m13:
+    clasificacion: mantener
+    dificultad: 3
+    riesgo: 1
+    minutos-referencia: 32
+    familia: ARTESANIA
+  grp_m14:
+    clasificacion: ajustar
+    dificultad: 3
+    riesgo: 2
+    minutos-referencia: 35
+    familia: LOGISTICA
+  grp_m15:
+    clasificacion: mantener
+    dificultad: 4
+    riesgo: 3
+    minutos-referencia: 38
+    familia: ARTESANIA
+  grp_h01:
+    clasificacion: reformular
+    dificultad: 5
+    riesgo: 3
+    minutos-referencia: 43
+    familia: LOGISTICA
+    reforma:
+      nombre: "La veta profunda"
+      tipo: MINERIA
+      recurso: DIAMOND_ORE
+      unidad: vetas de diamante natural
+      jugadores:
+        uno: 1
+        dos: 2
+        tres: 3
+  grp_h02:
+    clasificacion: reformular
+    dificultad: 5
+    riesgo: 3
+    minutos-referencia: 43
+    familia: LOGISTICA
+    reforma:
+      nombre: "El portal intacto"
+      tipo: MINERIA
+      recurso: OBSIDIAN
+      unidad: obsidiana natural
+      jugadores:
+        uno: 2
+        dos: 3
+        tres: 4
+  grp_h03:
+    clasificacion: mantener
+    dificultad: 5
+    riesgo: 4
+    minutos-referencia: 46
+    familia: COMBATE
+  grp_h04:
+    clasificacion: ajustar
+    dificultad: 4
+    riesgo: 1
+    minutos-referencia: 37
+    familia: LOGISTICA
+  grp_h05:
+    clasificacion: mantener
+    dificultad: 4
+    riesgo: 2
+    minutos-referencia: 40
+    familia: MAGIA
+  grp_h06:
+    clasificacion: ajustar
+    dificultad: 4
+    riesgo: 2
+    minutos-referencia: 40
+    familia: LOGISTICA
+  grp_h07:
+    clasificacion: mantener
+    dificultad: 5
+    riesgo: 1
+    minutos-referencia: 42
+    familia: EXPLORACION
+  grp_h08:
+    clasificacion: mantener
+    dificultad: 5
+    riesgo: 3
+    minutos-referencia: 43
+    familia: ARTESANIA
+  grp_h09:
+    clasificacion: ajustar
+    dificultad: 4
+    riesgo: 1
+    minutos-referencia: 37
+    familia: LOGISTICA
+  grp_h10:
+    clasificacion: mantener
+    dificultad: 5
+    riesgo: 0
+    minutos-referencia: 39
+    familia: LOGISTICA
+  grp_h11:
+    clasificacion: mantener
+    dificultad: 4
+    riesgo: 0
+    minutos-referencia: 34
+    familia: LOGISTICA
+  grp_h12:
+    clasificacion: mantener
+    dificultad: 4
+    riesgo: 0
+    minutos-referencia: 34
+    familia: LOGISTICA
+  grp_h13:
+    clasificacion: mantener
+    dificultad: 4
+    riesgo: 1
+    minutos-referencia: 37
+    familia: ARTESANIA
+  grp_h14:
+    clasificacion: reformular
+    dificultad: 5
+    riesgo: 3
+    minutos-referencia: 43
+    familia: LOGISTICA
+    reforma:
+      nombre: "La búsqueda brillante"
+      tipo: MINERIA
+      recurso: DIAMOND_ORE
+      unidad: vetas de diamante natural
+      jugadores:
+        uno: 1
+        dos: 2
+        tres: 3
+  grp_h15:
+    clasificacion: mantener
+    dificultad: 5
+    riesgo: 4
+    minutos-referencia: 46
+    familia: COMBATE
+  esp_i01:
+    clasificacion: mantener
+    dificultad: 2
+    riesgo: 0
+    minutos-referencia: 16
+    familia: LOGISTICA
+  esp_i02:
+    clasificacion: mantener
+    dificultad: 2
+    riesgo: 1
+    minutos-referencia: 24
+    familia: EXPLORACION
+  esp_i03:
+    clasificacion: mantener
+    dificultad: 2
+    riesgo: 0
+    minutos-referencia: 16
+    familia: LOGISTICA
+  esp_i04:
+    clasificacion: mantener
+    dificultad: 3
+    riesgo: 0
+    minutos-referencia: 21
+    familia: DESCANSO
+  esp_g01:
+    clasificacion: ajustar
+    dificultad: 1
+    riesgo: 0
+    minutos-referencia: 19
+    familia: LOGISTICA
+  esp_g02:
+    clasificacion: ajustar
+    dificultad: 3
+    riesgo: 1
+    minutos-referencia: 32
+    familia: LOGISTICA
+  esp_g03:
+    clasificacion: mantener
+    dificultad: 3
+    riesgo: 4
+    minutos-referencia: 36
+    familia: COMBATE
+  esp_g04:
+    clasificacion: mantener
+    dificultad: 3
+    riesgo: 1
+    minutos-referencia: 32
+    familia: EXPLORACION
+  esp_g05:
+    clasificacion: mantener
+    dificultad: 2
+    riesgo: 0
+    minutos-referencia: 24
+    familia: LOGISTICA
+  esp_g06:
+    clasificacion: mantener
+    dificultad: 3
+    riesgo: 4
+    minutos-referencia: 36
+    familia: COMBATE

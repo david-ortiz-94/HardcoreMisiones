@@ -1,0 +1,1181 @@
+Applying patches
+Starting org.bukkit.craftbukkit.Main
+2026-11-26T00:54:54.713775361Z ServerMain WARN Advanced terminal features are not available in this environment
+[00:54:55 INFO]: [bootstrap] Running Java 25 (OpenJDK 64-Bit Server VM 25.0.5.1+2-LTS; Eclipse Adoptium Temurin-25.0.5.1+2) on Linux 6.18.57 (amd64)
+[00:54:55 INFO]: [bootstrap] Loading Paper 26.2-135-ver/26.2@e4d6dfd (2026-10-25T11:18:00Z) for Minecraft 26.2
+[00:54:55 INFO]: [PluginInitializerManager] Initializing plugins...
+[00:54:55 INFO]: [PluginInitializerManager] Initialized 4 plugins
+[00:54:55 INFO]: [PluginInitializerManager] Bukkit plugins (4):
+ - HM2ContractLab (1), HardcoreBosses (0.1.1-alpha-catalogo), HardcoreMP (1.0.4-crossplay.2), HardcoreMisiones (2.1.0-dev)
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.joml.MemUtil$MemUtilUnsafe (file:/mnt/data/work_hm/paper-lab-e2prep-final/libraries/org/joml/joml/1.10.8/joml-1.10.8.jar)
+WARNING: Please consider reporting this to the maintainers of class org.joml.MemUtil$MemUtilUnsafe
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+[00:54:59 INFO]: [ca.spottedleaf.dataconverter.minecraft.datatypes.MCTypeRegistry] Initialising converters for DataConverter...
+[00:54:59 INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, profilesHost=https://api.mojang.com, name=PROD]
+[00:54:59 ERROR]: Failed to request yggdrasil public key
+com.mojang.authlib.exceptions.MinecraftClientException: Failed to read from https://api.minecraftservices.com/publickeys due to api.minecraftservices.com
+	at com.mojang.authlib.minecraft.client.MinecraftClient.readServiceResponse(MinecraftClient.java:151) ~[authlib-9.0.75.jar:?]
+	at com.mojang.authlib.minecraft.client.MinecraftClient.getWithEtag(MinecraftClient.java:81) ~[authlib-9.0.75.jar:?]
+	at com.mojang.authlib.minecraft.client.MinecraftClient.get(MinecraftClient.java:65) ~[authlib-9.0.75.jar:?]
+	at com.mojang.authlib.yggdrasil.YggdrasilServicesKeyInfo.fetch(YggdrasilServicesKeyInfo.java:114) ~[authlib-9.0.75.jar:?]
+	at com.mojang.authlib.yggdrasil.YggdrasilServicesKeyInfo$1.run(YggdrasilServicesKeyInfo.java:89) ~[authlib-9.0.75.jar:?]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545) ~[?:?]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328) ~[?:?]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:309) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614) ~[?:?]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[?:?]
+Caused by: java.net.UnknownHostException: api.minecraftservices.com
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:569) ~[?:?]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:307) ~[?:?]
+	at java.base/java.net.Socket.connect(Socket.java:659) ~[?:?]
+	at java.base/sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:304) ~[?:?]
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:161) ~[?:?]
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:524) ~[?:?]
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:612) ~[?:?]
+	at java.base/sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:207) ~[?:?]
+	at java.base/sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:289) ~[?:?]
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:196) ~[?:?]
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1012) ~[?:?]
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:903) ~[?:?]
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:876) ~[?:?]
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:181) ~[?:?]
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1380) ~[?:?]
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1306) ~[?:?]
+	at java.base/java.net.HttpURLConnection.getResponseCode(HttpURLConnection.java:493) ~[?:?]
+	at java.base/sun.net.www.protocol.https.HttpsURLConnectionImpl.getResponseCode(HttpsURLConnectionImpl.java:307) ~[?:?]
+	at com.mojang.authlib.minecraft.client.MinecraftClient.readServiceResponse(MinecraftClient.java:130) ~[authlib-9.0.75.jar:?]
+	... 10 more
+[00:54:59 INFO]: [ca.spottedleaf.dataconverter.minecraft.datatypes.MCTypeRegistry] Finished initialising converters for DataConverter in 477.8ms
+[00:54:59 INFO]: Found new data pack paper, loading it automatically
+[00:55:00 INFO]: No existing world data, creating new world
+[00:55:01 INFO]: Loaded 1585 recipes
+[00:55:01 INFO]: Loaded 1688 advancements
+[00:55:01 INFO]: Starting minecraft server version 26.2
+[00:55:01 WARN]: ****************************
+[00:55:01 WARN]: YOU ARE RUNNING THIS SERVER AS AN ADMINISTRATIVE OR ROOT USER. THIS IS NOT ADVISED.
+[00:55:01 WARN]: YOU ARE OPENING YOURSELF UP TO POTENTIAL RISKS WHEN DOING THIS.
+[00:55:01 WARN]: FOR MORE INFORMATION, SEE https://madelinemiller.dev/blog/root-minecraft-server/
+[00:55:01 WARN]: ****************************
+[00:55:01 INFO]: Loading properties
+[00:55:01 INFO]: This server is running Paper version 26.2-135-ver/26.2@e4d6dfd (2026-10-25T11:18:00Z) (Implementing API version 26.2.build.135-stable)
+[00:55:01 INFO]: [spark] This server bundles the spark profiler. For more information please visit https://docs.papermc.io/paper/profiling
+[00:55:01 INFO]: Server Ping Player Sample Count: 12
+[00:55:01 INFO]: Using 4 threads for Netty based IO
+[00:55:01 INFO]: [MoonriseCommon] Paper is using 1 worker threads, 1 I/O threads
+[00:55:02 INFO]: Default game type: SURVIVAL
+[00:55:02 INFO]: Generating keypair
+[00:55:02 INFO]: Starting Minecraft server on 127.0.0.1:25991
+[00:55:02 INFO]: Paper: Using libdeflate (Linux x86_64) compression from Velocity.
+[00:55:02 INFO]: Paper: Using OpenSSL 3.x.x (Linux x86_64) cipher from Velocity.
+[00:55:02 INFO]: [HardcoreMP] Loading server plugin HardcoreMP v1.0.4-crossplay.2
+[00:55:02 INFO]: [HardcoreBosses] Loading server plugin HardcoreBosses v0.1.1-alpha-catalogo
+[00:55:02 INFO]: [HardcoreMisiones] Loading server plugin HardcoreMisiones v2.1.0-dev
+[00:55:02 INFO]: [HM2ContractLab] Loading server plugin HM2ContractLab v1
+[00:55:02 WARN]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[00:55:02 WARN]: The server will make no attempt to authenticate usernames. Beware.
+[00:55:02 WARN]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[00:55:02 WARN]: To change this, set "online-mode" to "true" in the server.properties file.
+[00:55:02 INFO]: Preparing level "world"
+[00:55:02 INFO]: Selecting spawn point for level 'minecraft:overworld'...
+[00:55:09 INFO]: Selecting spawn point for level 'minecraft:the_nether'...
+[00:55:10 INFO]: Selecting spawn point for level 'minecraft:the_end'...
+[00:55:10 INFO]: Loading 0 persistent chunks for level 'minecraft:overworld'...
+[00:55:10 INFO]: Preparing spawn area: 100%
+[00:55:10 INFO]: Prepared spawn area in 8058 ms
+[00:55:10 INFO]: Loading 0 persistent chunks for level 'minecraft:the_nether'...
+[00:55:10 INFO]: Preparing spawn area: 100%
+[00:55:10 INFO]: Prepared spawn area in 959 ms
+[00:55:10 INFO]: Loading 0 persistent chunks for level 'minecraft:the_end'...
+[00:55:10 INFO]: Preparing spawn area: 100%
+[00:55:10 INFO]: Prepared spawn area in 220 ms
+[00:55:10 INFO]: Done preparing level "world" (8.515s)
+[00:55:10 INFO]: [HardcoreMP] Enabling HardcoreMP v1.0.4-crossplay.2
+[00:55:11 INFO]: Selecting spawn point for level 'minecraft:hcmp_limbo'...
+[00:55:11 INFO]: Loading 0 persistent chunks for level 'minecraft:hcmp_limbo'...
+[00:55:11 INFO]: Preparing spawn area: 100%
+[00:55:11 INFO]: Prepared spawn area in 498 ms
+[00:55:11 INFO]: [HardcoreMP] No game world recorded yet, creating it now.
+[00:55:11 INFO]: [HardcoreBosses] Enabling HardcoreBosses v0.1.1-alpha-catalogo
+[00:55:11 INFO]: [HardcoreBosses] HardcoreBosses API 1.1.0 registered. Boss models are NOT included in this alpha.
+[00:55:11 INFO]: [HardcoreMisiones] Enabling HardcoreMisiones v2.1.0-dev
+[00:55:11 INFO]: [HardcoreMisiones] HF5: cacerías ordinarias no elegibles: proveedor/jefe no listo
+[00:55:11 INFO]: [HardcoreMisiones] F2 preparado: 100 perfiles y contratos nuevos versionados
+[00:55:11 INFO]: [HardcoreMisiones] Catálogo cargado: 49 individuales, 51 grupales, 0 desactivadas. 100 IDs registrados.
+[00:55:11 INFO]: [HardcoreMisiones] [HM2_BENDICIONES_RC8C] REGLAS_CARGADAS habilitadas=true penitencias=true
+[00:55:11 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[00:55:11 INFO]: [HardcoreMisiones] HardcoreMisiones 2.1.0-dev: expediciones Nether, muertes locales y respaldo por partida.
+[00:55:11 INFO]: [HM2ContractLab] Enabling HM2ContractLab v1
+[00:55:11 INFO]: [spark] Starting background profiler...
+[00:55:12 INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[00:55:12 INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_nether
+[00:55:12 INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_end
+[00:55:12 INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:hcmp_limbo
+[00:55:12 INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[00:55:12 INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[00:55:12 INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[00:55:12 INFO]: ThreadedAnvilChunkStorage (hcmp_limbo): All chunks are saved
+[00:55:12 INFO]: ThreadedAnvilChunkStorage: All dimensions are saved
+[00:55:12 INFO]: Running delayed init tasks
+[00:55:12 INFO]: Selecting spawn point for level 'minecraft:hcmp_game'...
+[00:55:17 INFO]: Loading 0 persistent chunks for level 'minecraft:hcmp_game'...
+[00:55:17 INFO]: Preparing spawn area: 100%
+[00:55:17 INFO]: Prepared spawn area in 5253 ms
+[00:55:17 INFO]: [HardcoreMisiones] Partida detectada: hcmp_game (UUID 84d96bf1-c75f-4301-8b24-8c1fbf855038)
+[00:55:17 INFO]: [HardcoreMisiones] Oleadas asociadas a la partida 84d96bf1-c75f-4301-8b24-8c1fbf855038 (INACTIVO)
+[00:55:17 INFO]: [HardcoreMP] World hcmp_game generated at ./world/dimensions/minecraft/hcmp_game (seed 1134779913088525253)
+[00:55:17 INFO]: Selecting spawn point for level 'minecraft:hcmp_game_nether'...
+[00:55:18 INFO]: Loading 0 persistent chunks for level 'minecraft:hcmp_game_nether'...
+[00:55:18 INFO]: Preparing spawn area: 100%
+[00:55:18 INFO]: Prepared spawn area in 440 ms
+[00:55:18 INFO]: [HardcoreMP] World hcmp_game_nether generated at ./world/dimensions/minecraft/hcmp_game_nether (seed 1134779913088525253)
+[00:55:18 INFO]: Selecting spawn point for level 'minecraft:hcmp_game_the_end'...
+[00:55:18 INFO]: Loading 0 persistent chunks for level 'minecraft:hcmp_game_the_end'...
+[00:55:18 INFO]: Preparing spawn area: 100%
+[00:55:18 INFO]: Prepared spawn area in 122 ms
+[00:55:18 INFO]: [HardcoreMP] World hcmp_game_the_end generated at ./world/dimensions/minecraft/hcmp_game_the_end (seed 1134779913088525253)
+[00:55:18 INFO]: ¡Nuevo mundo listo! ¡Comienza una nueva partida!
+[00:55:18 INFO]: Done (24.253s)! For help, type "help"
+[00:55:18 INFO]: *************************************************************************************
+[00:55:18 INFO]: This is the first time you're starting this server.
+[00:55:18 INFO]: It's recommended you read our 'Getting Started' documentation for guidance.
+[00:55:18 INFO]: View this and more helpful information here: https://docs.papermc.io/paper/next-steps
+[00:55:18 INFO]: *************************************************************************************
+[00:55:18 ERROR]: [PaperVersionFetcher] Error while parsing version list
+java.net.UnknownHostException: fill.papermc.io
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:569) ~[?:?]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:307) ~[?:?]
+	at java.base/java.net.Socket.connect(Socket.java:659) ~[?:?]
+	at java.base/sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:304) ~[?:?]
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:161) ~[?:?]
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:524) ~[?:?]
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:612) ~[?:?]
+	at java.base/sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:207) ~[?:?]
+	at java.base/sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:289) ~[?:?]
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:196) ~[?:?]
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:967) ~[?:?]
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:903) ~[?:?]
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:876) ~[?:?]
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:181) ~[?:?]
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1380) ~[?:?]
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1306) ~[?:?]
+	at java.base/sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java:223) ~[?:?]
+	at com.destroystokyo.paper.PaperVersionFetcher.fetchMinecraftVersionList(PaperVersionFetcher.java:150) ~[paper-26.2.jar:?]
+	at com.destroystokyo.paper.PaperVersionFetcher.getUpdateStatusStartupMessage(PaperVersionFetcher.java:74) ~[paper-26.2.jar:?]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1825) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614) ~[?:?]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[?:?]
+[00:55:18 ERROR]: [PaperVersionFetcher] Error while parsing version
+java.net.UnknownHostException: fill.papermc.io
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:569) ~[?:?]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:307) ~[?:?]
+	at java.base/java.net.Socket.connect(Socket.java:659) ~[?:?]
+	at java.base/sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:304) ~[?:?]
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:161) ~[?:?]
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:524) ~[?:?]
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:612) ~[?:?]
+	at java.base/sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:207) ~[?:?]
+	at java.base/sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:289) ~[?:?]
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:196) ~[?:?]
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:967) ~[?:?]
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:903) ~[?:?]
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:876) ~[?:?]
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:181) ~[?:?]
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1380) ~[?:?]
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1306) ~[?:?]
+	at java.base/sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java:223) ~[?:?]
+	at com.destroystokyo.paper.PaperVersionFetcher.fetchDistanceFromSiteApi(PaperVersionFetcher.java:209) ~[paper-26.2.jar:?]
+	at com.destroystokyo.paper.PaperVersionFetcher.getUpdateStatusStartupMessage(PaperVersionFetcher.java:76) ~[paper-26.2.jar:?]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1825) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614) ~[?:?]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[?:?]
+[00:55:18 ERROR]: *** Error obtaining version information! Cannot fetch version info ***
+[00:55:19 INFO]: [HardcoreMisiones] Creado objetivo vanilla 'muertes' (deathCount) automáticamente.
+[00:55:19 INFO]: [HM2ContractLab] HM2_PAPER_CONTRACT REQUIRED_PLUGIN_ENABLED HardcoreMP
+[00:55:19 INFO]: [HM2ContractLab] HM2_PAPER_CONTRACT REQUIRED_PLUGIN_ENABLED HardcoreBosses
+[00:55:20 INFO]: [HardcoreMisiones] [STDOUT] F2_CONTRATOS_LISTOS: 100 IDs, 5 reformas, 3 premios, snapshots
+[00:55:20 WARN]: Nag author(s): '[Proyecto HardcoreMisiones]' of 'HardcoreMisiones v2.1.0-dev' about their usage of System.out/err.print. Please use your plugin's logger instead (JavaPlugin#getLogger).
+[00:55:20 INFO]: [HardcoreMisiones] HM2_PAPER_CONTRACT PASS F2ContratosDeBalanceTest
+[00:55:20 INFO]: [HardcoreMisiones] [STDOUT] RC8D_LOTES_FISICOS_POLICY_PASS checks=11172
+[00:55:20 INFO]: [HardcoreMisiones] HM2_PAPER_CONTRACT PASS F4RC8DLotesFisicosTest
+[00:55:20 INFO]: [HardcoreMisiones] [STDOUT] RC8I_REWARD_DIVERSITY_PASS checks=1155
+[00:55:20 INFO]: [HardcoreMisiones] HM2_PAPER_CONTRACT PASS F4RC8IRewardDiversityTest
+[00:55:20 INFO]: [HardcoreMisiones] [STDOUT] RC8J_HF4_PRIVACIDAD_BALANCE_PASS checks=561
+[00:55:20 INFO]: [HardcoreMisiones] HM2_PAPER_CONTRACT PASS F4RC8JHF4PrivacidadBalanceTest
+[00:55:20 INFO]: [HardcoreMisiones] [STDOUT] RC8J_HF4_W45_RIESGO_ALTO_PASS checks=3241
+[00:55:20 INFO]: [HardcoreMisiones] HM2_PAPER_CONTRACT PASS F4RC8JHF4W45AltoRiesgoTest
+[00:55:22 INFO]: [HardcoreMisiones] [STDOUT] RC8J_HF5_RAREZA_AYUDANTES_DEBUFF_PASS checks=145583
+[00:55:22 INFO]: [HardcoreMisiones] HM2_PAPER_CONTRACT PASS F4RC8JHF5BossRarityDistributionTest
+[00:55:22 INFO]: [HardcoreMisiones] [STDOUT] W36_JAVA_PAPER_BALANCE_PASS missions=100 individual=49 team=51 reforms=5 plans=300 options=900 checks=4204 budgetRange=30..95 groupWithoutAllContribute=49/51
+[00:55:22 INFO]: [HardcoreMisiones] HM2_PAPER_CONTRACT PASS F4W36BalanceContractTest
+[00:55:22 INFO]: [HardcoreMisiones] [STDOUT] W36_JAVA_PAPER_REWARD_CAP_PASS checks=11 players=3 day=20 replay=blocked nextDay=reset sumXp=225 sumItems=120
+[00:55:22 INFO]: [HardcoreMisiones] HM2_PAPER_CONTRACT PASS F4W36RewardCapTest
+[00:55:22 INFO]: [HardcoreMisiones] [STDOUT] W40_PAPER_REWARDS_PASS assertions=4619 varied_materials=18
+[00:55:22 INFO]: [HardcoreMisiones] HM2_PAPER_CONTRACT PASS F4W40RewardsContractTest
+[00:55:22 INFO]: [HardcoreMisiones] [STDOUT] MODALIDADES_PAPER_PASS checks=15330 individual=MANUAL grupal=MANUAL mezclas=158
+[00:55:22 INFO]: [HardcoreMisiones] HM2_PAPER_CONTRACT PASS F4ModalidadesPremiosTest
+[00:55:23 INFO]: [HardcoreMisiones] [STDOUT] RC3_PAPER_DIVERSITY_PASS assertions=27053 multi=2675 triple=468 groupCases=765
+[00:55:23 INFO]: [HardcoreMisiones] HM2_PAPER_CONTRACT PASS F4RC3DiversityPaperTest
+[00:55:23 WARN]: [HardcoreMisiones] [HM2_DEBUFF_BOSS_RC5] evento=REGISTRADA partida=84d96bf1-c75f-4301-8b24-8c1fbf855038 dia=1 origen=PENITENCIA motivo=TIEMPO_AGOTADO encuentro=49f980d9-d815-4119-9136-b4b703f618dc jugadores=1 efectos=[Efecto[tipo=WEAKNESS, nivel=2], Efecto[tipo=SLOWNESS, nivel=1], Efecto[tipo=MINING_FATIGUE, nivel=2]] segundos=1200 sin duplicar por jornada
+[00:55:23 INFO]: [HardcoreMisiones] [STDOUT] RC5_PAPER_LEDGER_SYNTHETIC_PASS checks=14
+[00:55:23 INFO]: [HardcoreMisiones] HM2_PAPER_CONTRACT PASS F4RC5PaperLedgerTest
+[00:55:23 INFO]: [HardcoreMisiones] [HM2_BENDICIONES_RC8C] REGLAS_CARGADAS habilitadas=true penitencias=true
+[00:55:23 INFO]: [HardcoreMisiones] [HM2_BENDICIONES_RC8C] SORTEO_CONGELADO partida=ccff8dd3-aa88-4372-b94a-f0e8ea66b3b3 mision=f3:vigilia_ceniza jugador=f3fc7bea-e859-41a1-9f36-ae687f196765 encuentro=9f2d3ca0-f922-492d-b7eb-416576f85d68 terminal=3311b307-dd29-44d7-94b5-4668d0d089e2 premio=true chance=100 ticket=39 efecto=SPEED duracion=77
+[00:55:23 ERROR]: [HardcoreMisiones] [HM2_BENDICIONES_RC8C] CONFLICTO_DE_DERECHO F3:f3:vigilia_ceniza:f3fc7bea-e859-41a1-9f36-ae687f196765:EFFECT_BONUS
+[00:55:23 INFO]: [HardcoreMisiones] [HM2_BENDICIONES_RC8C] SORTEO_CONGELADO partida=ccff8dd3-aa88-4372-b94a-f0e8ea66b3b3 mision=f3:vigilia_ceniza jugador=81666dd7-6d6d-4568-8b08-f13ef3d92597 encuentro=9f2d3ca0-f922-492d-b7eb-416576f85d68 terminal=3311b307-dd29-44d7-94b5-4668d0d089e2 premio=false chance=0 ticket=91 efecto=null duracion=0
+[00:55:23 INFO]: [HardcoreMisiones] [HM2_BENDICIONES_RC8C] REGLAS_CARGADAS habilitadas=true penitencias=true
+[00:55:23 INFO]: [HardcoreMisiones] [HM2_BENDICIONES_RC8C] REGLAS_CARGADAS habilitadas=true penitencias=true
+[00:55:23 INFO]: [HardcoreMisiones] [HM2_BENDICIONES_RC8C] REGLAS_CARGADAS habilitadas=true penitencias=true
+[00:55:23 INFO]: [HardcoreMisiones] [STDOUT] RC8C_PAPER_LEDGER_SYNTHETIC_PASS checks=26
+[00:55:23 INFO]: [HardcoreMisiones] HM2_PAPER_CONTRACT PASS F4RC8CDiarioLabTest
+[00:55:23 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=c90bf5c2-cd2e-409f-af7a-779ec18337c1 jugador=df20e307-426b-4581-b5c3-92ab0777f41a #1 2026-11-26T00:55:23.689567340Z RESERVADA [B-f3:vigilia_ceniza] 3x AMETHYST_SHARD, 19 XP, prestigio=1 + 4x COOKED_BEEF
+[00:55:23 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=c90bf5c2-cd2e-409f-af7a-779ec18337c1 jugador=df20e307-426b-4581-b5c3-92ab0777f41a #2 2026-11-26T00:55:23.747456825Z RESERVADA [W39-BOSS-f3_vigilia_ceniza-df20e307-426b-4581-b5c3-92ab0777f41a] 1x PAPER, 0 XP, prestigio=0, trofeo=CENIZA
+[00:55:23 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=c90bf5c2-cd2e-409f-af7a-779ec18337c1 jugador=df20e307-426b-4581-b5c3-92ab0777f41a #3 2026-11-26T00:55:23.778042390Z RESERVADA [B8D-F3-f3_vigilia_ceniza-df20e307-426b-4581-b5c3-92ab0777f41a-2] 4x AMETHYST_SHARD, 0 XP, prestigio=0 + 4x REDSTONE
+[00:55:23 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=c90bf5c2-cd2e-409f-af7a-779ec18337c1 jugador=df20e307-426b-4581-b5c3-92ab0777f41a #4 2026-11-26T00:55:23.809446169Z RESERVADA [B8D-F3-f3_vigilia_ceniza-df20e307-426b-4581-b5c3-92ab0777f41a-3] 4x IRON_INGOT, 0 XP, prestigio=0
+[00:55:23 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[00:55:23 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] RAREZA_CONGELADA fuente=f3:vigilia_ceniza jugador=df20e307-426b-4581-b5c3-92ab0777f41a carta=1 rareza=BASICO ticket=51 pesos=[60, 32, 8, 0]
+[00:55:23 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] RAREZA_CONGELADA fuente=f3:vigilia_ceniza jugador=df20e307-426b-4581-b5c3-92ab0777f41a carta=2 rareza=BASICO ticket=4 pesos=[60, 32, 8, 0]
+[00:55:23 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] RAREZA_CONGELADA fuente=f3:vigilia_ceniza jugador=df20e307-426b-4581-b5c3-92ab0777f41a carta=3 rareza=BASICO ticket=25 pesos=[60, 32, 8, 0]
+[00:55:23 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=c90bf5c2-cd2e-409f-af7a-779ec18337c1 fuente=f3:vigilia_ceniza jugador=df20e307-426b-4581-b5c3-92ab0777f41a encuentro=dfebf075-c2fa-4d8e-b5c6-2100d98fd6a6 terminal=ed2d5b7d-90ad-4b51-8833-d6dce39d4d75 premios=3 extraF3=true p2=100 t2=86 p3=100 t3=2
+[00:55:23 ERROR]: [HardcoreMisiones] [HM2_BOTIN_RC8D] CONFLICTO_DERECHO F3:f3:vigilia_ceniza:df20e307-426b-4581-b5c3-92ab0777f41a encuentro_igual=true terminal_igual=false jefe_igual=true
+[00:55:23 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=df20e307-426b-4581-b5c3-92ab0777f41a fuente=f3:vigilia_ceniza carta=2
+[00:55:23 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[00:55:24 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[00:55:24 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=c90bf5c2-cd2e-409f-af7a-779ec18337c1 fuente=hm2:juicio:7:grupal jugador=f12dbad1-b41a-40d9-8fe5-2ccd1fda082d encuentro=b9e926d4-73c5-4587-b439-84477b77153c terminal=f38281d6-08c0-4ae6-80dc-ca1db503460a premios=2 extraF3=false p2=100 t2=46 p3=0 t3=-1
+[00:55:24 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[00:55:24 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=c90bf5c2-cd2e-409f-af7a-779ec18337c1 jugador=df20e307-426b-4581-b5c3-92ab0777f41a #5 2026-11-26T00:55:24.069395755Z RESERVADA [B8D-PENITENCIA-hm2_juicio_7_grupal-df20e307-426b-4581-b5c3-92ab0777f41a-1] 4x ARROW, 0 XP, prestigio=0
+[00:55:24 INFO]: [HardcoreMisiones] [STDOUT] RC8D_PAPER_LEDGER_SYNTHETIC_PASS checks=38
+[00:55:24 INFO]: [HardcoreMisiones] HM2_PAPER_CONTRACT PASS F4RC8DPaperLedgerTest
+[00:55:24 INFO]: [HardcoreMisiones] [STDOUT] W41_PAPER_BENEFITS_PASS assertions=4705 distinct_benefits=11 ids=[E_STRENGTH, E_REGENERATION, E_RESISTANCE, E_NIGHT_VISION, P_STRENGTH, P_REGENERATION, E_FIRE_RESISTANCE, E_SPEED, P_NIGHT_VISION, P_SPEED, P_FIRE_RESISTANCE]
+[00:55:24 INFO]: [HardcoreMisiones] HM2_PAPER_CONTRACT PASS F4W41BenefitsContractTest
+[00:55:24 INFO]: [HardcoreMisiones] [STDOUT] W45_PAPER_LOOT_PASS checks=44391 combos_2plus=2772 combos_3plus=503 prestigio_options=143 bonuses=45 material_types=26
+[00:55:24 INFO]: [HardcoreMisiones] HM2_PAPER_CONTRACT PASS F4W45ProgressiveLootTest
+[00:55:24 INFO]: HardcoreMisiones 2.1.0-dev — misiones, oleadas, expediciones y recompensas
+[00:55:24 INFO]: /hm expedicion estado|probar fortaleza|bastion|escombros — Nether
+[00:55:24 INFO]: /hm expedicion compensar bastion — una sola vez, expedición antigua ya completada
+[00:55:24 INFO]: /hm muertes ver|set Jugador Numero — historial local y TAB
+[00:55:24 INFO]: /hm recompensas on|off|estado|revisar|historial [Jugador] — premios y auditoría
+[00:55:24 INFO]: /hm recompensas modalidades [Jugador] — manual o sorteo por misión
+[00:55:24 INFO]: /hm ofrendas revisar|resolver CONFIRMAR — revisar ofrendas inciertas
+[00:55:24 INFO]: /hm estado — revisar mundo y plugin
+[00:55:24 INFO]: /hm config estado|validar|recargar — revisar y recargar YAML sin reiniciar Paper
+[00:55:24 INFO]: /hm ciclo iniciar — activar reloj con jugadores conectados
+[00:55:24 INFO]: /hm oleadas on|off|estado|demo|cancelar — activar/probar combate
+[00:55:24 INFO]: /hm reto estado|catalogo|etapas <id>|listo <id>|iniciar <id>|cancelar CONFIRMAR|revisar|abandonar CONFIRMAR_SIN_PREMIO — F3
+[00:55:24 INFO]: /hm jefes catalogo|ficha <id>|auditoria|exportar|estado|castigos|premios|efecto activar CONFIRMAR — proveedor REAL y bendiciones
+[00:55:24 INFO]: /hm jefes lotes | elegir 1|2|3 — botines físicos F3 y penitencia
+[00:55:24 INFO]: /hm jefes lotes recargar | premios recargar — actualizar políticas (admin)
+[00:55:24 INFO]: Laboratorio F3: /hm reto laboratorio estado (solo administrador, opt-in triple)
+[00:55:24 INFO]: /hm ciclo estado|off|on — comprobar o pausar el reloj
+[00:55:24 INFO]: /hm iniciar todos — sortear misiones (solo sin reloj)
+[00:55:24 INFO]: /hm iniciar Jugador — añadir un jugador sin alterar grupal
+[00:55:24 INFO]: /hm progreso [Jugador] — progreso (también desconectados)
+[00:55:24 INFO]: /hm relevar Jugador CONFIRMAR — relevo auditado de un ausente, solo administrador
+[00:55:24 INFO]: /hm emblema estado|adquirir — rango y título cosmético por prestigio
+[00:55:24 INFO]: /hm hitos — hitos hacia la dragona y cooperación
+[00:55:24 INFO]: /hm sello [Jugador] — obtener el sello
+[00:55:24 INFO]: /hm sello estado [Jugador] — revisar Sello en inventario/cursor y retirar duplicados
+[00:55:24 INFO]: /hm siguiente — sortear otro ciclo SOLO al completar todas
+[00:55:24 INFO]: /hm etapa 1|2|3|4 — etapa de futuros sorteos
+[00:55:24 INFO]: /hm catalogo — misiones disponibles por etapa
+[00:55:24 INFO]: /hm panel on|off|estado — probar o desactivar el panel
+[00:55:24 INFO]: /hm tab jugadores Nombre1 Nombre2... — elegir nombres del historial TAB
+[00:55:24 INFO]: /hm tab ver — ver jugadores configurados
+[00:55:24 INFO]: /hm sincronizar — detectar partida; /hm prueba — ejemplo
+[00:55:24 INFO]: === HardcoreMisiones v2.1.0-dev ===
+[00:55:24 INFO]: Plugin habilitado. Pruebas: activas
+[00:55:24 INFO]: Ciclo: ON · Oleadas: ON · Premios: ON · TAB solo lectura.
+[00:55:24 INFO]: Sin oleada activa · penitencias pendientes: 0
+[00:55:24 INFO]: Panel: activo; objetivo 'muertes' original: encontrado
+[00:55:24 INFO]: HardcoreMP: activo
+[00:55:24 INFO]: Mundo: hcmp_game (cargado)
+[00:55:24 INFO]: Registro: hcmp_game, ID 84d96bf1-c75f-4301-8b24-8c1fbf855038
+[00:55:24 INFO]: Etapa de prueba: 1
+[00:55:24 INFO]: Aún no iniciado. Usá /hm ciclo iniciar
+[00:55:25 INFO]: Racha: 0 jornadas y 0 grupales · Favor: 0 · Tregua: no · Premios pendientes: 0 · En conciliación: 0
+[00:55:25 INFO]: Nether: Exploración libre: descubran una estructura
+[00:55:25 INFO]: F3: HardcoreBosses/API-1.1 API v2 · HMP:UNBOUND · HB-v1:READY_FOR_TYPED_BRIDGE · victorias reales: 0 · premios: 0 · revisión: 0
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_1_1 jugador=0cae29eb-b2af-420a-bb49-da86bf0e7b00 carta=1 rareza=BASIC ticket=26
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_1_1 jugador=0cae29eb-b2af-420a-bb49-da86bf0e7b00 carta=2 rareza=BASIC ticket=7
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_1_1 jugador=0cae29eb-b2af-420a-bb49-da86bf0e7b00 carta=3 rareza=IMPROVED ticket=51
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=575b06a8-fe34-40e4-aaf4-19384d567e2a fuente=f3:contract_1_1 jugador=0cae29eb-b2af-420a-bb49-da86bf0e7b00 encuentro=8fd20819-3c15-4256-82f0-80656256a25f terminal=4d6d8902-9d65-42c8-921a-86e123caf0b9 premios=3 extraF3=true p2=100 t2=65 p3=100 t3=6
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=0cae29eb-b2af-420a-bb49-da86bf0e7b00 fuente=f3:contract_1_1 carta=1
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=575b06a8-fe34-40e4-aaf4-19384d567e2a jugador=0cae29eb-b2af-420a-bb49-da86bf0e7b00 #1 2026-11-26T00:55:25.138465233Z RESERVADA [B-f3:contract_1_1] 3x GOLDEN_CARROT, 40 XP, prestigio=1 + 8x COOKED_BEEF
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=575b06a8-fe34-40e4-aaf4-19384d567e2a jugador=0cae29eb-b2af-420a-bb49-da86bf0e7b00 #2 2026-11-26T00:55:25.248776697Z RESERVADA [B8D-F3-f3_contract_1_1-0cae29eb-b2af-420a-bb49-da86bf0e7b00-2] 3x BREAD, 0 XP, prestigio=0
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=575b06a8-fe34-40e4-aaf4-19384d567e2a jugador=0cae29eb-b2af-420a-bb49-da86bf0e7b00 #3 2026-11-26T00:55:25.261958042Z RESERVADA [B8D-F3-f3_contract_1_1-0cae29eb-b2af-420a-bb49-da86bf0e7b00-3] 4x BAKED_POTATO, 0 XP, prestigio=0
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_1_2 jugador=053dcd1a-d125-45b8-bd82-483890a17de9 carta=1 rareza=IMPROVED ticket=88
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_1_2 jugador=053dcd1a-d125-45b8-bd82-483890a17de9 carta=2 rareza=BASIC ticket=0
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_1_2 jugador=053dcd1a-d125-45b8-bd82-483890a17de9 carta=3 rareza=IMPROVED ticket=76
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=b42ae01d-11f7-4542-9df0-0879c4cd2ae3 fuente=f3:contract_1_2 jugador=053dcd1a-d125-45b8-bd82-483890a17de9 encuentro=787d6223-5c24-4c5e-9382-a1a9157d798b terminal=1fa674d6-9771-4f97-a7cd-5db6e2b50276 premios=3 extraF3=true p2=100 t2=72 p3=100 t3=45
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_1_2 jugador=4a898a51-6483-4d31-acef-e66b84f283c0 carta=1 rareza=IMPROVED ticket=55
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_1_2 jugador=4a898a51-6483-4d31-acef-e66b84f283c0 carta=2 rareza=BASIC ticket=24
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_1_2 jugador=4a898a51-6483-4d31-acef-e66b84f283c0 carta=3 rareza=BASIC ticket=2
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=b42ae01d-11f7-4542-9df0-0879c4cd2ae3 fuente=f3:contract_1_2 jugador=4a898a51-6483-4d31-acef-e66b84f283c0 encuentro=787d6223-5c24-4c5e-9382-a1a9157d798b terminal=1fa674d6-9771-4f97-a7cd-5db6e2b50276 premios=3 extraF3=true p2=100 t2=24 p3=100 t3=11
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=053dcd1a-d125-45b8-bd82-483890a17de9 fuente=f3:contract_1_2 carta=1
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=4a898a51-6483-4d31-acef-e66b84f283c0 fuente=f3:contract_1_2 carta=2
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=b42ae01d-11f7-4542-9df0-0879c4cd2ae3 jugador=053dcd1a-d125-45b8-bd82-483890a17de9 #1 2026-11-26T00:55:25.343158071Z RESERVADA [B-f3:contract_1_2] 4x GOLDEN_CARROT, 40 XP, prestigio=1 + 7x COOKED_BEEF
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=b42ae01d-11f7-4542-9df0-0879c4cd2ae3 jugador=4a898a51-6483-4d31-acef-e66b84f283c0 #2 2026-11-26T00:55:25.343370772Z RESERVADA [B-f3:contract_1_2] 15x ARROW, 40 XP, prestigio=1 + 2x IRON_INGOT
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=b42ae01d-11f7-4542-9df0-0879c4cd2ae3 jugador=053dcd1a-d125-45b8-bd82-483890a17de9 #3 2026-11-26T00:55:25.374442030Z RESERVADA [B8D-F3-f3_contract_1_2-053dcd1a-d125-45b8-bd82-483890a17de9-2] 4x BREAD, 0 XP, prestigio=0
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=b42ae01d-11f7-4542-9df0-0879c4cd2ae3 jugador=053dcd1a-d125-45b8-bd82-483890a17de9 #4 2026-11-26T00:55:25.385671339Z RESERVADA [B8D-F3-f3_contract_1_2-053dcd1a-d125-45b8-bd82-483890a17de9-3] 5x BAKED_POTATO, 0 XP, prestigio=0
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=b42ae01d-11f7-4542-9df0-0879c4cd2ae3 jugador=4a898a51-6483-4d31-acef-e66b84f283c0 #5 2026-11-26T00:55:25.401584427Z RESERVADA [B8D-F3-f3_contract_1_2-4a898a51-6483-4d31-acef-e66b84f283c0-2] 3x COAL, 0 XP, prestigio=0
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=b42ae01d-11f7-4542-9df0-0879c4cd2ae3 jugador=4a898a51-6483-4d31-acef-e66b84f283c0 #6 2026-11-26T00:55:25.414870280Z RESERVADA [B8D-F3-f3_contract_1_2-4a898a51-6483-4d31-acef-e66b84f283c0-3] 4x SPECTRAL_ARROW, 0 XP, prestigio=0
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_1_3 jugador=264654a7-3ef2-4a4b-8000-568e59b0881e carta=1 rareza=BASIC ticket=2
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_1_3 jugador=264654a7-3ef2-4a4b-8000-568e59b0881e carta=2 rareza=BASIC ticket=9
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_1_3 jugador=264654a7-3ef2-4a4b-8000-568e59b0881e carta=3 rareza=IMPROVED ticket=77
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=bbf17d83-2ea1-4b21-bb70-056c7f471e68 fuente=f3:contract_1_3 jugador=264654a7-3ef2-4a4b-8000-568e59b0881e encuentro=a049657c-9d64-4ea7-b8a3-4d030f0e04fc terminal=b9e1ae0c-e715-4f8c-8b61-3b1b253a798b premios=3 extraF3=true p2=100 t2=86 p3=100 t3=58
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_1_3 jugador=4e26f872-59fa-4a79-8371-e5304785474a carta=1 rareza=BASIC ticket=21
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_1_3 jugador=4e26f872-59fa-4a79-8371-e5304785474a carta=2 rareza=IMPROVED ticket=67
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_1_3 jugador=4e26f872-59fa-4a79-8371-e5304785474a carta=3 rareza=IMPROVED ticket=61
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=bbf17d83-2ea1-4b21-bb70-056c7f471e68 fuente=f3:contract_1_3 jugador=4e26f872-59fa-4a79-8371-e5304785474a encuentro=a049657c-9d64-4ea7-b8a3-4d030f0e04fc terminal=b9e1ae0c-e715-4f8c-8b61-3b1b253a798b premios=3 extraF3=true p2=100 t2=61 p3=100 t3=98
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_1_3 jugador=7970448b-3655-4933-91fb-36e8d9885884 carta=1 rareza=BASIC ticket=24
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_1_3 jugador=7970448b-3655-4933-91fb-36e8d9885884 carta=2 rareza=BASIC ticket=24
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_1_3 jugador=7970448b-3655-4933-91fb-36e8d9885884 carta=3 rareza=IMPROVED ticket=86
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=bbf17d83-2ea1-4b21-bb70-056c7f471e68 fuente=f3:contract_1_3 jugador=7970448b-3655-4933-91fb-36e8d9885884 encuentro=a049657c-9d64-4ea7-b8a3-4d030f0e04fc terminal=b9e1ae0c-e715-4f8c-8b61-3b1b253a798b premios=3 extraF3=true p2=100 t2=36 p3=100 t3=78
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=7970448b-3655-4933-91fb-36e8d9885884 fuente=f3:contract_1_3 carta=1
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=264654a7-3ef2-4a4b-8000-568e59b0881e fuente=f3:contract_1_3 carta=2
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=4e26f872-59fa-4a79-8371-e5304785474a fuente=f3:contract_1_3 carta=3
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=bbf17d83-2ea1-4b21-bb70-056c7f471e68 jugador=264654a7-3ef2-4a4b-8000-568e59b0881e #1 2026-11-26T00:55:25.541025103Z RESERVADA [B-f3:contract_1_3] 15x ARROW, 40 XP, prestigio=1 + 2x IRON_INGOT
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=bbf17d83-2ea1-4b21-bb70-056c7f471e68 jugador=4e26f872-59fa-4a79-8371-e5304785474a #2 2026-11-26T00:55:25.541202180Z RESERVADA [B-f3:contract_1_3] 1x GOLD_INGOT, 40 XP, prestigio=1 + 6x LAPIS_LAZULI
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=bbf17d83-2ea1-4b21-bb70-056c7f471e68 jugador=7970448b-3655-4933-91fb-36e8d9885884 #3 2026-11-26T00:55:25.541297984Z RESERVADA [B-f3:contract_1_3] 3x GOLDEN_CARROT, 40 XP, prestigio=1 + 8x COOKED_BEEF
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=bbf17d83-2ea1-4b21-bb70-056c7f471e68 jugador=264654a7-3ef2-4a4b-8000-568e59b0881e #4 2026-11-26T00:55:25.611938085Z RESERVADA [B8D-F3-f3_contract_1_3-264654a7-3ef2-4a4b-8000-568e59b0881e-2] 3x COAL, 0 XP, prestigio=0
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=bbf17d83-2ea1-4b21-bb70-056c7f471e68 jugador=264654a7-3ef2-4a4b-8000-568e59b0881e #5 2026-11-26T00:55:25.652260756Z RESERVADA [B8D-F3-f3_contract_1_3-264654a7-3ef2-4a4b-8000-568e59b0881e-3] 4x SPECTRAL_ARROW, 0 XP, prestigio=0
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=bbf17d83-2ea1-4b21-bb70-056c7f471e68 jugador=4e26f872-59fa-4a79-8371-e5304785474a #6 2026-11-26T00:55:25.663325618Z RESERVADA [B8D-F3-f3_contract_1_3-4e26f872-59fa-4a79-8371-e5304785474a-2] 3x REDSTONE, 0 XP, prestigio=0
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=bbf17d83-2ea1-4b21-bb70-056c7f471e68 jugador=4e26f872-59fa-4a79-8371-e5304785474a #7 2026-11-26T00:55:25.672712755Z RESERVADA [B8D-F3-f3_contract_1_3-4e26f872-59fa-4a79-8371-e5304785474a-3] 3x COPPER_INGOT, 0 XP, prestigio=0
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=bbf17d83-2ea1-4b21-bb70-056c7f471e68 jugador=7970448b-3655-4933-91fb-36e8d9885884 #8 2026-11-26T00:55:25.687180923Z RESERVADA [B8D-F3-f3_contract_1_3-7970448b-3655-4933-91fb-36e8d9885884-2] 3x BREAD, 0 XP, prestigio=0
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=bbf17d83-2ea1-4b21-bb70-056c7f471e68 jugador=7970448b-3655-4933-91fb-36e8d9885884 #9 2026-11-26T00:55:25.702142326Z RESERVADA [B8D-F3-f3_contract_1_3-7970448b-3655-4933-91fb-36e8d9885884-3] 4x BAKED_POTATO, 0 XP, prestigio=0
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_2_1 jugador=10b12fe5-db4c-4b54-b6e0-5aa70ac94dc3 carta=1 rareza=BASIC ticket=18
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_2_1 jugador=10b12fe5-db4c-4b54-b6e0-5aa70ac94dc3 carta=2 rareza=BASIC ticket=4
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_2_1 jugador=10b12fe5-db4c-4b54-b6e0-5aa70ac94dc3 carta=3 rareza=IMPROVED ticket=68
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=b3ddf73c-ad9d-4667-a32b-deb1413c3f25 fuente=f3:contract_2_1 jugador=10b12fe5-db4c-4b54-b6e0-5aa70ac94dc3 encuentro=eee3a0b4-f08d-42e7-82d3-737daceaea01 terminal=517f38e3-2331-44c6-8ced-b3b90b227ff4 premios=3 extraF3=true p2=100 t2=97 p3=100 t3=42
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=10b12fe5-db4c-4b54-b6e0-5aa70ac94dc3 fuente=f3:contract_2_1 carta=1
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=b3ddf73c-ad9d-4667-a32b-deb1413c3f25 jugador=10b12fe5-db4c-4b54-b6e0-5aa70ac94dc3 #1 2026-11-26T00:55:25.767376848Z RESERVADA [B-f3:contract_2_1] 4x GOLDEN_CARROT, 55 XP, prestigio=1 + 7x COOKED_BEEF
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=b3ddf73c-ad9d-4667-a32b-deb1413c3f25 jugador=10b12fe5-db4c-4b54-b6e0-5aa70ac94dc3 #2 2026-11-26T00:55:25.799392710Z RESERVADA [B8D-F3-f3_contract_2_1-10b12fe5-db4c-4b54-b6e0-5aa70ac94dc3-2] 5x BREAD, 0 XP, prestigio=0
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=b3ddf73c-ad9d-4667-a32b-deb1413c3f25 jugador=10b12fe5-db4c-4b54-b6e0-5aa70ac94dc3 #3 2026-11-26T00:55:25.806758238Z RESERVADA [B8D-F3-f3_contract_2_1-10b12fe5-db4c-4b54-b6e0-5aa70ac94dc3-3] 5x BAKED_POTATO, 0 XP, prestigio=0
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_2_2 jugador=8eef63d7-09de-452e-9992-69046ae3db87 carta=1 rareza=RARE ticket=86
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_2_2 jugador=8eef63d7-09de-452e-9992-69046ae3db87 carta=2 rareza=IMPROVED ticket=50
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_2_2 jugador=8eef63d7-09de-452e-9992-69046ae3db87 carta=3 rareza=RARE ticket=86
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=0ac4493d-5fba-477d-8795-df9a91aa52b1 fuente=f3:contract_2_2 jugador=8eef63d7-09de-452e-9992-69046ae3db87 encuentro=1bc6212c-704a-41e8-b818-02359f4b465a terminal=b66c7fc5-47a7-4c84-9542-9ffe9517014e premios=3 extraF3=true p2=100 t2=81 p3=100 t3=20
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_2_2 jugador=9a0e4f0d-6d55-47a6-9a48-d767aa5350d6 carta=1 rareza=IMPROVED ticket=31
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_2_2 jugador=9a0e4f0d-6d55-47a6-9a48-d767aa5350d6 carta=2 rareza=IMPROVED ticket=67
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_2_2 jugador=9a0e4f0d-6d55-47a6-9a48-d767aa5350d6 carta=3 rareza=IMPROVED ticket=45
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=0ac4493d-5fba-477d-8795-df9a91aa52b1 fuente=f3:contract_2_2 jugador=9a0e4f0d-6d55-47a6-9a48-d767aa5350d6 encuentro=1bc6212c-704a-41e8-b818-02359f4b465a terminal=b66c7fc5-47a7-4c84-9542-9ffe9517014e premios=3 extraF3=true p2=100 t2=12 p3=100 t3=58
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=9a0e4f0d-6d55-47a6-9a48-d767aa5350d6 fuente=f3:contract_2_2 carta=1
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=8eef63d7-09de-452e-9992-69046ae3db87 fuente=f3:contract_2_2 carta=2
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=0ac4493d-5fba-477d-8795-df9a91aa52b1 jugador=8eef63d7-09de-452e-9992-69046ae3db87 #1 2026-11-26T00:55:25.867569414Z RESERVADA [B-f3:contract_2_2] 18x ARROW, 55 XP, prestigio=1 + 2x IRON_INGOT
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=0ac4493d-5fba-477d-8795-df9a91aa52b1 jugador=9a0e4f0d-6d55-47a6-9a48-d767aa5350d6 #2 2026-11-26T00:55:25.867735504Z RESERVADA [B-f3:contract_2_2] 4x GOLDEN_CARROT, 55 XP, prestigio=1 + 8x COOKED_BEEF
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=0ac4493d-5fba-477d-8795-df9a91aa52b1 jugador=8eef63d7-09de-452e-9992-69046ae3db87 #3 2026-11-26T00:55:25.940317726Z RESERVADA [B8D-F3-f3_contract_2_2-8eef63d7-09de-452e-9992-69046ae3db87-2] 4x COAL, 0 XP, prestigio=0
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=0ac4493d-5fba-477d-8795-df9a91aa52b1 jugador=8eef63d7-09de-452e-9992-69046ae3db87 #4 2026-11-26T00:55:25.948454317Z RESERVADA [B8D-F3-f3_contract_2_2-8eef63d7-09de-452e-9992-69046ae3db87-3] 6x SPECTRAL_ARROW, 0 XP, prestigio=0
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=0ac4493d-5fba-477d-8795-df9a91aa52b1 jugador=9a0e4f0d-6d55-47a6-9a48-d767aa5350d6 #5 2026-11-26T00:55:25.956282543Z RESERVADA [B8D-F3-f3_contract_2_2-9a0e4f0d-6d55-47a6-9a48-d767aa5350d6-2] 6x BREAD, 0 XP, prestigio=0
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=0ac4493d-5fba-477d-8795-df9a91aa52b1 jugador=9a0e4f0d-6d55-47a6-9a48-d767aa5350d6 #6 2026-11-26T00:55:25.962321287Z RESERVADA [B8D-F3-f3_contract_2_2-9a0e4f0d-6d55-47a6-9a48-d767aa5350d6-3] 4x BAKED_POTATO, 0 XP, prestigio=0
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_2_3 jugador=db80b4a2-5b2e-4e0b-873b-195cc6a7f0dc carta=1 rareza=IMPROVED ticket=32
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_2_3 jugador=db80b4a2-5b2e-4e0b-873b-195cc6a7f0dc carta=2 rareza=IMPROVED ticket=56
+[00:55:25 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_2_3 jugador=db80b4a2-5b2e-4e0b-873b-195cc6a7f0dc carta=3 rareza=RARE ticket=84
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=5ec81d91-f688-4413-aa2c-fbad1cfd4c0f fuente=f3:contract_2_3 jugador=db80b4a2-5b2e-4e0b-873b-195cc6a7f0dc encuentro=6be9db58-62de-4cef-9eb2-5627dd719a6d terminal=0e681f92-6b3e-48c6-bc1b-6ce594bf0d5f premios=3 extraF3=true p2=100 t2=48 p3=100 t3=74
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_2_3 jugador=05c258f0-de48-431d-854a-b68aff9723b0 carta=1 rareza=BASIC ticket=19
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_2_3 jugador=05c258f0-de48-431d-854a-b68aff9723b0 carta=2 rareza=RARE ticket=81
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_2_3 jugador=05c258f0-de48-431d-854a-b68aff9723b0 carta=3 rareza=IMPROVED ticket=63
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=5ec81d91-f688-4413-aa2c-fbad1cfd4c0f fuente=f3:contract_2_3 jugador=05c258f0-de48-431d-854a-b68aff9723b0 encuentro=6be9db58-62de-4cef-9eb2-5627dd719a6d terminal=0e681f92-6b3e-48c6-bc1b-6ce594bf0d5f premios=3 extraF3=true p2=100 t2=25 p3=100 t3=98
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_2_3 jugador=69eb8e88-bc25-41de-8932-81606a70ee35 carta=1 rareza=IMPROVED ticket=57
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_2_3 jugador=69eb8e88-bc25-41de-8932-81606a70ee35 carta=2 rareza=RARE ticket=95
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_2_3 jugador=69eb8e88-bc25-41de-8932-81606a70ee35 carta=3 rareza=BASIC ticket=27
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=5ec81d91-f688-4413-aa2c-fbad1cfd4c0f fuente=f3:contract_2_3 jugador=69eb8e88-bc25-41de-8932-81606a70ee35 encuentro=6be9db58-62de-4cef-9eb2-5627dd719a6d terminal=0e681f92-6b3e-48c6-bc1b-6ce594bf0d5f premios=3 extraF3=true p2=100 t2=44 p3=100 t3=37
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=05c258f0-de48-431d-854a-b68aff9723b0 fuente=f3:contract_2_3 carta=1
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=69eb8e88-bc25-41de-8932-81606a70ee35 fuente=f3:contract_2_3 carta=2
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=db80b4a2-5b2e-4e0b-873b-195cc6a7f0dc fuente=f3:contract_2_3 carta=3
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=5ec81d91-f688-4413-aa2c-fbad1cfd4c0f jugador=db80b4a2-5b2e-4e0b-873b-195cc6a7f0dc #1 2026-11-26T00:55:26.084193255Z RESERVADA [B-f3:contract_2_3] 2x GOLD_INGOT, 55 XP, prestigio=1 + 2x EXPERIENCE_BOTTLE
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=5ec81d91-f688-4413-aa2c-fbad1cfd4c0f jugador=05c258f0-de48-431d-854a-b68aff9723b0 #2 2026-11-26T00:55:26.084336931Z RESERVADA [B-f3:contract_2_3] 4x GOLDEN_CARROT, 55 XP, prestigio=1 + 7x COOKED_BEEF
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=5ec81d91-f688-4413-aa2c-fbad1cfd4c0f jugador=69eb8e88-bc25-41de-8932-81606a70ee35 #3 2026-11-26T00:55:26.084397813Z RESERVADA [B-f3:contract_2_3] 1x SHIELD, 55 XP, prestigio=1 + 2x IRON_INGOT
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=5ec81d91-f688-4413-aa2c-fbad1cfd4c0f jugador=db80b4a2-5b2e-4e0b-873b-195cc6a7f0dc #4 2026-11-26T00:55:26.169718407Z RESERVADA [B8D-F3-f3_contract_2_3-db80b4a2-5b2e-4e0b-873b-195cc6a7f0dc-2] 4x REDSTONE, 0 XP, prestigio=0
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=5ec81d91-f688-4413-aa2c-fbad1cfd4c0f jugador=db80b4a2-5b2e-4e0b-873b-195cc6a7f0dc #5 2026-11-26T00:55:26.180341441Z RESERVADA [B8D-F3-f3_contract_2_3-db80b4a2-5b2e-4e0b-873b-195cc6a7f0dc-3] 5x COPPER_INGOT, 0 XP, prestigio=0
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=5ec81d91-f688-4413-aa2c-fbad1cfd4c0f jugador=05c258f0-de48-431d-854a-b68aff9723b0 #6 2026-11-26T00:55:26.189225719Z RESERVADA [B8D-F3-f3_contract_2_3-05c258f0-de48-431d-854a-b68aff9723b0-2] 4x BREAD, 0 XP, prestigio=0
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=5ec81d91-f688-4413-aa2c-fbad1cfd4c0f jugador=05c258f0-de48-431d-854a-b68aff9723b0 #7 2026-11-26T00:55:26.192503406Z RESERVADA [B8D-F3-f3_contract_2_3-05c258f0-de48-431d-854a-b68aff9723b0-3] 5x BAKED_POTATO, 0 XP, prestigio=0
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=5ec81d91-f688-4413-aa2c-fbad1cfd4c0f jugador=69eb8e88-bc25-41de-8932-81606a70ee35 #8 2026-11-26T00:55:26.196091341Z RESERVADA [B8D-F3-f3_contract_2_3-69eb8e88-bc25-41de-8932-81606a70ee35-2] 6x COAL, 0 XP, prestigio=0
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=5ec81d91-f688-4413-aa2c-fbad1cfd4c0f jugador=69eb8e88-bc25-41de-8932-81606a70ee35 #9 2026-11-26T00:55:26.201466765Z RESERVADA [B8D-F3-f3_contract_2_3-69eb8e88-bc25-41de-8932-81606a70ee35-3] 4x SPECTRAL_ARROW, 0 XP, prestigio=0
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_3_1 jugador=6755e843-54b3-4cda-bf24-c2939a09a5b9 carta=1 rareza=RARE ticket=87
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_3_1 jugador=6755e843-54b3-4cda-bf24-c2939a09a5b9 carta=2 rareza=RARE ticket=56
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_3_1 jugador=6755e843-54b3-4cda-bf24-c2939a09a5b9 carta=3 rareza=IMPROVED ticket=27
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=d82aeabd-baae-4beb-be85-768ee31b18b3 fuente=f3:contract_3_1 jugador=6755e843-54b3-4cda-bf24-c2939a09a5b9 encuentro=331ff76a-f939-460b-a123-dba68d9370cd terminal=446fef24-1c8e-4f6f-b9ed-5ac440c5d970 premios=3 extraF3=true p2=100 t2=38 p3=100 t3=91
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=6755e843-54b3-4cda-bf24-c2939a09a5b9 fuente=f3:contract_3_1 carta=1
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=d82aeabd-baae-4beb-be85-768ee31b18b3 jugador=6755e843-54b3-4cda-bf24-c2939a09a5b9 #1 2026-11-26T00:55:26.270998798Z RESERVADA [B-f3:contract_3_1] 1x GOLDEN_APPLE, 75 XP, prestigio=2 + 7x COOKED_BEEF
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=d82aeabd-baae-4beb-be85-768ee31b18b3 jugador=6755e843-54b3-4cda-bf24-c2939a09a5b9 #2 2026-11-26T00:55:26.296696874Z RESERVADA [B8D-F3-f3_contract_3_1-6755e843-54b3-4cda-bf24-c2939a09a5b9-2] 5x BREAD, 0 XP, prestigio=0
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=d82aeabd-baae-4beb-be85-768ee31b18b3 jugador=6755e843-54b3-4cda-bf24-c2939a09a5b9 #3 2026-11-26T00:55:26.332225717Z RESERVADA [B8D-F3-f3_contract_3_1-6755e843-54b3-4cda-bf24-c2939a09a5b9-3] 8x BAKED_POTATO, 0 XP, prestigio=0
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_3_2 jugador=9ac084fc-2a2c-4ff8-a246-b7fd9362619d carta=1 rareza=IMPROVED ticket=41
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_3_2 jugador=9ac084fc-2a2c-4ff8-a246-b7fd9362619d carta=2 rareza=IMPROVED ticket=41
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_3_2 jugador=9ac084fc-2a2c-4ff8-a246-b7fd9362619d carta=3 rareza=IMPROVED ticket=50
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=01ad3571-255d-4caa-a317-4dffe3970b0a fuente=f3:contract_3_2 jugador=9ac084fc-2a2c-4ff8-a246-b7fd9362619d encuentro=c0caa6e3-01a1-4f03-bf0b-6dbdbaeabac0 terminal=bf4cddea-6e24-4dc2-81d3-bc865b1e300d premios=3 extraF3=true p2=100 t2=54 p3=100 t3=25
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_3_2 jugador=1d4ad708-1612-4219-9d58-5861c89f3256 carta=1 rareza=IMPROVED ticket=19
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_3_2 jugador=1d4ad708-1612-4219-9d58-5861c89f3256 carta=2 rareza=BASIC ticket=0
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_3_2 jugador=1d4ad708-1612-4219-9d58-5861c89f3256 carta=3 rareza=IMPROVED ticket=54
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=01ad3571-255d-4caa-a317-4dffe3970b0a fuente=f3:contract_3_2 jugador=1d4ad708-1612-4219-9d58-5861c89f3256 encuentro=c0caa6e3-01a1-4f03-bf0b-6dbdbaeabac0 terminal=bf4cddea-6e24-4dc2-81d3-bc865b1e300d premios=3 extraF3=true p2=100 t2=99 p3=100 t3=69
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=9ac084fc-2a2c-4ff8-a246-b7fd9362619d fuente=f3:contract_3_2 carta=1
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=1d4ad708-1612-4219-9d58-5861c89f3256 fuente=f3:contract_3_2 carta=2
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=01ad3571-255d-4caa-a317-4dffe3970b0a jugador=9ac084fc-2a2c-4ff8-a246-b7fd9362619d #1 2026-11-26T00:55:26.374005686Z RESERVADA [B-f3:contract_3_2] 4x GOLDEN_CARROT, 75 XP, prestigio=2 + 10x COOKED_BEEF
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=01ad3571-255d-4caa-a317-4dffe3970b0a jugador=1d4ad708-1612-4219-9d58-5861c89f3256 #2 2026-11-26T00:55:26.374297827Z RESERVADA [B-f3:contract_3_2] 18x ARROW, 75 XP, prestigio=2 + 2x IRON_INGOT
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=01ad3571-255d-4caa-a317-4dffe3970b0a jugador=9ac084fc-2a2c-4ff8-a246-b7fd9362619d #3 2026-11-26T00:55:26.385243777Z RESERVADA [B8D-F3-f3_contract_3_2-9ac084fc-2a2c-4ff8-a246-b7fd9362619d-2] 7x BREAD, 0 XP, prestigio=0
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=01ad3571-255d-4caa-a317-4dffe3970b0a jugador=9ac084fc-2a2c-4ff8-a246-b7fd9362619d #4 2026-11-26T00:55:26.388872294Z RESERVADA [B8D-F3-f3_contract_3_2-9ac084fc-2a2c-4ff8-a246-b7fd9362619d-3] 6x BAKED_POTATO, 0 XP, prestigio=0
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=01ad3571-255d-4caa-a317-4dffe3970b0a jugador=1d4ad708-1612-4219-9d58-5861c89f3256 #5 2026-11-26T00:55:26.393282680Z RESERVADA [B8D-F3-f3_contract_3_2-1d4ad708-1612-4219-9d58-5861c89f3256-2] 6x COAL, 0 XP, prestigio=0
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=01ad3571-255d-4caa-a317-4dffe3970b0a jugador=1d4ad708-1612-4219-9d58-5861c89f3256 #6 2026-11-26T00:55:26.401624121Z RESERVADA [B8D-F3-f3_contract_3_2-1d4ad708-1612-4219-9d58-5861c89f3256-3] 8x SPECTRAL_ARROW, 0 XP, prestigio=0
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_3_3 jugador=a544e611-a238-495c-bb60-4c0e173b5364 carta=1 rareza=RARE ticket=80
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_3_3 jugador=a544e611-a238-495c-bb60-4c0e173b5364 carta=2 rareza=IMPROVED ticket=39
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_3_3 jugador=a544e611-a238-495c-bb60-4c0e173b5364 carta=3 rareza=RARE ticket=57
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=d2bee1cc-7228-43eb-8658-6284c719d79b fuente=f3:contract_3_3 jugador=a544e611-a238-495c-bb60-4c0e173b5364 encuentro=30f7536f-f152-488c-8502-66775eb91929 terminal=c86afe6f-1f62-48b4-8158-2de55c5fd342 premios=3 extraF3=true p2=100 t2=5 p3=100 t3=19
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_3_3 jugador=079faa2f-cd74-4e1c-a33f-b0fc2e134e07 carta=1 rareza=IMPROVED ticket=19
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_3_3 jugador=079faa2f-cd74-4e1c-a33f-b0fc2e134e07 carta=2 rareza=IMPROVED ticket=28
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_3_3 jugador=079faa2f-cd74-4e1c-a33f-b0fc2e134e07 carta=3 rareza=RARE ticket=84
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=d2bee1cc-7228-43eb-8658-6284c719d79b fuente=f3:contract_3_3 jugador=079faa2f-cd74-4e1c-a33f-b0fc2e134e07 encuentro=30f7536f-f152-488c-8502-66775eb91929 terminal=c86afe6f-1f62-48b4-8158-2de55c5fd342 premios=3 extraF3=true p2=100 t2=20 p3=100 t3=42
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_3_3 jugador=4638ef51-8eee-4722-a473-19a036f61c4b carta=1 rareza=BASIC ticket=1
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_3_3 jugador=4638ef51-8eee-4722-a473-19a036f61c4b carta=2 rareza=EXCEPTIONAL ticket=93
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_3_3 jugador=4638ef51-8eee-4722-a473-19a036f61c4b carta=3 rareza=IMPROVED ticket=41
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=d2bee1cc-7228-43eb-8658-6284c719d79b fuente=f3:contract_3_3 jugador=4638ef51-8eee-4722-a473-19a036f61c4b encuentro=30f7536f-f152-488c-8502-66775eb91929 terminal=c86afe6f-1f62-48b4-8158-2de55c5fd342 premios=3 extraF3=true p2=100 t2=4 p3=100 t3=27
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=a544e611-a238-495c-bb60-4c0e173b5364 fuente=f3:contract_3_3 carta=1
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=079faa2f-cd74-4e1c-a33f-b0fc2e134e07 fuente=f3:contract_3_3 carta=2
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=4638ef51-8eee-4722-a473-19a036f61c4b fuente=f3:contract_3_3 carta=3
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=d2bee1cc-7228-43eb-8658-6284c719d79b jugador=a544e611-a238-495c-bb60-4c0e173b5364 #1 2026-11-26T00:55:26.459480802Z RESERVADA [B-f3:contract_3_3] 1x GOLDEN_APPLE, 75 XP, prestigio=2 + 7x COOKED_BEEF
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=d2bee1cc-7228-43eb-8658-6284c719d79b jugador=079faa2f-cd74-4e1c-a33f-b0fc2e134e07 #2 2026-11-26T00:55:26.459625901Z RESERVADA [B-f3:contract_3_3] 19x ARROW, 75 XP, prestigio=2 + 3x IRON_INGOT
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=d2bee1cc-7228-43eb-8658-6284c719d79b jugador=4638ef51-8eee-4722-a473-19a036f61c4b #3 2026-11-26T00:55:26.459657569Z RESERVADA [B-f3:contract_3_3] 2x GOLD_INGOT, 75 XP, prestigio=2 + 4x LAPIS_LAZULI
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=d2bee1cc-7228-43eb-8658-6284c719d79b jugador=a544e611-a238-495c-bb60-4c0e173b5364 #4 2026-11-26T00:55:26.491479527Z RESERVADA [B8D-F3-f3_contract_3_3-a544e611-a238-495c-bb60-4c0e173b5364-2] 6x BREAD, 0 XP, prestigio=0
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=d2bee1cc-7228-43eb-8658-6284c719d79b jugador=a544e611-a238-495c-bb60-4c0e173b5364 #5 2026-11-26T00:55:26.499135062Z RESERVADA [B8D-F3-f3_contract_3_3-a544e611-a238-495c-bb60-4c0e173b5364-3] 7x BAKED_POTATO, 0 XP, prestigio=0
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=d2bee1cc-7228-43eb-8658-6284c719d79b jugador=079faa2f-cd74-4e1c-a33f-b0fc2e134e07 #6 2026-11-26T00:55:26.506168157Z RESERVADA [B8D-F3-f3_contract_3_3-079faa2f-cd74-4e1c-a33f-b0fc2e134e07-2] 7x COAL, 0 XP, prestigio=0
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=d2bee1cc-7228-43eb-8658-6284c719d79b jugador=079faa2f-cd74-4e1c-a33f-b0fc2e134e07 #7 2026-11-26T00:55:26.508794591Z RESERVADA [B8D-F3-f3_contract_3_3-079faa2f-cd74-4e1c-a33f-b0fc2e134e07-3] 7x SPECTRAL_ARROW, 0 XP, prestigio=0
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=d2bee1cc-7228-43eb-8658-6284c719d79b jugador=4638ef51-8eee-4722-a473-19a036f61c4b #8 2026-11-26T00:55:26.513923091Z RESERVADA [B8D-F3-f3_contract_3_3-4638ef51-8eee-4722-a473-19a036f61c4b-2] 7x REDSTONE, 0 XP, prestigio=0
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=d2bee1cc-7228-43eb-8658-6284c719d79b jugador=4638ef51-8eee-4722-a473-19a036f61c4b #9 2026-11-26T00:55:26.537732937Z RESERVADA [B8D-F3-f3_contract_3_3-4638ef51-8eee-4722-a473-19a036f61c4b-3] 7x COPPER_INGOT, 0 XP, prestigio=0
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_4_1 jugador=0e5f41c9-5439-482c-8ae1-db20f5c44073 carta=1 rareza=RARE ticket=56
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_4_1 jugador=0e5f41c9-5439-482c-8ae1-db20f5c44073 carta=2 rareza=RARE ticket=48
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_4_1 jugador=0e5f41c9-5439-482c-8ae1-db20f5c44073 carta=3 rareza=IMPROVED ticket=12
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=d2ad9560-aa2a-4477-a4d5-f94bcb4f3bdb fuente=f3:contract_4_1 jugador=0e5f41c9-5439-482c-8ae1-db20f5c44073 encuentro=044c5648-dd5c-4dc0-808b-dbbf68fc7115 terminal=565bf11d-99de-42a2-9759-5020ed027c69 premios=3 extraF3=true p2=100 t2=90 p3=100 t3=31
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=0e5f41c9-5439-482c-8ae1-db20f5c44073 fuente=f3:contract_4_1 carta=1
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=d2ad9560-aa2a-4477-a4d5-f94bcb4f3bdb jugador=0e5f41c9-5439-482c-8ae1-db20f5c44073 #1 2026-11-26T00:55:26.552028353Z RESERVADA [B-f3:contract_4_1] 1x GOLDEN_APPLE, 105 XP, prestigio=2 + 9x COOKED_BEEF
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=d2ad9560-aa2a-4477-a4d5-f94bcb4f3bdb jugador=0e5f41c9-5439-482c-8ae1-db20f5c44073 #2 2026-11-26T00:55:26.563762833Z RESERVADA [B8D-F3-f3_contract_4_1-0e5f41c9-5439-482c-8ae1-db20f5c44073-2] 9x BREAD, 0 XP, prestigio=0
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=d2ad9560-aa2a-4477-a4d5-f94bcb4f3bdb jugador=0e5f41c9-5439-482c-8ae1-db20f5c44073 #3 2026-11-26T00:55:26.566527456Z RESERVADA [B8D-F3-f3_contract_4_1-0e5f41c9-5439-482c-8ae1-db20f5c44073-3] 9x BAKED_POTATO, 0 XP, prestigio=0
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_4_2 jugador=87f0b04a-7c7f-4e10-b613-0bf41a38ffe5 carta=1 rareza=IMPROVED ticket=5
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_4_2 jugador=87f0b04a-7c7f-4e10-b613-0bf41a38ffe5 carta=2 rareza=RARE ticket=63
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_4_2 jugador=87f0b04a-7c7f-4e10-b613-0bf41a38ffe5 carta=3 rareza=RARE ticket=43
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=85adb8cd-d562-444a-bde7-62228f67aea4 fuente=f3:contract_4_2 jugador=87f0b04a-7c7f-4e10-b613-0bf41a38ffe5 encuentro=9f997220-208a-46e8-9169-f9a65074e517 terminal=4cd11b92-7b99-4a5b-ad58-db39ef8e1480 premios=3 extraF3=true p2=100 t2=37 p3=100 t3=17
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_4_2 jugador=975854d7-fb0c-4933-8c4d-32a2d7f5c665 carta=1 rareza=RARE ticket=41
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_4_2 jugador=975854d7-fb0c-4933-8c4d-32a2d7f5c665 carta=2 rareza=RARE ticket=46
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_4_2 jugador=975854d7-fb0c-4933-8c4d-32a2d7f5c665 carta=3 rareza=RARE ticket=41
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=85adb8cd-d562-444a-bde7-62228f67aea4 fuente=f3:contract_4_2 jugador=975854d7-fb0c-4933-8c4d-32a2d7f5c665 encuentro=9f997220-208a-46e8-9169-f9a65074e517 terminal=4cd11b92-7b99-4a5b-ad58-db39ef8e1480 premios=3 extraF3=true p2=100 t2=74 p3=100 t3=20
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=87f0b04a-7c7f-4e10-b613-0bf41a38ffe5 fuente=f3:contract_4_2 carta=1
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=975854d7-fb0c-4933-8c4d-32a2d7f5c665 fuente=f3:contract_4_2 carta=2
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=85adb8cd-d562-444a-bde7-62228f67aea4 jugador=87f0b04a-7c7f-4e10-b613-0bf41a38ffe5 #1 2026-11-26T00:55:26.599748307Z RESERVADA [B-f3:contract_4_2] 5x GOLDEN_CARROT, 105 XP, prestigio=2 + 9x COOKED_BEEF
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=85adb8cd-d562-444a-bde7-62228f67aea4 jugador=975854d7-fb0c-4933-8c4d-32a2d7f5c665 #2 2026-11-26T00:55:26.599877381Z RESERVADA [B-f3:contract_4_2] 1x SHIELD, 105 XP, prestigio=2 + 3x IRON_INGOT
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=85adb8cd-d562-444a-bde7-62228f67aea4 jugador=87f0b04a-7c7f-4e10-b613-0bf41a38ffe5 #3 2026-11-26T00:55:26.643638790Z RESERVADA [B8D-F3-f3_contract_4_2-87f0b04a-7c7f-4e10-b613-0bf41a38ffe5-2] 9x BREAD, 0 XP, prestigio=0
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=85adb8cd-d562-444a-bde7-62228f67aea4 jugador=87f0b04a-7c7f-4e10-b613-0bf41a38ffe5 #4 2026-11-26T00:55:26.646606329Z RESERVADA [B8D-F3-f3_contract_4_2-87f0b04a-7c7f-4e10-b613-0bf41a38ffe5-3] 8x BAKED_POTATO, 0 XP, prestigio=0
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=85adb8cd-d562-444a-bde7-62228f67aea4 jugador=975854d7-fb0c-4933-8c4d-32a2d7f5c665 #5 2026-11-26T00:55:26.649166282Z RESERVADA [B8D-F3-f3_contract_4_2-975854d7-fb0c-4933-8c4d-32a2d7f5c665-2] 7x COAL, 0 XP, prestigio=0
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=85adb8cd-d562-444a-bde7-62228f67aea4 jugador=975854d7-fb0c-4933-8c4d-32a2d7f5c665 #6 2026-11-26T00:55:26.653979887Z RESERVADA [B8D-F3-f3_contract_4_2-975854d7-fb0c-4933-8c4d-32a2d7f5c665-3] 8x SPECTRAL_ARROW, 0 XP, prestigio=0
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_4_3 jugador=8c7586a9-54b7-4d5e-a9e0-3add3228346b carta=1 rareza=IMPROVED ticket=28
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_4_3 jugador=8c7586a9-54b7-4d5e-a9e0-3add3228346b carta=2 rareza=IMPROVED ticket=11
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_4_3 jugador=8c7586a9-54b7-4d5e-a9e0-3add3228346b carta=3 rareza=IMPROVED ticket=18
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=1b4a043b-9fbb-47f2-8cc8-bd01dde1d8ee fuente=f3:contract_4_3 jugador=8c7586a9-54b7-4d5e-a9e0-3add3228346b encuentro=52f3eee2-cc71-4fc0-99f8-b4c407240afe terminal=cc88210a-6df4-4b62-857a-4a9f046d1e39 premios=3 extraF3=true p2=100 t2=11 p3=100 t3=7
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_4_3 jugador=ecb5d832-3efc-49e9-b585-e87e7aa07970 carta=1 rareza=RARE ticket=65
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_4_3 jugador=ecb5d832-3efc-49e9-b585-e87e7aa07970 carta=2 rareza=EXCEPTIONAL ticket=98
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_4_3 jugador=ecb5d832-3efc-49e9-b585-e87e7aa07970 carta=3 rareza=RARE ticket=72
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=1b4a043b-9fbb-47f2-8cc8-bd01dde1d8ee fuente=f3:contract_4_3 jugador=ecb5d832-3efc-49e9-b585-e87e7aa07970 encuentro=52f3eee2-cc71-4fc0-99f8-b4c407240afe terminal=cc88210a-6df4-4b62-857a-4a9f046d1e39 premios=3 extraF3=true p2=100 t2=27 p3=100 t3=5
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_4_3 jugador=66d2117e-4246-452a-9899-8be2f46eee4d carta=1 rareza=EXCEPTIONAL ticket=92
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_4_3 jugador=66d2117e-4246-452a-9899-8be2f46eee4d carta=2 rareza=IMPROVED ticket=33
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_4_3 jugador=66d2117e-4246-452a-9899-8be2f46eee4d carta=3 rareza=EXCEPTIONAL ticket=83
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=1b4a043b-9fbb-47f2-8cc8-bd01dde1d8ee fuente=f3:contract_4_3 jugador=66d2117e-4246-452a-9899-8be2f46eee4d encuentro=52f3eee2-cc71-4fc0-99f8-b4c407240afe terminal=cc88210a-6df4-4b62-857a-4a9f046d1e39 premios=3 extraF3=true p2=100 t2=72 p3=100 t3=88
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=ecb5d832-3efc-49e9-b585-e87e7aa07970 fuente=f3:contract_4_3 carta=1
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=66d2117e-4246-452a-9899-8be2f46eee4d fuente=f3:contract_4_3 carta=2
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=8c7586a9-54b7-4d5e-a9e0-3add3228346b fuente=f3:contract_4_3 carta=3
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=1b4a043b-9fbb-47f2-8cc8-bd01dde1d8ee jugador=8c7586a9-54b7-4d5e-a9e0-3add3228346b #1 2026-11-26T00:55:26.735441898Z RESERVADA [B-f3:contract_4_3] 2x GOLD_INGOT, 105 XP, prestigio=2 + 5x LAPIS_LAZULI
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=1b4a043b-9fbb-47f2-8cc8-bd01dde1d8ee jugador=ecb5d832-3efc-49e9-b585-e87e7aa07970 #2 2026-11-26T00:55:26.735577422Z RESERVADA [B-f3:contract_4_3] 1x GOLDEN_APPLE, 105 XP, prestigio=2 + 9x COOKED_BEEF
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=1b4a043b-9fbb-47f2-8cc8-bd01dde1d8ee jugador=66d2117e-4246-452a-9899-8be2f46eee4d #3 2026-11-26T00:55:26.735606135Z RESERVADA [B-f3:contract_4_3] 20x ARROW, 105 XP, prestigio=2 + 3x IRON_INGOT
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=1b4a043b-9fbb-47f2-8cc8-bd01dde1d8ee jugador=8c7586a9-54b7-4d5e-a9e0-3add3228346b #4 2026-11-26T00:55:26.761427286Z RESERVADA [B8D-F3-f3_contract_4_3-8c7586a9-54b7-4d5e-a9e0-3add3228346b-2] 8x REDSTONE, 0 XP, prestigio=0
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=1b4a043b-9fbb-47f2-8cc8-bd01dde1d8ee jugador=8c7586a9-54b7-4d5e-a9e0-3add3228346b #5 2026-11-26T00:55:26.764044346Z RESERVADA [B8D-F3-f3_contract_4_3-8c7586a9-54b7-4d5e-a9e0-3add3228346b-3] 8x COPPER_INGOT, 0 XP, prestigio=0
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=1b4a043b-9fbb-47f2-8cc8-bd01dde1d8ee jugador=ecb5d832-3efc-49e9-b585-e87e7aa07970 #6 2026-11-26T00:55:26.769725050Z RESERVADA [B8D-F3-f3_contract_4_3-ecb5d832-3efc-49e9-b585-e87e7aa07970-2] 9x BREAD, 0 XP, prestigio=0
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=1b4a043b-9fbb-47f2-8cc8-bd01dde1d8ee jugador=ecb5d832-3efc-49e9-b585-e87e7aa07970 #7 2026-11-26T00:55:26.772231463Z RESERVADA [B8D-F3-f3_contract_4_3-ecb5d832-3efc-49e9-b585-e87e7aa07970-3] 7x BAKED_POTATO, 0 XP, prestigio=0
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=1b4a043b-9fbb-47f2-8cc8-bd01dde1d8ee jugador=66d2117e-4246-452a-9899-8be2f46eee4d #8 2026-11-26T00:55:26.778207002Z RESERVADA [B8D-F3-f3_contract_4_3-66d2117e-4246-452a-9899-8be2f46eee4d-2] 7x COAL, 0 XP, prestigio=0
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=1b4a043b-9fbb-47f2-8cc8-bd01dde1d8ee jugador=66d2117e-4246-452a-9899-8be2f46eee4d #9 2026-11-26T00:55:26.780599332Z RESERVADA [B8D-F3-f3_contract_4_3-66d2117e-4246-452a-9899-8be2f46eee4d-3] 7x SPECTRAL_ARROW, 0 XP, prestigio=0
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_5_1 jugador=05c409e2-ae07-43f5-b17e-071832e57408 carta=1 rareza=RARE ticket=63
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_5_1 jugador=05c409e2-ae07-43f5-b17e-071832e57408 carta=2 rareza=EXCEPTIONAL ticket=93
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_5_1 jugador=05c409e2-ae07-43f5-b17e-071832e57408 carta=3 rareza=IMPROVED ticket=13
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=245bd739-faea-4a07-998d-4bf3222b5745 fuente=f3:contract_5_1 jugador=05c409e2-ae07-43f5-b17e-071832e57408 encuentro=ce2201e4-fba6-4973-9947-70ed5dc323ce terminal=3dc9a723-290d-41e9-b35e-6a7461b2b838 premios=3 extraF3=true p2=100 t2=5 p3=100 t3=90
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=05c409e2-ae07-43f5-b17e-071832e57408 fuente=f3:contract_5_1 carta=1
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=245bd739-faea-4a07-998d-4bf3222b5745 jugador=05c409e2-ae07-43f5-b17e-071832e57408 #1 2026-11-26T00:55:26.788582822Z RESERVADA [B-f3:contract_5_1] 1x GOLDEN_APPLE, 140 XP, prestigio=3 + 10x COOKED_BEEF
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=245bd739-faea-4a07-998d-4bf3222b5745 jugador=05c409e2-ae07-43f5-b17e-071832e57408 #2 2026-11-26T00:55:26.798666371Z RESERVADA [B8D-F3-f3_contract_5_1-05c409e2-ae07-43f5-b17e-071832e57408-2] 9x BREAD, 0 XP, prestigio=0
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=245bd739-faea-4a07-998d-4bf3222b5745 jugador=05c409e2-ae07-43f5-b17e-071832e57408 #3 2026-11-26T00:55:26.801069949Z RESERVADA [B8D-F3-f3_contract_5_1-05c409e2-ae07-43f5-b17e-071832e57408-3] 9x BAKED_POTATO, 0 XP, prestigio=0
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_5_2 jugador=f80f2eb9-3e32-4fe6-bb8c-a455e868bf36 carta=1 rareza=EXCEPTIONAL ticket=71
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_5_2 jugador=f80f2eb9-3e32-4fe6-bb8c-a455e868bf36 carta=2 rareza=EXCEPTIONAL ticket=69
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_5_2 jugador=f80f2eb9-3e32-4fe6-bb8c-a455e868bf36 carta=3 rareza=RARE ticket=60
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=131451f7-5c92-4d8c-b930-e618fce7ee2d fuente=f3:contract_5_2 jugador=f80f2eb9-3e32-4fe6-bb8c-a455e868bf36 encuentro=abf3446d-fde8-40dd-a6d7-444bb218b635 terminal=5b1a2b9c-eb1e-4ad8-b3e8-9bfb38fdf05b premios=3 extraF3=true p2=100 t2=58 p3=100 t3=28
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_5_2 jugador=45da7439-c5e5-4fb6-bfb4-bc5d22e8c79d carta=1 rareza=RARE ticket=53
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_5_2 jugador=45da7439-c5e5-4fb6-bfb4-bc5d22e8c79d carta=2 rareza=EXCEPTIONAL ticket=99
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_5_2 jugador=45da7439-c5e5-4fb6-bfb4-bc5d22e8c79d carta=3 rareza=RARE ticket=54
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=131451f7-5c92-4d8c-b930-e618fce7ee2d fuente=f3:contract_5_2 jugador=45da7439-c5e5-4fb6-bfb4-bc5d22e8c79d encuentro=abf3446d-fde8-40dd-a6d7-444bb218b635 terminal=5b1a2b9c-eb1e-4ad8-b3e8-9bfb38fdf05b premios=3 extraF3=true p2=100 t2=20 p3=100 t3=36
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=45da7439-c5e5-4fb6-bfb4-bc5d22e8c79d fuente=f3:contract_5_2 carta=1
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=f80f2eb9-3e32-4fe6-bb8c-a455e868bf36 fuente=f3:contract_5_2 carta=2
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=131451f7-5c92-4d8c-b930-e618fce7ee2d jugador=f80f2eb9-3e32-4fe6-bb8c-a455e868bf36 #1 2026-11-26T00:55:26.848366383Z RESERVADA [B-f3:contract_5_2] 1x SHIELD, 140 XP, prestigio=3 + 4x IRON_INGOT
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=131451f7-5c92-4d8c-b930-e618fce7ee2d jugador=45da7439-c5e5-4fb6-bfb4-bc5d22e8c79d #2 2026-11-26T00:55:26.852678140Z RESERVADA [B-f3:contract_5_2] 1x GOLDEN_APPLE, 140 XP, prestigio=3 + 10x COOKED_BEEF
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=131451f7-5c92-4d8c-b930-e618fce7ee2d jugador=f80f2eb9-3e32-4fe6-bb8c-a455e868bf36 #3 2026-11-26T00:55:26.870695974Z RESERVADA [B8D-F3-f3_contract_5_2-f80f2eb9-3e32-4fe6-bb8c-a455e868bf36-2] 8x COAL, 0 XP, prestigio=0
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=131451f7-5c92-4d8c-b930-e618fce7ee2d jugador=f80f2eb9-3e32-4fe6-bb8c-a455e868bf36 #4 2026-11-26T00:55:26.877623250Z RESERVADA [B8D-F3-f3_contract_5_2-f80f2eb9-3e32-4fe6-bb8c-a455e868bf36-3] 9x SPECTRAL_ARROW, 0 XP, prestigio=0
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=131451f7-5c92-4d8c-b930-e618fce7ee2d jugador=45da7439-c5e5-4fb6-bfb4-bc5d22e8c79d #5 2026-11-26T00:55:26.881299699Z RESERVADA [B8D-F3-f3_contract_5_2-45da7439-c5e5-4fb6-bfb4-bc5d22e8c79d-2] 9x BREAD, 0 XP, prestigio=0
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=131451f7-5c92-4d8c-b930-e618fce7ee2d jugador=45da7439-c5e5-4fb6-bfb4-bc5d22e8c79d #6 2026-11-26T00:55:26.886299265Z RESERVADA [B8D-F3-f3_contract_5_2-45da7439-c5e5-4fb6-bfb4-bc5d22e8c79d-3] 10x BAKED_POTATO, 0 XP, prestigio=0
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_5_3 jugador=99522f07-39c0-41e7-aed2-6b255cdbba88 carta=1 rareza=RARE ticket=30
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_5_3 jugador=99522f07-39c0-41e7-aed2-6b255cdbba88 carta=2 rareza=EXCEPTIONAL ticket=95
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_5_3 jugador=99522f07-39c0-41e7-aed2-6b255cdbba88 carta=3 rareza=IMPROVED ticket=13
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=7630d315-bacb-46e5-983d-1d672899a0df fuente=f3:contract_5_3 jugador=99522f07-39c0-41e7-aed2-6b255cdbba88 encuentro=91e7671a-777d-42a6-9bbf-bb8ed8a631b4 terminal=132257f6-2b6b-41b4-894f-21af0b1ce848 premios=3 extraF3=true p2=100 t2=67 p3=100 t3=49
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_5_3 jugador=bb88f040-73c5-4fa1-a7f7-c2a59d8aa92f carta=1 rareza=EXCEPTIONAL ticket=74
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_5_3 jugador=bb88f040-73c5-4fa1-a7f7-c2a59d8aa92f carta=2 rareza=RARE ticket=29
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_5_3 jugador=bb88f040-73c5-4fa1-a7f7-c2a59d8aa92f carta=3 rareza=IMPROVED ticket=4
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=7630d315-bacb-46e5-983d-1d672899a0df fuente=f3:contract_5_3 jugador=bb88f040-73c5-4fa1-a7f7-c2a59d8aa92f encuentro=91e7671a-777d-42a6-9bbf-bb8ed8a631b4 terminal=132257f6-2b6b-41b4-894f-21af0b1ce848 premios=3 extraF3=true p2=100 t2=46 p3=100 t3=44
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_5_3 jugador=29e22c24-6ac8-4eb9-a73f-93121bbf9ccc carta=1 rareza=RARE ticket=56
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_5_3 jugador=29e22c24-6ac8-4eb9-a73f-93121bbf9ccc carta=2 rareza=RARE ticket=64
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ECONOMIA_F3_V1 fuente=f3:contract_5_3 jugador=29e22c24-6ac8-4eb9-a73f-93121bbf9ccc carta=3 rareza=RARE ticket=48
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] DERECHO_CONGELADO partida=7630d315-bacb-46e5-983d-1d672899a0df fuente=f3:contract_5_3 jugador=29e22c24-6ac8-4eb9-a73f-93121bbf9ccc encuentro=91e7671a-777d-42a6-9bbf-bb8ed8a631b4 terminal=132257f6-2b6b-41b4-894f-21af0b1ce848 premios=3 extraF3=true p2=100 t2=50 p3=100 t3=85
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=99522f07-39c0-41e7-aed2-6b255cdbba88 fuente=f3:contract_5_3 carta=1
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=bb88f040-73c5-4fa1-a7f7-c2a59d8aa92f fuente=f3:contract_5_3 carta=2
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] ELECCION jugador=29e22c24-6ac8-4eb9-a73f-93121bbf9ccc fuente=f3:contract_5_3 carta=3
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_BOTIN_RC8D] REGLAS_CARGADAS activo=true penitencias=true
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=7630d315-bacb-46e5-983d-1d672899a0df jugador=99522f07-39c0-41e7-aed2-6b255cdbba88 #1 2026-11-26T00:55:26.956945830Z RESERVADA [B-f3:contract_5_3] 1x GOLDEN_APPLE, 140 XP, prestigio=3 + 10x COOKED_BEEF
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=7630d315-bacb-46e5-983d-1d672899a0df jugador=bb88f040-73c5-4fa1-a7f7-c2a59d8aa92f #2 2026-11-26T00:55:26.957120013Z RESERVADA [B-f3:contract_5_3] 1x SHIELD, 140 XP, prestigio=3 + 4x IRON_INGOT
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=7630d315-bacb-46e5-983d-1d672899a0df jugador=29e22c24-6ac8-4eb9-a73f-93121bbf9ccc #3 2026-11-26T00:55:26.957152342Z RESERVADA [B-f3:contract_5_3] 2x GOLD_INGOT, 140 XP, prestigio=3 + 2x EXPERIENCE_BOTTLE
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=7630d315-bacb-46e5-983d-1d672899a0df jugador=99522f07-39c0-41e7-aed2-6b255cdbba88 #4 2026-11-26T00:55:26.979640373Z RESERVADA [B8D-F3-f3_contract_5_3-99522f07-39c0-41e7-aed2-6b255cdbba88-2] 9x BREAD, 0 XP, prestigio=0
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=7630d315-bacb-46e5-983d-1d672899a0df jugador=99522f07-39c0-41e7-aed2-6b255cdbba88 #5 2026-11-26T00:55:26.982264383Z RESERVADA [B8D-F3-f3_contract_5_3-99522f07-39c0-41e7-aed2-6b255cdbba88-3] 9x BAKED_POTATO, 0 XP, prestigio=0
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=7630d315-bacb-46e5-983d-1d672899a0df jugador=bb88f040-73c5-4fa1-a7f7-c2a59d8aa92f #6 2026-11-26T00:55:26.984824527Z RESERVADA [B8D-F3-f3_contract_5_3-bb88f040-73c5-4fa1-a7f7-c2a59d8aa92f-2] 10x COAL, 0 XP, prestigio=0
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=7630d315-bacb-46e5-983d-1d672899a0df jugador=bb88f040-73c5-4fa1-a7f7-c2a59d8aa92f #7 2026-11-26T00:55:26.990161934Z RESERVADA [B8D-F3-f3_contract_5_3-bb88f040-73c5-4fa1-a7f7-c2a59d8aa92f-3] 8x SPECTRAL_ARROW, 0 XP, prestigio=0
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=7630d315-bacb-46e5-983d-1d672899a0df jugador=29e22c24-6ac8-4eb9-a73f-93121bbf9ccc #8 2026-11-26T00:55:26.992466682Z RESERVADA [B8D-F3-f3_contract_5_3-29e22c24-6ac8-4eb9-a73f-93121bbf9ccc-2] 9x REDSTONE, 0 XP, prestigio=0
+[00:55:26 INFO]: [HardcoreMisiones] [HM2_RECOMPENSA_W42] partida=7630d315-bacb-46e5-983d-1d672899a0df jugador=29e22c24-6ac8-4eb9-a73f-93121bbf9ccc #9 2026-11-26T00:55:26.997179135Z RESERVADA [B8D-F3-f3_contract_5_3-29e22c24-6ac8-4eb9-a73f-93121bbf9ccc-3] 8x COPPER_INGOT, 0 XP, prestigio=0
+[00:55:27 ERROR]: [HardcoreMisiones] HM2_RC8I_MUNDO_BOSS_INCORRECTO formato: 1 encounter: 'd1987b34-1404-4adf-9180-85ef7c1eedaa' entity: 'eebc430c-b45f-40fd-ab01-2a604c2125e5' expected-world: '84d96bf1-c75f-4301-8b24-8c1fbf855038' actual-world: '89839fb4-012c-471d-851b-d59b11d7a727' actual-name: 'world'  · ENCUENTRO SIN PREMIO HASTA REVISIÓN
+[00:55:27 ERROR]: [HardcoreMisiones] F3: estado incompatible/sospechoso: java.lang.IllegalArgumentException: F3 campo desconocido o tipo inválido: /future
+[00:55:27 INFO]: [HardcoreMisiones] [STDOUT] SESSION_F3_ACK_PAPER: 11 PASS
+[00:55:27 INFO]: [HardcoreMisiones] [STDOUT] CLEAN_PAPER_CONTRACTS_PASS checks=677 scenarios=15
+[00:55:27 INFO]: [HardcoreMisiones] HM2_PAPER_CONTRACT PASS CleanPaperContractsTest
+[00:55:27 INFO]: [HardcoreMisiones] HM2_PAPER_CONTRACT END 17
+[00:55:27 ERROR]: ------------------------------
+[00:55:27 ERROR]: The server has stopped responding! This is (probably) not a Paper bug.
+[00:55:27 ERROR]: If you see a plugin in the Server thread dump below, then please report it to that author
+[00:55:27 ERROR]: 	 *Especially* if it looks like HTTP or MySQL operations are occurring
+[00:55:27 ERROR]: If you see a world save or edit, then it means you did far more than your server can handle at once
+[00:55:27 ERROR]: 	 If this is the case, consider increasing timeout-time in spigot.yml but note that this will replace the crash with LARGE lag spikes
+[00:55:27 ERROR]: If you are unsure or still think this is a Paper bug, please report this to https://github.com/PaperMC/Paper/issues
+[00:55:27 ERROR]: Be sure to include ALL relevant console errors and Minecraft crash reports
+[00:55:27 ERROR]: Paper version: 26.2-135-e4d6dfd (MC: 26.2)
+[00:55:27 ERROR]: ------------------------------
+[00:55:27 ERROR]: Server thread dump (Look for plugins here before reporting to Paper!):
+[00:55:27 ERROR]: ------------------------------
+[00:55:27 ERROR]: Current Thread: Server thread
+[00:55:27 ERROR]: 	PID: 46 | Suspended: false | Native: false | State: RUNNABLE
+[00:55:27 ERROR]: 	Stack:
+[00:55:27 ERROR]: 		net.minecraft.server.level.ServerLevel.tick(ServerLevel.java:802)
+[00:55:27 ERROR]: 		net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:1823)
+[00:55:27 ERROR]: 		net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:1620)
+[00:55:27 ERROR]: 		net.minecraft.server.dedicated.DedicatedServer.tickServer(DedicatedServer.java:404)
+[00:55:27 ERROR]: 		net.minecraft.server.MinecraftServer.processPacketsAndTick(MinecraftServer.java:1678)
+[00:55:27 ERROR]: 		net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1348)
+[00:55:27 ERROR]: 		net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:303)
+[00:55:27 ERROR]: 		net.minecraft.server.MinecraftServer$$Lambda/0x000000002705a8a8.run(Unknown Source)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.runWith(Thread.java:1487)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.run(Thread.java:1474)
+[00:55:27 ERROR]: ------------------------------
+[00:55:27 ERROR]: Entire Thread Dump:
+[00:55:27 INFO]: Stopping server
+[00:55:27 ERROR]: ------------------------------
+[00:55:27 ERROR]: Current Thread: Reference Handler
+[00:55:27 ERROR]: 	PID: 13 | Suspended: false | Native: false | State: RUNNABLE
+[00:55:27 ERROR]: 	Stack:
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.ref.Reference.waitForReferencePendingList(Native Method)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.ref.Reference.processPendingReferences(Reference.java:246)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.ref.Reference$ReferenceHandler.run(Reference.java:208)
+[00:55:27 ERROR]: ------------------------------
+[00:55:27 ERROR]: Current Thread: Finalizer
+[00:55:27 ERROR]: 	PID: 14 | Suspended: false | Native: false | State: WAITING
+[00:55:27 ERROR]: 	Stack:
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Object.wait0(Native Method)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Object.wait(Object.java:389)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Object.wait(Object.java:351)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.ref.ReferenceQueue.remove0(ReferenceQueue.java:137)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:215)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:165)
+[00:55:27 ERROR]: ------------------------------
+[00:55:27 ERROR]: Current Thread: Signal Dispatcher
+[00:55:27 ERROR]: 	PID: 15 | Suspended: false | Native: false | State: RUNNABLE
+[00:55:27 ERROR]: 	Stack:
+[00:55:27 ERROR]: ------------------------------
+[00:55:27 ERROR]: Current Thread: Notification Thread
+[00:55:27 ERROR]: 	PID: 21 | Suspended: false | Native: false | State: RUNNABLE
+[00:55:27 ERROR]: 	Stack:
+[00:55:27 ERROR]: ------------------------------
+[00:55:27 ERROR]: Current Thread: Common-Cleaner
+[00:55:27 ERROR]: 	PID: 22 | Suspended: false | Native: false | State: TIMED_WAITING
+[00:55:27 ERROR]: 	Stack:
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Object.wait0(Native Method)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Object.wait(Object.java:389)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.ref.ReferenceQueue.remove0(ReferenceQueue.java:123)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:201)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/jdk.internal.ref.CleanerImpl.run(CleanerImpl.java:146)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.runWith(Thread.java:1487)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.run(Thread.java:1474)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/jdk.internal.misc.InnocuousThread.run(InnocuousThread.java:148)
+[00:55:27 ERROR]: ------------------------------
+[00:55:27 ERROR]: Current Thread: DestroyJavaVM
+[00:55:27 ERROR]: 	PID: 28 | Suspended: false | Native: false | State: RUNNABLE
+[00:55:27 ERROR]: 	Stack:
+[00:55:27 ERROR]: ------------------------------
+[00:55:27 ERROR]: Current Thread: process reaper
+[00:55:27 ERROR]: 	PID: 32 | Suspended: false | Native: false | State: TIMED_WAITING
+[00:55:27 ERROR]: 	Stack:
+[00:55:27 ERROR]: 		java.base@25.0.5.1/jdk.internal.misc.Unsafe.park(Native Method)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:408)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.LinkedTransferQueue$DualNode.await(LinkedTransferQueue.java:452)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.SynchronousQueue$Transferer.xferLifo(SynchronousQueue.java:194)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.SynchronousQueue.xfer(SynchronousQueue.java:235)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.SynchronousQueue.poll(SynchronousQueue.java:338)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1015)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1076)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.runWith(Thread.java:1487)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.run(Thread.java:1474)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/jdk.internal.misc.InnocuousThread.run(InnocuousThread.java:148)
+[00:55:27 ERROR]: ------------------------------
+[00:55:27 ERROR]: Current Thread: Log4j2-AsyncAppenderEventDispatcher-1-Async
+[00:55:27 ERROR]: 	PID: 33 | Suspended: false | Native: false | State: RUNNABLE
+[00:55:27 ERROR]: 	Stack:
+[00:55:27 ERROR]: 		org.apache.logging.log4j.core.appender.AbstractOutputStreamAppender.tryAppend(AbstractOutputStreamAppender.java:219)
+[00:55:27 ERROR]: 		org.apache.logging.log4j.core.appender.AbstractOutputStreamAppender.append(AbstractOutputStreamAppender.java:211)
+[00:55:27 ERROR]: 		org.apache.logging.log4j.core.appender.RollingRandomAccessFileAppender.append(RollingRandomAccessFileAppender.java:395)
+[00:55:27 ERROR]: 		org.apache.logging.log4j.core.config.AppenderControl.tryCallAppender(AppenderControl.java:160)
+[00:55:27 ERROR]: 		org.apache.logging.log4j.core.config.AppenderControl.callAppender0(AppenderControl.java:133)
+[00:55:27 ERROR]: 		org.apache.logging.log4j.core.config.AppenderControl.callAppenderPreventRecursion(AppenderControl.java:124)
+[00:55:27 ERROR]: 		org.apache.logging.log4j.core.config.AppenderControl.callAppender(AppenderControl.java:88)
+[00:55:27 ERROR]: 		org.apache.logging.log4j.core.appender.AsyncAppenderEventDispatcher.dispatch(AsyncAppenderEventDispatcher.java:178)
+[00:55:27 ERROR]: 		org.apache.logging.log4j.core.appender.AsyncAppenderEventDispatcher.dispatchAll(AsyncAppenderEventDispatcher.java:117)
+[00:55:27 ERROR]: 		org.apache.logging.log4j.core.appender.AsyncAppenderEventDispatcher.run(AsyncAppenderEventDispatcher.java:92)
+[00:55:27 ERROR]: ------------------------------
+[00:55:27 ERROR]: Current Thread: JNA Cleaner
+[00:55:27 ERROR]: 	PID: 36 | Suspended: false | Native: false | State: TIMED_WAITING
+[00:55:27 ERROR]: 	Stack:
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Object.wait0(Native Method)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Object.wait(Object.java:389)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.ref.ReferenceQueue.remove0(ReferenceQueue.java:123)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:201)
+[00:55:27 ERROR]: 		com.sun.jna.internal.Cleaner$CleanerThread.run(Cleaner.java:154)
+[00:55:27 ERROR]: ------------------------------
+[00:55:27 ERROR]: Current Thread: ForkJoinPool.commonPool-worker-1
+[00:55:27 ERROR]: 	PID: 37 | Suspended: false | Native: false | State: WAITING
+[00:55:27 ERROR]: 	Stack:
+[00:55:27 ERROR]: 		java.base@25.0.5.1/jdk.internal.misc.Unsafe.park(Native Method)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ForkJoinPool.awaitWork(ForkJoinPool.java:2109)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ForkJoinPool.deactivate(ForkJoinPool.java:2063)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:2027)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:187)
+[00:55:27 ERROR]: ------------------------------
+[00:55:27 ERROR]: Current Thread: ForkJoinPool.commonPool-worker-2
+[00:55:27 ERROR]: 	PID: 38 | Suspended: false | Native: false | State: TIMED_WAITING
+[00:55:27 ERROR]: 	Stack:
+[00:55:27 ERROR]: 		java.base@25.0.5.1/jdk.internal.misc.Unsafe.park(Native Method)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ForkJoinPool.awaitWork(ForkJoinPool.java:2109)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ForkJoinPool.deactivate(ForkJoinPool.java:2063)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:2027)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:187)
+[00:55:27 ERROR]: ------------------------------
+[00:55:27 ERROR]: Current Thread: ForkJoinPool.commonPool-worker-3
+[00:55:27 ERROR]: 	PID: 39 | Suspended: false | Native: false | State: WAITING
+[00:55:27 ERROR]: 	Stack:
+[00:55:27 ERROR]: 		java.base@25.0.5.1/jdk.internal.misc.Unsafe.park(Native Method)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ForkJoinPool.awaitWork(ForkJoinPool.java:2109)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ForkJoinPool.deactivate(ForkJoinPool.java:2063)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:2027)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:187)
+[00:55:27 ERROR]: ------------------------------
+[00:55:27 ERROR]: Current Thread: Timer hack thread
+[00:55:27 ERROR]: 	PID: 42 | Suspended: false | Native: false | State: TIMED_WAITING
+[00:55:27 ERROR]: 	Stack:
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.sleepNanos0(Native Method)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.sleepNanos(Thread.java:509)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.sleep(Thread.java:540)
+[00:55:27 ERROR]: 		net.minecraft.util.Util$10.run(Util.java:1027)
+[00:55:27 ERROR]: ------------------------------
+[00:55:27 ERROR]: Current Thread: Yggdrasil Key Fetcher
+[00:55:27 ERROR]: 	PID: 43 | Suspended: false | Native: false | State: TIMED_WAITING
+[00:55:27 ERROR]: 	Stack:
+[00:55:27 ERROR]: 		java.base@25.0.5.1/jdk.internal.misc.Unsafe.park(Native Method)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:271)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1803)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1166)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:883)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1016)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1076)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.runWith(Thread.java:1487)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.run(Thread.java:1474)
+[00:55:27 ERROR]: ------------------------------
+[00:55:27 ERROR]: Current Thread: PaperFilledProfileCache-cleanup-0
+[00:55:27 ERROR]: 	PID: 44 | Suspended: false | Native: false | State: TIMED_WAITING
+[00:55:27 ERROR]: 	Stack:
+[00:55:27 ERROR]: 		java.base@25.0.5.1/jdk.internal.misc.Unsafe.park(Native Method)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:271)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1803)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1166)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:883)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1016)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1076)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.runWith(Thread.java:1487)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.run(Thread.java:1474)
+[00:55:27 ERROR]: ------------------------------
+[00:55:27 ERROR]: Current Thread: Worker-Main-1
+[00:55:27 ERROR]: 	PID: 45 | Suspended: false | Native: false | State: TIMED_WAITING
+[00:55:27 ERROR]: 	Stack:
+[00:55:27 ERROR]: 		java.base@25.0.5.1/jdk.internal.misc.Unsafe.park(Native Method)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ForkJoinPool.awaitWork(ForkJoinPool.java:2109)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ForkJoinPool.deactivate(ForkJoinPool.java:2063)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:2027)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:187)
+[00:55:27 ERROR]: ------------------------------
+[00:55:27 ERROR]: Current Thread: Server thread
+[00:55:27 ERROR]: 	PID: 46 | Suspended: false | Native: false | State: RUNNABLE
+[00:55:27 ERROR]: 	Stack:
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.ClassLoader.defineClass0(Native Method)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.System$1.defineClass(System.java:2051)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.invoke.MethodHandles$Lookup$ClassDefiner.defineClass(MethodHandles.java:2354)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.invoke.InnerClassLambdaMetafactory.generateInnerClass(InnerClassLambdaMetafactory.java:355)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.invoke.InnerClassLambdaMetafactory.spinInnerClass(InnerClassLambdaMetafactory.java:282)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.invoke.InnerClassLambdaMetafactory.buildCallSite(InnerClassLambdaMetafactory.java:214)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.invoke.LambdaMetafactory.metafactory(LambdaMetafactory.java:354)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(DirectMethodHandle$Holder)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.invoke.BootstrapMethodInvoker.invoke(BootstrapMethodInvoker.java:134)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.invoke.CallSite.makeSite(CallSite.java:310)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.invoke.MethodHandleNatives.linkCallSiteImpl(MethodHandleNatives.java:250)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.invoke.MethodHandleNatives.linkCallSite(MethodHandleNatives.java:240)
+[00:55:27 ERROR]: 		me.lucko.spark.paper.common.monitor.tick.SparkTickStatistics.onTick(SparkTickStatistics.java:115)
+[00:55:27 ERROR]: 		me.lucko.spark.paper.common.tick.AbstractTickReporter.onTick(AbstractTickReporter.java:31)
+[00:55:27 ERROR]: 		me.lucko.spark.paper.PaperTickReporter.onTick(PaperTickReporter.java:43)
+[00:55:27 ERROR]: 		me.lucko.spark.paper.PaperSparkPlugin.onServerTickEnd(PaperSparkPlugin.java:111)
+[00:55:27 ERROR]: 		io.papermc.paper.SparksFly.tickEnd(SparksFly.java:162)
+[00:55:27 ERROR]: 		net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:1660)
+[00:55:27 ERROR]: 		net.minecraft.server.dedicated.DedicatedServer.tickServer(DedicatedServer.java:404)
+[00:55:27 ERROR]: 		net.minecraft.server.MinecraftServer.processPacketsAndTick(MinecraftServer.java:1678)
+[00:55:27 ERROR]: 		net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1348)
+[00:55:27 ERROR]: 		net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:303)
+[00:55:27 ERROR]: 		net.minecraft.server.MinecraftServer$$Lambda/0x000000002705a8a8.run(Unknown Source)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.runWith(Thread.java:1487)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.run(Thread.java:1474)
+[00:55:27 ERROR]: ------------------------------
+[00:55:27 ERROR]: Current Thread: Craft Scheduler Thread - 0
+[00:55:27 ERROR]: 	PID: 49 | Suspended: false | Native: false | State: TIMED_WAITING
+[00:55:27 ERROR]: 	Stack:
+[00:55:27 ERROR]: 		java.base@25.0.5.1/jdk.internal.misc.Unsafe.park(Native Method)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:408)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.LinkedTransferQueue$DualNode.await(LinkedTransferQueue.java:452)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.SynchronousQueue$Transferer.xferLifo(SynchronousQueue.java:194)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.SynchronousQueue.xfer(SynchronousQueue.java:235)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.SynchronousQueue.poll(SynchronousQueue.java:338)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1015)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1076)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.runWith(Thread.java:1487)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.run(Thread.java:1474)
+[00:55:27 ERROR]: ------------------------------
+[00:55:27 ERROR]: Current Thread: Craft Scheduler Thread - 1
+[00:55:27 ERROR]: 	PID: 50 | Suspended: false | Native: false | State: TIMED_WAITING
+[00:55:27 ERROR]: 	Stack:
+[00:55:27 ERROR]: 		java.base@25.0.5.1/jdk.internal.misc.Unsafe.park(Native Method)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:408)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.LinkedTransferQueue$DualNode.await(LinkedTransferQueue.java:452)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.SynchronousQueue$Transferer.xferLifo(SynchronousQueue.java:194)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.SynchronousQueue.xfer(SynchronousQueue.java:235)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.SynchronousQueue.poll(SynchronousQueue.java:338)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1015)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1076)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.runWith(Thread.java:1487)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.run(Thread.java:1474)
+[00:55:27 ERROR]: ------------------------------
+[00:55:27 ERROR]: Current Thread: Craft Scheduler Thread - 2
+[00:55:27 ERROR]: 	PID: 51 | Suspended: false | Native: false | State: TIMED_WAITING
+[00:55:27 ERROR]: 	Stack:
+[00:55:27 ERROR]: 		java.base@25.0.5.1/jdk.internal.misc.Unsafe.park(Native Method)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:408)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.LinkedTransferQueue$DualNode.await(LinkedTransferQueue.java:452)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.SynchronousQueue$Transferer.xferLifo(SynchronousQueue.java:194)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.SynchronousQueue.xfer(SynchronousQueue.java:235)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.SynchronousQueue.poll(SynchronousQueue.java:338)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1015)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1076)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.runWith(Thread.java:1487)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.run(Thread.java:1474)
+[00:55:27 ERROR]: ------------------------------
+[00:55:27 ERROR]: Current Thread: Craft Scheduler Thread - 3
+[00:55:27 ERROR]: 	PID: 52 | Suspended: false | Native: false | State: TIMED_WAITING
+[00:55:27 ERROR]: 	Stack:
+[00:55:27 ERROR]: 		java.base@25.0.5.1/jdk.internal.misc.Unsafe.park(Native Method)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:408)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.LinkedTransferQueue$DualNode.await(LinkedTransferQueue.java:452)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.SynchronousQueue$Transferer.xferLifo(SynchronousQueue.java:194)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.SynchronousQueue.xfer(SynchronousQueue.java:235)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.SynchronousQueue.poll(SynchronousQueue.java:338)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1015)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1076)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.runWith(Thread.java:1487)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.run(Thread.java:1474)
+[00:55:27 ERROR]: ------------------------------
+[00:55:27 ERROR]: Current Thread: Paper Common Worker #0
+[00:55:27 ERROR]: 	PID: 53 | Suspended: false | Native: false | State: WAITING
+[00:55:27 ERROR]: 	Stack:
+[00:55:27 ERROR]: 		java.base@25.0.5.1/jdk.internal.misc.Unsafe.park(Native Method)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.locks.LockSupport.park(LockSupport.java:223)
+[00:55:27 ERROR]: 		ca.spottedleaf.concurrentutil.executor.QueueExecutorRunnable.mainLoop(QueueExecutorRunnable.java:108)
+[00:55:27 ERROR]: 		ca.spottedleaf.concurrentutil.executor.QueueExecutorRunnable.doRun(QueueExecutorRunnable.java:115)
+[00:55:27 ERROR]: 		ca.spottedleaf.concurrentutil.executor.QueueExecutorRunnable.run(QueueExecutorRunnable.java:42)
+[00:55:27 ERROR]: 		ca.spottedleaf.concurrentutil.util.LazyRunnable.run(LazyRunnable.java:25)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.runWith(Thread.java:1487)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.run(Thread.java:1474)
+[00:55:27 ERROR]: ------------------------------
+[00:55:27 ERROR]: Current Thread: Paper I/O Worker #0
+[00:55:27 ERROR]: 	PID: 54 | Suspended: false | Native: false | State: WAITING
+[00:55:27 ERROR]: 	Stack:
+[00:55:27 ERROR]: 		java.base@25.0.5.1/jdk.internal.misc.Unsafe.park(Native Method)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.locks.LockSupport.park(LockSupport.java:223)
+[00:55:27 ERROR]: 		ca.spottedleaf.concurrentutil.executor.QueueExecutorRunnable.mainLoop(QueueExecutorRunnable.java:108)
+[00:55:27 ERROR]: 		ca.spottedleaf.concurrentutil.executor.QueueExecutorRunnable.doRun(QueueExecutorRunnable.java:115)
+[00:55:27 ERROR]: 		ca.spottedleaf.concurrentutil.executor.QueueExecutorRunnable.run(QueueExecutorRunnable.java:42)
+[00:55:27 ERROR]: 		ca.spottedleaf.concurrentutil.util.LazyRunnable.run(LazyRunnable.java:25)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.runWith(Thread.java:1487)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.run(Thread.java:1474)
+[00:55:27 ERROR]: ------------------------------
+[00:55:27 ERROR]: Current Thread: Paper Watchdog Thread
+[00:55:27 ERROR]: 	PID: 55 | Suspended: false | Native: false | State: RUNNABLE
+[00:55:27 ERROR]: 	Stack:
+[00:55:27 ERROR]: 		java.management@25.0.5.1/sun.management.ThreadImpl.dumpThreads0(Native Method)
+[00:55:27 ERROR]: 		java.management@25.0.5.1/sun.management.ThreadImpl.dumpAllThreads(ThreadImpl.java:505)
+[00:55:27 ERROR]: 		java.management@25.0.5.1/sun.management.ThreadImpl.dumpAllThreads(ThreadImpl.java:493)
+[00:55:27 ERROR]: 		org.spigotmc.WatchdogThread.run(WatchdogThread.java:118)
+[00:55:27 ERROR]: ------------------------------
+[00:55:27 ERROR]: Current Thread: pool-8-thread-1
+[00:55:27 ERROR]: 	PID: 56 | Suspended: false | Native: false | State: TIMED_WAITING
+[00:55:27 ERROR]: 	Stack:
+[00:55:27 ERROR]: 		java.base@25.0.5.1/jdk.internal.misc.Unsafe.park(Native Method)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:271)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1803)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1166)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:883)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1016)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1076)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.runWith(Thread.java:1487)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.run(Thread.java:1474)
+[00:55:27 ERROR]: ------------------------------
+[00:55:27 ERROR]: Current Thread: Netty Epoll IO #0
+[00:55:27 ERROR]: 	PID: 59 | Suspended: false | Native: false | State: RUNNABLE
+[00:55:27 ERROR]: 	Stack:
+[00:55:27 ERROR]: 		io.netty.channel.epoll.Native.epollWait0(Native Method)
+[00:55:27 ERROR]: 		io.netty.channel.epoll.Native.epollWait(Native.java:193)
+[00:55:27 ERROR]: 		io.netty.channel.epoll.EpollIoHandler.epollWait(EpollIoHandler.java:404)
+[00:55:27 ERROR]: 		io.netty.channel.epoll.EpollIoHandler.run(EpollIoHandler.java:470)
+[00:55:27 ERROR]: 		io.netty.channel.SingleThreadIoEventLoop.runIo(SingleThreadIoEventLoop.java:225)
+[00:55:27 ERROR]: 		io.netty.channel.SingleThreadIoEventLoop.run(SingleThreadIoEventLoop.java:196)
+[00:55:27 ERROR]: 		io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:1195)
+[00:55:27 ERROR]: 		io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.runWith(Thread.java:1487)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.run(Thread.java:1474)
+[00:55:27 ERROR]: ------------------------------
+[00:55:27 ERROR]: Current Thread: bStats-Metrics
+[00:55:27 ERROR]: 	PID: 60 | Suspended: false | Native: false | State: TIMED_WAITING
+[00:55:27 ERROR]: 	Stack:
+[00:55:27 ERROR]: 		java.base@25.0.5.1/jdk.internal.misc.Unsafe.park(Native Method)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:271)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1803)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1166)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:883)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1016)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1076)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.runWith(Thread.java:1487)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.run(Thread.java:1474)
+[00:55:27 ERROR]: ------------------------------
+[00:55:27 ERROR]: Current Thread: spark-monitoring-1-thread-1
+[00:55:27 ERROR]: 	PID: 61 | Suspended: false | Native: false | State: WAITING
+[00:55:27 ERROR]: 	Stack:
+[00:55:27 ERROR]: 		java.base@25.0.5.1/jdk.internal.misc.Unsafe.park(Native Method)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.locks.LockSupport.park(LockSupport.java:369)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block(AbstractQueuedSynchronizer.java:520)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ForkJoinPool.unmanagedBlock(ForkJoinPool.java:4364)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:4310)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1752)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1161)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:883)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1016)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1076)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.runWith(Thread.java:1487)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.run(Thread.java:1474)
+[00:55:27 ERROR]: ------------------------------
+[00:55:27 ERROR]: Current Thread: spark-monitoring-1-thread-2
+[00:55:27 ERROR]: 	PID: 62 | Suspended: false | Native: false | State: TIMED_WAITING
+[00:55:27 ERROR]: 	Stack:
+[00:55:27 ERROR]: 		java.base@25.0.5.1/jdk.internal.misc.Unsafe.park(Native Method)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:271)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1803)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1166)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:883)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1016)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1076)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.runWith(Thread.java:1487)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.run(Thread.java:1474)
+[00:55:27 ERROR]: ------------------------------
+[00:55:27 ERROR]: Current Thread: spark-monitoring-1-thread-3
+[00:55:27 ERROR]: 	PID: 63 | Suspended: false | Native: false | State: TIMED_WAITING
+[00:55:27 ERROR]: 	Stack:
+[00:55:27 ERROR]: 		java.base@25.0.5.1/jdk.internal.misc.Unsafe.park(Native Method)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:271)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1803)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1166)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:883)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1016)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1076)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.runWith(Thread.java:1487)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.run(Thread.java:1474)
+[00:55:27 ERROR]: ------------------------------
+[00:55:27 ERROR]: Current Thread: spark-monitoring-1-thread-4
+[00:55:27 ERROR]: 	PID: 64 | Suspended: false | Native: false | State: WAITING
+[00:55:27 ERROR]: 	Stack:
+[00:55:27 ERROR]: 		java.base@25.0.5.1/jdk.internal.misc.Unsafe.park(Native Method)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.locks.LockSupport.park(LockSupport.java:369)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block(AbstractQueuedSynchronizer.java:520)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ForkJoinPool.unmanagedBlock(ForkJoinPool.java:4364)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:4310)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1752)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1161)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:883)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1016)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1076)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.runWith(Thread.java:1487)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.run(Thread.java:1474)
+[00:55:27 ERROR]: ------------------------------
+[00:55:27 ERROR]: Current Thread: Paper Async Task Handler Thread - 0
+[00:55:27 ERROR]: 	PID: 65 | Suspended: false | Native: false | State: WAITING
+[00:55:27 ERROR]: 	Stack:
+[00:55:27 ERROR]: 		java.base@25.0.5.1/jdk.internal.misc.Unsafe.park(Native Method)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.locks.LockSupport.park(LockSupport.java:369)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block(AbstractQueuedSynchronizer.java:520)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ForkJoinPool.unmanagedBlock(ForkJoinPool.java:4364)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:4310)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1752)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:435)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1016)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1076)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.runWith(Thread.java:1487)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.run(Thread.java:1474)
+[00:55:27 ERROR]: ------------------------------
+[00:55:27 ERROR]: Current Thread: Async-profiler Timer
+[00:55:27 ERROR]: 	PID: 66 | Suspended: false | Native: true | State: RUNNABLE
+[00:55:27 ERROR]: 	Stack:
+[00:55:27 ERROR]: ------------------------------
+[00:55:27 ERROR]: Current Thread: spark-async-sampler-worker-2-thread-1
+[00:55:27 ERROR]: 	PID: 67 | Suspended: false | Native: false | State: TIMED_WAITING
+[00:55:27 ERROR]: 	Stack:
+[00:55:27 ERROR]: 		java.base@25.0.5.1/jdk.internal.misc.Unsafe.park(Native Method)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:271)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1803)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1166)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:883)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1016)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1076)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.runWith(Thread.java:1487)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.run(Thread.java:1474)
+[00:55:27 ERROR]: ------------------------------
+[00:55:27 ERROR]: Current Thread: Dimension-Data-IO-Worker-1
+[00:55:27 ERROR]: 	PID: 68 | Suspended: false | Native: false | State: WAITING
+[00:55:27 ERROR]: 	Stack:
+[00:55:27 ERROR]: 		java.base@25.0.5.1/jdk.internal.misc.Unsafe.park(Native Method)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.locks.LockSupport.park(LockSupport.java:369)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block(AbstractQueuedSynchronizer.java:520)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ForkJoinPool.unmanagedBlock(ForkJoinPool.java:4364)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:4310)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1752)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:435)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1016)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1076)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.runWith(Thread.java:1487)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.run(Thread.java:1474)
+[00:55:27 ERROR]: ------------------------------
+[00:55:27 ERROR]: Current Thread: Dimension-Data-IO-Worker-2
+[00:55:27 ERROR]: 	PID: 69 | Suspended: false | Native: false | State: WAITING
+[00:55:27 ERROR]: 	Stack:
+[00:55:27 ERROR]: 		java.base@25.0.5.1/jdk.internal.misc.Unsafe.park(Native Method)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.locks.LockSupport.park(LockSupport.java:369)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block(AbstractQueuedSynchronizer.java:520)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ForkJoinPool.unmanagedBlock(ForkJoinPool.java:4364)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:4310)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1752)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:435)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1016)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1076)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.runWith(Thread.java:1487)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.run(Thread.java:1474)
+[00:55:27 ERROR]: ------------------------------
+[00:55:27 ERROR]: Current Thread: Dimension-Data-IO-Worker-3
+[00:55:27 ERROR]: 	PID: 70 | Suspended: false | Native: false | State: WAITING
+[00:55:27 ERROR]: 	Stack:
+[00:55:27 ERROR]: 		java.base@25.0.5.1/jdk.internal.misc.Unsafe.park(Native Method)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.locks.LockSupport.park(LockSupport.java:369)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block(AbstractQueuedSynchronizer.java:520)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ForkJoinPool.unmanagedBlock(ForkJoinPool.java:4364)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:4310)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1752)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:435)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1016)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1076)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.runWith(Thread.java:1487)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.run(Thread.java:1474)
+[00:55:27 ERROR]: ------------------------------
+[00:55:27 ERROR]: Current Thread: Dimension-Data-IO-Worker-4
+[00:55:27 ERROR]: 	PID: 71 | Suspended: false | Native: false | State: WAITING
+[00:55:27 ERROR]: 	Stack:
+[00:55:27 ERROR]: 		java.base@25.0.5.1/jdk.internal.misc.Unsafe.park(Native Method)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.locks.LockSupport.park(LockSupport.java:369)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block(AbstractQueuedSynchronizer.java:520)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ForkJoinPool.unmanagedBlock(ForkJoinPool.java:4364)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:4310)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1752)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:435)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1016)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1076)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.runWith(Thread.java:1487)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.run(Thread.java:1474)
+[00:55:27 ERROR]: ------------------------------
+[00:55:27 ERROR]: Current Thread: Craft Async Scheduler Management Thread
+[00:55:27 ERROR]: 	PID: 72 | Suspended: false | Native: false | State: WAITING
+[00:55:27 ERROR]: 	Stack:
+[00:55:27 ERROR]: 		java.base@25.0.5.1/jdk.internal.misc.Unsafe.park(Native Method)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.locks.LockSupport.park(LockSupport.java:369)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block(AbstractQueuedSynchronizer.java:520)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ForkJoinPool.unmanagedBlock(ForkJoinPool.java:4364)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:4310)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1752)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:435)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1016)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1076)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.runWith(Thread.java:1487)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.run(Thread.java:1474)
+[00:55:27 ERROR]: ------------------------------
+[00:55:27 ERROR]: Current Thread: Paper Async Task Handler Thread - 1
+[00:55:27 ERROR]: 	PID: 73 | Suspended: false | Native: false | State: WAITING
+[00:55:27 ERROR]: 	Stack:
+[00:55:27 ERROR]: 		java.base@25.0.5.1/jdk.internal.misc.Unsafe.park(Native Method)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.locks.LockSupport.park(LockSupport.java:369)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block(AbstractQueuedSynchronizer.java:520)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ForkJoinPool.unmanagedBlock(ForkJoinPool.java:4364)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:4310)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1752)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:435)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1016)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1076)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.runWith(Thread.java:1487)
+[00:55:27 ERROR]: 		java.base@25.0.5.1/java.lang.Thread.run(Thread.java:1474)
+[00:55:27 ERROR]: ------------------------------
+[00:55:27 INFO]: [HM2ContractLab] Disabling HM2ContractLab v1
+[00:55:27 INFO]: [HardcoreMisiones] Disabling HardcoreMisiones v2.1.0-dev
+[00:55:27 INFO]: [HardcoreMisiones] HardcoreMisiones detenido. Progreso guardado por partida.
+[00:55:27 INFO]: [HardcoreBosses] Disabling HardcoreBosses v0.1.1-alpha-catalogo
+[00:55:27 INFO]: [HardcoreMP] Disabling HardcoreMP v1.0.4-crossplay.2
+[00:55:27 INFO]: The plugin has been disabled.
+[00:55:27 INFO]: Saving players
+[00:55:27 INFO]: Saving worlds
+[00:55:27 INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[00:55:27 INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'minecraft:overworld'
+[00:55:27 INFO]: [ChunkHolderManager] Halted chunk system for world 'minecraft:overworld'
+[00:55:27 INFO]: [ChunkHolderManager] Saving all chunkholders for world 'minecraft:overworld'
+[00:55:28 INFO]: [ChunkHolderManager] Saved 729 block chunks, 1 entity chunks, 0 poi chunks in world 'minecraft:overworld' in 0.80s
+[00:55:28 INFO]: [ChunkHolderManager] Waiting 60s for chunk I/O to halt for world 'minecraft:overworld'
+[00:55:28 INFO]: [ChunkHolderManager] Halted I/O scheduler for world 'minecraft:overworld'
+[00:55:28 INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_nether
+[00:55:28 INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'minecraft:the_nether'
+[00:55:28 INFO]: [ChunkHolderManager] Halted chunk system for world 'minecraft:the_nether'
+[00:55:28 INFO]: [ChunkHolderManager] Saving all chunkholders for world 'minecraft:the_nether'
+[00:55:28 INFO]: [ChunkHolderManager] Saved 0 block chunks, 0 entity chunks, 0 poi chunks in world 'minecraft:the_nether' in 0.02s
+[00:55:28 INFO]: [ChunkHolderManager] Waiting 60s for chunk I/O to halt for world 'minecraft:the_nether'
+[00:55:28 INFO]: [ChunkHolderManager] Halted I/O scheduler for world 'minecraft:the_nether'
+[00:55:28 INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_end
+[00:55:28 INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'minecraft:the_end'
+[00:55:28 INFO]: [ChunkHolderManager] Halted chunk system for world 'minecraft:the_end'
+[00:55:28 INFO]: [ChunkHolderManager] Saving all chunkholders for world 'minecraft:the_end'
+[00:55:28 INFO]: [ChunkHolderManager] Saved 0 block chunks, 0 entity chunks, 0 poi chunks in world 'minecraft:the_end' in 0.00s
+[00:55:28 INFO]: [ChunkHolderManager] Waiting 60s for chunk I/O to halt for world 'minecraft:the_end'
+[00:55:28 INFO]: [ChunkHolderManager] Halted I/O scheduler for world 'minecraft:the_end'
+[00:55:28 INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:hcmp_limbo
+[00:55:28 INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'minecraft:hcmp_limbo'
+[00:55:28 INFO]: [ChunkHolderManager] Halted chunk system for world 'minecraft:hcmp_limbo'
+[00:55:28 INFO]: [ChunkHolderManager] Saving all chunkholders for world 'minecraft:hcmp_limbo'
+[00:55:28 INFO]: [ChunkHolderManager] Saved 0 block chunks, 0 entity chunks, 0 poi chunks in world 'minecraft:hcmp_limbo' in 0.01s
+[00:55:28 INFO]: [ChunkHolderManager] Waiting 60s for chunk I/O to halt for world 'minecraft:hcmp_limbo'
+[00:55:28 INFO]: [ChunkHolderManager] Halted I/O scheduler for world 'minecraft:hcmp_limbo'
+[00:55:28 INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:hcmp_game
+[00:55:28 INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'minecraft:hcmp_game'
+[00:55:28 INFO]: [ChunkHolderManager] Halted chunk system for world 'minecraft:hcmp_game'
+[00:55:28 INFO]: [ChunkHolderManager] Saving all chunkholders for world 'minecraft:hcmp_game'
+[00:55:28 INFO]: [ChunkHolderManager] Saved 0 block chunks, 0 entity chunks, 0 poi chunks in world 'minecraft:hcmp_game' in 0.01s
+[00:55:28 INFO]: [ChunkHolderManager] Waiting 60s for chunk I/O to halt for world 'minecraft:hcmp_game'
+[00:55:28 INFO]: [ChunkHolderManager] Halted I/O scheduler for world 'minecraft:hcmp_game'
+[00:55:28 INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:hcmp_game_nether
+[00:55:28 INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'minecraft:hcmp_game_nether'
+[00:55:28 INFO]: [ChunkHolderManager] Halted chunk system for world 'minecraft:hcmp_game_nether'
+[00:55:28 INFO]: [ChunkHolderManager] Saving all chunkholders for world 'minecraft:hcmp_game_nether'
+[00:55:28 INFO]: [ChunkHolderManager] Saved 0 block chunks, 0 entity chunks, 0 poi chunks in world 'minecraft:hcmp_game_nether' in 0.00s
+[00:55:28 INFO]: [ChunkHolderManager] Waiting 60s for chunk I/O to halt for world 'minecraft:hcmp_game_nether'
+[00:55:28 INFO]: [ChunkHolderManager] Halted I/O scheduler for world 'minecraft:hcmp_game_nether'
+[00:55:28 INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:hcmp_game_the_end
+[00:55:28 INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'minecraft:hcmp_game_the_end'
+[00:55:28 INFO]: [ChunkHolderManager] Halted chunk system for world 'minecraft:hcmp_game_the_end'
+[00:55:28 INFO]: [ChunkHolderManager] Saving all chunkholders for world 'minecraft:hcmp_game_the_end'
+[00:55:28 INFO]: [ChunkHolderManager] Saved 0 block chunks, 0 entity chunks, 0 poi chunks in world 'minecraft:hcmp_game_the_end' in 0.00s
+[00:55:28 INFO]: [ChunkHolderManager] Waiting 60s for chunk I/O to halt for world 'minecraft:hcmp_game_the_end'
+[00:55:28 INFO]: [ChunkHolderManager] Halted I/O scheduler for world 'minecraft:hcmp_game_the_end'
+[00:55:28 INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[00:55:28 INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[00:55:28 INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[00:55:28 INFO]: ThreadedAnvilChunkStorage (hcmp_limbo): All chunks are saved
+[00:55:28 INFO]: ThreadedAnvilChunkStorage (hcmp_game): All chunks are saved
+[00:55:28 INFO]: ThreadedAnvilChunkStorage (hcmp_game_nether): All chunks are saved
+[00:55:28 INFO]: ThreadedAnvilChunkStorage (hcmp_game_the_end): All chunks are saved
+[00:55:28 INFO]: ThreadedAnvilChunkStorage: All dimensions are saved
+[00:55:28 INFO]: Waiting for all RegionFile I/O tasks to complete...
+[00:55:28 INFO]: All RegionFile I/O tasks to complete
+[00:55:28 INFO]: [MoonriseCommon] Awaiting termination of worker pool for up to 60s...
+[00:55:28 INFO]: [MoonriseCommon] Awaiting termination of I/O pool for up to 60s...

@@ -1,0 +1,363 @@
+[
+  {
+    "name": "com.hardcoremisiones.CleanEconomyContractsTest",
+    "file": "src/test/java/com/hardcoremisiones/CleanEconomyContractsTest.java",
+    "status": "PASS",
+    "exit": 0
+  },
+  {
+    "name": "com.hardcoremisiones.CleanPaperContractsTest",
+    "file": "src/test/java/com/hardcoremisiones/CleanPaperContractsTest.java",
+    "status": "NO_MAIN"
+  },
+  {
+    "name": "com.hardcoremisiones.ConfigRecargaRC6Test",
+    "file": "src/test/java/com/hardcoremisiones/ConfigRecargaRC6Test.java",
+    "status": "PASS",
+    "exit": 0
+  },
+  {
+    "name": "com.hardcoremisiones.F2ContratosDeBalanceTest",
+    "file": "src/test/java/com/hardcoremisiones/F2ContratosDeBalanceTest.java",
+    "status": "FAIL",
+    "exit": 1
+  },
+  {
+    "name": "com.hardcoremisiones.F3ProtocolContractsTest",
+    "file": "src/test/java/com/hardcoremisiones/F3ProtocolContractsTest.java",
+    "status": "PASS",
+    "exit": 0
+  },
+  {
+    "name": "com.hardcoremisiones.F4ConfiguracionProduccionTest",
+    "file": "src/test/java/com/hardcoremisiones/F4ConfiguracionProduccionTest.java",
+    "status": "PASS",
+    "exit": 0
+  },
+  {
+    "name": "com.hardcoremisiones.F4InvariantContractsTest",
+    "file": "src/test/java/com/hardcoremisiones/F4InvariantContractsTest.java",
+    "status": "PASS",
+    "exit": 0
+  },
+  {
+    "name": "com.hardcoremisiones.F4ModalidadesPremiosTest",
+    "file": "src/test/java/com/hardcoremisiones/F4ModalidadesPremiosTest.java",
+    "status": "NO_MAIN"
+  },
+  {
+    "name": "com.hardcoremisiones.F4RC3ConfigMigrationTest",
+    "file": "src/test/java/com/hardcoremisiones/F4RC3ConfigMigrationTest.java",
+    "status": "PASS",
+    "exit": 0
+  },
+  {
+    "name": "com.hardcoremisiones.F4RC3DiversityPaperTest",
+    "file": "src/test/java/com/hardcoremisiones/F4RC3DiversityPaperTest.java",
+    "status": "NO_MAIN"
+  },
+  {
+    "name": "com.hardcoremisiones.F4RC3GroupBalanceTest",
+    "file": "src/test/java/com/hardcoremisiones/F4RC3GroupBalanceTest.java",
+    "status": "PASS",
+    "exit": 0
+  },
+  {
+    "name": "com.hardcoremisiones.F4RC4MigracionSelectorTest",
+    "file": "src/test/java/com/hardcoremisiones/F4RC4MigracionSelectorTest.java",
+    "status": "PASS",
+    "exit": 0
+  },
+  {
+    "name": "com.hardcoremisiones.F4RC4SeleccionJefesTest",
+    "file": "src/test/java/com/hardcoremisiones/F4RC4SeleccionJefesTest.java",
+    "status": "PASS",
+    "exit": 0
+  },
+  {
+    "name": "com.hardcoremisiones.F4RC5ConfigMigracionTest",
+    "file": "src/test/java/com/hardcoremisiones/F4RC5ConfigMigracionTest.java",
+    "status": "PASS",
+    "exit": 0
+  },
+  {
+    "name": "com.hardcoremisiones.F4RC5DebuffsBossPolicyTest",
+    "file": "src/test/java/com/hardcoremisiones/F4RC5DebuffsBossPolicyTest.java",
+    "status": "PASS",
+    "exit": 0
+  },
+  {
+    "name": "com.hardcoremisiones.F4RC5PaperLedgerTest",
+    "file": "src/test/java/com/hardcoremisiones/F4RC5PaperLedgerTest.java",
+    "status": "NO_MAIN"
+  },
+  {
+    "name": "com.hardcoremisiones.F4RC7FiltroBiomasTest",
+    "file": "src/test/java/com/hardcoremisiones/F4RC7FiltroBiomasTest.java",
+    "status": "PASS",
+    "exit": 0
+  },
+  {
+    "name": "com.hardcoremisiones.F4RC8CDiarioLabTest",
+    "file": "src/test/java/com/hardcoremisiones/F4RC8CDiarioLabTest.java",
+    "status": "NO_MAIN"
+  },
+  {
+    "name": "com.hardcoremisiones.F4RC8CLotesMultiplesPolicyTest",
+    "file": "src/test/java/com/hardcoremisiones/F4RC8CLotesMultiplesPolicyTest.java",
+    "status": "PASS",
+    "exit": 0
+  },
+  {
+    "name": "com.hardcoremisiones.F4RC8CatalogoBotinPolicyTest",
+    "file": "src/test/java/com/hardcoremisiones/F4RC8CatalogoBotinPolicyTest.java",
+    "status": "PASS",
+    "exit": 0
+  },
+  {
+    "name": "com.hardcoremisiones.F4RC8DLotesFisicosTest",
+    "file": "src/test/java/com/hardcoremisiones/F4RC8DLotesFisicosTest.java",
+    "status": "FAIL",
+    "exit": 1
+  },
+  {
+    "name": "com.hardcoremisiones.F4RC8DPaperLedgerTest",
+    "file": "src/test/java/com/hardcoremisiones/F4RC8DPaperLedgerTest.java",
+    "status": "NO_MAIN"
+  },
+  {
+    "name": "com.hardcoremisiones.F4RC8E_AtributosProveedorTest",
+    "file": "src/test/java/com/hardcoremisiones/F4RC8E_AtributosProveedorTest.java",
+    "status": "PASS",
+    "exit": 0
+  },
+  {
+    "name": "com.hardcoremisiones.F4RC8FPilotoGuardianTest",
+    "file": "src/test/java/com/hardcoremisiones/F4RC8FPilotoGuardianTest.java",
+    "status": "PASS",
+    "exit": 0
+  },
+  {
+    "name": "com.hardcoremisiones.F4RC8GDynamicSelectionTest",
+    "file": "src/test/java/com/hardcoremisiones/F4RC8GDynamicSelectionTest.java",
+    "status": "PASS",
+    "exit": 0
+  },
+  {
+    "name": "com.hardcoremisiones.F4RC8HDeudaSinBossTest",
+    "file": "src/test/java/com/hardcoremisiones/F4RC8HDeudaSinBossTest.java",
+    "status": "PASS",
+    "exit": 0
+  },
+  {
+    "name": "com.hardcoremisiones.F4RC8HPerfilProduccionTest",
+    "file": "src/test/java/com/hardcoremisiones/F4RC8HPerfilProduccionTest.java",
+    "status": "PASS",
+    "exit": 0
+  },
+  {
+    "name": "com.hardcoremisiones.F4RC8IRewardDiversityTest",
+    "file": "src/test/java/com/hardcoremisiones/F4RC8IRewardDiversityTest.java",
+    "status": "FAIL",
+    "exit": 1
+  },
+  {
+    "name": "com.hardcoremisiones.F4RC8ISelloNavigationTest",
+    "file": "src/test/java/com/hardcoremisiones/F4RC8ISelloNavigationTest.java",
+    "status": "PASS",
+    "exit": 0
+  },
+  {
+    "name": "com.hardcoremisiones.F4RC8JHF1DerechoReinicioTest",
+    "file": "src/test/java/com/hardcoremisiones/F4RC8JHF1DerechoReinicioTest.java",
+    "status": "PASS",
+    "exit": 0
+  },
+  {
+    "name": "com.hardcoremisiones.F4RC8JHF2F3ReciboDinamicoTest",
+    "file": "src/test/java/com/hardcoremisiones/F4RC8JHF2F3ReciboDinamicoTest.java",
+    "status": "PASS",
+    "exit": 0
+  },
+  {
+    "name": "com.hardcoremisiones.F4RC8JHF4PrivacidadBalanceTest",
+    "file": "src/test/java/com/hardcoremisiones/F4RC8JHF4PrivacidadBalanceTest.java",
+    "status": "FAIL",
+    "exit": 1
+  },
+  {
+    "name": "com.hardcoremisiones.F4RC8JHF4W45AltoRiesgoTest",
+    "file": "src/test/java/com/hardcoremisiones/F4RC8JHF4W45AltoRiesgoTest.java",
+    "status": "FAIL",
+    "exit": 1
+  },
+  {
+    "name": "com.hardcoremisiones.F4RC8JHF5BossRarityDistributionTest",
+    "file": "src/test/java/com/hardcoremisiones/F4RC8JHF5BossRarityDistributionTest.java",
+    "status": "FAIL",
+    "exit": 1
+  },
+  {
+    "name": "com.hardcoremisiones.F4RC8JLanSelloPolicyTest",
+    "file": "src/test/java/com/hardcoremisiones/F4RC8JLanSelloPolicyTest.java",
+    "status": "PASS",
+    "exit": 0
+  },
+  {
+    "name": "com.hardcoremisiones.F4W33GameIdentityContractsTest",
+    "file": "src/test/java/com/hardcoremisiones/F4W33GameIdentityContractsTest.java",
+    "status": "PASS",
+    "exit": 0
+  },
+  {
+    "name": "com.hardcoremisiones.F4W34RequestJournalContractsTest",
+    "file": "src/test/java/com/hardcoremisiones/F4W34RequestJournalContractsTest.java",
+    "status": "PASS",
+    "exit": 0
+  },
+  {
+    "name": "com.hardcoremisiones.F4W36BalanceContractTest",
+    "file": "src/test/java/com/hardcoremisiones/F4W36BalanceContractTest.java",
+    "status": "FAIL",
+    "exit": 1
+  },
+  {
+    "name": "com.hardcoremisiones.F4W36RewardCapTest",
+    "file": "src/test/java/com/hardcoremisiones/F4W36RewardCapTest.java",
+    "status": "FAIL",
+    "exit": 1
+  },
+  {
+    "name": "com.hardcoremisiones.F4W37SancionesPolicyTest",
+    "file": "src/test/java/com/hardcoremisiones/F4W37SancionesPolicyTest.java",
+    "status": "PASS",
+    "exit": 0
+  },
+  {
+    "name": "com.hardcoremisiones.F4W38BossPenaltyPolicyTest",
+    "file": "src/test/java/com/hardcoremisiones/F4W38BossPenaltyPolicyTest.java",
+    "status": "PASS",
+    "exit": 0
+  },
+  {
+    "name": "com.hardcoremisiones.F4W40RewardsContractTest",
+    "file": "src/test/java/com/hardcoremisiones/F4W40RewardsContractTest.java",
+    "status": "FAIL",
+    "exit": 1
+  },
+  {
+    "name": "com.hardcoremisiones.F4W41BenefitsContractTest",
+    "file": "src/test/java/com/hardcoremisiones/F4W41BenefitsContractTest.java",
+    "status": "NO_MAIN"
+  },
+  {
+    "name": "com.hardcoremisiones.F4W42RewardAuditContractsTest",
+    "file": "src/test/java/com/hardcoremisiones/F4W42RewardAuditContractsTest.java",
+    "status": "PASS",
+    "exit": 0
+  },
+  {
+    "name": "com.hardcoremisiones.F4W44SelloGuardTest",
+    "file": "src/test/java/com/hardcoremisiones/F4W44SelloGuardTest.java",
+    "status": "PASS",
+    "exit": 0
+  },
+  {
+    "name": "com.hardcoremisiones.F4W45ProgressiveLootTest",
+    "file": "src/test/java/com/hardcoremisiones/F4W45ProgressiveLootTest.java",
+    "status": "NO_MAIN"
+  },
+  {
+    "name": "com.hardcoremisiones.MissionCalendarContractsTest",
+    "file": "src/test/java/com/hardcoremisiones/MissionCalendarContractsTest.java",
+    "status": "PASS",
+    "exit": 0
+  },
+  {
+    "name": "com.hardcoremisiones.hm2.core.ChunkMiningMarksTest",
+    "file": "src/test/java/com/hardcoremisiones/hm2/core/ChunkMiningMarksTest.java",
+    "status": "PASS",
+    "exit": 0
+  },
+  {
+    "name": "com.hardcoremisiones.hm2.core.CoreContractsTest",
+    "file": "src/test/java/com/hardcoremisiones/hm2/core/CoreContractsTest.java",
+    "status": "PASS",
+    "exit": 0
+  },
+  {
+    "name": "com.hardcoremisiones.hm2.core.DayTransitionJournalTest",
+    "file": "src/test/java/com/hardcoremisiones/hm2/core/DayTransitionJournalTest.java",
+    "status": "PASS",
+    "exit": 0
+  },
+  {
+    "name": "com.hardcoremisiones.hm2.core.F1IntegrationSafeguardsTest",
+    "file": "src/test/java/com/hardcoremisiones/hm2/core/F1IntegrationSafeguardsTest.java",
+    "status": "PASS",
+    "exit": 0
+  },
+  {
+    "name": "com.hardcoremisiones.hm2.core.F1PaperBoundaryContractsTest",
+    "file": "src/test/java/com/hardcoremisiones/hm2/core/F1PaperBoundaryContractsTest.java",
+    "status": "PASS",
+    "exit": 0
+  },
+  {
+    "name": "com.hardcoremisiones.hm2.core.F1W09PolicyTest",
+    "file": "src/test/java/com/hardcoremisiones/hm2/core/F1W09PolicyTest.java",
+    "status": "PASS",
+    "exit": 0
+  },
+  {
+    "name": "com.hardcoremisiones.hm2.core.Rc3SelectionEngineTest",
+    "file": "src/test/java/com/hardcoremisiones/hm2/core/Rc3SelectionEngineTest.java",
+    "status": "PASS",
+    "exit": 0
+  },
+  {
+    "name": "com.hardcoremisiones.hm2.core.SessionCrossStateGuardTest",
+    "file": "src/test/java/com/hardcoremisiones/hm2/core/SessionCrossStateGuardTest.java",
+    "status": "PASS",
+    "exit": 0
+  },
+  {
+    "name": "com.hardcoremisiones.RegresionDesconexionTest",
+    "file": "legacy/recuperacion_rc3_original/tests/RegresionDesconexionTest.java",
+    "status": "PASS",
+    "exit": 0
+  },
+  {
+    "name": "com.hardcoremisiones.RegresionOfrendasTest",
+    "file": "legacy/recuperacion_rc3_original/tests/RegresionOfrendasTest.java",
+    "status": "PASS",
+    "exit": 0
+  },
+  {
+    "name": "com.hardcoremisiones.RegresionPenitenciasTest",
+    "file": "legacy/recuperacion_rc3_original/tests/RegresionPenitenciasTest.java",
+    "status": "PASS",
+    "exit": 0
+  },
+  {
+    "name": "com.hardcoremisiones.SmokeReglasTest",
+    "file": "legacy/recuperacion_rc3_original/tests/SmokeReglasTest.java",
+    "status": "PASS",
+    "exit": 0
+  },
+  {
+    "name": "F4W34BossApiContractsTest",
+    "file": "src/test/java/com/hardcoremisiones/F4W34BossApiContractsTest.java",
+    "status": "BLOCKED_FAKE_MISSING"
+  },
+  {
+    "name": "F4W35Rc2ConsumerFlowTest",
+    "file": "src/test/java/com/hardcoremisiones/F4W35Rc2ConsumerFlowTest.java",
+    "status": "BLOCKED_FAKE_MISSING"
+  },
+  {
+    "name": "F4W38PenaltyRc2ContractTest",
+    "file": "src/test/java/com/hardcoremisiones/F4W38PenaltyRc2ContractTest.java",
+    "status": "BLOCKED_FAKE_MISSING"
+  }
+]

@@ -1,0 +1,16 @@
+[
+  {
+    "attempt": 1,
+    "ready": true,
+    "exit": 0,
+    "elapsed_s": 28.3,
+    "log": "boot-1.log"
+  },
+  {
+    "attempt": 2,
+    "ready": true,
+    "exit": 0,
+    "elapsed_s": 18.0,
+    "log": "boot-2.log"
+  }
+]

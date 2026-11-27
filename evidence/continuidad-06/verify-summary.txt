@@ -1,0 +1,2 @@
+Counter({'PASS': 46, 'PASS_PAPER': 17, 'BLOCKED_FAKE_MISSING': 3})
+Agrupación de resultados de la misma revisión, según scripts/verify.py; no se ejecutó nuevamente JVM para agrupar. Gate global no aprobado por 3 bloqueos.

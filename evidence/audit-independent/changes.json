@@ -1,0 +1,126 @@
+{
+  "baseline": "HardcoreMisiones_2.1.0_C01_C12_FUENTES.zip",
+  "baseline_sha256": "a7f1ec4d722eb2a47461d4b16ff04a80c0674b2a918db48591dc9a2cdaa934f8",
+  "changes": [
+    {
+      "path": "build.gradle.kts",
+      "before": "9f1c583000346b52c1933f10701192e8a5b2299de093d586cd06c7e30dde3a59",
+      "after": "2e037cd2e5a56afa97bfe98f5d73f6faa5f4840855beb89b44797194227f2cbc"
+    },
+    {
+      "path": "gradle.properties",
+      "before": null,
+      "after": "c294a6ec4ea23c02bcffc77ab6c2b707cdcaeac8ebdad42d4d3f68d46daf8ce8"
+    },
+    {
+      "path": "scripts/evidence_inputs.py",
+      "before": "f32eab2391911e31863ca258855cc071a6265b1ba1fd2f21553598e385d80565",
+      "after": "259a275974a64ce10475d95e60b7ab54d78d3db0594eceb0239b850361accc69"
+    },
+    {
+      "path": "scripts/verify.py",
+      "before": "d4a9d06971186df508e8551bf4b7e5039995e971511f059b074011d3fce99d74",
+      "after": "30575c16a941aeade6030947ea7a7dbff676441d1e5946de6f23f262609ca35c"
+    },
+    {
+      "path": "src/main/java/com/hardcoremisiones/BossEncounterCoordinator.java",
+      "before": "607778714ce86320c2b7b1c6746390944f5a8c0cc1b59b4c4994e44f38144583",
+      "after": "e0c18d1f2589bd26a4d22887e700e3981ec7846465c29c305f76a3efb753f254"
+    },
+    {
+      "path": "src/main/java/com/hardcoremisiones/BossHuntService.java",
+      "before": "dd698de2e8271e123251eb19d6396165f0f1cddd6f1c3d7172e6c56f41b59b3d",
+      "after": "dde4c8e5a8c7d51f5184dcabcbe84689fe20e23877931601545e537851bd294d"
+    },
+    {
+      "path": "src/main/java/com/hardcoremisiones/BossRewardService.java",
+      "before": "b5271bfc8d15ee46ba504aab2e3b1c360682b61598e05ed3aa2366b801322502",
+      "after": "9d18d7edde5689dcba2d8295090fa6515f2c2434734b453ee29ff154a007795f"
+    },
+    {
+      "path": "src/main/java/com/hardcoremisiones/MenuEstadoJefes.java",
+      "before": "e6a9487bd6801ab36ddcfdc43ee5f1ae0a2347c75daf628f8db761259c985748",
+      "after": "8dc4a8b3de4bd941c4634914bdf430c8f6d03102348543bf82427609f6b2a5be"
+    },
+    {
+      "path": "src/main/java/com/hardcoremisiones/MenuLotesJefes.java",
+      "before": "3ed8e38b30d90d020703de441e3451ec7d6f207a4c37420cfa55eddd17b0bf6d",
+      "after": "5776d6f54d99c4a3eddcbfa36a22f0fc138a2663181bdaa1075f0443d9c8a77f"
+    },
+    {
+      "path": "src/main/java/com/hardcoremisiones/Recompensas.java",
+      "before": "9791d3c107355defd9e88d064f42b5497ea335ed6f03596a6ab8aef6cda70c98",
+      "after": "75139846a7c4739d20429aa29c5c843a7d7e2c0f4eaa79dc2eb812e49e73162c"
+    },
+    {
+      "path": "src/main/java/com/hardcoremisiones/SealMenuListener.java",
+      "before": "08c996f9d154e6a809df578434e052b4b2e9e0b593bd1219dd81bb7fa5f066c8",
+      "after": "beb794205ef80d8baabd8369a8496c35f1de599c1f361cfe50fe613230351c81"
+    },
+    {
+      "path": "src/main/java/com/hardcoremisiones/SealProgressMenu.java",
+      "before": "b68b7c25b3d5df269c1984ed80e30ab0666f48abb71283c8ee7f63d73241756a",
+      "after": "af7e4dcacd6d0daa23071687168f26dcaf261577d0ee653cbddec0a1bf030983"
+    },
+    {
+      "path": "src/main/java/com/hardcoremisiones/TrialDetailMenu.java",
+      "before": "e229c9b68c0d3f1d2dc2d9c05978efc192bbeae9a03fc672e975addea85c788f",
+      "after": "30a79ed6c6c9aa3b0bde75fcc546e8f300940b82c1162e803e6bcca169ad6198"
+    },
+    {
+      "path": "src/main/java/com/hardcoremisiones/bosses/integration/BossPenanceGateway.java",
+      "before": "1ac59f6056752f6345c7885f612d8fde62722fedc53e8bab217b3f5105e3594d",
+      "after": "d795525ed7a4c67e78f2eafb38a3caec3de8a1bda0275ebebe8872ec0e544485"
+    },
+    {
+      "path": "src/main/java/com/hardcoremisiones/bosses/integration/BossPhysicalWorldGuard.java",
+      "before": "9fdd00f6abc105af0cf14f7165ce58a7095e61ac838afa0a4988757597c9e11b",
+      "after": "621aa3d23aca5b8bf9a2b437c9f143f626515af9395dacbe86d2f951b676758d"
+    },
+    {
+      "path": "src/main/java/com/hardcoremisiones/bosses/integration/HardcoreBossesApiBridge.java",
+      "before": "e71494da9436855a29575b6c6ecd67cfddbe602982285d8c1af02ae542e7c727",
+      "after": "83194c89bcb698f62f7a67f951d61c1d80395d7ad82b8dfb572706053984ebdd"
+    },
+    {
+      "path": "src/main/java/com/hardcoremisiones/rewards/encounters/EncounterEconomy.java",
+      "before": "13eaeaa7ab8deee8fedd5156b404759ed2454c8950f30c347d8d4f44ced572d3",
+      "after": "332aa3dd3ec83897072ece5aad6ac8aceaf1744dfe9b423ebfff69cfb8c0168d"
+    },
+    {
+      "path": "src/main/java/com/hardcoremisiones/rewards/encounters/EncounterEconomyYaml.java",
+      "before": "6e6114473926b4c2fe35cded32fe09ef5b5d838fdd7197dcd0f9e4ac2f33345f",
+      "after": "ce76c0aa903a5f70aaa44048c87cb3790ec1ea1456004a04572224e9f7cde8b6"
+    },
+    {
+      "path": "src/main/java/com/hardcoremisiones/rewards/ledger/RewardLedgerAudit.java",
+      "before": "7ae30dfcc497626d91cb431eb51caca0a780c5bdf18f34f25e7913a52b5145cf",
+      "after": "1dc49431f5abc6513244141be225238affc34615aeed544ef917e693a8ffbb5c"
+    },
+    {
+      "path": "src/main/resources/lotes-jefes.yml",
+      "before": "007d6836dca7d47d204c3a9c3771571827bd3f224d55457d7289574f00d416ef",
+      "after": "a15bcf3676350f2ce841bb2f9f24847d01d42a14b4fa228d3e8cdf0c454d8d42"
+    },
+    {
+      "path": "src/test/java/com/hardcoremisiones/CleanEconomyContractsTest.java",
+      "before": "8ed9e687d43a171e5b1db8605fd92aaaaeda88ed4e9071d1318710e8b95e4229",
+      "after": "ded345fff4fba10b3790734fe96609002679018b8ad41659f2faedf8553ffa5d"
+    },
+    {
+      "path": "src/test/java/com/hardcoremisiones/CleanPaperContractsTest.java",
+      "before": "3cfc9f13a80a59472922c614f04cc6cdf10633f952afe4356b54822e304a7d5f",
+      "after": "825fd68e8411c58b644cde25baa793b146a31240fd49d32f94c208368b666dc8"
+    },
+    {
+      "path": "src/test/java/com/hardcoremisiones/ProductYamlSchemaTest.java",
+      "before": "ffbd8e39a7a7296f6b3d0a41ef690e28be4dff1856caf2219b26b672dccf3bd1",
+      "after": "bd7d55d2497b23c39c4a4cb9652ebfd116ce96a824188d0ea436921a175bb00e"
+    },
+    {
+      "path": "src/test/java/com/hardcoremisiones/RewardRecoveryBoundaryTest.java",
+      "before": "72798a0c8c50089f94592f212a421e2ee18d41348e8ca571d1ccd6e5c7a69b26",
+      "after": "9ca0797dd7c265943ca86b984f3c8cbc6e4f6a0343d650dd3e70f6a14c1d1740"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "scope": "same Java 25 compiler options, Python zip order/time/compression; development manifests have different versions; no runtime performance inference",
+  "HF5": {
+    "bytecode_entries": 262,
+    "resource_entries": 7,
+    "bytes": 680961,
+    "sha256": "c65e75d49a907042e9a3ba447c014ce5ce85b0afb8ae24299462edab5cffbeaf"
+  },
+  "2.1.0": {
+    "bytecode_entries": 286,
+    "resource_entries": 7,
+    "bytes": 748088,
+    "sha256": "33084123d56a5a8c7613d51d28a0348fe0206dfcb9e82c6345e041cf623cc832",
+    "compile_seconds": 11.154
+  },
+  "size_delta_pct": 9.86
+}

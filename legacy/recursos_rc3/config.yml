@@ -1,0 +1,52 @@
+# HardcoreMisiones 1.0.0-rc3 - SOLO para copia de pruebas.
+game-world: hcmp_game
+pruebas-habilitadas: true
+sello-automatico: true
+panel-habilitado: true
+# Historial de muertes en TAB, incluidos los desconectados.
+# Para otros servidores: /hm tab jugadores Nombre1 Nombre2 ...
+# No restringe quien puede ingresar al servidor.
+tab-jugadores:
+  - HaruMisa92
+  - LpKido
+  - JonaGG11
+# El objetivo 'muertes' del scoreboard principal se lee, no se modifica.
+# Activar SOLO en la copia con /hm oleadas on.
+oleadas-habilitadas: false
+modificar-reloj: false
+
+# Reloj de misión v0.6.1: NO arranca al instalar.
+# Activar con /hm ciclo iniciar en la copia de pruebas.
+ciclo-habilitado: false
+
+# Premios/rachas se activan deliberadamente en la copia: /hm recompensas on
+recompensas-habilitadas: false
+
+# Nether: sólo expediciones grupales desbloqueadas por avances de estructura/recurso.
+nether-world: hcmp_game_nether
+expediciones-habilitadas: true
+nether:
+  descanso-minutos: 5
+  fortaleza:
+    minutos: 30
+    premio:
+      item: COOKED_BEEF
+      cantidad: 4
+      xp: 14
+  bastion:
+    minutos: 25
+    premio:
+      item: GOLDEN_APPLE
+      cantidad: 1
+      xp: 18
+  escombros:
+    minutos: 45
+    premio:
+      item: GOLDEN_APPLE
+      cantidad: 2
+      xp: 24
+
+# Premios de expediciones al completar (por jugador, siempre que premios ON).
+# Los valores se guardan con la recompensa para no cambiarla a mitad del cobro.
+# Si el config.yml ya existe, estos son los valores por defecto igualmente.
+# Personalizables en nether.fortaleza.premio, nether.bastion.premio, etc.

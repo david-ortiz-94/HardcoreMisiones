@@ -1,0 +1,191 @@
+# HardcoreMisiones 2.0 - Configuración de operación del servidor.
+# Todas las opciones de este archivo son funcionales y se leen desde el código.
+# Contratos y datos guardados mantienen sus formatos históricos; NO borres /sesiones.
+# true = activado; false = desactivado. Cambios dinámicos: edita, /hm config validar y /hm config recargar. Mundos e integración de jefes requieren reinicio; el ciclo conserva el plazo en OFF/ON.
+# Se conserva el progreso y los contratos ya asignados; NO uses /reload de Paper.
+configuracion:
+  version: 2
+
+# MUNDOS: deben corresponder a los que crea HardcoreMP.
+# Ejemplo: si tu partida se llama hcmp_game, su Nether suele ser hcmp_game_nether.
+mundos:
+  principal: hcmp_game
+  nether: hcmp_game_nether
+
+# MISIONES: catálogo, reloj y contribuciones de jugadores.
+misiones:
+  habilitadas: true            # En false: desactiva el núcleo de misiones.
+  catalogo-ampliado: true      # Mantiene las 100 misiones individuales y grupales.
+  ciclo-activo: true           # Primera instalación: inicia el ciclo al haber mundo válido.
+  asistencias-indirectas: false  # Ej.: daño indirecto en combate; requiere pruebas E2E.
+  cacerias-hf5:
+    habilitadas: true          # Nuevas misiones ordinarias de boss, desde etapa 3.
+    modo-seleccion: CATALOGO_ALEATORIO # FIJO conserva boss-id
+    probabilidad-individual: 15
+    probabilidad-grupal: 25
+    dia-minimo: 10
+    boss-id: 'hm2:guardian_ceniza' # Ejemplo de laboratorio; proveedor exige enabled y validación real.
+    tiempo-maximo-minutos: 15  # Suma únicamente segundos de combate ACTIVE confirmado.
+    # Solo contratos nuevos. Los tickets existentes mantienen las reglas congeladas.
+    politica-premios:
+      version: 2
+      rareza:
+        I: [80, 19, 1, 0]
+        II: [60, 32, 8, 0]
+        III: [35, 45, 18, 2]
+        IV: [20, 40, 30, 10]
+        V: [10, 30, 40, 20]
+      ayudantes: [20, 20, 25, 30, 30]
+    # Dueño de misión individual: 100 % si contribuyó. Ayudantes: 20–30 %
+    # según dificultad, cada uno con rareza/material sorteados por separado.
+    # Penalidades son públicas, pero premios y objetivos individuales privados.
+  balance-grupal:
+    habilitado: true            # Solo misiones grupales NUEVAS; congela objetivo al asignar.
+    plazos-adaptativos: true     # Días 10+: 3 días para misiones peligrosas, 2 para las demás.
+    # Ejemplo: con tres jugadores y una misión de riesgo alto, la cantidad puede
+    # ajustarse moderadamente y el plazo ampliarse; nunca reduce progreso previo.
+    # Las misiones que exigen que todos aporten siguen conservando esa exigencia.
+
+# INTERFAZ: sello, panel y nombres visibles en el TAB.
+interfaz:
+  sello-automatico: true       # Recupera el Sello del Juicio si realmente falta.
+  panel-habilitado: true       # Muestra el panel de misiones al jugador.
+  jugadores-en-tab:
+    - HaruMisa92
+    - LpKido
+    - JonaGG11
+    # Ejemplo: otro jugador puede agregarse mediante /hm tab jugadores Nombre.
+
+# RECOMPENSAS: activadas en instalaciones NUEVAS. En migraciones se respeta lo anterior.
+recompensas:
+  habilitadas: true            # /hm recompensas on|off cambia esta misma clave.
+  modalidades-por-mision:
+    habilitadas: true          # En misiones NUEVAS, decide manual o sorteo por separado.
+    probabilidad-manual: 50    # 0 = siempre sorteo; 100 = siempre elección manual.
+    # Individual: decide por jugador y misión; grupal: mismo modo para el equipo.
+    # Una grupal conserva su modalidad durante los días de ese ciclo.
+    # Ejemplo: día 5 individual MANUAL y grupal ALEATORIO.
+    # MANUAL: elegí carta antes de vencer; si no, rescate automático auditado.
+    # ALEATORIO: tres posibilidades visibles en el Sello; sin elección por clic.
+    # Las misiones antiguas conservan las reglas con que se asignaron.
+  botin-progresivo:
+    habilitado: true           # 3 cartas y lotes aleatorios según día/dificultad/riesgo.
+    # Diversidad RC3: las tres cartas no repiten artículo principal.
+    # Lotes: si la misión tiene dificultad alta, Preparación garantiza un
+    # segundo artículo cuando existe presupuesto suficiente para entregarlo.
+    # Ej.: en día 4 se desbloquea Mejorado; Raro desde día 9; Excepcional día 16.
+    # Probabilidades: /hm recompensas probabilidades; los tickets se guardan en los logs.
+  hitos-y-cooperacion:
+    habilitados: true          # Ej.: hitos hacia el End e insignias al cooperar.
+  beneficios-temporales:
+    habilitados: true          # Ej.: poción de Visión nocturna o Velocidad I.
+    max-jugador-dia: 1         # Como máximo un beneficio por jugador por día.
+    max-jugador-partida: 3     # Como máximo tres beneficios por jugador y partida.
+  limites:
+    xp-jugador-dia: 75
+    items-jugador-dia: 40
+    xp-equipo-dia: 225
+    items-equipo-dia: 120
+    prestigio-jugador-dia: 3  # Puntos cosméticos, no XP de Minecraft.
+  favor:
+    max-nivel: 3               # Ej.: nivel máximo del sistema de Favor de Juicio.
+  prestigio:
+    costo-emblema: 5           # Ej.: gastar 5 puntos para obtener un emblema cosmético.
+  bonos-por-tipo:              # Ajuste de balance del presupuesto interno de premios.
+    entrega: 0
+    caza: 2
+    mineria: 1
+    fabricar: 0
+    recorrer: 0
+    encantar: 3
+    tregua: 0
+
+# PENALIDADES: operativas por defecto en instalaciones nuevas; no modifica partidas anteriores.
+penalidades:
+  oleadas-habilitadas: true    # Necesario para sortear jefe penitenciario; si no hay jefe disponible, Juicio ordinario.
+  unificar-oleadas: false      # En true: agrupa castigos de la misma jornada.
+  efectos-negativos-habilitados: true  # Debilidad, Lentitud, Oscuridad o Fatiga.
+  duracion-individual-segundos: 300
+  duracion-grupal-segundos: 480
+  duracion-ambas-segundos: 600
+
+# EXPEDICIONES NETHER: objetivos grupales con descanso y premios propios.
+nether:
+  expediciones-habilitadas: true
+  descanso-minutos: 5
+  fortaleza:
+    minutos: 30
+    premio: {item: COOKED_BEEF, cantidad: 4, xp: 14}
+  bastion:
+    minutos: 25
+    premio: {item: GOLDEN_APPLE, cantidad: 1, xp: 18}
+  escombros:
+    minutos: 45
+    premio: {item: GOLDEN_APPLE, cantidad: 2, xp: 24}
+
+# JEFES: perfil de operación predeterminado ON para NUEVAS instalaciones.
+# La API real, sus atributos enabled y validateEncounter autorizan cada spawn.
+# Activar estos módulos NO habilita bosses desactivados ni certifica el resource pack.
+jefes:
+  proveedor:
+    nombre: HardcoreBosses
+  misiones:
+    habilitados: true
+    premio-especial-automatico: true
+    inicio-admin-sin-consenso: false
+  penitencia:
+    habilitados: true
+    probabilidad-individual: 15  # Solo si se habilita: infractor individual.
+    probabilidad-grupal: 30     # Solo si se habilita: falta grupal.
+    # FIJO: el ID especificado; LISTA_ALEATORIA: sorteo de la lista permitida;
+    # CATALOGO_ALEATORIO: entre todos los IDs registrados con definición compatible.
+    # Solo se selecciona cuando existe proveedor REAL, equipo válido y ubicación.
+    # El jefe elegido queda guardado por jornada y NO cambia al reiniciar.
+    # RC8-G: elige solo entre jefes publicados, habilitados, de la dificultad
+    # permitida, mundo y bioma real. Valida por API, sin tabla manual de IDs.
+    # Para el piloto usar CATALOGO_ALEATORIO una vez certificado el proveedor.
+    dificultad-minima: FACIL
+    dificultad-maxima: DIFICIL
+    nivel-botin-dinamico-habilitado: true  # Equivalencia conservadora; el premio requiere WON real/W42
+    niveles-botin: {FACIL: 1, MEDIO: 2, DIFICIL: 3}
+    modo-seleccion: CATALOGO_ALEATORIO
+    identificador: 'hm2:guardian_ceniza'  # Legacy: solo usado en FIJO.
+    lista-permitida: []               # Solo se usa en LISTA_ALEATORIA; catálogo consulta todos.
+    lista-excluida: []                 # Aplica a los tres modos.
+    # Pesos relativos; omitido = 1; 0 excluye. Ej.: 3 vs 1 = 75 % vs 25 %
+    # SOLO entre candidatos habilitados y compatibles con el equipo.
+    # El proveedor confirmará dimensión, recursos y terreno al invocar.
+    pesos: {}                          # Cualquier jefe nuevo tiene peso 1 sin editar config.
+    # RC7: solo jefes penitenciarios generales. No altera los retos F3.
+    # OFF por defecto. Si se habilita, un boss SIN lista será rechazado.
+    # Se comprueba el bioma del LUGAR exacto de aparición; el proveedor
+    # sigue validando terreno/recursos en validateEncounter y spawn.
+    # Usa IDs reales publicados por HardcoreBosses; NO dar de alta IDs aquí.
+    filtro-biomas:
+      habilitado: false
+      por-jefe: {}
+      # Ejemplo solo cuando HardcoreBosses publique este ID:
+      # 'hb:guardian_bosque': ['minecraft:forest', 'minecraft:birch_forest']
+  # Castigos duraderos: solo derrota LOST real o tiempo ACTIVE verificado; nunca interrupciones.
+  # 20 minutos de juego conectado equivalen a un día completo de Minecraft.
+  # Se inicia solo tras combate y en lugar seguro; pausa al desconectarse.
+  # Se conserva en sesiones/*-debuffs-jefes-rc5.yml, incluido en backup W43.
+  castigos-por-derrota:
+    penitencia:
+      habilitados: true
+      sancionar-derrota-verificada: true  # Solo resultado LOST durable, nunca INTERRUPTED.
+      sancionar-tiempo-agotado: true      # Solo tiempo ACTIVE comprobado.
+      tiempo-maximo-minutos: 15         # Tiempo acumulado de combate, pausado al faltar proveedor.
+      duracion-minutos: 20             # Un día de juego ONLINE, persiste tras desconexión.
+      efectos: ["WEAKNESS:2", "SLOWNESS:1", "MINING_FATIGUE:2"]
+    retos-especiales:
+      habilitados: true               # Opt-in por separado: derrota F3 o cancelación TIEMPO.
+      sancionar-derrota-verificada: true
+      sancionar-tiempo-agotado: true
+      duracion-minutos: 10
+      efectos: ["WEAKNESS:1", "MINING_FATIGUE:1"]
+  integracion:
+    api-externa-habilitada: true   # Proveedor real, versión/capacidades y recibos terminales obligatorios.
+    compatibilidad-laboratorio: false  # Nunca activar en servidor real.
+  auditoria-habilitada: true
+  simulacion-laboratorio: false # Nunca activar en servidor real.

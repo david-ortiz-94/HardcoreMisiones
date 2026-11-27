@@ -1,0 +1,1310 @@
+# HardcoreMisiones 0.7.0 — 100 misiones editables. Reiniciar Paper tras editar.
+# Las misiones antiguas mantienen su ID para preservar partidas anteriores.
+# Algunas propuestas de objetivos mixtos están simplificadas a un recurso (ver README).
+misiones:
+  bosque:
+    activo: true
+    categoria: individual
+    nombre: El tributo del bosque
+    tipo: ENTREGA
+    recurso: TRONCOS
+    cantidad: 12
+    etapa: 1
+    peso: 8
+    requisito: NINGUNO
+    unidad: troncos
+  cimientos:
+    activo: true
+    categoria: individual
+    nombre: Cimientos del mundo
+    tipo: ENTREGA
+    recurso: ADOQUIN
+    cantidad: 16
+    etapa: 1
+    peso: 8
+    requisito: NINGUNO
+    unidad: adoquines
+  tierra:
+    activo: true
+    categoria: individual
+    nombre: Tierra prometida
+    tipo: ENTREGA
+    recurso: TIERRA
+    cantidad: 16
+    etapa: 1
+    peso: 8
+    requisito: NINGUNO
+    unidad: tierra
+  tablones:
+    activo: true
+    categoria: individual
+    nombre: La reserva
+    tipo: ENTREGA
+    recurso: TABLONES
+    cantidad: 16
+    etapa: 1
+    peso: 8
+    requisito: NINGUNO
+    unidad: tablones
+  palos:
+    activo: true
+    categoria: individual
+    nombre: Herramientas humildes
+    tipo: ENTREGA
+    recurso: PALOS
+    cantidad: 12
+    etapa: 1
+    peso: 8
+    requisito: NINGUNO
+    unidad: palos
+  mesa:
+    activo: true
+    categoria: individual
+    nombre: El primer taller
+    tipo: ENTREGA
+    recurso: MESA
+    cantidad: 1
+    etapa: 1
+    peso: 8
+    requisito: NINGUNO
+    unidad: mesa de trabajo
+  horno:
+    activo: true
+    categoria: individual
+    nombre: El primer fuego
+    tipo: ENTREGA
+    recurso: HORNO
+    cantidad: 1
+    etapa: 1
+    peso: 8
+    requisito: NINGUNO
+    unidad: horno
+  cofre:
+    activo: true
+    categoria: individual
+    nombre: La reserva del viajero
+    tipo: ENTREGA
+    recurso: COFRE
+    cantidad: 1
+    etapa: 1
+    peso: 8
+    requisito: NINGUNO
+    unidad: cofre
+  piedra:
+    activo: true
+    categoria: individual
+    nombre: Bajo la superficie
+    tipo: MINERIA
+    recurso: STONE
+    cantidad: 12
+    etapa: 1
+    peso: 8
+    requisito: NINGUNO
+    unidad: piedra picada
+  antorchas:
+    activo: true
+    categoria: individual
+    nombre: La luz del camino
+    tipo: ENTREGA
+    recurso: ANTORCHAS
+    cantidad: 8
+    etapa: 2
+    peso: 8
+    requisito: NINGUNO
+    unidad: antorchas
+  carbon:
+    activo: true
+    categoria: individual
+    nombre: La llama del minero
+    tipo: ENTREGA
+    recurso: CARBON
+    cantidad: 6
+    etapa: 2
+    peso: 8
+    requisito: NINGUNO
+    unidad: carbón
+  cocinado:
+    activo: true
+    categoria: individual
+    nombre: El fuego alimenta
+    tipo: ENTREGA
+    recurso: COCINADO
+    cantidad: 4
+    etapa: 2
+    peso: 8
+    requisito: NINGUNO
+    unidad: alimentos cocinados
+  zombi:
+    activo: true
+    categoria: individual
+    nombre: El primer enfrentamiento
+    tipo: CAZA
+    recurso: ZOMBIE
+    cantidad: 1
+    etapa: 2
+    peso: 8
+    requisito: NINGUNO
+    unidad: zombis
+  arana:
+    activo: true
+    categoria: individual
+    nombre: La telaraña
+    tipo: CAZA
+    recurso: SPIDER
+    cantidad: 1
+    etapa: 2
+    peso: 8
+    requisito: NINGUNO
+    unidad: arañas
+  esqueleto:
+    activo: true
+    categoria: individual
+    nombre: El arquero
+    tipo: CAZA
+    recurso: SKELETON
+    cantidad: 1
+    etapa: 2
+    peso: 8
+    requisito: NINGUNO
+    unidad: esqueletos
+  ind_n01:
+    activo: true
+    categoria: individual
+    nombre: El precio del metal
+    tipo: ENTREGA
+    recurso: HIERRO
+    cantidad: 4
+    etapa: 2
+    peso: 8
+    requisito: HIERRO
+    unidad: lingotes de hierro
+  ind_n02:
+    activo: true
+    categoria: individual
+    nombre: Provisiones de guerra
+    tipo: ENTREGA
+    recurso: COCINADO
+    cantidad: 8
+    etapa: 2
+    peso: 8
+    requisito: NINGUNO
+    unidad: alimentos cocinados
+  ind_n03:
+    activo: true
+    categoria: individual
+    nombre: Piedras olvidadas
+    tipo: MINERIA
+    recurso: STONE
+    cantidad: 24
+    etapa: 2
+    peso: 8
+    requisito: NINGUNO
+    unidad: piedras picadas
+  ind_n04:
+    activo: true
+    categoria: individual
+    nombre: Sangre de la noche
+    tipo: CAZA
+    recurso: ZOMBIE
+    cantidad: 3
+    etapa: 2
+    peso: 8
+    requisito: NINGUNO
+    unidad: zombis
+  ind_n05:
+    activo: true
+    categoria: individual
+    nombre: La luz que protege
+    tipo: FABRICAR
+    recurso: ANTORCHAS
+    cantidad: 8
+    etapa: 2
+    peso: 8
+    requisito: NINGUNO
+    unidad: antorchas fabricadas
+  ind_n06:
+    activo: true
+    categoria: individual
+    nombre: El tributo del minero
+    tipo: ENTREGA
+    recurso: CARBON
+    cantidad: 8
+    etapa: 2
+    peso: 8
+    requisito: NINGUNO
+    unidad: unidades de carbón
+  ind_n07:
+    activo: true
+    categoria: individual
+    nombre: El protector
+    tipo: FABRICAR
+    recurso: ESCUDO
+    cantidad: 1
+    etapa: 2
+    peso: 8
+    requisito: HIERRO
+    unidad: escudo fabricado
+  ind_n08:
+    activo: true
+    categoria: individual
+    nombre: El explorador
+    tipo: RECORRER
+    recurso: BLOQUES
+    cantidad: 400
+    etapa: 2
+    peso: 8
+    requisito: NINGUNO
+    unidad: bloques recorridos
+  ind_n09:
+    activo: true
+    categoria: individual
+    nombre: Piedras antiguas
+    tipo: ENTREGA
+    recurso: PIZARRA
+    cantidad: 16
+    etapa: 2
+    peso: 8
+    requisito: HIERRO
+    unidad: bloques de pizarra
+  ind_n10:
+    activo: true
+    categoria: individual
+    nombre: El arquero artesano
+    tipo: FABRICAR
+    recurso: ARCO
+    cantidad: 1
+    etapa: 2
+    peso: 8
+    requisito: NINGUNO
+    unidad: arco fabricado
+  ind_n11:
+    activo: true
+    categoria: individual
+    nombre: La reserva de hierro
+    tipo: ENTREGA
+    recurso: HIERRO
+    cantidad: 6
+    etapa: 2
+    peso: 8
+    requisito: HIERRO
+    unidad: lingotes fundidos
+  ind_n12:
+    activo: true
+    categoria: individual
+    nombre: La defensa del mundo
+    tipo: CAZA
+    recurso: HOSTILES
+    cantidad: 4
+    etapa: 2
+    peso: 8
+    requisito: NINGUNO
+    unidad: hostiles derrotados
+  ind_n13:
+    activo: true
+    categoria: individual
+    nombre: Constructor incansable
+    tipo: FABRICAR
+    recurso: LADRILLOS_PIEDRA
+    cantidad: 16
+    etapa: 2
+    peso: 8
+    requisito: NINGUNO
+    unidad: ladrillos de piedra
+  ind_n14:
+    activo: true
+    categoria: individual
+    nombre: El tributo transparente
+    tipo: ENTREGA
+    recurso: VIDRIO
+    cantidad: 12
+    etapa: 2
+    peso: 8
+    requisito: NINGUNO
+    unidad: bloques de vidrio
+  ind_n15:
+    activo: true
+    categoria: individual
+    nombre: Profundidades de cobre
+    tipo: ENTREGA
+    recurso: COBRE_BRUTO
+    cantidad: 8
+    etapa: 2
+    peso: 8
+    requisito: HIERRO
+    unidad: cobre en bruto
+  ind_a01:
+    activo: true
+    categoria: individual
+    nombre: El sacrificio del minero
+    tipo: ENTREGA
+    recurso: HIERRO
+    cantidad: 12
+    etapa: 3
+    peso: 4
+    requisito: HIERRO
+    unidad: lingotes de hierro
+  ind_a02:
+    activo: true
+    categoria: individual
+    nombre: La riqueza tiene un precio
+    tipo: ENTREGA
+    recurso: DIAMANTE
+    cantidad: 2
+    etapa: 3
+    peso: 4
+    requisito: DIAMANTES
+    unidad: diamantes
+  ind_a03:
+    activo: true
+    categoria: individual
+    nombre: El ejército de la noche
+    tipo: CAZA
+    recurso: HOSTILES
+    cantidad: 8
+    etapa: 3
+    peso: 4
+    requisito: NINGUNO
+    unidad: hostiles derrotados
+  ind_a04:
+    activo: true
+    categoria: individual
+    nombre: El tributo dorado
+    tipo: ENTREGA
+    recurso: ORO
+    cantidad: 6
+    etapa: 3
+    peso: 4
+    requisito: HIERRO
+    unidad: lingotes de oro
+  ind_a05:
+    activo: true
+    categoria: individual
+    nombre: Entrañas de la tierra
+    tipo: ENTREGA
+    recurso: PIZARRA
+    cantidad: 32
+    etapa: 3
+    peso: 4
+    requisito: HIERRO
+    unidad: bloques de pizarra
+  ind_a06:
+    activo: true
+    categoria: individual
+    nombre: Preparativos de guerra
+    tipo: FABRICAR
+    recurso: ARMADURA_HIERRO
+    cantidad: 2
+    etapa: 3
+    peso: 4
+    requisito: HIERRO
+    unidad: piezas de armadura de hierro
+  ind_a07:
+    activo: true
+    categoria: individual
+    nombre: La reserva de cobre
+    tipo: ENTREGA
+    recurso: COBRE_BRUTO
+    cantidad: 16
+    etapa: 3
+    peso: 4
+    requisito: HIERRO
+    unidad: cobre en bruto
+  ind_a08:
+    activo: true
+    categoria: individual
+    nombre: La mirada del mundo
+    tipo: CAZA
+    recurso: SKELETON
+    cantidad: 4
+    etapa: 3
+    peso: 4
+    requisito: NINGUNO
+    unidad: esqueletos
+  ind_a09:
+    activo: true
+    categoria: individual
+    nombre: Camino interminable
+    tipo: RECORRER
+    recurso: BLOQUES
+    cantidad: 800
+    etapa: 3
+    peso: 4
+    requisito: NINGUNO
+    unidad: bloques recorridos
+  ind_a10:
+    activo: true
+    categoria: individual
+    nombre: El tributo oscuro
+    tipo: ENTREGA
+    recurso: OBSIDIANA
+    cantidad: 4
+    etapa: 4
+    peso: 2
+    requisito: OBSIDIANA
+    unidad: bloques de obsidiana
+  ind_a11:
+    activo: true
+    categoria: individual
+    nombre: La herrería
+    tipo: FABRICAR
+    recurso: CUBO
+    cantidad: 2
+    etapa: 4
+    peso: 2
+    requisito: HIERRO
+    unidad: cubos fabricados
+  ind_a12:
+    activo: true
+    categoria: individual
+    nombre: El precio de la magia
+    tipo: ENTREGA
+    recurso: REDSTONE
+    cantidad: 16
+    etapa: 4
+    peso: 2
+    requisito: HIERRO
+    unidad: polvo de redstone
+  ind_a13:
+    activo: true
+    categoria: individual
+    nombre: La noche del cazador
+    tipo: CAZA
+    recurso: ZOMBIE
+    cantidad: 5
+    etapa: 4
+    peso: 2
+    requisito: NINGUNO
+    unidad: zombis
+  ind_a14:
+    activo: true
+    categoria: individual
+    nombre: El fuego eterno
+    tipo: ENTREGA
+    recurso: COCINADO
+    cantidad: 16
+    etapa: 4
+    peso: 2
+    requisito: NINGUNO
+    unidad: alimentos cocinados
+  ind_a15:
+    activo: true
+    categoria: individual
+    nombre: El conocimiento prohibido
+    tipo: ENCANTAR
+    recurso: OBJETOS
+    cantidad: 1
+    etapa: 4
+    peso: 2
+    requisito: ENCANTAR
+    unidad: objetos encantados
+  grupo_bosque:
+    activo: true
+    categoria: grupal
+    nombre: La deuda del bosque
+    tipo: ENTREGA
+    recurso: TRONCOS
+    cantidad: 0
+    etapa: 1
+    peso: 8
+    requisito: NINGUNO
+    unidad: troncos
+    jugadores:
+      uno: 16
+      dos: 32
+      tres: 48
+  grupo_cimientos:
+    activo: true
+    categoria: grupal
+    nombre: Los cimientos del mundo
+    tipo: ENTREGA
+    recurso: ADOQUIN
+    cantidad: 0
+    etapa: 1
+    peso: 8
+    requisito: NINGUNO
+    unidad: adoquines
+    jugadores:
+      uno: 24
+      dos: 48
+      tres: 64
+  grupo_tierra:
+    activo: true
+    categoria: grupal
+    nombre: El pacto de la tierra
+    tipo: ENTREGA
+    recurso: TIERRA
+    cantidad: 0
+    etapa: 1
+    peso: 8
+    requisito: NINGUNO
+    unidad: tierra
+    jugadores:
+      uno: 16
+      dos: 32
+      tres: 48
+  grupo_tablones:
+    activo: true
+    categoria: grupal
+    nombre: La reserva del equipo
+    tipo: ENTREGA
+    recurso: TABLONES
+    cantidad: 0
+    etapa: 1
+    peso: 8
+    requisito: NINGUNO
+    unidad: tablones
+    jugadores:
+      uno: 16
+      dos: 32
+      tres: 48
+  grupo_palos:
+    activo: true
+    categoria: grupal
+    nombre: El tributo de los errantes
+    tipo: ENTREGA
+    recurso: PALOS
+    cantidad: 0
+    etapa: 1
+    peso: 8
+    requisito: NINGUNO
+    unidad: palos
+    jugadores:
+      uno: 16
+      dos: 32
+      tres: 48
+  grupo_antorchas:
+    activo: true
+    categoria: grupal
+    nombre: El camino iluminado
+    tipo: ENTREGA
+    recurso: ANTORCHAS
+    cantidad: 0
+    etapa: 2
+    peso: 8
+    requisito: NINGUNO
+    unidad: antorchas
+    jugadores:
+      uno: 8
+      dos: 16
+      tres: 24
+  grp_e07:
+    activo: true
+    categoria: grupal
+    nombre: Los primeros carpinteros
+    tipo: FABRICAR
+    recurso: PICO_PIEDRA
+    cantidad: 0
+    etapa: 1
+    peso: 8
+    requisito: NINGUNO
+    unidad: picos de piedra fabricados
+    jugadores:
+      uno: 1
+      dos: 2
+      tres: 3
+  grp_e08:
+    activo: true
+    categoria: grupal
+    nombre: Guardianes del fuego
+    tipo: FABRICAR
+    recurso: HORNO
+    cantidad: 0
+    etapa: 1
+    peso: 8
+    requisito: NINGUNO
+    unidad: hornos fabricados
+    jugadores:
+      uno: 1
+      dos: 2
+      tres: 3
+  grp_e09:
+    activo: true
+    categoria: grupal
+    nombre: El refugio del errante
+    tipo: FABRICAR
+    recurso: COFRE
+    cantidad: 0
+    etapa: 1
+    peso: 8
+    requisito: NINGUNO
+    unidad: cofres fabricados
+    jugadores:
+      uno: 1
+      dos: 2
+      tres: 3
+  grp_e10:
+    activo: true
+    categoria: grupal
+    nombre: Caminos del mundo
+    tipo: RECORRER
+    recurso: BLOQUES
+    cantidad: 0
+    etapa: 1
+    peso: 8
+    requisito: NINGUNO
+    unidad: bloques recorridos
+    jugadores:
+      uno: 300
+      dos: 600
+      tres: 900
+  grp_e11:
+    activo: true
+    categoria: grupal
+    nombre: El primer banquete
+    tipo: ENTREGA
+    recurso: COCINADO
+    cantidad: 0
+    etapa: 1
+    peso: 8
+    requisito: NINGUNO
+    unidad: alimentos cocinados
+    jugadores:
+      uno: 4
+      dos: 8
+      tres: 12
+  grp_e12:
+    activo: true
+    categoria: grupal
+    nombre: El fuego eterno
+    tipo: ENTREGA
+    recurso: CARBON
+    cantidad: 0
+    etapa: 1
+    peso: 8
+    requisito: NINGUNO
+    unidad: unidades de carbón
+    jugadores:
+      uno: 4
+      dos: 8
+      tres: 12
+  grp_e13:
+    activo: true
+    categoria: grupal
+    nombre: Hachas del bosque
+    tipo: FABRICAR
+    recurso: HACHA_PIEDRA
+    cantidad: 0
+    etapa: 1
+    peso: 8
+    requisito: NINGUNO
+    unidad: hachas de piedra fabricadas
+    jugadores:
+      uno: 1
+      dos: 2
+      tres: 3
+  grp_e14:
+    activo: true
+    categoria: grupal
+    nombre: La piedra común
+    tipo: ENTREGA
+    recurso: ADOQUIN
+    cantidad: 0
+    etapa: 1
+    peso: 8
+    requisito: NINGUNO
+    unidad: adoquines
+    jugadores:
+      uno: 16
+      dos: 32
+      tres: 48
+  grp_e15:
+    activo: true
+    categoria: grupal
+    nombre: Primera resistencia
+    tipo: CAZA
+    recurso: HOSTILES
+    cantidad: 0
+    etapa: 1
+    peso: 8
+    requisito: NINGUNO
+    unidad: hostiles derrotados
+    jugadores:
+      uno: 2
+      dos: 4
+      tres: 6
+  grp_m01:
+    activo: true
+    categoria: grupal
+    nombre: El precio del hierro
+    tipo: ENTREGA
+    recurso: HIERRO
+    cantidad: 0
+    etapa: 3
+    peso: 5
+    requisito: HIERRO
+    unidad: lingotes de hierro
+    jugadores:
+      uno: 6
+      dos: 12
+      tres: 18
+  grp_m02:
+    activo: true
+    categoria: grupal
+    nombre: Banquete de supervivientes
+    tipo: ENTREGA
+    recurso: COCINADO
+    cantidad: 0
+    etapa: 3
+    peso: 5
+    requisito: NINGUNO
+    unidad: alimentos cocinados
+    jugadores:
+      uno: 8
+      dos: 16
+      tres: 24
+  grp_m03:
+    activo: true
+    categoria: grupal
+    nombre: El tributo de las profundidades
+    tipo: ENTREGA
+    recurso: PIZARRA
+    cantidad: 0
+    etapa: 3
+    peso: 5
+    requisito: HIERRO
+    unidad: bloques de pizarra
+    jugadores:
+      uno: 16
+      dos: 32
+      tres: 48
+  grp_m04:
+    activo: true
+    categoria: grupal
+    nombre: Guardianes de la noche
+    tipo: CAZA
+    recurso: HOSTILES
+    cantidad: 0
+    etapa: 3
+    peso: 5
+    requisito: NINGUNO
+    unidad: hostiles derrotados
+    jugadores:
+      uno: 6
+      dos: 12
+      tres: 18
+  grp_m05:
+    activo: true
+    categoria: grupal
+    nombre: La deuda del minero
+    tipo: ENTREGA
+    recurso: CARBON
+    cantidad: 0
+    etapa: 3
+    peso: 5
+    requisito: NINGUNO
+    unidad: unidades de carbón
+    jugadores:
+      uno: 8
+      dos: 16
+      tres: 24
+  grp_m06:
+    activo: true
+    categoria: grupal
+    nombre: El arsenal
+    tipo: FABRICAR
+    recurso: ESPADA_HIERRO
+    cantidad: 0
+    etapa: 3
+    peso: 5
+    requisito: HIERRO
+    unidad: espadas de hierro fabricadas
+    jugadores:
+      uno: 1
+      dos: 2
+      tres: 3
+  grp_m07:
+    activo: true
+    categoria: grupal
+    nombre: La reserva del hierro
+    tipo: ENTREGA
+    recurso: HIERRO
+    cantidad: 0
+    etapa: 3
+    peso: 5
+    requisito: HIERRO
+    unidad: lingotes de hierro
+    jugadores:
+      uno: 8
+      dos: 16
+      tres: 24
+  grp_m08:
+    activo: true
+    categoria: grupal
+    nombre: Pacto de los herreros
+    tipo: FABRICAR
+    recurso: ESCUDO
+    cantidad: 0
+    etapa: 3
+    peso: 5
+    requisito: HIERRO
+    unidad: escudos fabricados
+    jugadores:
+      uno: 1
+      dos: 2
+      tres: 3
+  grp_m09:
+    activo: true
+    categoria: grupal
+    nombre: Caminos desconocidos
+    tipo: RECORRER
+    recurso: BLOQUES
+    cantidad: 0
+    etapa: 3
+    peso: 5
+    requisito: NINGUNO
+    unidad: bloques recorridos
+    jugadores:
+      uno: 600
+      dos: 1200
+      tres: 1800
+  grp_m10:
+    activo: true
+    categoria: grupal
+    nombre: La ofrenda brillante
+    tipo: ENTREGA
+    recurso: COBRE
+    cantidad: 0
+    etapa: 3
+    peso: 5
+    requisito: HIERRO
+    unidad: lingotes de cobre
+    jugadores:
+      uno: 8
+      dos: 16
+      tres: 24
+  grp_m11:
+    activo: true
+    categoria: grupal
+    nombre: El mundo de cristal
+    tipo: ENTREGA
+    recurso: VIDRIO
+    cantidad: 0
+    etapa: 3
+    peso: 5
+    requisito: NINGUNO
+    unidad: bloques de vidrio
+    jugadores:
+      uno: 12
+      dos: 24
+      tres: 32
+  grp_m12:
+    activo: true
+    categoria: grupal
+    nombre: El tributo del bosque
+    tipo: ENTREGA
+    recurso: TRONCOS
+    cantidad: 0
+    etapa: 3
+    peso: 5
+    requisito: NINGUNO
+    unidad: troncos
+    jugadores:
+      uno: 12
+      dos: 20
+      tres: 24
+  grp_m13:
+    activo: true
+    categoria: grupal
+    nombre: La piedra del constructor
+    tipo: FABRICAR
+    recurso: LADRILLOS_PIEDRA
+    cantidad: 0
+    etapa: 3
+    peso: 5
+    requisito: NINGUNO
+    unidad: ladrillos de piedra fabricados
+    jugadores:
+      uno: 16
+      dos: 32
+      tres: 48
+  grp_m14:
+    activo: true
+    categoria: grupal
+    nombre: El oro reclamado
+    tipo: ENTREGA
+    recurso: ORO
+    cantidad: 0
+    etapa: 3
+    peso: 5
+    requisito: HIERRO
+    unidad: lingotes de oro
+    jugadores:
+      uno: 3
+      dos: 6
+      tres: 9
+  grp_m15:
+    activo: true
+    categoria: grupal
+    nombre: Preparativos de batalla
+    tipo: FABRICAR
+    recurso: ARMADURA_HIERRO
+    cantidad: 0
+    etapa: 3
+    peso: 5
+    requisito: HIERRO
+    unidad: piezas de armadura de hierro fabricadas
+    jugadores:
+      uno: 1
+      dos: 2
+      tres: 3
+  grp_h01:
+    activo: true
+    categoria: grupal
+    nombre: La riqueza tiene un precio
+    tipo: ENTREGA
+    recurso: DIAMANTE
+    cantidad: 0
+    etapa: 4
+    peso: 3
+    requisito: DIAMANTES
+    unidad: diamantes
+    jugadores:
+      uno: 1
+      dos: 2
+      tres: 3
+  grp_h02:
+    activo: true
+    categoria: grupal
+    nombre: El tributo oscuro
+    tipo: ENTREGA
+    recurso: OBSIDIANA
+    cantidad: 0
+    etapa: 4
+    peso: 3
+    requisito: OBSIDIANA
+    unidad: bloques de obsidiana
+    jugadores:
+      uno: 3
+      dos: 5
+      tres: 8
+  grp_h03:
+    activo: true
+    categoria: grupal
+    nombre: Ejército de las sombras
+    tipo: CAZA
+    recurso: HOSTILES
+    cantidad: 0
+    etapa: 4
+    peso: 3
+    requisito: NINGUNO
+    unidad: hostiles derrotados
+    jugadores:
+      uno: 10
+      dos: 20
+      tres: 30
+  grp_h04:
+    activo: true
+    categoria: grupal
+    nombre: La reserva de hierro
+    tipo: ENTREGA
+    recurso: HIERRO
+    cantidad: 0
+    etapa: 4
+    peso: 3
+    requisito: HIERRO
+    unidad: lingotes de hierro
+    jugadores:
+      uno: 12
+      dos: 24
+      tres: 36
+  grp_h05:
+    activo: true
+    categoria: grupal
+    nombre: Guardianes del conocimiento
+    tipo: ENCANTAR
+    recurso: OBJETOS
+    cantidad: 0
+    etapa: 4
+    peso: 3
+    requisito: ENCANTAR
+    unidad: objetos encantados
+    jugadores:
+      uno: 1
+      dos: 2
+      tres: 3
+  grp_h06:
+    activo: true
+    categoria: grupal
+    nombre: El oro de los condenados
+    tipo: ENTREGA
+    recurso: ORO
+    cantidad: 0
+    etapa: 4
+    peso: 3
+    requisito: HIERRO
+    unidad: lingotes de oro
+    jugadores:
+      uno: 6
+      dos: 12
+      tres: 18
+  grp_h07:
+    activo: true
+    categoria: grupal
+    nombre: El camino interminable
+    tipo: RECORRER
+    recurso: BLOQUES
+    cantidad: 0
+    etapa: 4
+    peso: 3
+    requisito: NINGUNO
+    unidad: bloques recorridos
+    jugadores:
+      uno: 1000
+      dos: 2000
+      tres: 3000
+  grp_h08:
+    activo: true
+    categoria: grupal
+    nombre: La armadura del juicio
+    tipo: FABRICAR
+    recurso: ARMADURA_HIERRO
+    cantidad: 0
+    etapa: 4
+    peso: 3
+    requisito: HIERRO
+    unidad: piezas de armadura de hierro fabricadas
+    jugadores:
+      uno: 1
+      dos: 2
+      tres: 3
+  grp_h09:
+    activo: true
+    categoria: grupal
+    nombre: Sacrificio del minero
+    tipo: ENTREGA
+    recurso: HIERRO
+    cantidad: 0
+    etapa: 4
+    peso: 3
+    requisito: HIERRO
+    unidad: lingotes de hierro
+    jugadores:
+      uno: 8
+      dos: 16
+      tres: 24
+  grp_h10:
+    activo: true
+    categoria: grupal
+    nombre: La gran excavación
+    tipo: ENTREGA
+    recurso: PIZARRA
+    cantidad: 0
+    etapa: 4
+    peso: 3
+    requisito: HIERRO
+    unidad: bloques de pizarra
+    jugadores:
+      uno: 32
+      dos: 64
+      tres: 96
+  grp_h11:
+    activo: true
+    categoria: grupal
+    nombre: La ofrenda escarlata
+    tipo: ENTREGA
+    recurso: REDSTONE
+    cantidad: 0
+    etapa: 4
+    peso: 3
+    requisito: HIERRO
+    unidad: polvo de redstone
+    jugadores:
+      uno: 12
+      dos: 24
+      tres: 32
+  grp_h12:
+    activo: true
+    categoria: grupal
+    nombre: La última provisión
+    tipo: ENTREGA
+    recurso: COCINADO
+    cantidad: 0
+    etapa: 4
+    peso: 3
+    requisito: NINGUNO
+    unidad: alimentos cocinados
+    jugadores:
+      uno: 12
+      dos: 24
+      tres: 36
+  grp_h13:
+    activo: true
+    categoria: grupal
+    nombre: Espadas para el juicio
+    tipo: FABRICAR
+    recurso: ESPADA_HIERRO
+    cantidad: 0
+    etapa: 4
+    peso: 3
+    requisito: HIERRO
+    unidad: espadas de hierro fabricadas
+    jugadores:
+      uno: 2
+      dos: 4
+      tres: 6
+  grp_h14:
+    activo: true
+    categoria: grupal
+    nombre: El sacrificio brillante
+    tipo: ENTREGA
+    recurso: DIAMANTE
+    cantidad: 0
+    etapa: 4
+    peso: 3
+    requisito: DIAMANTES
+    unidad: diamantes
+    jugadores:
+      uno: 1
+      dos: 2
+      tres: 3
+  grp_h15:
+    activo: true
+    categoria: grupal
+    nombre: La prueba del equipo
+    tipo: CAZA
+    recurso: HOSTILES
+    cantidad: 0
+    etapa: 4
+    peso: 3
+    requisito: NINGUNO
+    unidad: hostiles derrotados
+    jugadores:
+      uno: 3
+      dos: 6
+      tres: 9
+  esp_i01:
+    activo: true
+    categoria: individual
+    nombre: La ofrenda inesperada
+    tipo: ENTREGA
+    recurso: TRONCOS
+    cantidad: 10
+    etapa: 2
+    peso: 1
+    requisito: NINGUNO
+    unidad: troncos
+  esp_i02:
+    activo: true
+    categoria: individual
+    nombre: El camino del errante
+    tipo: RECORRER
+    recurso: BLOQUES
+    cantidad: 600
+    etapa: 2
+    peso: 1
+    requisito: NINGUNO
+    unidad: bloques recorridos
+  esp_i03:
+    activo: true
+    categoria: individual
+    nombre: La elección del mundo
+    tipo: ENTREGA
+    recurso: CARBON
+    cantidad: 6
+    etapa: 2
+    peso: 1
+    requisito: NINGUNO
+    unidad: carbón o carbón vegetal
+  esp_i04:
+    activo: true
+    categoria: individual
+    nombre: Misericordia del mundo
+    tipo: TREGUA
+    recurso: NINGUNO
+    cantidad: 1
+    etapa: 3
+    peso: 1
+    requisito: NINGUNO
+    unidad: día de gracia
+  esp_g01:
+    activo: true
+    categoria: grupal
+    nombre: Pacto de los sobrevivientes
+    tipo: ENTREGA
+    recurso: TRONCOS
+    cantidad: 0
+    etapa: 1
+    peso: 1
+    requisito: NINGUNO
+    unidad: troncos
+    jugadores:
+      uno: 8
+      dos: 16
+      tres: 24
+    todos_aportan: true
+  esp_g02:
+    activo: true
+    categoria: grupal
+    nombre: El precio de los herreros
+    tipo: ENTREGA
+    recurso: HIERRO
+    cantidad: 0
+    etapa: 3
+    peso: 1
+    requisito: HIERRO
+    unidad: lingotes de hierro
+    jugadores:
+      uno: 4
+      dos: 8
+      tres: 12
+  esp_g03:
+    activo: true
+    categoria: grupal
+    nombre: La noche hambrienta
+    tipo: CAZA
+    recurso: HOSTILES
+    cantidad: 0
+    etapa: 2
+    peso: 1
+    requisito: NINGUNO
+    unidad: hostiles derrotados
+    jugadores:
+      uno: 2
+      dos: 4
+      tres: 6
+  esp_g04:
+    activo: true
+    categoria: grupal
+    nombre: Eco de las profundidades
+    tipo: MINERIA
+    recurso: DEEPSLATE
+    cantidad: 0
+    etapa: 3
+    peso: 1
+    requisito: HIERRO
+    unidad: pizarra picada
+    jugadores:
+      uno: 8
+      dos: 16
+      tres: 24
+  esp_g05:
+    activo: true
+    categoria: grupal
+    nombre: El banquete del juicio
+    tipo: ENTREGA
+    recurso: COCINADO
+    cantidad: 0
+    etapa: 2
+    peso: 1
+    requisito: NINGUNO
+    unidad: alimentos cocinados
+    jugadores:
+      uno: 6
+      dos: 12
+      tres: 18
+  esp_g06:
+    activo: true
+    categoria: grupal
+    nombre: Desafío de los valientes
+    tipo: CAZA
+    recurso: HOSTILES
+    cantidad: 0
+    etapa: 2
+    peso: 1
+    requisito: NINGUNO
+    unidad: hostiles derrotados
+    jugadores:
+      uno: 2
+      dos: 4
+      tres: 6
+    todos_aportan: true

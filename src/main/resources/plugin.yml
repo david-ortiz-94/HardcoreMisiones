@@ -1,0 +1,16 @@
+name: HardcoreMisiones
+version: '2.1.0-dev'
+main: com.hardcoremisiones.HardcoreMisiones
+api-version: '26.2'
+author: Proyecto HardcoreMisiones
+description: Misiones, botín progresivo, cooperación, Juicio y progreso para HardcoreMP.
+softdepend: [HardcoreMP, HardcoreBosses]
+commands:
+  hm:
+    description: Misiones, botín progresivo, cooperación, Juicio y progreso para HardcoreMP.
+    usage: /hm [config|estado|oleadas|expedicion|muertes|recompensas|puntos|ciclo|iniciar|sello|progreso|siguiente|etapa|catalogo|panel|tab|sincronizar|prueba|emblema|hitos|relevar|reto|jefes]
+    aliases: [hardcoremisiones]
+permissions:
+  hardcoremisiones.admin:
+    description: Misiones, botín progresivo, cooperación, Juicio y progreso para HardcoreMP.
+    default: op

@@ -1,0 +1,31 @@
+{
+  "scope": "targeted only, offline, Java25/Paper API 135; no Paper runtime",
+  "tests": [
+    {
+      "name": "RewardRecoveryBoundaryTest",
+      "checks": 50,
+      "status": "PASS"
+    },
+    {
+      "name": "F4W42RewardAuditContractsTest",
+      "checks": 13,
+      "status": "PASS"
+    },
+    {
+      "name": "ProductYamlSchemaTest",
+      "checks": 29,
+      "status": "PASS"
+    },
+    {
+      "name": "MissionCatalogCrossValidationTest",
+      "checks": 105,
+      "status": "PASS"
+    }
+  ],
+  "production_compile": "PASS",
+  "total_checks": 197,
+  "paper_runtime": "NOT_RUN",
+  "full_regression": "NOT_RUN",
+  "doclint": "NOT_RUN",
+  "gradle": "NOT_RUN"
+}
