@@ -37,6 +37,12 @@ public final class HuntJournalSchemaTest {
         reject(y,g+"danio",-1);reject(y,g+"impactos","2");reject(y,g+"unknown",true);reject(y,r+"prob",99);reject(y,r+"ticket",100);
         reject(y,r+"cantidad",49);reject(y,r+"titular",false);reject(y,r+"reservado","false");reject(y,r+"material",null);
         HuntJournalSchema.validate(y);checks++;
+        // V3 retains the physical reward shape of v2; it may not silently lose the potion or support on restore.
+        y.set(p+"politica-premios.version",3);
+        y.set(r+"xp",55);y.set(r+"pocion","P_SPEED");y.set(r+"prob-bendicion",35);y.set(r+"ticket-bendicion",10);
+        y.set(r+"extra-material","IRON_INGOT");y.set(r+"extra-cantidad",3);
+        HuntJournalSchema.validate(y);checks++;
+        reject(y,r+"xp",null);reject(y,r+"pocion",null);reject(y,r+"extra-cantidad",null);
         System.out.println("HUNT_JOURNAL_SCHEMA: "+checks+" PASS");
     }
 }

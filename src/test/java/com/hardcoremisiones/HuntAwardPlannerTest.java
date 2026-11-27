@@ -38,6 +38,28 @@ public final class HuntAwardPlannerTest {
                 if(group)ok(plan.awards().size()==size,"group eligible members all individually guaranteed");
             }
         }
+        var cfg=org.bukkit.configuration.file.YamlConfiguration.loadConfiguration(new java.io.InputStreamReader(
+            HuntAwardPlannerTest.class.getClassLoader().getResourceAsStream("config.yml"),java.nio.charset.StandardCharsets.UTF_8));
+        var v3=com.hardcoremisiones.rewards.hunts.HuntRewardYaml.read(cfg,"misiones.cacerias-hf5.politica-premios");
+        for(int tier=1;tier<=5;tier++)for(int size=1;size<=3;size++){
+            var team=Set.copyOf(List.of(a,b,c).subList(0,size));
+            var contributions=new LinkedHashMap<UUID,Contribution>();
+            for(var id:team)contributions.put(id,new Contribution(3,10));
+            for(int seed=0;seed<100;seed++){
+                var enc=new UUID(200+seed,tier*10+size);
+                for(boolean isGroup:List.of(false,true)){
+                    var result=HuntAwardPlanner.plan(a,isGroup,team,contributions,tier,120,enc,"hf5:v3",v3);
+                    ok(result.equals(HuntAwardPlanner.plan(a,isGroup,team,contributions,tier,120,enc,"hf5:v3",v3)),"v3 replay");
+                    ok(result.awards().stream().anyMatch(x->x.player().equals(a)),"v3 owner guaranteed");
+                    for(var x:result.awards()){
+                        ok(x.xp()==v3.xp().get(tier-1)&&x.benefitChance()==v3.potions().get(tier-1),"v3 configured xp/potion");
+                        ok(x.extras().size()==1&&x.extras().getFirst().material()!=x.material(),"v3 distinct support");
+                        ok(x.quantity()+x.extras().getFirst().cantidad()<=48,"v3 cap");
+                        ok(x.potion().isEmpty()==(x.benefitTicket()>=x.benefitChance()),"v3 independent potion draw");
+                    }
+                }
+            }
+        }
         var roster=Set.of(a,b,c);var encounter=new UUID(22,1);
         var noOwner=Map.of(a,new Contribution(0,0),b,new Contribution(1,1),c,new Contribution(1,0.01));
         ok(HuntAwardPlanner.plan(a,false,roster,noOwner,1,120,encounter,"x",policy).awards().isEmpty(),"helper alone cannot complete individual hunt");

@@ -138,6 +138,7 @@ public final class ConfigurationReloadService {
         if(ruta.equals("jefes.penitencia.filtro-biomas.habilitado")
             ||ruta.startsWith("jefes.penitencia.filtro-biomas.por-jefe."))return true;
         if(ruta.startsWith("jefes.castigos-por-derrota.")||ruta.startsWith("penalidades.duracion-")||ruta.matches("misiones\\.cacerias-hf5\\.(modo-seleccion|probabilidad-individual|probabilidad-grupal|dia-minimo)"))return true;
+        if(ruta.startsWith("recompensas.botin-progresivo.probabilidades."))return true;
         if(ruta.startsWith("recompensas.limites.")||ruta.startsWith("recompensas.bonos-por-tipo."))return true;
         if(ruta.startsWith("recompensas.beneficios-temporales.max-jugador-"))return true;
         if(ruta.equals("recompensas.favor.max-nivel")||ruta.equals("recompensas.prestigio.costo-emblema"))return true;
@@ -202,6 +203,7 @@ public final class ConfigurationReloadService {
         for(Object nombre:c.getList("interfaz.jugadores-en-tab"))
             if(!(nombre instanceof String name)||!name.matches("[A-Za-z0-9_]{3,16}"))throw new IOException("TAB: nombre inválido: "+nombre);
         entero(c,"recompensas.modalidades-por-mision.probabilidad-manual",0,100);
+        com.hardcoremisiones.rewards.missions.ProgressiveMissionLootPolicy.read(c);
         entero(c,"jefes.penitencia.probabilidad-individual",0,100);
         entero(c,"jefes.penitencia.probabilidad-grupal",0,100);
         for(String p:List.of("recompensas.limites.xp-jugador-dia", "recompensas.limites.xp-equipo-dia"))entero(c,p,1,3000);

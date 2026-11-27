@@ -332,11 +332,12 @@ final class Recompensas {
         int dificultad=perfil==null?1:perfil.dificultad();
         int riesgo=perfil==null?1:perfil.riesgo();
         int siguiente=ProgressiveMissionLootPolicy.proximoDesbloqueo(dia);
+        var rules=ProgressiveMissionLootPolicy.read(plugin.getConfig());
         return List.of(
-            "§6"+ProgressiveMissionLootPolicy.probabilidadesTexto(dia,dificultad,riesgo,equipo),
-            "§7Prob. normal de segundo objeto: "+ProgressiveMissionLootPolicy.probabilidadComplemento(dia,dificultad,riesgo,equipo)
+            "§6"+ProgressiveMissionLootPolicy.probabilidadesTexto(dia,dificultad,riesgo,equipo,rules),
+            "§7Prob. normal de segundo objeto: "+ProgressiveMissionLootPolicy.probabilidadComplemento(dia,dificultad,riesgo,equipo,rules)
                 +"% (si cabe en presupuesto). Tercero condicional: "
-                +ProgressiveMissionLootPolicy.probabilidadTercerItem(dia,dificultad,riesgo,equipo)+"%.",
+                +ProgressiveMissionLootPolicy.probabilidadTercerItem(dia,dificultad,riesgo,equipo,rules)+"%.",
             "§7Los pesos indican el sorteo ANTES de limitar por presupuesto.",
             "§7Mayor dificultad/riesgo (y grupales) aumentan posibilidades dentro de rarezas desbloqueadas.",
             "§7RC3: Preparación en misión difícil/riesgosa: 100% intento de complemento si hay presupuesto.",

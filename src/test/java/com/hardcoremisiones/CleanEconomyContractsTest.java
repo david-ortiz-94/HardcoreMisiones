@@ -2,6 +2,7 @@ package com.hardcoremisiones;
 
 import com.hardcoremisiones.config.PaperConfigYaml;
 import com.hardcoremisiones.rewards.hunts.HuntRewardYaml;
+import com.hardcoremisiones.rewards.missions.ProgressiveMissionLootPolicy;
 import com.hardcoremisiones.missions.catalog.MissionCatalog;
 import com.hardcoremisiones.missions.model.MissionDefinition;
 import com.hardcoremisiones.missions.model.MissionType;
@@ -38,6 +39,34 @@ public final class CleanEconomyContractsTest {
         check(hunt.equals(HuntRewardYaml.read(loaded,"hunt")),"hunt journal roundtrip");
         loaded.set("hunt.ayudantes",List.of(20,20,25,30,101));reject(()->HuntRewardYaml.read(loaded,"hunt"));
         int[] weights=hunt.weights(2);weights[0]=0;check(hunt.weights(2)[0]==60,"defensive copy");
+        var live=PaperConfigYaml.read(Path.of("src/main/resources/config.yml").toFile());
+        var progressive=ProgressiveMissionLootPolicy.read(live);
+        for(int day:new int[]{1,3,4,8,9,15,16,24,25,100}){
+            int unlocked=day<4?0:day<9?1:day<16?2:3;
+            var low=ProgressiveMissionLootPolicy.probabilidades(day,1,0,false,progressive);
+            var high=ProgressiveMissionLootPolicy.probabilidades(day,5,4,true,progressive);
+            check(Arrays.stream(high).sum()==100 && Arrays.stream(high,unlocked+1,4).sum()==0,"W45 sum and day gate");
+            check(unlocked==0||high[unlocked]>low[unlocked],"risk boosts highest unlocked rarity");
+        }
+        String rulesPath="recompensas.botin-progresivo.probabilidades";
+        live.set(rulesPath+".rareza.dias-1-3",List.of(90,10,0,0));
+        reject(()->ProgressiveMissionLootPolicy.read(live));
+        live.set(rulesPath+".rareza.dias-1-3",List.of(100,0,0,0));
+        live.set(rulesPath+".segundo",List.of(40,55,70,80,91));
+        reject(()->ProgressiveMissionLootPolicy.read(live));
+        live.set(rulesPath+".segundo",List.of(40,55,70,80,90));
+        String huntPath="misiones.cacerias-hf5.politica-premios";
+        var v3=HuntRewardYaml.read(live,huntPath);
+        check(v3.version()==3&&v3.xp().get(1)==55&&v3.potions().get(1)==35,"HF5 v3 configured");
+        var frozen=new YamlConfiguration();HuntRewardYaml.write(frozen,"rules",v3);
+        var restored=new YamlConfiguration();restored.loadFromString(frozen.saveToString());
+        check(v3.equals(HuntRewardYaml.read(restored,"rules")),"HF5 v3 full freeze roundtrip");
+        restored.set("rules.pociones",List.of(20,35,50,65,101));reject(()->HuntRewardYaml.read(restored,"rules"));
+        var v2=new HuntRewardPolicy(hunt.rarity(),hunt.assistance(),2);
+        HuntRewardYaml.write(frozen,"rules",v2);
+        check(v2.equals(HuntRewardYaml.read(frozen,"rules"))&&!frozen.contains("rules.xp"),"HF5 v2 stays historical");
+        live.set(huntPath+".version",2);
+        check(HuntRewardYaml.read(live,huntPath).xp().equals(List.of(32,44,56,68,80)),"legacy administrative overlay keeps v2 quantities");
         for(var name:List.of("config.yml","catalogo.yml","perfiles-f2.yml","retos-f3.yml","lotes-jefes.yml","premios-jefes.yml","plugin.yml"))
             StrictYaml.read(Path.of("src/main/resources",name));
         for(String invalid:List.of("a: 1\na: 2\n","a:\n  b: 1\n  b: 2\n","[1,2]")){

@@ -4,5 +4,5 @@ formato: 1
 bendiciones:
   habilitadas: true
   penitencias-habilitadas: true   # Condicional a botín penitenciario reservado, no a kill de MythicMobs
-  probabilidad-mision: [15, 30, 45, 60, 75]  # dificultad I..V
-  probabilidad-penitencia-condicional: [0, 0, 3, 5, 8]
+  probabilidad-mision: [25, 50, 60, 75, 90]  # dificultad I..V
+  probabilidad-penitencia-condicional: [0, 5, 8, 12, 15]

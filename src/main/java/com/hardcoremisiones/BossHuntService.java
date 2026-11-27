@@ -227,7 +227,7 @@ final class BossHuntService {
                 y.set(s+"ticket",d.ticket());y.set(s+"rareza",d.rareza());
                 y.set(s+"material",d.material().name());y.set(s+"cantidad",d.cantidad());
                 y.set(s+"reservado",d.reservado());
-                if(t.rewardPolicy.version()==2){y.set(s+"xp",d.xp());y.set(s+"pocion",d.potion());y.set(s+"prob-bendicion",d.benefitChance());y.set(s+"ticket-bendicion",d.benefitTicket());
+                if(t.rewardPolicy.version()>=2){y.set(s+"xp",d.xp());y.set(s+"pocion",d.potion());y.set(s+"prob-bendicion",d.benefitChance());y.set(s+"ticket-bendicion",d.benefitTicket());
                     if(!d.extras().isEmpty()){y.set(s+"extra-material",d.extras().getFirst().material().name());y.set(s+"extra-cantidad",d.extras().getFirst().cantidad());}}
             }
         }

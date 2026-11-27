@@ -42,7 +42,7 @@ public final class HuntJournalSchema {
             var rewards=section(t,"premios");if(rewards!=null)for(String k:rewards.getKeys(false)){
                 if(!members.contains(uuid(k)))throw invalid("premio miembro");var r=row(rewards,k);
                 fields(r,"titular prob ticket rareza material cantidad reservado xp pocion prob-bendicion ticket-bendicion extra-material extra-cantidad");
-                boolean v2=t.getInt("politica-premios.version",1)==2;
+                boolean v2=t.getInt("politica-premios.version",1)>=2;
                 if(v2){require(r,Integer.class,"xp prob-bendicion ticket-bendicion extra-cantidad");require(r,String.class,"pocion extra-material");}
                 else for(String field:List.of("xp","pocion","prob-bendicion","ticket-bendicion","extra-material","extra-cantidad"))if(r.contains(field))throw invalid(field);require(r,Boolean.class,"titular reservado");
                 require(r,Integer.class,"prob ticket cantidad");require(r,String.class,"rareza material");

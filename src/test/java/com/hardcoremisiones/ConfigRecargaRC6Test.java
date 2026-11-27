@@ -31,6 +31,11 @@ public final class ConfigRecargaRC6Test {
             check(r.valida(),"dinámicos válidos "+r.errores()+" "+r.reinicio());
             check(r.cambios().size()==3,"tres cambios");
             check(r.sha256().length()==64,"SHA256");
+            nuevo.set("recompensas.botin-progresivo.probabilidades.segundo",java.util.List.of(42,55,70,80,90));
+            Files.writeString(tmp,nuevo.saveToString());
+            r=ConfigurationReloadService.revisar(tmp.toFile(),actual);
+            check(r.valida()&&r.cambios().contains("recompensas.botin-progresivo.probabilidades.segundo"),"W45 probabilidad recargable");
+            nuevo.set("recompensas.botin-progresivo.probabilidades.segundo",actual.getList("recompensas.botin-progresivo.probabilidades.segundo"));
             nuevo.set("mundos.principal","mundo_ajeno");
             Files.writeString(tmp,nuevo.saveToString());
             r=ConfigurationReloadService.revisar(tmp.toFile(),actual);

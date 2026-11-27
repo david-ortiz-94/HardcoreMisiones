@@ -97,18 +97,31 @@ public final class HuntAwardPlanner {
                     encounter,id,origin,1,0,Set.of(),policy);
             Material primary=lot.paquete().material();int qty=lot.paquete().cantidad();
             List<RewardItem> extras=List.of();int xp=0,benefitChance=0,benefitTicket=-1;String potion="";
-            if(policy.version()==2){
+            if(policy.version()>=2){
                 int style=group?Math.floorMod(id.hashCode(),3):id.equals(owner)?2:1;
                 // Replace low-utility primary materials, without retroactively changing v1.
                 int oldValue=qty*BossLootPolicy.peso(primary); Material original=primary;
                 primary=switch(primary){case COPPER_INGOT,AMETHYST_SHARD,REDSTONE->Material.IRON_INGOT;case STRING,COAL->Material.ARROW;case BREAD->Material.COOKED_BEEF;default->primary;};
                 if(primary!=original)qty=Math.max(1,oldValue/Math.max(1,BossLootPolicy.peso(primary)));
                 qty=Math.min(qty, switch(primary){case DIAMOND,GOLDEN_APPLE,SHIELD->1;case IRON_INGOT,GOLD_INGOT,EXPERIENCE_BOTTLE->6;default->12;});
+                if(policy.version()==3){
+                    // Increase useful stacks without making high-value single items farmable.
+                    int cap=switch(primary){case DIAMOND,GOLDEN_APPLE,SHIELD,BUCKET->1;
+                        case IRON_INGOT,GOLD_INGOT,EXPERIENCE_BOTTLE,GOLDEN_CARROT,LAPIS_LAZULI,SPECTRAL_ARROW->8;
+                        default->18;};
+                    qty=Math.min(cap,(qty*policy.primaryPercent().get(tier-1)+99)/100);
+                }
                 Material support=style==1?Material.IRON_INGOT:Material.COOKED_BEEF;
                 if(primary==support)support=Material.ARROW;
                 extras=List.of(new RewardItem(support,support==Material.IRON_INGOT?Math.min(4,tier):4+2*tier));
-                xp=20+12*tier;
-                benefitChance=List.of(10,20,30,40,50).get(tier-1);
+                if(policy.version()==3){
+                    int base=policy.extraQuantity().get(tier-1);
+                    // Distinct support with quantities tied to material value.
+                    int units=support==Material.IRON_INGOT?base:support==Material.ARROW?base*3:base*2+2;
+                    extras=List.of(new RewardItem(support,units));
+                }
+                xp=policy.xp().get(tier-1);
+                benefitChance=policy.potions().get(tier-1);
                 Random benefit=BossLootPolicy.aleatorio(encounter,id,origin,"BENDICION_HF5_V2",0,0);
                 benefitTicket=benefit.nextInt(100);
                 if(benefitTicket<benefitChance){var options=tier>=3?List.of("P_SPEED","P_NIGHT_VISION","P_FIRE_RESISTANCE","P_REGENERATION","P_STRENGTH"):List.of("P_SPEED","P_NIGHT_VISION");potion=options.get(benefit.nextInt(options.size()));}
