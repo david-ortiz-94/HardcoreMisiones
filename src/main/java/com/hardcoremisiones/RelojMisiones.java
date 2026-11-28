@@ -34,6 +34,9 @@ import org.bukkit.entity.Player;
  */
 final class RelojMisiones implements com.hardcoremisiones.missions.cycle.MissionRewardClock {
     private static final long MARGEN_INICIAL = 6000L;
+    private static final String PAUSA_OLEADA = "juicio de oleadas";
+    private static final String PAUSA_PENITENCIA = "jefe penitenciario";
+    private static final String PAUSA_SIN_CONECTADOS = "sin participantes conectados";
     private final org.bukkit.plugin.java.JavaPlugin plugin;
     private final BooleanSupplier clockEnabled;
     private final BooleanSupplier offeringReview;
@@ -232,17 +235,21 @@ final class RelojMisiones implements com.hardcoremisiones.missions.cycle.Mission
         // F3 real: la jornada anterior no debe vencer mientras el equipo pelea
         // contra un jefe. Si el proveedor desaparece se suspende la pelea, no
         // se bloquea indefinidamente la misión normal de F1/F2.
+        if (waves.get() != null && waves.get().enCurso()) return PAUSA_OLEADA;
+        if (penance.get() != null && penance.get().ocupaCombate()) return PAUSA_PENITENCIA;
         if (trialPause.getAsBoolean())
             return "encuentro de jefe F3";
         if(huntCombat.getAsBoolean())
             return "cacería de jefe ordinaria";
         if (misiones.participantesIds().isEmpty()) return "sin participantes";
+        boolean conectado = false;
         for (UUID id : misiones.participantesIds()) {
             Player p = Bukkit.getPlayer(id);
-            // Desconectarse NO detiene el calendario ni condona una misión.
-            if (p != null && p.isOnline() && !mainWorld.test(p)) return "otra dimensión";
+            if (p == null || !p.isOnline()) continue;
+            conectado = true;
+            if (!mainWorld.test(p)) return "otra dimensión";
         }
-        return "";
+        return conectado ? "" : PAUSA_SIN_CONECTADOS;
     }
 
     boolean iniciar(World mundo, List<Player> participantes) {
@@ -313,7 +320,8 @@ final class RelojMisiones implements com.hardcoremisiones.missions.cycle.Mission
             causaPausa = "";
             if (esperandoAmanecer) {
                 // A committed close must not be postponed another day on restart.
-                if (tiempo < proximoAmanecer && !"Reinicio de Paper".equals(motivoAnterior))
+                if (tiempo < proximoAmanecer && !"Reinicio de Paper".equals(motivoAnterior)
+                    && !pausaProtegida(motivoAnterior))
                     proximoAmanecer = MissionCalendar.nextAssignment(tiempo);
             } else {
                 vencimiento = pausaAntiguaPorDesconexion
@@ -357,8 +365,6 @@ final class RelojMisiones implements com.hardcoremisiones.missions.cycle.Mission
             if (tiempo >= proximoAmanecer) ejecutarTransicionSegura(() -> iniciarDiaSiguiente(mundo, tiempo));
             return;
         }
-        // Una demostración manual nunca debe provocar dos oleadas simultáneas.
-        if (waves.get().enCurso()) return;
         // La medianoche se reconoce aunque alguien duerma y el juego salte a mañana.
         if (tiempo >= vencimiento) {
             ejecutarTransicionSegura(() -> cerrarDia(mundo, tiempo));
@@ -378,6 +384,12 @@ final class RelojMisiones implements com.hardcoremisiones.missions.cycle.Mission
         if ((tiempo / 1200L) != (anterior / 1200L) && !guardar()) detenerPorError();
     }
 
+    private static boolean pausaProtegida(String motivo) {
+        return PAUSA_OLEADA.equals(motivo) || PAUSA_PENITENCIA.equals(motivo)
+            || PAUSA_SIN_CONECTADOS.equals(motivo) || "encuentro de jefe F3".equals(motivo)
+            || "cacería de jefe ordinaria".equals(motivo);
+    }
+
     private void pausar(long tiempo, String motivo) {
         if (enPausa) {
             // Tras cargar Paper la causa puede ser genérica. Si realmente están
@@ -385,13 +397,16 @@ final class RelojMisiones implements com.hardcoremisiones.missions.cycle.Mission
             boolean admin = causaPausa.equals("desactivado por administrador")
                 || causaPausa.equals("prueba desactivada");
             if ((!admin || clockEnabled.getAsBoolean()) && !motivo.equals(causaPausa)
-                && (motivo.equals("otra dimensión") || motivo.equals("jugador desconectado"))) {
+                && (pausaProtegida(motivo) || (!pausaProtegida(causaPausa)
+                    && (motivo.equals("otra dimensión") || motivo.equals("jugador desconectado"))))) {
                 causaPausa = motivo;
                 if (!guardar()) detenerPorError();
             }
             return;
         }
-        if (!esperandoAmanecer) ticksPendientes = Math.max(0, vencimiento - tiempo);
+        // Preserve the last sample before combat or logout, including time jumps.
+        if (!esperandoAmanecer && !pausaProtegida(motivo))
+            ticksPendientes = Math.max(0, vencimiento - tiempo);
         enPausa = true;
         causaPausa = motivo;
         ultimosTicks = tiempo;
@@ -438,7 +453,7 @@ final class RelojMisiones implements com.hardcoremisiones.missions.cycle.Mission
         if (!pasoTransicion(DayTransitionJournal.Stage.REWARDS)) return;
         // Cada misión fallida genera una deuda individual persistente por jugador.
         // La falta grupal genera otra deuda compartida. Si alguien está desconectado,
-        // la deuda espera su regreso, pero el calendario NO se detiene por ello.
+        // la deuda espera su regreso; el calendario avanza solo con equipo conectado.
         boolean castigo = wavesEnabled.getAsBoolean() && (faltantesIndividuales > 0 || falloGrupo);
         // W38: una tirada durable por jornada. Si sale jefe sustituye el Juicio
         // de oleadas Y el efecto de esa jornada; no hay castigo apilado.
@@ -459,6 +474,23 @@ final class RelojMisiones implements com.hardcoremisiones.missions.cycle.Mission
             detenerPorError(); return;
         }
         if (!pasoTransicion(DayTransitionJournal.Stage.PENALTIES)) return;
+        // Diagnóstico administrativo del cierre, no del tick ni del inicio del combate.
+        String ruta = !castigo ? "SIN_OLEADA" : jefeSorteado ? "JEFE_JORNADA" : "OLEADA";
+        for (UUID id : incumplidores.stream().sorted().toList()) {
+            registrarOrigenFalta("I-" + dia + "-" + id, "INDIVIDUAL", id.toString(),
+                misiones.personal(id), dia, tiempo, ruta);
+        }
+        if (falloGrupo) {
+            registrarOrigenFalta("G-" + dia, "GRUPAL",
+                misiones.participantesIds().stream().sorted().toList().toString(),
+                pg, inicioCicloGrupal(), tiempo, ruta);
+        }
+        plugin.getLogger().info("[HM2_CIERRE_JORNADA] partida=" + sesion + " dia=" + dia
+            + " fulltime=" + tiempo + " vencimiento=" + vencimiento
+            + " faltas_individuales=" + faltantesIndividuales
+            + " grupo_inicio=" + inicioCicloGrupal() + " grupo_dias_restantes=" + diasRestantesGrupal
+            + " grupo_vence=" + venceGrupo + " grupo_exento=" + exentaGrupo
+            + " grupo_incumplido=" + falloGrupo + " " + detalleObjetivo(pg));
         List<Player> jugadores = participantesEnOverworld();
         for (Player p : jugadores) {
             p.sendMessage(faltantesIndividuales == 0 && !falloGrupo
@@ -478,6 +510,23 @@ final class RelojMisiones implements com.hardcoremisiones.missions.cycle.Mission
         if (!pasoTransicion(DayTransitionJournal.Stage.CLOCK)) return;
         if (!pasoTransicion(DayTransitionJournal.Stage.COMPLETE)) return;
         if (tiempo >= proximoAmanecer) iniciarDiaSiguiente(mundo, tiempo);
+    }
+
+    private void registrarOrigenFalta(String clave, String alcance, String destinatarios,
+                                     EstadoMisiones.Progreso progreso, int inicio, long tiempo, String ruta) {
+        plugin.getLogger().info("[HM2_ORIGEN_FALTA] partida=" + sesion + " clave=" + clave
+            + " dia_origen=" + dia + " dia_inicio=" + inicio + " alcance=" + alcance
+            + " destinatarios=" + destinatarios + " fulltime=" + tiempo
+            + " vencimiento=" + vencimiento + " ruta_jornada=" + ruta + " " + detalleObjetivo(progreso));
+    }
+
+    private static String detalleObjetivo(EstadoMisiones.Progreso progreso) {
+        if (progreso == null) return "mision=NO_ASIGNADA";
+        return "mision=" + progreso.mision.id() + " nombre=\"" + progreso.mision.nombre() + "\""
+            + " tipo=" + progreso.mision.tipo() + " recurso=" + progreso.mision.recurso()
+            + " progreso=" + progreso.actual + "/" + progreso.objetivo
+            + " completa=" + progreso.completa() + " aportes=" + progreso.aportes
+            + " requeridos=" + progreso.participantesRequeridos + " relevados=" + progreso.relevados;
     }
 
     private void iniciarDiaSiguiente(World mundo, long tiempo) {
@@ -592,6 +641,11 @@ final class RelojMisiones implements com.hardcoremisiones.missions.cycle.Mission
 
     void alApagar(World mundo) {
         if (activo && mundo != null) {
+            String motivo = motivoPausa();
+            if (!enPausa && pausaProtegida(motivo)) {
+                pausar(mundo.getFullTime(), motivo);
+                if (falloGuardado) return;
+            }
             if (!enPausa && !esperandoAmanecer) {
                 ticksPendientes = Math.max(0, vencimiento - mundo.getFullTime());
             }

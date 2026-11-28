@@ -120,7 +120,7 @@ final class PanelMisiones {
     private void actualizarLateral(Panel panel, Player jugador, EstadoMisiones estado) {
         var next=SidebarPresentation.choose(List.of(
             ()->{var wave=waves.get();return wave.enCurso()?new SidebarPresentation.Frame(wave.tituloPanel(),wave.filasPanel()):null;},
-            ()->{var boss=penance.get().panelJuicio();return boss==null?null:new SidebarPresentation.Frame(PenanceEncounterView.titulo(boss),PenanceEncounterView.filas(boss));},
+            ()->{var boss=penance.get().panelCombate();return boss==null?null:new SidebarPresentation.Frame(PenanceEncounterView.titulo(boss),PenanceEncounterView.filas(boss));},
             ()->{var hunt=hunts.get().panel(jugador);return hunt==null?null:new SidebarPresentation.Frame("§b§l⚔ CACERÍA DE JEFE",hunt);},
             ()->{var trial=trials.get().panel(jugador.getUniqueId());return trial==null?null:new SidebarPresentation.Frame("§d§l✦ RETO DE JEFE",trial);},
             ()->netherWorld.test(jugador)?new SidebarPresentation.Frame("§5✦ NETHER",expeditions.get().filas()):null,
@@ -142,6 +142,10 @@ final class PanelMisiones {
         }else agregarMision(filas,estado.personal(jugador.getUniqueId()));
         filas.add("§8------------------");filas.add(clock.get().grupoEtiqueta());
         agregarMision(filas,estado.grupo());
+        var wave=waves.get();
+        if(wave.enDescanso())filas.add("§6Descanso: §f"+PenanceEncounterView.formatoTiempo(wave.descansoRestante()));
+        if(wave.cantidadPendientes()>0)filas.add("§cOleadas pendientes: §f"+wave.cantidadPendientes());
+        filas.addAll(penance.get().avisosPanel());
         return new SidebarPresentation.Frame("§6☾ MISIONES",filas);
     }
 

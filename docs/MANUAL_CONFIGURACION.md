@@ -145,7 +145,8 @@ El siguiente inventario documenta las claves empaquetadas de `config.yml`. Los n
 | `recompensas.bonos-por-tipo.encantar` | `3` |
 | `recompensas.bonos-por-tipo.tregua` | `0` |
 | `penalidades.oleadas-habilitadas` | `true` |
-| `penalidades.unificar-oleadas` | `false` |
+| `penalidades.unificar-oleadas` | `true` |
+| `penalidades.descanso-entre-juicios-minutos` | `5` (1–60) |
 | `penalidades.efectos-negativos-habilitados` | `true` |
 | `penalidades.duracion-individual-segundos` | `300` |
 | `penalidades.duracion-grupal-segundos` | `480` |
@@ -199,3 +200,9 @@ El siguiente inventario documenta las claves empaquetadas de `config.yml`. Los n
 | `jefes.integracion.compatibilidad-laboratorio` | `false` |
 | `jefes.auditoria-habilitada` | `true` |
 | `jefes.simulacion-laboratorio` | `false` |
+
+## Descanso y calendario de penitencias
+
+El descanso común se inicia al finalizar una oleada o un intento penitenciario con resultado terminal. Solo cuenta segundos de servidor con algún participante vivo en el Overworld, ciclo y oleadas habilitados y sin otro combate ocupado. Los valores se guardan cada 30 segundos y al finalizar el descanso; un apagado normal conserva el valor exacto. Un reinicio inesperado puede repetir una fracción del descanso. Cambiar el parámetro afecta al próximo descanso, no al que ya está guardado.
+
+El plazo de la misión activa se congela durante juicios y cuando todos los participantes están desconectados. Si el día anterior ya estaba cerrado, la siguiente jornada puede comenzar al terminar la pausa, con su propio plazo. El estado se consulta con `/hm ciclo estado` y `/hm oleadas estado`. No se deben eliminar los archivos de sesión para vaciar la cola. En servidores existentes, activar `unificar-oleadas: true` agrupa deudas disponibles de la misma jornada; no fusiona deudas de días distintos.

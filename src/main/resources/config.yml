@@ -117,7 +117,8 @@ recompensas:
 # PENALIDADES: operativas por defecto en instalaciones nuevas; no modifica partidas anteriores.
 penalidades:
   oleadas-habilitadas: true    # Necesario para sortear jefe penitenciario; si no hay jefe disponible, Juicio ordinario.
-  unificar-oleadas: false      # En true: agrupa castigos de la misma jornada.
+  unificar-oleadas: true       # Agrupa obligaciones disponibles de la misma jornada.
+  descanso-entre-juicios-minutos: 5  # Tiempo de juego con participantes presentes, persistido.
   efectos-negativos-habilitados: true  # Debilidad, Lentitud, Oscuridad o Fatiga.
   duracion-individual-segundos: 300
   duracion-grupal-segundos: 480

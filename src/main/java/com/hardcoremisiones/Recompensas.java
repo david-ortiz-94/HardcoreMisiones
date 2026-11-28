@@ -297,7 +297,14 @@ final class Recompensas {
         var evento=auditoriaW42.agregar(jugador,clave,RewardLedgerAudit.Tipo.ELEGIDA,detalle);
         if (guardar()){
             avisosModalidadPendiente.remove(clave+"/"+jugador);
-            logAuditoria(evento);return true;
+            logAuditoria(evento);
+            // Una carta elegida no acredita la misión ni constituye una reserva de pago.
+            plugin.getLogger().info("[HM2_ELECCION_MISION] partida=" + sesion + " clave=" + clave
+                + " jugador=" + jugador + " mision=" + p.mision.id()
+                + " progreso=" + p.actual + "/" + p.objetivo + " completa=" + p.completa()
+                + " recompensas_habilitadas=" + habilitadas() + " ciclo_activo=" + reloj.estaActivo()
+                + " pausa=" + reloj.enPausa() + " amanecer_pendiente=" + reloj.esperandoAmanecer());
+            return true;
         }
         auditoriaW42.deshacer(evento);
         if(anterior==null) fila.remove(clave);else fila.put(clave,anterior);

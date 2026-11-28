@@ -10,7 +10,21 @@ import org.bukkit.configuration.ConfigurationSection;
  */
 public final class WaveDebtCodec {
     private static final String QUEUE="penitencias-pendientes", REGISTERED="penitencias-registradas";
+    private static final String REST="descanso-entre-juicios-segundos";
     private WaveDebtCodec() {}
+
+    /** Playable recovery seconds; legacy snapshots may omit the field. */
+    public static int readRest(ConfigurationSection y, int legacyDefault) {
+        if(y.contains(REST) && !y.isInt(REST))throw new IllegalArgumentException("Descanso inválido");
+        int value=y.getInt(REST,legacyDefault);
+        if(value<0 || value>3600)throw new IllegalArgumentException("Descanso fuera de rango");
+        return value;
+    }
+    /** Persist rest independently of the debt queue and identity history. */
+    public static void writeRest(ConfigurationSection y,int seconds) {
+        if(seconds<0 || seconds>3600)throw new IllegalArgumentException("Descanso fuera de rango");
+        y.set(REST,seconds);
+    }
 
     /** An immutable snapshot of the queue and the full idempotency history.
      * @param pending FIFO order of the pending obligations

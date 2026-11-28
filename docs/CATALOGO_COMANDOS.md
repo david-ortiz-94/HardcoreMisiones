@@ -51,3 +51,20 @@ Comando raíz `/hm`, alias `/hardcoremisiones`. Sin argumentos muestra ayuda. El
 - Los comandos de laboratorio, compensación y modificación administrativa de muertes no forman parte del flujo normal del jugador.
 
 La tabla describe las rutas del código. Los permisos y mensajes concretos deben comprobarse en la certificación de clientes.
+
+## Diagnóstico de incumplimientos, caza y cobro ordinario
+
+Consultar desde la consola administrativa `hm estado`, `hm progreso`, `hm progreso Jugador`, `hm ciclo estado`, `hm oleadas estado`, `hm penitencia jefe estado`, `hm recompensas estado`, `hm recompensas revisar` y `hm recompensas historial Jugador 30`. Desde el cliente se antepone `/`. Son consultas; no ejecutar comandos de compensación o resolución como parte del diagnóstico.
+
+Correlacionar las siguientes líneas del log del servidor por identificador de partida y jornada lógica:
+
+| Registro | Interpretación |
+|---|---|
+| `HM2_CIERRE_JORNADA` | Plazo real, días restantes del grupo antes del decremento, estado de vencimiento, progreso y resultado. Un grupo incompleto con `grupo_vence=false` no genera falta grupal en ese cierre. |
+| `HM2_ORIGEN_FALTA` | Identificador del incumplimiento, objetivo congelado, progreso, destinatarios y ruta de la jornada. `JEFE_JORNADA` expresa una sustitución de la jornada, no un jefe distinto por cada falta. `SIN_OLEADA` no descarta efectos ordinarios configurados. |
+| `HM2_DEUDA_OLEADA` / `HM2_DEUDA_JEFE` | Deuda nueva o ticket de jefe efectivamente guardado; no significa que el combate haya empezado. |
+| `HM2_CAZA` | Bajas con autor y objetivo de caza pendiente: origen, resultado y avance individual/grupal antes y después. Las muertes sin autoría y compatibles se registran a nivel FINE para evitar ruido ambiental; no se acreditan automáticamente. `SIN_INCREMENTO` exige revisar cupo de aportación y estado. |
+| `HM2_ELECCION_MISION` | Progreso al elegir y estado del reloj/premios. No es un recibo de entrega. |
+| `HM2_RECOMPENSA_W42` | Secuencia de eventos del ledger: ELEGIDA, RESERVADA, EN_CONCILIACION, ENTREGADA o resolución explícita. |
+
+El log detallado es administrativo; no se publica en el chat del equipo. Para revisar una partida, conservar `logs/latest.log` (o el rotado correspondiente), las copias de solo lectura de `plugins/HardcoreMisiones/sesiones/<partida>-*` y la configuración efectiva sin secretos. Los archivos de misiones, reloj, oleadas, jefes penitenciarios, sanciones, diario de transiciones y recompensas se correlacionan por sesión. No borrar registros históricos, forzar el reloj ni reabrir pagos sin evidencia. Una carta elegida puede corresponder a una misión incompleta, a una pausa o a un premio que todavía no ha sido reservado; si está reservado, revisar cola y conciliación antes de cualquier resolución.

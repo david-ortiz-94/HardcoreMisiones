@@ -58,13 +58,15 @@ final class JuicioOleadas {
     private String juicioId = "";
     private Fase fase = Fase.INACTIVO;
     private boolean errorGuardado;
-    private int dia, gravedad, total, rondas, indiceRonda, bajas, bajasRonda, generadosRonda, descansoSegundos;
+    private int dia, gravedad, total, rondas, indiceRonda, bajas, bajasRonda, descansoSegundos;
     private final Map<UUID,Integer> activos = new HashMap<>(); // seg. fuera de alcance
     /** Penitencias por partida: cada falta individual pertenece a su jugador. */
     private final List<WaveDebt> pendientes = new ArrayList<>();
     private final Set<String> registradas = new HashSet<>();
     private final List<UUID> objetivos = new ArrayList<>();
     private boolean avisoLugar;
+    private int descansoEntreJuicios;
+    private int segundosDesdeGuardadoDescanso;
     private int tema;
     private static final String EQUIPO_VIOLETA = "hm_juicio_violeta";
 
@@ -96,8 +98,9 @@ final class JuicioOleadas {
         if (!carpeta.exists() && !carpeta.mkdirs()) return false;
         File destino = new File(carpeta, id + "-oleadas-v06.yml");
         Fase nueva = Fase.INACTIVO;
+        int nuevoDescanso=0;
         String jid = "";
-        int nd=0, ng=0, nt=0, nr=0, ni=0, nb=0, nbr=0, gen=0, seg=0, ntm=0;
+        int nd=0, ng=0, nt=0, nr=0, ni=0, nb=0, nbr=0, seg=0, ntm=0;
         Map<UUID,Integer> cargados = new HashMap<>();
         List<UUID> nuevosObjetivos = new ArrayList<>();
         List<WaveDebt> nuevaCola = new ArrayList<>();
@@ -110,15 +113,27 @@ final class JuicioOleadas {
                 jid = y.getString("juicio-id", "");
                 nd=y.getInt("dia",0); ng=y.getInt("gravedad",0); nt=y.getInt("total",0);
                 nr=y.getInt("rondas",0); ni=y.getInt("indice-ronda",0); nb=y.getInt("bajas",0);
-                nbr=y.getInt("bajas-ronda",0); gen=y.getInt("generados-ronda",0);
+                nbr=y.getInt("bajas-ronda",0);
+                // generados-ronda histórico es un contador redundante: se deriva de bajas y UUID activos.
                 seg=y.getInt("segundos-restantes",0); ntm=y.getInt("tema",0);
                 for (String s : y.getStringList("entidades")) cargados.put(UUID.fromString(s), 0);
                 for (String s : y.getStringList("objetivos")) nuevosObjetivos.add(UUID.fromString(s));
                 var queue = WaveDebtCodec.read(y);
                 nuevasRegistradas.addAll(queue.registered());
                 nuevaCola.addAll(queue.pending());
+                nuevoDescanso=WaveDebtCodec.readRest(y,
+                    (nueva==Fase.FINALIZADO || nueva==Fase.CANCELADO) && !nuevaCola.isEmpty()
+                        ? descansoConfigurado() : 0);
                 if (nt < 0 || nt > 12 || nr < 0 || nr > 3 || nb < 0 || nb > nt
                         || ni < 0 || (nr != 0 && ni >= nr)) return false;
+                if (nueva==Fase.AVISO || nueva==Fase.COMBATE || nueva==Fase.DESCANSO) {
+                    if (nr<1 || nt<nr || nbr<0 || nbr>nb
+                            || nbr>WavePolicy.objetivoRonda(nt,nr,ni)
+                            || cargados.size()>WavePolicy.objetivoRonda(nt,nr,ni)-nbr) return false;
+                    int esperadas=0;
+                    for(int i=0;i<ni;i++) esperadas+=WavePolicy.objetivoRonda(nt,nr,i);
+                    if(nb!=esperadas+nbr)return false;
+                }
             } catch (IllegalArgumentException ex) {
                 plugin.getLogger().log(java.util.logging.Level.SEVERE,"Estado de oleada inválido",ex);
                 return false;
@@ -127,18 +142,51 @@ final class JuicioOleadas {
         // No eliminamos entidades del mundo anterior: HardcoreMP lo descarga/elimina.
         sesion=id; archivo=destino; juicioId=jid; fase=nueva;
         dia=nd; gravedad=ng; total=nt; rondas=nr; indiceRonda=ni; bajas=nb;
-        bajasRonda=nbr; generadosRonda=gen; descansoSegundos=seg; tema=ntm;
+        bajasRonda=nbr; descansoSegundos=seg; tema=ntm;
         activos.clear(); activos.putAll(cargados);
         objetivos.clear(); objetivos.addAll(nuevosObjetivos);
         pendientes.clear(); pendientes.addAll(nuevaCola);
         registradas.clear(); registradas.addAll(nuevasRegistradas);
         errorGuardado=false; avisoLugar=false;
+        descansoEntreJuicios=nuevoDescanso; segundosDesdeGuardadoDescanso=0;
         plugin.getLogger().info("Oleadas asociadas a la partida " + id + " (" + fase + ")");
         return true;
     }
 
     boolean enCurso() { return fase==Fase.AVISO || fase==Fase.COMBATE || fase==Fase.DESCANSO; }
     boolean bloqueaDormir() { return enCurso(); }
+    boolean enDescanso() { return descansoEntreJuicios>0; }
+    int descansoRestante() { return descansoEntreJuicios; }
+    int cantidadPendientes() { return pendientes.size(); }
+    private int descansoConfigurado() {
+        return Math.clamp(plugin.getConfig().getInt("penalidades.descanso-entre-juicios-minutos",5),1,60)*60;
+    }
+    private void prepararDescanso() {
+        descansoEntreJuicios=descansoConfigurado();
+        segundosDesdeGuardadoDescanso=0;
+    }
+    /** Shared recovery interval used by boss penances as well. */
+    boolean descansoTrasJefe() {
+        if(errorGuardado || archivo==null)return false;
+        prepararDescanso();
+        return guardar();
+    }
+    private void avanzarDescanso() {
+        if(!enDescanso() || !wavesEnabled.getAsBoolean() || !clockEnabled.getAsBoolean()
+            || trialCombat.getAsBoolean() || penanceCombat.getAsBoolean())return;
+        boolean presente=false;
+        for(UUID id:participants.get()) {
+            Player p=Bukkit.getPlayer(id);
+            if(p!=null && p.isOnline() && !p.isDead() && inMainWorld.test(p)) {presente=true;break;}
+        }
+        if(!presente)return;
+        descansoEntreJuicios--;
+        // A crash can repeat up to 29 seconds, never skip the rest.
+        if(++segundosDesdeGuardadoDescanso>=30 || descansoEntreJuicios==0) {
+            segundosDesdeGuardadoDescanso=0;
+            guardarSeguro();
+        }
+    }
     /** Upgrade-safe: si W37 ya registró oleadas de un día en transición,
      * W38 jamás las reemplaza con una segunda penalidad aleatoria. */
     boolean tieneRegistroJornada(int jornada){
@@ -156,15 +204,17 @@ final class JuicioOleadas {
     int restantes() { return Math.max(0,total-bajas); }
     String resumen() {
         if (errorGuardado) return "§cGuardado de oleadas FALLÓ: evento suspendido";
-        if (!enCurso()) return "§7Sin oleada activa · penitencias pendientes: §e" + pendientes.size();
+        if (!enCurso()) return "§7Sin oleada activa · penitencias pendientes: §e" + pendientes.size()
+            + (enDescanso()?" §7· descanso: §e"+descansoEntreJuicios+" s":"");
         return "§7Juicio: §f" + fase + " §7· " + WavePolicy.nombre(gravedad)
             + " §7· Ronda §f" + Math.min(rondas,indiceRonda+1) + "/" + rondas
-            + " §7· restantes §f" + restantes() + "/" + total;
+            + " §7· ronda restantes §f" + restantesRonda() + "/" + objetivoRonda()
+            + " §7· total restantes §f" + restantes() + "/" + total;
     }
     String tituloPanel() { return "§c§l☠ JUICIO EN CURSO"; }
     List<String> filasPanel() {
         var filas = new ArrayList<String>();
-        filas.add("§7Día §e" + dia + " §7· " + WavePolicy.nombre(gravedad));
+        filas.add("§7Origen: día §e" + dia + " §7· " + WavePolicy.nombre(gravedad));
         filas.add("§d" + nombreTema());
         if (fase==Fase.AVISO) {
             filas.add("§eEl juicio se acerca...");
@@ -174,8 +224,10 @@ final class JuicioOleadas {
         } else if (fase==Fase.COMBATE) {
             filas.add("§6§lRONDA §f" + (indiceRonda+1) + "/" + rondas);
         }
-        filas.add("§fEnemigos restantes");
-        filas.add("§c§l" + restantes() + " §7/ " + total);
+        filas.add("§fRonda: §c" + restantesRonda() + "§7/" + objetivoRonda());
+        filas.add("§fJuicio: §c" + restantes() + "§7/" + total);
+        if (fase==Fase.COMBATE && faltantesPorGenerar()>0)
+            filas.add("§7Por aparecer: §e"+faltantesPorGenerar());
         filas.add("§8Derroten a todos");
         return filas;
     }
@@ -197,19 +249,25 @@ final class JuicioOleadas {
             plugin.getLogger().log(java.util.logging.Level.WARNING,"Penitencia inválida",ex);
             return false;
         }
-        boolean cambio=false;
-        for(WaveDebt debt:additions)if(registradas.add(debt.key())){
-            pendientes.add(debt);cambio=true;
+        List<WaveDebt> nuevas = new ArrayList<>();
+        for (WaveDebt debt : additions) if (registradas.add(debt.key())) {
+            pendientes.add(debt);
+            nuevas.add(debt);
         }
-        if (!cambio) return true;
+        if (nuevas.isEmpty()) return true;
         if (!guardar()) { errorGuardado = true; return false; }
+        for (WaveDebt debt : nuevas) {
+            plugin.getLogger().info("[HM2_DEUDA_OLEADA] partida=" + sesion + " clave=" + debt.key()
+                + " dia_origen=" + debt.day() + " alcance=" + (debt.group() ? "GRUPAL" : "INDIVIDUAL")
+                + " destinatarios=" + debt.targets());
+        }
         plugin.getLogger().info("Juicio: " + pendientes.size() + " penitencia(s) pendientes para la partida.");
         return true;
     }
 
     /** Comando de prueba: conserva la oleada manual para el equipo completo. */
     boolean iniciar(int jornada, int individualesFallidas, boolean grupalFallida) {
-        if (trialCombat.getAsBoolean()) return false;
+        if (trialCombat.getAsBoolean() || penanceCombat.getAsBoolean() || enDescanso()) return false;
         if (enCurso() || sesion == null || archivo == null || errorGuardado) return false;
         int nivel = WavePolicy.gravedad(individualesFallidas, grupalFallida);
         if (nivel == 0 || participants.get().isEmpty()) return false;
@@ -227,12 +285,14 @@ final class JuicioOleadas {
         dia = jornada; gravedad = nivel; tema = random.nextInt(jornada <= 3 ? 2 : 4);
         total = WavePolicy.enemigos(jornada, objetivos.size(), nivel);
         rondas = WavePolicy.rondas(nivel, total);
-        indiceRonda = 0; bajas = 0; bajasRonda = 0; generadosRonda = 0;
+        indiceRonda = 0; bajas = 0; bajasRonda = 0;
         descansoSegundos = 30; fase = Fase.AVISO; avisoLugar = false; activos.clear();
     }
 
     private void anunciarInicio() {
-        mensaje("§c☠ El mundo reclama una penitencia. §7Prepárense para enfrentar las consecuencias.");
+        mensaje("§c☠ Penitencia del día " + dia + ". §7Prepárense para enfrentar las consecuencias.");
+        plugin.getLogger().info("[HM2_JUICIO] inicio="+juicioId+" origen-dia="+dia
+            +" destinatarios="+objetivos+" pendientes="+pendientes.size());
         mensaje("§d✦ " + nombreTema() + " §7· Juicio " + WavePolicy.nombre(gravedad) + ": §f" + total
             + " enemigos en " + rondas + " ronda(s). §7Comienza en 30 segundos.");
     }
@@ -242,7 +302,7 @@ final class JuicioOleadas {
     private void iniciarPendienteSiCorresponde() {
         if ((trialCombat.getAsBoolean())
                 || (penanceCombat.getAsBoolean())
-                || enCurso() || pendientes.isEmpty() || !wavesEnabled.getAsBoolean()
+                || enCurso() || enDescanso() || pendientes.isEmpty() || !wavesEnabled.getAsBoolean()
                 || !clockEnabled.getAsBoolean() || errorGuardado) return;
         World w = Bukkit.getWorld(mainWorld.get());
         if (w == null || w.getDifficulty() == org.bukkit.Difficulty.PEACEFUL) return;
@@ -302,6 +362,10 @@ final class JuicioOleadas {
     /** Invocado cada 20 ticks, en el hilo principal de Paper. */
     void actualizar() {
         if (errorGuardado) return;
+        if (!enCurso() && enDescanso()) {
+            avanzarDescanso();
+            return;
+        }
         if (!enCurso()) iniciarPendienteSiCorresponde();
         if (!enCurso()) return;
         if (!wavesEnabled.getAsBoolean() || !clockEnabled.getAsBoolean()) {
@@ -329,12 +393,9 @@ final class JuicioOleadas {
         // nunca debe dejar el evento bloqueado de forma permanente.
         actualizarEntidades(participantes);
         if (fase!=Fase.COMBATE || errorGuardado) return;
-        int objetivo=objetivoRonda();
-        if (bajasRonda>=objetivo && activos.isEmpty()) { siguienteRonda(); return; }
-        int paraCrear=Math.max(0,objetivo-bajasRonda-generadosRonda);
-        if (paraCrear>0 && activos.size()<4) {
+        if (completarRondaSiCorresponde()) return;
+        if (faltantesPorGenerar()>0 && activos.size()<4) {
             if (generarUno(participantes)) {
-                generadosRonda++;
                 avisoLugar=false;
                 guardarSeguro();
             } else if (!avisoLugar) {
@@ -365,12 +426,29 @@ final class JuicioOleadas {
     private int objetivoRonda() {
         return WavePolicy.objetivoRonda(total,rondas,indiceRonda);
     }
+    private int restantesRonda() { return Math.max(0,objetivoRonda()-bajasRonda); }
+    // Una baja acreditada y un UUID activo ocupan exactamente una plaza cada uno.
+    // No depender de un segundo contador mutable: también recupera archivos v06 antiguos.
+    int faltantesPorGenerar() { return Math.max(0,restantesRonda()-activos.size()); }
+    boolean completarRondaSiCorresponde() {
+        if (fase!=Fase.COMBATE || errorGuardado || restantesRonda()!=0 || !activos.isEmpty())return false;
+        siguienteRonda();
+        return true;
+    }
     private void siguienteRonda() {
         if (indiceRonda+1>=rondas) {
             fase=Fase.FINALIZADO;
-            mensaje("§a☾ Han sobrevivido al juicio. §7Pero el mundo no olvida.");
+            prepararDescanso();
+            guardarSeguro();
+            if(!errorGuardado) {
+                mensaje("§a☾ Juicio superado. §7El calendario de misiones puede continuar.");
+                mensaje("§7Descanso entre penitencias: §e"+descansoEntreJuicios+" segundos de juego.");
+                plugin.getLogger().info("[HM2_JUICIO] resuelto="+juicioId+" origen-dia="+dia
+                    +" pendientes="+pendientes.size()+" descanso-s="+descansoEntreJuicios);
+            }
+            return;
         } else {
-            indiceRonda++; bajasRonda=0; generadosRonda=0;
+            indiceRonda++; bajasRonda=0;
             descansoSegundos=8; fase=Fase.DESCANSO; avisoLugar=false;
             mensaje("§6☾ Ronda superada. §7Tienen 8 segundos para reagruparse.");
         }
@@ -378,7 +456,7 @@ final class JuicioOleadas {
     }
 
     void alMorir(EntityDeathEvent evento) {
-        if (!enCurso() || errorGuardado || fase!=Fase.COMBATE) return;
+        if (!enCurso() || errorGuardado || fase!=Fase.COMBATE || evento.isCancelled()) return;
         LivingEntity entidad=evento.getEntity();
         String marca=entidad.getPersistentDataContainer().get(idDeJuicio,PersistentDataType.STRING);
         if (!juicioId.equals(marca) || !activos.containsKey(entidad.getUniqueId())) return;
@@ -387,11 +465,13 @@ final class JuicioOleadas {
         Player killer=entidad.getKiller();
         boolean jugada = killer!=null && participants.get().contains(killer.getUniqueId());
         if (jugada) { bajas++; bajasRonda++; }
-        else { // No contar muerte ambiental: habrá un reemplazo.
-            generadosRonda=Math.max(bajasRonda,generadosRonda-1);
+        else { // Una muerte ambiental no acredita una baja; libera una plaza real.
+            plugin.getLogger().info("[HM2_JUICIO] reemplazo-ambiental juicio="+juicioId
+                +" ronda="+(indiceRonda+1)+" entidad="+entidad.getUniqueId()
+                +" por-generar="+faltantesPorGenerar());
         }
         guardarSeguro();
-        if (jugada && bajasRonda>=objetivoRonda() && activos.isEmpty()) siguienteRonda();
+        completarRondaSiCorresponde();
     }
 
     private void actualizarEntidades(List<Player> participantes) {
@@ -402,8 +482,9 @@ final class JuicioOleadas {
                 int tiempo=activos.getOrDefault(id,0)+1;
                 if (tiempo>=15) {
                     activos.remove(id);
-                    generadosRonda=Math.max(bajasRonda,generadosRonda-1);
                     cambiado=true;
+                    plugin.getLogger().info("[HM2_JUICIO] reemplazo-entidad-ausente juicio="+juicioId
+                        +" ronda="+(indiceRonda+1)+" entidad="+id+" por-generar="+faltantesPorGenerar());
                 } else activos.put(id,tiempo);
                 continue;
             }
@@ -433,7 +514,7 @@ final class JuicioOleadas {
     }
 
     private boolean generarUno(List<Player> participantes) {
-        int partida=generadosRonda%participantes.size();
+        int partida=(bajasRonda+activos.size())%participantes.size();
         for (int despl=0; despl<participantes.size(); despl++) {
             Player p=participantes.get((partida+despl)%participantes.size());
             Location lugar=buscarPunto(p);
@@ -555,8 +636,10 @@ final class JuicioOleadas {
             if (entidad!=null) { quitarColor(entidad); entidad.remove(); }
         }
         activos.clear(); fase=Fase.CANCELADO;
-        mensaje("§e☾ Juicio cancelado por administración. §7Sin penalizaciones.");
+        prepararDescanso();
         guardarSeguro();
+        if(errorGuardado)return false;
+        mensaje("§e☾ Juicio cancelado por administración. §7Sin penalizaciones.");
         return true;
     }
     void alCargarEntidad(Entity e) {
@@ -586,10 +669,11 @@ final class JuicioOleadas {
         y.set("fase",fase.name()); y.set("dia",dia); y.set("gravedad",gravedad);
         y.set("total",total); y.set("rondas",rondas); y.set("indice-ronda",indiceRonda);
         y.set("bajas",bajas); y.set("bajas-ronda",bajasRonda);
-        y.set("generados-ronda",generadosRonda); y.set("segundos-restantes",descansoSegundos);
+        y.set("generados-ronda",bajasRonda+activos.size()); y.set("segundos-restantes",descansoSegundos);
         y.set("tema",tema);
         y.set("objetivos", objetivos.stream().map(UUID::toString).toList());
         WaveDebtCodec.write(y,new WaveDebtCodec.Snapshot(pendientes,registradas));
+        WaveDebtCodec.writeRest(y,descansoEntreJuicios);
         List<String> ids=new ArrayList<>();
         for (UUID id : activos.keySet()) ids.add(id.toString());
         y.set("entidades",ids);

@@ -12,6 +12,8 @@ import com.hardcoremisiones.missions.provenance.PaperMobProvenance;
 import com.hardcoremisiones.config.ConfigMigration;
 import com.hardcoremisiones.config.PaperConfigYaml;
 import com.hardcoremisiones.missions.catalog.MissionCatalog;
+import com.hardcoremisiones.missions.model.MissionType;
+import com.hardcoremisiones.notifications.TeamNotifier;
 
 import com.hardcoremisiones.missions.combat.CombatAssistanceTracker;
 import com.hardcoremisiones.config.ConfigShape;
@@ -144,14 +146,14 @@ public final class HardcoreMisiones extends JavaPlugin implements Listener, Miss
         expediciones = new ExpedicionesNether(this, estado::participantesIds, this::nombreNether, this::trialCombatOccupied, ofrendas, recompensas::registrarExpedicion, recompensas::habilitadas, this::bloquearPorFalloCritico);
         estadisticas = new EstadisticasMuertes(getDataFolder(),getLogger(),this::jugadoresEnTab);
         reloj = createRelojMisiones(estado, recompensas);
-        oleadas = new JuicioOleadas(this, estado::participantesIds, this::nombreMundo, this::trialCombatOccupied, this::penanceCombatOccupied, this::oleadasHabilitadas, this::relojHabilitado, this::mundoPanel, this::bloquearPorFalloCritico);
+        oleadas = new JuicioOleadas(this, estado::participantesIds, this::nombreMundo, ()->trialCombatOccupied() || huntAdmissionOccupied(), this::penanceCombatOccupied, this::oleadasHabilitadas, this::relojHabilitado, this::mundoPanel, this::bloquearPorFalloCritico);
         sancionesW37 = new MissionPenaltyService(this, reloj, this::relojHabilitado, this::combatOccupiedForEffects, id -> oleadasHabilitadas() && oleadas.tieneDeudaPendientePara(id), this::mundoPanel, this::bloquearPorFalloCritico);
         debuffsJefesRC5 = new BossDebuffService(this, this::operacionesPermitidas, this::bloquearPorFalloCritico, this::combatOccupiedForEffects, this::relojHabilitado, this::mundoPanel);
         bendicionesRC8C = new BossBlessingService(this, this::operacionesPermitidas, this::bloquearPorFalloCritico, this::combatOccupiedForEffects, this::inSessionWorldForRewards);
         lotesRC8D = new BossRewardService(this, this::operacionesPermitidas, this::bloquearPorFalloCritico, this::tieneOfrendasEnRevision, this.recompensas());
-        jefesPenitenciaW38 = new PenanceEncounterService(this, this::operacionesPermitidas, this::bloquearPorFalloCritico, this::oleadasHabilitadas, this::relojHabilitado, this::trialCombatOccupied, this::unboundTrialHistory, this::nombreMundo, oleadas, estado, lotesRC8D, bendicionesRC8C, debuffsJefesRC5);
+        jefesPenitenciaW38 = new PenanceEncounterService(this, this::operacionesPermitidas, this::bloquearPorFalloCritico, this::oleadasHabilitadas, this::relojHabilitado, ()->trialCombatOccupied() || huntAdmissionOccupied(), this::unboundTrialHistory, this::nombreMundo, oleadas, estado, lotesRC8D, bendicionesRC8C, debuffsJefesRC5);
         encuentrosF3 = createBossEncounterCoordinator(estado);
-        caceriasOrdinariasHF5 = new BossHuntService(this, this::operacionesPermitidas, this::bloquearPorFalloCritico, this::tieneOfrendasEnRevision, this::trialCombatOccupied, this::penanceVisible, this::mundoPanel, reloj, estado, oleadas, debuffsJefesRC5, recompensas);
+        caceriasOrdinariasHF5 = new BossHuntService(this, this::operacionesPermitidas, this::bloquearPorFalloCritico, this::tieneOfrendasEnRevision, this::trialCombatOccupied, this::penanceCombatOccupied, this::mundoPanel, reloj, estado, oleadas, debuffsJefesRC5, recompensas);
         bloquesNaturales = new PaperBlockProvenance(this);
         origenMobs = new PaperMobProvenance(this);
         PluginCommand comando = Objects.requireNonNull(getCommand("hm"), "Falta hm en plugin.yml");
@@ -196,6 +198,7 @@ public final class HardcoreMisiones extends JavaPlugin implements Listener, Miss
                 encuentrosF3::tick,
                 jefesPenitenciaW38::actualizar,
                 caceriasOrdinariasHF5::tick,
+                () -> reloj.actualizar(Bukkit.getWorld(nombreMundo())),
                 lotesRC8D::tick,
                 debuffsJefesRC5::actualizar,
                 sancionesW37::actualizar,
@@ -429,14 +432,14 @@ public final class HardcoreMisiones extends JavaPlugin implements Listener, Miss
     @Override public MissionOffering missionOffering() { return missionOffering; }
     /** Compose a fresh BossEncounterCoordinator for a supplied mission state; main-thread only. */
     BossEncounterCoordinator createBossEncounterCoordinator(EstadoMisiones missions) {
-        return new BossEncounterCoordinator(this, missions, this::operacionesPermitidas, this::bloquearPorFalloCritico, this::tieneOfrendasEnRevision, this::nombreMundo, this::nombreNether, this::penanceCombatOccupied, this::huntCombatOccupied, this::reloj, oleadas, expediciones, recompensas, lotesRC8D, bendicionesRC8C, debuffsJefesRC5);
+        return new BossEncounterCoordinator(this, missions, this::operacionesPermitidas, this::bloquearPorFalloCritico, this::tieneOfrendasEnRevision, this::nombreMundo, this::nombreNether, this::penanceCombatOccupied, this::huntAdmissionOccupied, this::reloj, oleadas, expediciones, recompensas, lotesRC8D, bendicionesRC8C, debuffsJefesRC5);
     }
     /** Compose a fresh RelojMisiones for a supplied mission state; main-thread only. */
     RelojMisiones createRelojMisiones(EstadoMisiones missions, Recompensas rewardService) {
         return new RelojMisiones(this, missions, rewardService, this::relojHabilitado, this::tieneOfrendasEnRevision, this::trialPause, this::huntCombatOccupied, this::oleadasHabilitadas, this::mundoPanel, this::oleadas, this::caceriasOrdinariasHF5, this::jefesPenitenciaW38, this::sancionesW37, this::refrescarSellosAbiertos, this::bloquearPorErrorDeReloj);
     }
     private boolean huntCombatOccupied() { return caceriasOrdinariasHF5 != null && caceriasOrdinariasHF5.combateActivo(); }
-    private boolean penanceVisible() { return jefesPenitenciaW38 != null && jefesPenitenciaW38.panelJuicio()!=null; }
+    private boolean huntAdmissionOccupied() { return caceriasOrdinariasHF5 != null && caceriasOrdinariasHF5.ocupaAdmision(); }
     private boolean unboundTrialHistory() { return encuentrosF3 != null && encuentrosF3.tieneHistorialRealSinVinculo(); }
     private boolean trialPause() { return encuentrosF3 != null && encuentrosF3.pausaCicloNormal(); }
     /** F3 combat occupancy; absent during bootstrap until its coordinator is constructed. */
@@ -598,23 +601,86 @@ public final class HardcoreMisiones extends JavaPlugin implements Listener, Miss
             && !origenMobs.isArtificial(e.getEntity())) asistenciasF2.dano(e);
         if(!estadoBloqueado&&caceriasOrdinariasHF5!=null)caceriasOrdinariasHF5.danio(e);
     }
-    @EventHandler(priority = EventPriority.MONITOR)
+    @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
     public void alMorirMob(EntityDeathEvent e) {
-        if (estadoBloqueado) { asistenciasF2.olvidar(e.getEntity().getUniqueId()); return; }
+        // Paper permite cancelar una muerte. No consumir evidencia ni progreso si no ocurrió.
+        if (e.isCancelled()) return;
+        UUID entidad = e.getEntity().getUniqueId();
+        if (estadoBloqueado) { asistenciasF2.olvidar(entidad); return; }
         oleadas.alMorir(e); // El juicio tiene su propia contabilidad; no es caza normal.
         // Los jefes del proveedor externo NUNCA se acreditan como caza vanilla.
         if (e.getEntity().getPersistentDataContainer().has(
-                new NamespacedKey("hardcorebosses", "encounter_id"), PersistentDataType.STRING))return;
-        Player asesino=e.getEntity().getKiller();
-        if(asesino==null && getConfig().getBoolean("misiones.asistencias-indirectas",false))
-            asesino=asistenciasF2.atribuir(e.getEntity());
-        else asistenciasF2.olvidar(e.getEntity().getUniqueId());
-        if (!pruebasHabilitadas() || !reloj.aceptaProgreso()) return;
-        if(asesino==null || !mundoValido(asesino)) return;
-        boolean artificial=origenMobs.isArtificial(e.getEntity());
-        if(!accionLegitima(asesino,MissionContract.Action.KILL,e.getEntityType().name(),1,false,artificial))return;
-        var p=estado.personal(asesino.getUniqueId());
-        if(estado.contarCaza(asesino.getUniqueId(),e.getEntityType()))informar(asesino,p);
+                new NamespacedKey("hardcorebosses", "encounter_id"), PersistentDataType.STRING)) {
+            asistenciasF2.olvidar(entidad);
+            return;
+        }
+        // Validar el mundo de la víctima, no solo el del jugador (p. ej. proyectil y portal).
+        if (!e.getEntity().getWorld().getName().equalsIgnoreCase(nombreMundo())) {
+            asistenciasF2.olvidar(entidad);
+            return;
+        }
+        Player asesino = e.getEntity().getKiller();
+        boolean indirecta = getConfig().getBoolean("misiones.asistencias-indirectas", false);
+        if (asesino == null && indirecta) asesino = asistenciasF2.atribuir(e.getEntity());
+        else asistenciasF2.olvidar(entidad);
+        if (asesino == null) {
+            // Las muertes ambientales son frecuentes; diagnóstico fino solo si hay objetivo compatible.
+            if (getLogger().isLoggable(java.util.logging.Level.FINE)
+                && ((cazaPendiente(estado.grupo()) && estado.grupo().mision.admite(e.getEntityType()))
+                    || estado.participantesIds().stream().map(estado::personal)
+                        .anyMatch(p -> cazaPendiente(p) && p.mision.admite(e.getEntityType())))) {
+                getLogger().fine("[HM2_CAZA] partida=" + registro.idSesion() + " dia=" + reloj.dia()
+                    + " entidad=" + entidad + " tipo=" + e.getEntityType()
+                    + " resultado=SIN_AUTORIA asistencia_habilitada=" + indirecta);
+            }
+            return;
+        }
+        UUID autor = asesino.getUniqueId();
+        boolean artificial = origenMobs.isArtificial(e.getEntity());
+        String rechazo = !pruebasHabilitadas() ? "MISIONES_DESHABILITADAS"
+            : !reloj.aceptaProgreso() ? "PROGRESO_SUSPENDIDO"
+            : !mundoValido(asesino) ? "JUGADOR_NO_ELEGIBLE"
+            : !estado.participantesIds().contains(autor) ? "NO_PARTICIPANTE"
+            : artificial ? "ORIGEN_ARTIFICIAL"
+            : !accionLegitima(asesino, MissionContract.Action.KILL, e.getEntityType().name(), 1, false, false)
+                ? "ACCION_NO_ADMITIDA" : null;
+        var personal = estado.personal(autor);
+        var grupal = estado.grupo();
+        // Trazar solo bajas vinculadas a un objetivo de caza aún pendiente.
+        if (!cazaPendiente(personal) && !cazaPendiente(grupal)) return;
+        int previoPersonal = personal == null ? 0 : personal.actual;
+        int previoGrupal = grupal == null ? 0 : grupal.actual;
+        boolean coincidePersonal = cazaPendiente(personal) && personal.mision.admite(e.getEntityType());
+        boolean coincideGrupal = cazaPendiente(grupal) && grupal.mision.admite(e.getEntityType());
+        boolean acredita = rechazo == null && estado.contarCaza(autor, e.getEntityType());
+        String resultado = rechazo != null ? rechazo : acredita ? "ACREDITADA"
+            : estadoBloqueado ? "ESTADO_BLOQUEADO"
+            : !coincidePersonal && !coincideGrupal ? "TIPO_NO_REQUERIDO" : "SIN_INCREMENTO";
+        boolean cambioPersonal = acredita && personal != null && personal.actual > previoPersonal;
+        boolean cambioGrupal = acredita && grupal != null && grupal.actual > previoGrupal;
+        getLogger().info("[HM2_CAZA] partida=" + registro.idSesion() + " dia=" + reloj.dia()
+            + " jugador=" + autor + " entidad=" + entidad + " tipo=" + e.getEntityType()
+            + " origen=" + e.getEntity().getEntitySpawnReason()
+            + " resultado=" + resultado
+            + " individual=" + detalleCaza(personal, previoPersonal)
+            + " grupal=" + detalleCaza(grupal, previoGrupal));
+        if (acredita) {
+            // Una baja solo grupal no debe anunciar una misión individual ajena al progreso.
+            informar(asesino, cambioPersonal ? personal : null);
+            if (cambioGrupal) TeamNotifier.equipo(estado.participantesIds(),
+                "§a☾ " + grupal.mision.nombre() + " (grupal): §f" + grupal.actual + "/" + grupal.objetivo
+                    + (grupal.completa() ? " §6¡Completada!" : ""));
+        }
+    }
+
+    private static boolean cazaPendiente(EstadoMisiones.Progreso progreso) {
+        return progreso != null && progreso.mision.tipo() == MissionType.CAZA && !progreso.completa();
+    }
+
+    private static String detalleCaza(EstadoMisiones.Progreso progreso, int anterior) {
+        if (progreso == null || progreso.mision.tipo() != MissionType.CAZA) return "NO_CAZA";
+        return progreso.mision.id() + ":" + progreso.mision.recurso() + ":" + anterior
+            + "->" + progreso.actual + "/" + progreso.objetivo;
     }
     /** Paper 26.2: la fuente de progreso es el objeto realmente FABRICADO
      * y recogido, no el resultado potencial de CraftItemEvent ni una estimación

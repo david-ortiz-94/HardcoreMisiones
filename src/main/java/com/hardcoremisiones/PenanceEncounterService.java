@@ -69,6 +69,7 @@ final class PenanceEncounterService {
     private File archivo;
     private boolean error;
     private int advertencias;
+    private static final PenanceEncounterView.Espera SIN_ESPERA=PenanceEncounterView.Espera.NINGUNA;
 
     static final class Ticket {
         int dia, tirada, porcentaje;
@@ -88,6 +89,7 @@ final class PenanceEncounterService {
         Set<UUID> intentos=new LinkedHashSet<>();
         long secuencia;
         long reintentarDespues;
+        PenanceEncounterView.Espera espera=PenanceEncounterView.Espera.COLA; // observación transitoria
         boolean castigosRC5;
         boolean permiteLotesRC8D;
         int nivelLotesRC8D;
@@ -155,13 +157,53 @@ final class PenanceEncounterService {
     boolean habilitados(){return plugin.getConfig().getBoolean("jefes.penitencia.habilitados",false)
         &&plugin.getConfig().getBoolean("jefes.integracion.api-externa-habilitada",false);}
     boolean bloquearDescanso(){
-        if(!Bukkit.getPluginManager().isPluginEnabled("HardcoreBosses"))return false;
-        return tickets.values().stream().anyMatch(t->t.estado==Estado.ACTIVO||t.estado==Estado.INTENTO_REGISTRADO);
+        // A request with uncertain result may already have spawned a boss.
+        return tickets.values().stream().anyMatch(PenanceEncounterService::enCombate);
     }
     boolean ocupaCombate(){return bloquearDescanso();}
+    private static boolean enCombate(Ticket t){
+        return t.estado==Estado.ACTIVO || t.estado==Estado.INTENTO_REGISTRADO;
+    }
+    private PenanceEncounterView.Espera motivoEspera(Ticket t){
+        if(t.estado==Estado.REVISION)return PenanceEncounterView.Espera.REVISION;
+        if(enCombate(t)){
+            if(!Bukkit.getPluginManager().isPluginEnabled("HardcoreBosses"))return PenanceEncounterView.Espera.PROVEEDOR;
+            if(t.espera!=PenanceEncounterView.Espera.COLA)return t.espera;
+            return t.estado==Estado.ACTIVO?SIN_ESPERA:PenanceEncounterView.Espera.CONFIRMACION;
+        }
+        if(!habilitados()||!wavesEnabled.getAsBoolean()||!clockEnabled.getAsBoolean()||!operational.getAsBoolean()||error)
+            return PenanceEncounterView.Espera.PAUSADO;
+        if(waves.enDescanso())return PenanceEncounterView.Espera.DESCANSO;
+        if(waves.enCurso()||trialCombat.getAsBoolean())return PenanceEncounterView.Espera.OTRO_COMBATE;
+        if(!Bukkit.getPluginManager().isPluginEnabled("HardcoreBosses"))return PenanceEncounterView.Espera.PROVEEDOR;
+        if(t.espera==SIN_ESPERA || t.espera==PenanceEncounterView.Espera.COLA && System.currentTimeMillis()<t.reintentarDespues)
+            return System.currentTimeMillis()<t.reintentarDespues?PenanceEncounterView.Espera.REINTENTO:PenanceEncounterView.Espera.COLA;
+        return t.espera;
+    }
+    /** Short complementary lines: pending debt/review does not occupy combat. */
+    List<String> avisosPanel(){
+        var filas=new ArrayList<String>();
+        long pendientes=0,revision=0;
+        Ticket primero=null;
+        for(Ticket t:tickets.values()){
+            if(t.estado==Estado.PENDIENTE){pendientes++;if(primero==null)primero=t;}
+            else if(t.estado==Estado.REVISION)revision++;
+        }
+        if(primero!=null){
+            filas.add("§cJefes pendientes: §f"+pendientes);
+            var motivo=motivoEspera(primero);
+            if(motivo!=PenanceEncounterView.Espera.DESCANSO)filas.add("§7"+motivo.texto());
+        }
+        if(revision>0)filas.add("§cJefes en revisión: §f"+revision);
+        return List.copyOf(filas);
+    }
+    PenanceEncounterView.Datos panelCombate(){
+        var datos=panelJuicio();
+        return PenanceEncounterView.ocupaPanel(datos)?datos:null;
+    }
     /** El panel lateral usa el mismo diario durable W38 del combate real.
-     * Deudas GANADO/SIN_JEFE no tapan las siguientes misiones. REVISION sí
-     * queda visible para que la pérdida de confirmación no se oculte.
+     * La consulta detallada conserva también pendientes y revisión;
+     * panelCombate limita la prioridad lateral a intentos y combates.
      */
     PenanceEncounterView.Datos panelJuicio(){
         Ticket elegido=null;
@@ -191,7 +233,7 @@ final class PenanceEncounterService {
         return new PenanceEncounterView.Datos(t.dia,fase,
             t.origen==PenanceSelectionPolicy.Origen.GRUPAL,nombre,t.bossId,
             t.anunciado&&t.mundo!=null,(int)Math.floor(t.x),(int)Math.floor(t.y),(int)Math.floor(t.z),
-            t.castigosRC5,limite,t.segundosActivosRC5);
+            t.castigosRC5,limite,t.segundosActivosRC5,motivoEspera(t));
     }
     String estado(){
         long pendientes=tickets.values().stream().filter(t->t.estado==Estado.PENDIENTE).count();
@@ -202,11 +244,13 @@ final class PenanceEncounterService {
             +" §7· selección="+plugin.getConfig().getString("jefes.penitencia.modo-seleccion","FIJO")
             +" §7· pendientes="+pendientes+" · en curso="+activos
             +" · superados="+vencidos+" · revisión="+revision;
-        for(Ticket t:tickets.values())if(t.anunciado&&t.encuentro!=null
-            &&(t.estado==Estado.ACTIVO||t.estado==Estado.INTENTO_REGISTRADO))
-            return resumen+" §7· "+t.bossId+" §6X:"+(int)Math.floor(t.x)
+        for(Ticket t:tickets.values())if(t.anunciado&&t.encuentro!=null&&enCombate(t)){
+            resumen+=" §7· "+t.bossId+" §6X:"+(int)Math.floor(t.x)
                 +" Y:"+(int)Math.floor(t.y)+" Z:"+(int)Math.floor(t.z);
-        return resumen;
+            break;
+        }
+        var detalle=panelJuicio();
+        return detalle==null||detalle.espera()==SIN_ESPERA?resumen:resumen+" §7· "+detalle.espera().texto();
     }
     boolean cambiarSesion(String raw){
         UUID nueva;
@@ -417,6 +461,9 @@ final class PenanceEncounterService {
         }
         tickets.put(dia,ticket);
         if(!guardar()){tickets.remove(dia);error=true;throw new IllegalStateException("No se persistió sorteo W38");}
+        if (ticket.elegido()) plugin.getLogger().info("[HM2_DEUDA_JEFE] partida=" + sesion
+            + " origen=" + ticket.originId() + " dia_origen=" + dia + " alcance=" + ticket.origen
+            + " destinatarios=" + (ticket.infractor == null ? ticket.miembros : Set.of(ticket.infractor)));
         if(ticket.elegido())avisar("§c☠ La jornada "+dia+" ha despertado una penitencia de JEFE. "
             +(ticket.origen==PenanceSelectionPolicy.Origen.INDIVIDUAL
                 ?"§eObjetivo: "+nombre(ticket.infractor):"§eDeuda del equipo")
@@ -507,35 +554,38 @@ final class PenanceEncounterService {
         if(!sincronizarCastigosRC5()||!conciliarLotesRC8D()||!conciliarBendicionesRC8D())return;
         if(error||sesion==null||!habilitados()||!wavesEnabled.getAsBoolean()
             ||!clockEnabled.getAsBoolean()||!operational.getAsBoolean())return;
-        Ticket t=tickets.values().stream().filter(Ticket::elegido)
-            .filter(x->x.estado!=Estado.GANADO&&x.estado!=Estado.REVISION).findFirst().orElse(null);
-        if(t==null || System.currentTimeMillis()<t.reintentarDespues)return;
-        // Un boss del reto F3 o una oleada existente nunca coincide con esta penitencia.
-        if(waves.enCurso()||trialCombat.getAsBoolean())return;
-        if(!Bukkit.getPluginManager().isPluginEnabled("HardcoreBosses"))return;
+        // Reconcile an existing intent before considering a new debt, even
+        // when an older day is pending. Rest and other encounters gate admission only.
+        Ticket t=tickets.values().stream().filter(PenanceEncounterService::enCombate).findFirst()
+            .orElseGet(()->tickets.values().stream().filter(x->x.estado==Estado.PENDIENTE).findFirst().orElse(null));
+        if(t==null)return;
+        if(t.estado==Estado.PENDIENTE && (waves.enDescanso()||waves.enCurso()||trialCombat.getAsBoolean()
+            ||System.currentTimeMillis()<t.reintentarDespues))return;
+        if(!Bukkit.getPluginManager().isPluginEnabled("HardcoreBosses")){t.espera=PenanceEncounterView.Espera.PROVEEDOR;return;}
         BossPenanceGateway gateway;
-        try{gateway=BossPenanceGateway.connect(plugin,criticalFailure);}catch(LinkageError|RuntimeException ex){return;}
-        if(gateway==null)return;
+        try{gateway=BossPenanceGateway.connect(plugin,criticalFailure);}catch(LinkageError|RuntimeException ex){t.espera=PenanceEncounterView.Espera.PROVEEDOR;return;}
+        if(gateway==null){t.espera=PenanceEncounterView.Espera.PROVEEDOR;return;}
         var live=HardcoreMpGameIdentity.current();
-        if(!live.ready())return;
+        if(!live.ready()){t.espera=PenanceEncounterView.Espera.PARTIDA;return;}
         EncounterGameIdentityStore.Check check=identidades.verify(sesion,live.identity());
         if(check.state()==EncounterGameIdentityStore.State.UNBOUND && t.encuentro==null)
             check=identidades.bindFirst(sesion,live.identity(),unboundTrialHistory.getAsBoolean());
-        if(!check.verified())return;
+        if(!check.verified()){t.espera=PenanceEncounterView.Espera.PARTIDA;return;}
         try{
             if(t.estado==Estado.PENDIENTE){
                 crearIntento(t,gateway,live.identity().value());
             }else if(t.encuentro!=null){
                 // El ID anterior jamás se vuelve a pasar a spawn() tras un crash.
                 var result=gateway.observe(t.payload());
-                if(result==null){if(++advertencias%60==1)
+                if(result==null){t.espera=PenanceEncounterView.Espera.INCIERTO;if(++advertencias%60==1)
                     plugin.getLogger().warning("W38: resultado incierto; conservar encounter_id="+t.encuentro);return;}
                 long prevSeq=t.secuencia;
                 if(result.sequence()<prevSeq)return;
                 t.secuencia=result.sequence();
                 switch(result.status()){
-                    case REQUESTED -> { if(prevSeq!=t.secuencia && !guardar())fallo(); }
+                    case REQUESTED -> { t.espera=PenanceEncounterView.Espera.CONFIRMACION;if(prevSeq!=t.secuencia && !guardar())fallo(); }
                     case ACTIVE -> {
+                        t.espera=SIN_ESPERA;
                         if(t.estado!=Estado.ACTIVO){t.estado=Estado.ACTIVO;if(!guardar()){fallo();return;}}
                         // Solo cuenta segundos con snapshot ACTIVE y proveedor accesible;
                         // detenido/desconectado no consume plazo ni inventa derrota.
@@ -558,6 +608,7 @@ final class PenanceEncounterService {
                             other!=t && result.resultId().equals(other.resultado))){
                             t.estado=Estado.REVISION;if(!guardar())fallo();return;
                         }
+                        if(!waves.descansoTrasJefe()){fallo();return;}
                         t.resultado=result.resultId();t.estado=Estado.GANADO;
                         if(!guardar()){fallo();return;}
                         avisar("§a☠ Penitencia del día "+t.dia+" superada: jefe derrotado con recibo "
@@ -571,10 +622,12 @@ final class PenanceEncounterService {
                             if(t.encuentroEvidenciaRC5==null)t.encuentroEvidenciaRC5=t.encuentro;
                         }
                         // Obligación no liquidada; reintento NUEVO solo tras terminal durable.
+                        if(!waves.descansoTrasJefe()){fallo();return;}
                         t.estado=Estado.PENDIENTE;
                         t.encuentro=null;t.ancla=null;t.mundo=null;t.game="";t.huella="";
                         t.resultado=null;t.combatientes=Set.of();t.anunciado=false;t.secuencia=0;
                         t.reintentarDespues=System.currentTimeMillis()+60_000L;
+                        t.espera=PenanceEncounterView.Espera.REINTENTO;
                         if(!guardar()){fallo();return;}
                         if(!sincronizarCastigosRC5())return;
                         avisar("§e☠ Jefe penitencia interrumpido o fallido. Sigue pendiente hasta una victoria. "
@@ -583,15 +636,16 @@ final class PenanceEncounterService {
                 }
             }
         }catch(LinkageError|RuntimeException ex){
+            t.espera=PenanceEncounterView.Espera.PROVEEDOR;
             plugin.getLogger().warning("W38: proveedor temporalmente inaccesible: "+ex.getClass().getSimpleName());
         }
     }
     private void crearIntento(Ticket t,BossPenanceGateway gateway,String game){
         if(t.intentos.size()>=1000){t.estado=Estado.REVISION;if(!guardar())fallo();return;}
         Player anchor=seleccionarAncla(t);
-        if(anchor==null)return;
+        if(anchor==null){t.espera=PenanceEncounterView.Espera.PARTICIPANTES;return;}
         Location lugar=buscarSitio(anchor);
-        if(lugar==null)return;
+        if(lugar==null){t.espera=PenanceEncounterView.Espera.UBICACION;return;}
         Set<UUID> combatientes=new HashSet<>();
         if(t.origen==PenanceSelectionPolicy.Origen.INDIVIDUAL)
             combatientes.add(t.infractor);
@@ -602,7 +656,7 @@ final class PenanceEncounterService {
                 combatientes.add(id);
         }
         combatientes.add(anchor.getUniqueId());
-        if(combatientes.size()>3)return;
+        if(combatientes.size()>3){t.espera=PenanceEncounterView.Espera.PARTICIPANTES;return;}
         // Se evalúa el bioma real de la ubicación segura; jamás el del jugador.
         // Si el dato no está disponible, un filtro activo bloquea el intento.
         BossBiomePolicy.Reglas reglas;
@@ -611,6 +665,7 @@ final class PenanceEncounterService {
             reglas=ConfigMigration.reglasBiomas(plugin.getConfig());
             biomaReal=lugar.getBlock().getBiome().getKey().toString();
         } catch(Exception ex) {
+            t.espera=PenanceEncounterView.Espera.BIOMA;
             if(++advertencias%60==1)plugin.getLogger().warning(
                 "HM2_BOSS_RC7: no se verificó filtro/bioma; pendiente, sin spawn: "
                 +ex.getClass().getSimpleName());
@@ -618,7 +673,7 @@ final class PenanceEncounterService {
         }
         // Si el boss ya estaba congelado en un diario, nunca resorteamos.
         // Esperará otro lugar compatible sin cambiar el encuentro histórico.
-        if(!t.bossId.isBlank()&&!reglas.admite(t.bossId,biomaReal))return;
+        if(!t.bossId.isBlank()&&!reglas.admite(t.bossId,biomaReal)){t.espera=PenanceEncounterView.Espera.BIOMA;return;}
         if(t.bossId.isBlank()) {
             try {
                 var cfg=plugin.getConfig();
@@ -648,6 +703,11 @@ final class PenanceEncounterService {
                     Set.copyOf(combatientes),t.originId(),RADIO,condition,azar,
                     id->reglas.admite(id,biomaReal));
                 if(!res.elegido()){
+                    t.espera=switch(res.motivo()){
+                        case "SIN_CANDIDATOS" -> PenanceEncounterView.Espera.CATALOGO;
+                        case "HMP_NO_SYNC" -> PenanceEncounterView.Espera.PARTIDA;
+                        default -> PenanceEncounterView.Espera.VALIDACION;
+                    };
                     if(++advertencias%60==1)plugin.getLogger().warning(
                         "HM2_BOSS_RC8G: jornada "+t.dia+" sin jefe validado: "+res.motivo()
                         +"; deuda pendiente; no spawn");
@@ -702,12 +762,13 @@ final class PenanceEncounterService {
                     +" dia="+t.dia+" origen="+t.origen+" jugadores="+combatientes.size()
                     +" "+t.detalleSeleccion);
             } catch(RuntimeException ex) {
+                t.espera=PenanceEncounterView.Espera.VALIDACION;
                 plugin.getLogger().warning("HM2_BOSS_RC4: selección inválida/indisponible: "
                     +ex.getMessage()+"; no se invoca, deuda pendiente");
                 return;
             }
         }
-        if(!gateway.available(t.bossId,game))return;
+        if(!gateway.available(t.bossId,game)){t.espera=PenanceEncounterView.Espera.VALIDACION;return;}
         t.encuentro=UUID.randomUUID();t.intentos.add(t.encuentro);
         t.ancla=anchor.getUniqueId();t.mundo=anchor.getWorld().getUID();t.game=game;
         t.x=lugar.getX();t.y=lugar.getY();t.z=lugar.getZ();
@@ -715,6 +776,7 @@ final class PenanceEncounterService {
         if(t.castigosRC5 && t.limiteSegundosRC5==0)
             t.limiteSegundosRC5=debuffs.limitePenitenciaSegundos();
         t.huella=gateway.hash(t.payload());t.estado=Estado.INTENTO_REGISTRADO;t.anunciado=false;t.secuencia=0;
+        t.espera=PenanceEncounterView.Espera.CONFIRMACION;
         // Guardar INTENT antes de llamar a validate/spawn. Si falla, bloquear.
         if(!guardar()){fallo();return;}
         BossPenanceGateway.Response response=gateway.spawn(t.payload());
@@ -723,6 +785,7 @@ final class PenanceEncounterService {
             t.encuentro=null;t.ancla=null;t.mundo=null;t.game="";t.huella="";
             t.combatientes=Set.of();t.estado=Estado.PENDIENTE;t.anunciado=false;
             t.reintentarDespues=System.currentTimeMillis()+60_000L;
+            t.espera=PenanceEncounterView.Espera.VALIDACION;
             if(!guardar())fallo();
             return;
         }

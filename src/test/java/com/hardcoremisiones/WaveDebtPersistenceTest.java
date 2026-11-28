@@ -43,6 +43,18 @@ public final class WaveDebtPersistenceTest {
         rejects(()->WaveDebtCodec.read(y));
         WaveDebtCodec.write(y,original);y.set("penitencias-pendientes.0.objetivos",List.of());
         rejects(()->WaveDebtCodec.read(y));
+        var rest=new YamlConfiguration();
+        ok(WaveDebtCodec.readRest(rest,300)==300,"legacy recovery rest");
+        WaveDebtCodec.write(rest,original);WaveDebtCodec.writeRest(rest,173);
+        var roundtrip=new YamlConfiguration();roundtrip.loadFromString(rest.saveToString());
+        ok(WaveDebtCodec.readRest(roundtrip,300)==173,"rest roundtrip");
+        ok(WaveDebtCodec.read(roundtrip).equals(original),"rest does not change debt keys");
+        WaveDebtCodec.writeRest(roundtrip,0);
+        ok(WaveDebtCodec.readRest(roundtrip,300)==0,"explicit completed rest");
+        roundtrip.set("descanso-entre-juicios-segundos","173");
+        rejects(()->WaveDebtCodec.readRest(roundtrip,300));
+        rejects(()->WaveDebtCodec.writeRest(roundtrip,3601));
+        rejects(()->WaveDebtCodec.writeRest(roundtrip,-1));
         System.out.println("WAVE_DEBT_PERSISTENCE_PASS checks="+checks);
     }
 }

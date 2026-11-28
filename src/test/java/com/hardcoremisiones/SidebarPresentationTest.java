@@ -18,6 +18,17 @@ public final class SidebarPresentationTest {
             ok(rows.size()==7,"seven stable rows");ok(rows.stream().anyMatch(s->s.contains("Guardián de Ceniza")),"name");
             ok(rows.stream().anyMatch(s->s.contains("X:-296")),"coordinates");ok(rows.stream().noneMatch(s->s.contains("0 min")),"no false zero minutes");
         }
+        for(var phase:PenanceEncounterView.Fase.values()){
+            var state=new PenanceEncounterView.Datos(12,phase,false,"LpKido","",false,0,0,0,false,0,0);
+            ok(PenanceEncounterView.ocupaPanel(state)==(phase==PenanceEncounterView.Fase.ACTIVO||phase==PenanceEncounterView.Fase.INVOCANDO),"combat priority only: "+phase);
+        }
+        for(var reason:PenanceEncounterView.Espera.values()){
+            if(reason==PenanceEncounterView.Espera.NINGUNA)continue;
+            var state=new PenanceEncounterView.Datos(12,PenanceEncounterView.Fase.PENDIENTE,false,"LpKido","",false,0,0,0,false,0,0,reason);
+            ok(PenanceEncounterView.filas(state).stream().anyMatch(line->line.contains(reason.texto())),"specific wait: "+reason);
+            ok(!PenanceEncounterView.ocupaPanel(state),"wait never hides mission");
+        }
+        ok(!PenanceEncounterView.ocupaPanel(null),"no encounter no priority");
         var d=new PenanceEncounterView.Datos(12,PenanceEncounterView.Fase.ACTIVO,true,"completo","hm2:guardian_ceniza",false,0,0,0,true,900,35);
         ok(PenanceEncounterView.titulo(d).contains("JEFE PENITENCIARIO"),"header");
         ok(PenanceEncounterView.filas(d).stream().anyMatch(s->s.contains("14:25")),"countdown");

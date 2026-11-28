@@ -14,7 +14,7 @@ Monolito modular Java con integración Paper. `HardcoreMisiones` compone los ser
 | `rewards/encounters`, `BossRewardService` | Economía de retos y derechos de jefes |
 | `rewards/ledger`, `rewards/delivery`, `Recompensas` | Reserva, auditoría, conciliación y entrega física |
 | `bosses/catalog`, `bosses/integration`, `bosses/persistence` | Metadatos, validación del proveedor y diarios de encuentros |
-| `penalties`, `JuicioOleadas` | Deudas, oleadas y sanciones |
+| `penalties`, `JuicioOleadas` | Deudas, oleadas, descanso compartido y sanciones |
 | `nether` | Expediciones y estado asociado |
 | `seal`, `ui`, `notifications` | Interacción, panel y ruteo de mensajes |
 | `config`, `config/reload` | Esquemas, validación y aplicación de configuraciones |
@@ -47,3 +47,13 @@ Mantener políticas puras separadas de Paper cuando sea posible; no crear un ser
 ## Compatibilidad y riesgos
 
 Los formatos de persistencia y API deben cambiar solo con una estrategia de migración y recuperación. No empaquetar clases externas del proveedor ni permitir que simulaciones habiliten encuentros reales. La auditoría semántica global, el doclint, la evidencia física de muerte, la privacidad con clientes y el perfilado de rendimiento permanecen sujetos a los [controles de calidad](CHECKLIST_MAESTRO.md).
+
+### Coordinación de calendario y penitencias
+
+`RelojMisiones` observa la ocupación de oleadas y jefes antes de ejecutar cierres o amaneceres. Conserva la última muestra del plazo cuando comienza una pausa protegida; al reanudar, reconstruye el vencimiento mediante `MissionCalendar.resumeExact`. `JuicioOleadas` conserva el descanso compartido en el archivo de sesión v06 mediante `WaveDebtCodec`; `PenanceEncounterService` consulta este estado solo para nuevas admisiones y registra el descanso antes de confirmar el resultado terminal. Las claves históricas y el diario de transiciones no cambian. `PenanceEncounterService` separa el snapshot detallado del panel de combate y registra motivos de espera transitorios durante la evaluación de admisión, sin consultas al catálogo desde la interfaz. `PanelMisiones` conserva el progreso normal y añade avisos de descanso y deuda. La composición conecta las guardas de admisión a los intentos durables y combates, no a la visibilidad; la reconciliación de un intento previo precede a la selección de una nueva deuda. La cuota de aparición de una ronda se calcula a partir de las bajas acreditadas y los UUID activos; el campo histórico `generados-ronda` se escribe como dato derivado, no se utiliza para decidir nuevas apariciones. Una muerte ambiental o un UUID ausente tras el margen de recuperación libera una plaza, sin acreditar una baja.
+
+### Observabilidad de progreso y derechos
+
+`RelojMisiones` registra el origen de las faltas después de confirmar la etapa PENALTIES del diario; `JuicioOleadas` y `PenanceEncounterService` registran únicamente nuevas obligaciones guardadas. El estado durable sigue siendo la autoridad ante un fallo entre la escritura y el log. La clave de falta grupal corresponde al día de vencimiento; la clave de recompensa grupal conserva el día de inicio del ciclo. No se cambia ninguna de ellas.
+
+El adaptador `HardcoreMisiones.alMorirMob` descarta muertes canceladas y valida la dimensión de la víctima antes de acreditar caza ordinaria. La admisión por tipo, autoría, procedencia y límites de aportación sigue en las políticas y clases existentes. Los enemigos de juicio y jefes externos no se convierten en bajas de caza ordinaria. Los avisos de caza se emiten tras el guardado de progreso; el titular recibe el avance personal y el equipo recibe el grupal por `TeamNotifier`. `Recompensas` añade contexto administrativo a la elección guardada; los estados de reserva, conciliación y confirmación no cambian. No se crean servicios, persistencias ni tareas periódicas para esta trazabilidad.

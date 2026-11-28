@@ -31,6 +31,15 @@ public final class ConfigRecargaRC6Test {
             check(r.valida(),"dinámicos válidos "+r.errores()+" "+r.reinicio());
             check(r.cambios().size()==3,"tres cambios");
             check(r.sha256().length()==64,"SHA256");
+            nuevo.set("penalidades.descanso-entre-juicios-minutos",8);
+            Files.writeString(tmp,nuevo.saveToString());
+            r=ConfigurationReloadService.revisar(tmp.toFile(),actual);
+            check(r.valida()&&r.cambios().contains("penalidades.descanso-entre-juicios-minutos"),"recovery reload");
+            nuevo.set("penalidades.descanso-entre-juicios-minutos",0);
+            Files.writeString(tmp,nuevo.saveToString());
+            r=ConfigurationReloadService.revisar(tmp.toFile(),actual);
+            check(!r.valida(),"zero recovery rejected");
+            nuevo.set("penalidades.descanso-entre-juicios-minutos",actual.getInt("penalidades.descanso-entre-juicios-minutos"));
             nuevo.set("recompensas.botin-progresivo.probabilidades.segundo",java.util.List.of(42,55,70,80,90));
             Files.writeString(tmp,nuevo.saveToString());
             r=ConfigurationReloadService.revisar(tmp.toFile(),actual);

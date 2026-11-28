@@ -125,6 +125,7 @@ public final class ConfigurationReloadService {
             ||ruta.equals("nether.expediciones-habilitadas")
             ||ruta.equals("penalidades.oleadas-habilitadas")
             ||ruta.equals("penalidades.unificar-oleadas")
+            ||ruta.equals("penalidades.descanso-entre-juicios-minutos")
             ||ruta.equals("penalidades.efectos-negativos-habilitados")
             ||ruta.equals("jefes.penitencia.probabilidad-individual")
             ||ruta.equals("jefes.penitencia.probabilidad-grupal")
@@ -236,6 +237,7 @@ public final class ConfigurationReloadService {
             if(c.contains("misiones.cacerias-hf5.dia-minimo"))entero(c,"misiones.cacerias-hf5.dia-minimo",10,1000000);
             com.hardcoremisiones.missions.catalog.HuntAssignmentPolicy.Rules.read(c);
         }
+        if(c.contains("penalidades.descanso-entre-juicios-minutos"))entero(c,"penalidades.descanso-entre-juicios-minutos",1,60);
         for(String k:List.of("individual","grupal","ambas"))if(c.contains("penalidades.duracion-"+k+"-segundos"))entero(c,"penalidades.duracion-"+k+"-segundos",1,1200);
         ConfigMigration.validarParametrosRC6(c);
         if(!arranque && (c.getBoolean("jefes.simulacion-laboratorio")

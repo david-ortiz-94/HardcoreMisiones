@@ -63,6 +63,8 @@ final class BossHuntService {
     private static final class Ticket {
         String clave,mission,boss,game,origin,hash;
         boolean grupal,progresoRegistrado,debuffRegistrado;
+        // Only a confirmed safe rejection releases admission while the request is PREPARADO.
+        boolean esperaSinSpawn;
         UUID owner,id,mundo,terminal,bossEntity;
         Instant solicitado;
         Set<UUID> equipo=Set.of();
@@ -80,7 +82,7 @@ final class BossHuntService {
     private final Consumer<String> criticalFailure;
     private final BooleanSupplier offeringReview;
     private final BooleanSupplier trialCombat;
-    private final BooleanSupplier penanceVisible;
+    private final BooleanSupplier penanceCombat;
     private final Predicate<Player> mainWorld;
     private final com.hardcoremisiones.missions.cycle.MissionRewardClock clock;
     private final EstadoMisiones missions;
@@ -97,7 +99,7 @@ final class BossHuntService {
             Consumer<String> criticalFailure,
             BooleanSupplier offeringReview,
             BooleanSupplier trialCombat,
-            BooleanSupplier penanceVisible,
+            BooleanSupplier penanceCombat,
             Predicate<Player> mainWorld,
             com.hardcoremisiones.missions.cycle.MissionRewardClock clock,
             EstadoMisiones missions,
@@ -110,7 +112,7 @@ final class BossHuntService {
         this.criticalFailure=Objects.requireNonNull(criticalFailure);
         this.offeringReview=Objects.requireNonNull(offeringReview);
         this.trialCombat=Objects.requireNonNull(trialCombat);
-        this.penanceVisible=Objects.requireNonNull(penanceVisible);
+        this.penanceCombat=Objects.requireNonNull(penanceCombat);
         this.mainWorld=Objects.requireNonNull(mainWorld);
         this.clock=Objects.requireNonNull(clock);
         this.missions=Objects.requireNonNull(missions);
@@ -236,7 +238,7 @@ final class BossHuntService {
     }
     private static String clave(int dia,boolean grupo,UUID owner){return "d"+dia+(grupo?":g":":i:"+owner);}
     private boolean bloqueado(){return trialCombat.getAsBoolean()
-        || penanceVisible.getAsBoolean()
+        || penanceCombat.getAsBoolean()
         ||waves.enCurso()||offeringReview.getAsBoolean();}
     /** Sólo un boss ordinario a la vez; asignaciones personales no se confunden
      * entre sí y nunca se reinvocan desde un WON durable. */
@@ -395,12 +397,19 @@ final class BossHuntService {
         if(snapshot.isEmpty()){
             // Solicitud igual tras crash: el proveedor decide idempotencia.
             if(t.estado!=Estado.PREPARADO)return;
-            var check=api.validateEncounter(req);if(check==null||!check.allowed())return;
+            if(bloqueado())return;
+            var check=api.validateEncounter(req);
+            if(check==null)return;
+            if(!check.allowed()){t.esperaSinSpawn=true;return;}
+            // Mark uncertainty before the external call; never overlap a possible spawn.
+            t.esperaSinSpawn=false;
             var res=api.spawn(req);
-            if(res==null||!res.encounterId().equals(t.id)||res.outcome()==SpawnOutcome.REJECTED)return;
+            if(res==null||!t.id.equals(res.encounterId()))return;
+            if(res.outcome()==SpawnOutcome.REJECTED){t.esperaSinSpawn=true;return;}
             t.estado=Estado.SOLICITADO;if(!guardar())criticalFailure.accept("HF5 spawn intentado");
             return;
         }
+        t.esperaSinSpawn=false;
         EncounterSnapshot s=snapshot.get();
         if(!BossesSnapshotGuard.matches(t.id,t.boss,t.game,t.mundo,t.origin,t.equipo,s)
             ||!t.hash.equals(s.canonicalRequestHash())||s.arenaRadiusBlocks()!=32
@@ -593,14 +602,20 @@ final class BossHuntService {
         t.estado==Estado.ACTIVO || t.estado==Estado.WON &&
             (!t.progresoRegistrado || t.premios.values().stream().anyMatch(d->!d.reservado())));}
 
+    /** Mutual exclusion for admissions: a durable request can already have
+     * spawned before its acknowledgement, without starting the mission clock pause. */
+    boolean ocupaAdmision(){return combateActivo() || tickets.values().stream().anyMatch(t->
+        (t.estado==Estado.PREPARADO && !t.esperaSinSpawn) || t.estado==Estado.SOLICITADO);}
+
     List<String> panel(Player p){
         for(Ticket t:tickets.values()){
             if(t.estado!=Estado.PREPARADO&&t.estado!=Estado.SOLICITADO&&t.estado!=Estado.ACTIVO)continue;
+            if(t.estado==Estado.PREPARADO&&t.esperaSinSpawn)continue;
             if(!t.grupal&&!p.getUniqueId().equals(t.owner))continue;
             if(!t.equipo.contains(p.getUniqueId()))continue;
             return List.of("§7Día §e"+t.dia+(t.grupal?" §7· §dGrupal":" §7· §eIndividual"),
                 "§f"+PenanceEncounterView.nombreJefe(t.boss),
-                t.estado==Estado.ACTIVO?"§b¡COMBATE ACTIVO!":"§eEsperando proveedor...",
+                t.estado==Estado.ACTIVO?"§b¡COMBATE ACTIVO!":"§eInvocación por confirmar",
                 "§7Progreso: §f"+t.golpes.size()+" participantes",
                 "§6X:"+(int)t.x+" Y:"+(int)t.y+" Z:"+(int)t.z,
                 "§7Restante: §f"+PenanceEncounterView.formatoTiempo(Math.max(0,t.maximumSeconds-t.segundos)),
